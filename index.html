@@ -424,7 +424,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
 
 
-/* ═══ FLIPBOARD v2 — فل سكرين موبايل ═══ */
+/* ═══ FLIPBOARD v3 — فل سكرين موبايل (محسّن) ═══ */
 
 /* الزر العائم في m-home */
 .flip-entry{
@@ -442,11 +442,12 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   content:'';
   position:absolute;
   top:-80px;
-  right:-80px;
+  left:-80px;
   width:280px;
   height:280px;
   background:radial-gradient(circle, rgba(251,191,36,0.2) 0%, transparent 70%);
   border-radius:50%;
+  pointer-events:none;
 }
 .flip-entry:hover{
   transform:translateY(-3px);
@@ -473,10 +474,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   flex-shrink:0;
   box-shadow:0 6px 16px -4px rgba(251,191,36,0.5);
 }
-.flip-entry-text{
-  flex:1;
-  min-width:200px;
-}
+.flip-entry-text{ flex:1; min-width:200px; }
 .flip-entry-eyebrow{
   font-size:10px;
   font-weight:900;
@@ -512,20 +510,21 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   transition:transform 0.2s;
 }
 .flip-entry:hover .flip-entry-arrow{
-  transform:translateX(-4px);
+  transform:translateX(4px);
   background:var(--gold);
   color:#1c1917;
 }
 
-/* الشاشة الكاملة */
+/* الشاشة الكاملة - RTL صحيح */
 .flip-overlay{
   position:fixed;
   inset:0;
   background:#0c0a09;
-  z-index:9999;
+  z-index:99999;
   display:none;
   flex-direction:column;
   overflow:hidden;
+  direction:rtl;
 }
 .flip-overlay.show{
   display:flex;
@@ -540,12 +539,13 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .flip-bar{
   background:#1c1917;
   border-bottom:1px solid rgba(251,191,36,0.2);
-  padding:14px 20px;
+  padding:14px 16px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   flex-shrink:0;
-  gap:12px;
+  gap:10px;
+  direction:rtl;
 }
 .flip-bar-brand{
   display:flex;
@@ -556,6 +556,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   font-weight:900;
   font-size:14px;
   letter-spacing:1px;
+  flex-shrink:0;
 }
 .flip-bar-brand-mark{
   width:32px;
@@ -569,20 +570,22 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   font-size:18px;
 }
 .flip-bar-counter{
-  background:rgba(251,191,36,0.15);
-  color:var(--gold);
-  padding:6px 12px;
+  background:rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.9);
+  padding:6px 14px;
   border-radius:20px;
-  font-size:12px;
+  font-size:13px;
   font-weight:700;
   font-family:'Tajawal',sans-serif;
+  letter-spacing:1px;
+  border:1px solid rgba(255,255,255,0.1);
 }
 .flip-bar-close{
   background:rgba(255,255,255,0.1);
   color:#fff;
   border:none;
-  width:36px;
-  height:36px;
+  width:38px;
+  height:38px;
   border-radius:50%;
   cursor:pointer;
   font-size:18px;
@@ -590,15 +593,18 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   align-items:center;
   justify-content:center;
   transition:background 0.15s;
+  flex-shrink:0;
+  font-weight:bold;
 }
-.flip-bar-close:hover{
-  background:rgba(255,255,255,0.2);
+.flip-bar-close:hover,
+.flip-bar-close:active{
+  background:#dc2626;
 }
 
 /* الفلاتر */
 .flip-tabs{
   background:#1c1917;
-  padding:10px 16px;
+  padding:10px 14px;
   display:flex;
   gap:8px;
   overflow-x:auto;
@@ -606,6 +612,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   border-bottom:1px solid rgba(255,255,255,0.05);
   -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
+  direction:rtl;
 }
 .flip-tabs::-webkit-scrollbar{ display:none; }
 .flip-tab{
@@ -621,9 +628,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   transition:all 0.15s;
   flex-shrink:0;
 }
-.flip-tab:hover{
-  background:rgba(255,255,255,0.1);
-}
+.flip-tab:hover{ background:rgba(255,255,255,0.1); }
 .flip-tab.active{
   background:var(--gold);
   color:#1c1917;
@@ -638,6 +643,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   background:#0c0a09;
   -webkit-overflow-scrolling:touch;
   position:relative;
+  direction:rtl;
 }
 .flip-stage::-webkit-scrollbar{ width:6px; }
 .flip-stage::-webkit-scrollbar-thumb{ background:rgba(251,191,36,0.3); border-radius:3px; }
@@ -645,7 +651,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .flip-card-wrap{
   max-width:680px;
   margin:0 auto;
-  padding:20px 16px 100px;
+  padding:20px 14px 110px;
+  direction:rtl;
 }
 
 .flip-card-v2{
@@ -655,6 +662,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   overflow:hidden;
   animation:slideUp 0.4s ease;
   box-shadow:0 20px 60px -20px rgba(0,0,0,0.8);
+  direction:rtl;
 }
 @keyframes slideUp{
   from{ opacity:0; transform:translateY(30px); }
@@ -662,7 +670,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 }
 
 .flip-card-v2-head{
-  padding:18px 22px;
+  padding:16px 20px;
   background:linear-gradient(135deg, #292524 0%, #1c1917 100%);
   border-bottom:1px solid rgba(251,191,36,0.1);
   display:flex;
@@ -670,6 +678,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   justify-content:space-between;
   gap:10px;
   flex-wrap:wrap;
+  direction:rtl;
 }
 .flip-card-v2-type{
   padding:5px 12px;
@@ -704,6 +713,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   font-weight:900;
   color:var(--gold);
   line-height:1.4;
+  direction:rtl;
+  text-align:right;
 }
 
 .flip-card-v2-body{
@@ -711,9 +722,10 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   color:rgba(255,255,255,0.92);
   font-size:15px;
   line-height:1.9;
+  direction:rtl;
+  text-align:right;
 }
 
-/* استايل المحتوى المحقون */
 .flip-card-v2-body p{ margin-bottom:14px; }
 .flip-card-v2-body strong{ color:#fff; font-weight:700; }
 .flip-card-v2-body em{ color:var(--gold); font-style:normal; }
@@ -775,6 +787,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   padding:10px 12px;
   color:rgba(255,255,255,0.85);
   border-bottom:1px solid rgba(255,255,255,0.05);
+  text-align:right;
 }
 .flip-card-v2-body .tbl tr:last-child td{ border-bottom:none; }
 
@@ -821,15 +834,14 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   font-size:12px;
   flex-wrap:wrap;
   gap:8px;
+  direction:rtl;
 }
 .flip-card-v2-foot a{
   color:var(--gold);
   text-decoration:none;
   font-weight:700;
 }
-.flip-card-v2-progress{
-  color:rgba(255,255,255,0.4);
-}
+.flip-card-v2-progress{ color:rgba(255,255,255,0.4); }
 
 /* أزرار التحكم السفلية */
 .flip-actions{
@@ -838,15 +850,20 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   left:0;
   right:0;
   background:linear-gradient(180deg, transparent 0%, #0c0a09 30%);
-  padding:20px 16px 24px;
+  padding:20px 14px 24px;
   display:flex;
   gap:10px;
-  z-index:10000;
+  z-index:100000;
+  direction:rtl;
+}
+.flip-actions-inner{
   max-width:680px;
   margin:0 auto;
-  pointer-events:none;
+  width:100%;
+  display:flex;
+  gap:10px;
+  direction:rtl;
 }
-.flip-actions > *{ pointer-events:auto; }
 .flip-btn-v2{
   flex:1;
   background:#1c1917;
@@ -864,6 +881,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   gap:8px;
   transition:all 0.15s;
   box-shadow:0 8px 24px -8px rgba(0,0,0,0.5);
+  direction:rtl;
 }
 .flip-btn-v2:hover{ background:#292524; }
 .flip-btn-v2.primary{
@@ -880,25 +898,39 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
 /* تحسينات الجوال */
 @media (max-width: 640px){
-  .flip-bar{ padding:12px 14px; }
-  .flip-bar-brand-mark{ width:28px; height:28px; font-size:15px; }
-  .flip-bar-brand{ font-size:12px; }
+  .flip-bar{ padding:11px 12px; }
+  .flip-bar-brand-mark{ width:30px; height:30px; font-size:16px; }
+  .flip-bar-brand{ font-size:12px; gap:8px; }
+  .flip-bar-brand span{ display:none; }
+  .flip-bar-counter{ padding:5px 12px; font-size:12px; }
+  .flip-bar-close{ width:36px; height:36px; }
   .flip-tabs{ padding:8px 12px; }
   .flip-tab{ padding:7px 14px; font-size:12px; }
-  .flip-card-wrap{ padding:14px 12px 100px; }
-  .flip-card-v2-head{ padding:14px 16px; }
+  .flip-card-wrap{ padding:14px 12px 110px; }
+  .flip-card-v2-head{ padding:12px 14px; gap:6px; }
+  .flip-card-v2-source{ font-size:10px; }
   .flip-card-v2-title{ padding:16px 16px 10px; font-size:19px; }
-  .flip-card-v2-body{ padding:0 16px 18px; font-size:14px; }
+  .flip-card-v2-body{ padding:0 16px 18px; font-size:14px; line-height:1.85; }
   .flip-card-v2-body .tbl{ font-size:12px; }
   .flip-card-v2-body .tbl th,
   .flip-card-v2-body .tbl td{ padding:8px; }
-  .flip-card-v2-foot{ padding:12px 16px; }
-  .flip-actions{ padding:14px 12px 18px; }
+  .flip-card-v2-foot{ padding:12px 14px; font-size:11px; }
+  .flip-actions{ padding:14px 12px 16px; }
   .flip-btn-v2{ padding:13px 14px; font-size:13px; }
 }
 
-/* منع scroll الـ body عندما الـ overlay مفتوح */
-body.flip-open{ overflow:hidden; }
+/* إخفاء العناصر الأخرى عند فتح Flipboard */
+body.flip-open{
+  overflow:hidden;
+  position:fixed;
+  width:100%;
+}
+body.flip-open .mod-toc,
+body.flip-open .sidebar{
+  display:none !important;
+}
+
+
 
 </style>
 </head>
@@ -27985,12 +28017,14 @@ function buildExec(){
   </div>
   
   <div class="flip-actions">
-    <button class="flip-btn-v2" onclick="flipPrev()" id="flip-prev-btn">
-      ← السابقة
-    </button>
-    <button class="flip-btn-v2 primary" onclick="flipNext()">
-      ⟳ بطاقة جديدة
-    </button>
+    <div class="flip-actions-inner">
+      <button class="flip-btn-v2" onclick="flipPrev()" id="flip-prev-btn">
+        ← السابقة
+      </button>
+      <button class="flip-btn-v2 primary" onclick="flipNext()">
+        ⟳ بطاقة جديدة
+      </button>
+    </div>
   </div>
 </div>
 
@@ -28159,16 +28193,21 @@ function buildExec(){
   }
   
   // ════════ فتح/إغلاق الـ Overlay ════════
+  let savedScrollY = 0;
+  
   window.openFlipboard = function(){
     if(allCards.length === 0){
       allCards = collectCards();
       console.log(`Flipboard: تم جمع ${allCards.length} بطاقة`);
     }
     
+    // حفظ موقع الـ scroll
+    savedScrollY = window.scrollY;
+    
     document.getElementById('flip-overlay').classList.add('show');
     document.body.classList.add('flip-open');
+    document.body.style.top = `-${savedScrollY}px`;
     
-    // أول بطاقة
     if(history.length === 0){
       flipNext();
     }
@@ -28177,6 +28216,10 @@ function buildExec(){
   window.closeFlipboard = function(){
     document.getElementById('flip-overlay').classList.remove('show');
     document.body.classList.remove('flip-open');
+    document.body.style.top = '';
+    
+    // استعادة موقع scroll
+    window.scrollTo(0, savedScrollY);
   };
   
   // ════════ ESC لإغلاق ════════

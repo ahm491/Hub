@@ -1938,7 +1938,7 @@ body{
 .hero{
   background:linear-gradient(135deg,#0c0a09 0%,#1c1917 50%,#0c0a09 100%) !important;
   color:#fff !important;
-  padding:28px 48px 24px !important;
+  padding:16px 48px 14px !important;
   position:relative !important;
   overflow:hidden !important;
   border-bottom:1px solid rgba(251,191,36,0.15) !important;
@@ -1959,10 +1959,10 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:24px;
-  padding-bottom:14px;
+  gap:16px;
+  padding-bottom:10px;
   border-bottom:1px solid rgba(251,191,36,0.15);
-  margin-bottom:18px;
+  margin-bottom:10px;
   flex-wrap:wrap;
 }
 
@@ -1998,7 +1998,7 @@ body{
   display:flex;
   align-items:baseline;
   gap:5px;
-  padding:4px 12px;
+  padding:3px 10px;
   background:rgba(251,191,36,0.05);
   border:1px solid rgba(251,191,36,0.18);
   border-radius:6px;
@@ -2018,10 +2018,8 @@ body{
 
 /* ────── Bottom Row: Desc + Search ────── */
 .hero-bottom-row{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:24px;
-  align-items:flex-start;
+  direction:rtl;
+  padding-top:4px;
 }
 
 /* ────── Description Column ────── */
@@ -2031,13 +2029,13 @@ body{
   letter-spacing:2px;
   color:#fbbf24;
   font-weight:700;
-  margin-bottom:10px;
+  margin-bottom:6px;
   font-family:'Inter',sans-serif;
   text-align:right;
 }
 .hero-sub-compact{
-  font-size:13.5px;
-  line-height:1.75;
+  font-size:13px;
+  line-height:1.65;
   color:rgba(255,255,255,0.85);
   margin:0;
 }
@@ -2239,23 +2237,12 @@ body{
       </div>
     </div>
 
-    <!-- Description + Search Row -->
+    <!-- Description Row Only -->
     <div class="hero-bottom-row">
-      <div class="hero-desc-col">
-        <div class="hero-eyebrow">CORPORATE PERFORMANCE · GOVERNANCE · ANALYTICS</div>
-        <p class="hero-sub-compact">
-          منظومة معرفية متكاملة من <strong>٣٥ وحدة</strong> تغطي <strong>الأداء المؤسسي · الحوكمة · إدارة المخاطر · الامتثال · التحول الرقمي · أدوات التحليل</strong>. أطر عالمية (OECD · OCEG · COSO · DAMA · ISO) + سياق محلي (Vision 2030 · NDMO · PDPL · CMA · NCA · SAMA).
-        </p>
-      </div>
-
-      <div class="hero-search-col">
-        <div class="hero-search-label">🔍 البحث السريع في المرجع</div>
-        <div class="hero-search-input-wrap">
-          <input type="text" id="ai-search-input" placeholder="KPI · COSO · OKR · ADKAR · DMAIC · NDMO · CPM ..." class="hero-search-input">
-          <button id="ai-search-btn" class="hero-search-btn">بحث</button>
-        </div>
-        <div id="ai-search-result" class="hero-search-result"></div>
-      </div>
+      <div class="hero-eyebrow">CORPORATE PERFORMANCE · GOVERNANCE · ANALYTICS</div>
+      <p class="hero-sub-compact">
+        منظومة معرفية متكاملة من <strong>٣٥ وحدة</strong> تغطي <strong>الأداء المؤسسي · الحوكمة · إدارة المخاطر · الامتثال · التحول الرقمي · أدوات التحليل</strong>. أطر عالمية (OECD · OCEG · COSO · DAMA · ISO) + سياق محلي (Vision 2030 · NDMO · PDPL · CMA · NCA · SAMA).
+      </p>
     </div>
 
   </div>

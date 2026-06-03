@@ -2523,7 +2523,7 @@ body:has(.sidebar.mobile-open){
 <div class="content">
 
 
-═════════════════════════════════════ MODULE 00 — HOME / LANDING PAGE ═════════════════════════════════════ -->
+<!-- ═════════════════════════════════════ MODULE 00 — HOME / LANDING PAGE ═════════════════════════════════════ -->
 <div class="module" id="m-home">
   <div class="mod-head" style="border-bottom:2px solid var(--gold)">
     <div class="mod-meta" style="flex:1">
@@ -35327,6 +35327,334 @@ window.openModule = function(modId){
   } else {
     applyTaxonomy();
   }
+})();
+</script>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   Do / Don't Coloring v1 — صبغ بطاقات افعل/لا تفعل
+   ═══════════════════════════════════════════════════════════
+   يكتشف ✓ و ✗ في عناوين البطاقات (cb-lbl) ويصبغها:
+   ✓ → أخضر (الفعل الإيجابي)
+   ✗ → أحمر (الفعل السلبي)
+   هذا يُعالج التضارب مع تحويل accent-red→teal للبطاقات التعدادية
+*/
+(function(){
+  const style = document.createElement('style');
+  style.textContent = `
+    /* ═══ بطاقات "افعل" (✓) — أخضر قوي ═══ */
+    .cb.is-do,
+    .card .cb.is-do{
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%) !important;
+      border: 1px solid #86efac !important;
+      border-right: 4px solid #15803d !important;
+      box-shadow: 0 1px 3px rgba(21,128,61,0.06);
+    }
+    .cb.is-do .cb-lbl,
+    .card .cb.is-do .cb-lbl{
+      color: #15803d !important;
+      font-weight: 800 !important;
+    }
+    .cb.is-do:hover,
+    .card .cb.is-do:hover{
+      background: linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%) !important;
+      border-color: #4ade80 !important;
+      box-shadow: 0 6px 18px -8px rgba(21,128,61,0.22) !important;
+    }
+    
+    /* ═══ بطاقات "لا تفعل" (✗) — أحمر تحذيري ═══ */
+    .cb.is-dont,
+    .card .cb.is-dont{
+      background: linear-gradient(135deg, #fef2f2 0%, #fef5f5 100%) !important;
+      border: 1px solid #fca5a5 !important;
+      border-right: 4px solid #dc2626 !important;
+      box-shadow: 0 1px 3px rgba(220,38,38,0.06);
+    }
+    .cb.is-dont .cb-lbl,
+    .card .cb.is-dont .cb-lbl{
+      color: #b91c1c !important;
+      font-weight: 800 !important;
+    }
+    .cb.is-dont:hover,
+    .card .cb.is-dont:hover{
+      background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 100%) !important;
+      border-color: #f87171 !important;
+      box-shadow: 0 6px 18px -8px rgba(220,38,38,0.22) !important;
+    }
+  `;
+  document.head.appendChild(style);
+  
+  function classifyDoDont(){
+    document.querySelectorAll('.cb').forEach(cb => {
+      if(cb.dataset.dodone) return;
+      const lbl = cb.querySelector('.cb-lbl');
+      if(!lbl) return;
+      
+      const text = lbl.textContent.trim();
+      
+      // ✓ في البداية أو "افعل" بدون "لا"
+      if(text.startsWith('✓') || /^✓/.test(text)){
+        cb.classList.add('is-do');
+        cb.dataset.dodone = '1';
+      }
+      // ✗ في البداية أو "لا تفعل"
+      else if(text.startsWith('✗') || /^✗/.test(text)){
+        cb.classList.add('is-dont');
+        cb.dataset.dodone = '1';
+      }
+    });
+  }
+  
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', classifyDoDont);
+  } else {
+    classifyDoDont();
+  }
+})();
+</script>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   Section Filter v1 — تصفية أقسام الوحدة حسب النوع
+   ═══════════════════════════════════════════════════════════
+   ضغط شريحة الـ Module Map = فلتر يُخفي كل ما ليس من نفس النوع
+   ضغط ثاني على نفس الشريحة = إلغاء الفلتر
+   مع زر "إظهار الكل" يظهر عند تفعيل الفلتر
+*/
+(function(){
+  // —————— CSS ——————
+  const style = document.createElement('style');
+  style.textContent = `
+    /* الشريحة النشطة */
+    .mod-map-chip.is-active{
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px -4px rgba(0,0,0,0.18);
+      font-weight: 800 !important;
+    }
+    .mod-map-chip.is-active .mmc-count{
+      background: rgba(255,255,255,0.6) !important;
+    }
+    
+    /* العناصر المخفية بسبب الفلتر */
+    .filter-hidden{
+      display: none !important;
+    }
+    
+    /* زر إلغاء الفلتر */
+    .mod-map-clear{
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 10px;
+      border: 1px solid #d4cdbe;
+      background: #fff;
+      font-family: 'Tajawal','Cairo',sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #57534e;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      line-height: 1.2;
+    }
+    .mod-map-clear:hover{
+      background: #1c1917;
+      color: #fbbf24;
+      border-color: #1c1917;
+      transform: translateY(-1px);
+    }
+    .mod-map.is-filtering .mod-map-clear{
+      display: inline-flex;
+    }
+    
+    /* مؤشر "يتم العرض" */
+    .mod-map-status{
+      display: none;
+      font-size: 11.5px;
+      color: #78716c;
+      font-weight: 600;
+      padding: 6px 10px;
+      background: #fef3c7;
+      border-radius: 8px;
+      margin-top: 8px;
+      border: 1px solid #fde68a;
+    }
+    .mod-map.is-filtering .mod-map-status{
+      display: block;
+    }
+    .mod-map-status strong{
+      color: #92400e;
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // —————— أولاً: ربط كل عنصر داخل الـ module بقسمه (.sec[id]) ——————
+  function markSectionGroups(){
+    document.querySelectorAll('.module').forEach(mod => {
+      if(mod.dataset.groupsMarked) return;
+      
+      let currentSecId = null;
+      let currentSecType = null;
+      
+      Array.from(mod.children).forEach(el => {
+        if(el.classList.contains('sec') && el.id){
+          currentSecId = el.id;
+          currentSecType = el.dataset.type || 'concept';
+          el.dataset.groupId = currentSecId;
+          el.dataset.groupType = currentSecType;
+        } else if(currentSecId){
+          el.dataset.groupId = currentSecId;
+          el.dataset.groupType = currentSecType;
+        }
+        // العناصر قبل أول .sec (mod-head, intro, mod-map) لا تُعلَّم — تبقى دائماً ظاهرة
+      });
+      
+      mod.dataset.groupsMarked = '1';
+    });
+  }
+  
+  // —————— تطبيق/إلغاء الفلتر ——————
+  function applyFilter(modId, type){
+    const mod = document.getElementById(modId);
+    if(!mod) return;
+    
+    const map = mod.querySelector('.mod-map');
+    const allChips = map ? map.querySelectorAll('.mod-map-chip') : [];
+    
+    if(!type){
+      // إلغاء الفلتر
+      mod.querySelectorAll('[data-group-type]').forEach(el => {
+        el.classList.remove('filter-hidden');
+      });
+      allChips.forEach(c => c.classList.remove('is-active'));
+      if(map) map.classList.remove('is-filtering');
+      return;
+    }
+    
+    // طبّق الفلتر
+    mod.querySelectorAll('[data-group-type]').forEach(el => {
+      if(el.dataset.groupType === type){
+        el.classList.remove('filter-hidden');
+      } else {
+        el.classList.add('filter-hidden');
+      }
+    });
+    
+    // فعّل الشريحة المختارة
+    allChips.forEach(c => {
+      c.classList.toggle('is-active', c.dataset.jump === type);
+    });
+    
+    if(map){
+      map.classList.add('is-filtering');
+      
+      // حدّث المؤشر
+      let status = map.querySelector('.mod-map-status');
+      if(!status){
+        status = document.createElement('div');
+        status.className = 'mod-map-status';
+        map.appendChild(status);
+      }
+      const activeChip = map.querySelector('.mod-map-chip[data-jump="' + type + '"]');
+      const count = activeChip ? activeChip.querySelector('.mmc-count').textContent : '?';
+      const label = activeChip ? activeChip.querySelector('span:not(.mmc-ic):not(.mmc-count)').textContent : type;
+      status.innerHTML = `يتم عرض <strong>${count}</strong> أقسام من نوع <strong>${label}</strong> فقط — كل البقية مخفية مؤقتاً`;
+    }
+    
+    // اسكرول لأول قسم من النوع
+    const firstSec = mod.querySelector('.sec[data-type="' + type + '"]');
+    if(firstSec){
+      setTimeout(() => {
+        const offset = firstSec.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({top: offset, behavior: 'smooth'});
+      }, 100);
+    }
+  }
+  
+  // —————— استبدال سلوك الـ chips ——————
+  function rebindChips(){
+    document.querySelectorAll('.mod-map-chip').forEach(chip => {
+      if(chip.dataset.filterBound) return;
+      chip.dataset.filterBound = '1';
+      
+      // أزل الـ listener القديم بنسخ العنصر
+      const newChip = chip.cloneNode(true);
+      newChip.dataset.filterBound = '1';
+      chip.parentNode.replaceChild(newChip, chip);
+      
+      newChip.addEventListener('click', function(e){
+        e.preventDefault();
+        const type = this.dataset.jump;
+        const modId = this.dataset.modId;
+        
+        // toggle: لو الشريحة نفسها فعّالة → إلغاء، وإلا → فلتر بالنوع الجديد
+        if(this.classList.contains('is-active')){
+          applyFilter(modId, null);
+        } else {
+          applyFilter(modId, type);
+        }
+      });
+    });
+  }
+  
+  // —————— أضف زر "إظهار الكل" داخل كل Module Map ——————
+  function addClearButtons(){
+    document.querySelectorAll('.mod-map').forEach(map => {
+      if(map.querySelector('.mod-map-clear')) return;
+      const mod = map.closest('.module');
+      if(!mod) return;
+      
+      const btn = document.createElement('button');
+      btn.className = 'mod-map-clear';
+      btn.type = 'button';
+      btn.innerHTML = '↩ إظهار كل الأقسام';
+      btn.addEventListener('click', () => applyFilter(mod.id, null));
+      
+      // ضع الزر في الـ header بجانب total
+      const header = map.querySelector('.mod-map-header');
+      if(header){
+        const total = header.querySelector('.mod-map-total');
+        if(total){
+          total.insertAdjacentElement('beforebegin', btn);
+        } else {
+          header.appendChild(btn);
+        }
+      }
+    });
+  }
+  
+  // —————— تشغيل بعد ما تنتهي Taxonomy من العمل ——————
+  function init(){
+    // تأخير لضمان أن Module Maps تم إنشاؤها
+    setTimeout(() => {
+      markSectionGroups();
+      rebindChips();
+      addClearButtons();
+    }, 100);
+  }
+  
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  
+  // إلغاء الفلتر عند تبديل الوحدة
+  const moduleObserver = new MutationObserver((mutations) => {
+    mutations.forEach(m => {
+      if(m.target.classList.contains('module') && m.target.classList.contains('active')){
+        const map = m.target.querySelector('.mod-map');
+        if(map && map.classList.contains('is-filtering')){
+          applyFilter(m.target.id, null);
+        }
+      }
+    });
+  });
+  document.querySelectorAll('.module').forEach(mod => {
+    moduleObserver.observe(mod, {attributes: true, attributeFilter: ['class']});
+  });
 })();
 </script>
 

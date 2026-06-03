@@ -35658,5 +35658,887 @@ window.openModule = function(modId){
 })();
 </script>
 
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   Dark Mode v1 — وضع ليلي مع تذكّر الاختيار
+   ═══════════════════════════════════════════════════════════
+*/
+(function(){
+  // —————— CSS Variables for both themes ——————
+  const css = `
+    /* المتغيرات الافتراضية (light) موجودة أصلاً في الـ :root */
+    /* نضيف overrides لـ dark mode */
+    
+    [data-theme="dark"]{
+      --bg: #1c1917 !important;
+      --surface: #292524 !important;
+      --surface2: #1c1917 !important;
+      --ink: #fafaf7 !important;
+      --ink2: #e7e5e4 !important;
+      --muted: #a8a29e !important;
+      --border: #44403c !important;
+      --border2: #57534e !important;
+    }
+    
+    /* Body */
+    [data-theme="dark"] body{
+      background: #1c1917 !important;
+      color: #fafaf7 !important;
+    }
+    
+    /* Content */
+    [data-theme="dark"] .content,
+    [data-theme="dark"] .main{
+      background: #1c1917 !important;
+    }
+    
+    /* Hero */
+    [data-theme="dark"] .hero{
+      background: linear-gradient(135deg, #292524 0%, #1c1917 100%) !important;
+      border-bottom-color: #44403c !important;
+    }
+    [data-theme="dark"] .hero-brand-name,
+    [data-theme="dark"] .hero-eyebrow{
+      color: #fafaf7 !important;
+    }
+    [data-theme="dark"] .hero-sub-compact{
+      color: #d6d3d1 !important;
+    }
+    [data-theme="dark"] .hero-stat-c{
+      background: rgba(251,191,36,0.1) !important;
+      border-color: rgba(251,191,36,0.25) !important;
+    }
+    [data-theme="dark"] .hero-stat-c-num{
+      color: #fbbf24 !important;
+    }
+    [data-theme="dark"] .hero-stat-c-lbl{
+      color: #d6d3d1 !important;
+    }
+    
+    /* Cards */
+    [data-theme="dark"] .card{
+      background: #292524 !important;
+      border-color: #44403c !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+    }
+    [data-theme="dark"] .card p,
+    [data-theme="dark"] .card li,
+    [data-theme="dark"] .step-text,
+    [data-theme="dark"] .cb-body{
+      color: #d6d3d1 !important;
+    }
+    [data-theme="dark"] .card-head-title,
+    [data-theme="dark"] .cb-title,
+    [data-theme="dark"] .step-title,
+    [data-theme="dark"] .mod-title{
+      color: #fafaf7 !important;
+    }
+    [data-theme="dark"] strong{
+      color: #fbbf24 !important;
+    }
+    
+    /* .cb cards in dark — keep colored accents but darken backgrounds */
+    [data-theme="dark"] .card .cb{
+      background: rgba(255,255,255,0.03) !important;
+      border-color: #44403c !important;
+    }
+    [data-theme="dark"] .card .cb.accent-blue{
+      background: linear-gradient(135deg, rgba(29,78,216,0.15) 0%, rgba(29,78,216,0.08) 100%) !important;
+      border-color: rgba(96,165,250,0.3) !important;
+    }
+    [data-theme="dark"] .card .cb.accent-green{
+      background: linear-gradient(135deg, rgba(21,128,61,0.15) 0%, rgba(21,128,61,0.08) 100%) !important;
+      border-color: rgba(74,222,128,0.3) !important;
+    }
+    [data-theme="dark"] .card .cb.accent-amber{
+      background: linear-gradient(135deg, rgba(180,83,9,0.15) 0%, rgba(180,83,9,0.08) 100%) !important;
+      border-color: rgba(252,211,77,0.3) !important;
+    }
+    [data-theme="dark"] .card .cb.accent-red{
+      background: linear-gradient(135deg, rgba(15,118,110,0.15) 0%, rgba(15,118,110,0.08) 100%) !important;
+      border-color: rgba(94,234,212,0.3) !important;
+    }
+    [data-theme="dark"] .card .cb.accent-purple{
+      background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(124,58,237,0.08) 100%) !important;
+      border-color: rgba(196,181,253,0.3) !important;
+    }
+    [data-theme="dark"] .cb.is-do{
+      background: linear-gradient(135deg, rgba(21,128,61,0.18) 0%, rgba(21,128,61,0.1) 100%) !important;
+      border-color: rgba(74,222,128,0.35) !important;
+    }
+    [data-theme="dark"] .cb.is-dont{
+      background: linear-gradient(135deg, rgba(220,38,38,0.18) 0%, rgba(220,38,38,0.1) 100%) !important;
+      border-color: rgba(248,113,113,0.35) !important;
+    }
+    [data-theme="dark"] .cb.is-do .cb-lbl{ color: #4ade80 !important; }
+    [data-theme="dark"] .cb.is-dont .cb-lbl{ color: #f87171 !important; }
+    [data-theme="dark"] .cb.accent-blue .cb-lbl{ color: #93c5fd !important; }
+    [data-theme="dark"] .cb.accent-green .cb-lbl{ color: #86efac !important; }
+    [data-theme="dark"] .cb.accent-amber .cb-lbl{ color: #fcd34d !important; }
+    [data-theme="dark"] .cb.accent-red .cb-lbl{ color: #5eead4 !important; }
+    [data-theme="dark"] .cb.accent-purple .cb-lbl{ color: #c4b5fd !important; }
+    
+    /* Tables */
+    [data-theme="dark"] .tbl{
+      background: #292524 !important;
+    }
+    [data-theme="dark"] .tbl th{
+      background: linear-gradient(180deg, #44403c 0%, #292524 100%) !important;
+      color: #fafaf7 !important;
+    }
+    [data-theme="dark"] .tbl td{
+      color: #d6d3d1 !important;
+      border-color: #44403c !important;
+    }
+    [data-theme="dark"] .tbl tr:nth-child(even) td{
+      background: rgba(255,255,255,0.02);
+    }
+    
+    /* Intro & tip & warn */
+    [data-theme="dark"] .intro{
+      background: rgba(251,191,36,0.08) !important;
+      border-color: rgba(251,191,36,0.25) !important;
+    }
+    [data-theme="dark"] .intro-text{
+      color: #e7e5e4 !important;
+    }
+    [data-theme="dark"] .tip{
+      background: linear-gradient(135deg, rgba(180,83,9,0.18) 0%, rgba(180,83,9,0.08) 100%) !important;
+      border-color: rgba(252,211,77,0.3) !important;
+    }
+    [data-theme="dark"] .warn{
+      background: linear-gradient(135deg, rgba(220,38,38,0.18) 0%, rgba(220,38,38,0.08) 100%) !important;
+      border-color: rgba(248,113,113,0.3) !important;
+    }
+    
+    /* Module Map */
+    [data-theme="dark"] .mod-map{
+      background: linear-gradient(135deg, #292524 0%, #1c1917 100%) !important;
+      border-color: #44403c !important;
+    }
+    [data-theme="dark"] .mod-map-title{ color: #fafaf7 !important; }
+    [data-theme="dark"] .mod-map-total{
+      background: #44403c !important;
+      color: #d6d3d1 !important;
+    }
+    [data-theme="dark"] .mod-map-chip{
+      background: #1c1917 !important;
+    }
+    
+    /* Sec dividers */
+    [data-theme="dark"] .sec{ color: #a8a29e !important; }
+    [data-theme="dark"] .sec::after{
+      background: linear-gradient(90deg, #44403c 0%, transparent 100%) !important;
+    }
+    
+    /* TOC cards stay light-ish (they're white in light mode) */
+    [data-theme="dark"] .toc-mod-card{
+      background: #292524 !important;
+      border-color: #44403c !important;
+    }
+    [data-theme="dark"] .toc-mod-card .cb-lbl{ color: #fafaf7 !important; }
+    [data-theme="dark"] .toc-mod-card .cb-body{ color: #d6d3d1 !important; }
+    [data-theme="dark"] .toc-chip{
+      background: #44403c !important;
+      border-color: #57534e !important;
+      color: #e7e5e4 !important;
+    }
+    [data-theme="dark"] .toc-tier-intro{
+      background: rgba(251,191,36,0.08) !important;
+    }
+    
+    /* Forms */
+    [data-theme="dark"] .lab{
+      background: #292524 !important;
+      border-color: #44403c !important;
+    }
+    [data-theme="dark"] .lab input,
+    [data-theme="dark"] .lab textarea,
+    [data-theme="dark"] .lab select{
+      background: #1c1917 !important;
+      color: #fafaf7 !important;
+      border-color: #44403c !important;
+    }
+    
+    /* Smooth transitions */
+    body, .card, .cb, .intro, .tip, .warn, .mod-map, .tbl, .tbl th, .tbl td,
+    .hero, .toc-mod-card, .toc-chip, .lab{
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+    }
+    
+    /* ═════ تحسينات إضافية للوضع الليلي ═════ */
+    
+    /* الأرقام الكبيرة (toc-stat-big) — كانت gradient أسود فيختفي */
+    [data-theme="dark"] .toc-stat-big{
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+    }
+    [data-theme="dark"] .toc-stat-lbl{
+      color: #d6d3d1 !important;
+    }
+    
+    /* hero stats (الأرقام في الأعلى) */
+    [data-theme="dark"] .hero-stat-c-num{
+      color: #fbbf24 !important;
+      text-shadow: 0 0 20px rgba(251,191,36,0.15);
+    }
+    [data-theme="dark"] .hero-stat-c-lbl{
+      color: #e7e5e4 !important;
+    }
+    [data-theme="dark"] .hero-stat-c{
+      background: rgba(251,191,36,0.08) !important;
+      border-color: rgba(251,191,36,0.2) !important;
+    }
+    
+    /* عناوين الـ cb (UNITS, SECTIONS, إلخ) — تبقى واضحة */
+    [data-theme="dark"] .cb-lbl{
+      filter: brightness(1.1);
+    }
+    
+    /* النصوص داخل cb البطاقات الإحصائية */
+    [data-theme="dark"] .card .cb .toc-stat-lbl,
+    [data-theme="dark"] .card .cb .cb-lbl{
+      opacity: 1 !important;
+    }
+    
+    /* البطاقات المتلوّنة (accent-*) — gradients أوضح وتباين أكبر */
+    [data-theme="dark"] .card .cb.accent-blue{
+      background: linear-gradient(135deg, rgba(59,130,246,0.22) 0%, rgba(29,78,216,0.1) 100%) !important;
+      border-color: rgba(96,165,250,0.4) !important;
+    }
+    [data-theme="dark"] .card .cb.accent-green{
+      background: linear-gradient(135deg, rgba(34,197,94,0.22) 0%, rgba(21,128,61,0.1) 100%) !important;
+      border-color: rgba(74,222,128,0.4) !important;
+    }
+    [data-theme="dark"] .card .cb.accent-amber{
+      background: linear-gradient(135deg, rgba(245,158,11,0.22) 0%, rgba(180,83,9,0.1) 100%) !important;
+      border-color: rgba(252,211,77,0.4) !important;
+    }
+    [data-theme="dark"] .card .cb.accent-red{
+      background: linear-gradient(135deg, rgba(20,184,166,0.22) 0%, rgba(15,118,110,0.1) 100%) !important;
+      border-color: rgba(94,234,212,0.4) !important;
+    }
+    [data-theme="dark"] .card .cb.accent-purple{
+      background: linear-gradient(135deg, rgba(168,85,247,0.22) 0%, rgba(124,58,237,0.1) 100%) !important;
+      border-color: rgba(196,181,253,0.4) !important;
+    }
+    
+    /* النصوص داخل cb المتلوّنة — أكثر إشراقاً */
+    [data-theme="dark"] .card .cb.accent-blue .cb-lbl{ color: #93c5fd !important; }
+    [data-theme="dark"] .card .cb.accent-green .cb-lbl{ color: #86efac !important; }
+    [data-theme="dark"] .card .cb.accent-amber .cb-lbl{ color: #fcd34d !important; }
+    [data-theme="dark"] .card .cb.accent-red .cb-lbl{ color: #5eead4 !important; }
+    [data-theme="dark"] .card .cb.accent-purple .cb-lbl{ color: #c4b5fd !important; }
+    
+    /* النصوص العامة داخل البطاقات الملوّنة */
+    [data-theme="dark"] .cb .cb-title{
+      color: #fafaf7 !important;
+    }
+    [data-theme="dark"] .cb .cb-body,
+    [data-theme="dark"] .cb .cb-body em{
+      color: #e7e5e4 !important;
+    }
+    
+    /* الـ Hero brand & description */
+    [data-theme="dark"] .hero-brand-tag{
+      color: #fbbf24 !important;
+      opacity: 0.9;
+    }
+    [data-theme="dark"] .hero{
+      background: linear-gradient(135deg, #292524 0%, #1c1917 100%) !important;
+    }
+    
+    /* الـ mod-icon (الأيقونة في رأس الوحدة) */
+    [data-theme="dark"] .mod-icon{
+      background: linear-gradient(135deg, rgba(251,191,36,0.25) 0%, rgba(180,83,9,0.15) 100%) !important;
+      box-shadow: 0 2px 12px rgba(251,191,36,0.15);
+    }
+    [data-theme="dark"] .mod-tag{
+      color: #fbbf24 !important;
+      opacity: 0.9;
+    }
+    [data-theme="dark"] .mod-desc{
+      color: #d6d3d1 !important;
+    }
+    
+    /* الـ TOC tier intro (المربعات الذهبية أعلى الفئات) */
+    [data-theme="dark"] .toc-tier-intro{
+      background: rgba(251,191,36,0.1) !important;
+      color: #fafaf7 !important;
+      border-color: #fbbf24 !important;
+    }
+    [data-theme="dark"] .toc-tier-intro strong{
+      color: #fbbf24 !important;
+    }
+    
+    /* بطاقات TOC — العناوين بيضاء */
+    [data-theme="dark"] .toc-mod-card .cb-lbl{
+      color: #fbbf24 !important;
+    }
+    [data-theme="dark"] .toc-mod-card .cb-title,
+    [data-theme="dark"] .toc-mod-card .cb-title strong{
+      color: #fafaf7 !important;
+    }
+    [data-theme="dark"] .toc-secs-count{
+      background: #fbbf24 !important;
+      color: #1c1917 !important;
+    }
+    [data-theme="dark"] .toc-mod-card:hover{
+      border-color: rgba(251,191,36,0.4) !important;
+      box-shadow: 0 8px 24px -8px rgba(251,191,36,0.15) !important;
+    }
+    
+    /* Module Map */
+    [data-theme="dark"] .mod-map-chip{
+      background: rgba(255,255,255,0.04) !important;
+      border-color: rgba(255,255,255,0.15) !important;
+      color: #e7e5e4 !important;
+    }
+    [data-theme="dark"] .mod-map-chip:hover{
+      background: rgba(255,255,255,0.08) !important;
+    }
+    [data-theme="dark"] .mod-map-chip .mmc-count{
+      background: rgba(255,255,255,0.08) !important;
+      color: #fafaf7 !important;
+    }
+    
+    /* sec-type-badge — شارات نوع القسم */
+    [data-theme="dark"] .sec-type-badge{
+      filter: brightness(1.15) saturate(0.8);
+    }
+    
+    /* Steps */
+    [data-theme="dark"] .step-num{
+      filter: brightness(1.05);
+    }
+    
+    /* الشارات الذهبية والتأكيد */
+    [data-theme="dark"] em,
+    [data-theme="dark"] .num,
+    [data-theme="dark"] .pct{
+      color: #fbbf24 !important;
+    }
+    
+    /* ═══ Theme Toggle Button ═══ */
+    .theme-toggle{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(251,191,36,0.12);
+      border: 1px solid rgba(251,191,36,0.25);
+      color: #fbbf24;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .theme-toggle:hover{
+      background: rgba(251,191,36,0.2);
+      transform: scale(1.05);
+    }
+    .theme-toggle:active{
+      transform: scale(0.95);
+    }
+  `;
+  const styleEl = document.createElement('style');
+  styleEl.textContent = css;
+  document.head.appendChild(styleEl);
+  
+  // —————— تطبيق الـ theme ——————
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      document.body.setAttribute('data-theme', 'dark');
+    } else {
+      document.body.removeAttribute('data-theme');
+    }
+    // حدّث الأيقونة
+    const btn = document.querySelector('.theme-toggle');
+    if(btn){
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+      btn.title = theme === 'dark' ? 'الوضع النهاري' : 'الوضع الليلي';
+    }
+  }
+  
+  function getInitialTheme(){
+    const saved = localStorage.getItem('theme');
+    if(saved === 'dark' || saved === 'light') return saved;
+    // افتراضي: وضع نهاري دائماً (لا يتبع النظام)
+    return 'light';
+  }
+  
+  function toggleTheme(){
+    const current = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  }
+  
+  // —————— ضع الزر في رأس الـ sidebar ——————
+  function injectToggle(){
+    if(document.querySelector('.theme-toggle')) return;
+    
+    const btn = document.createElement('button');
+    btn.className = 'theme-toggle';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'تبديل الوضع الليلي');
+    btn.addEventListener('click', toggleTheme);
+    
+    // اعثر على رأس الـ sidebar (أعلى عنصر فيه)
+    const sidebar = document.querySelector('.sidebar');
+    if(!sidebar) return;
+    
+    // ابحث عن أول header element (logo/title area)
+    const header = sidebar.querySelector('.sb-header') || 
+                   sidebar.querySelector('.sb-search') ||
+                   sidebar.firstElementChild;
+    
+    if(header){
+      // غلّف الـ header مع الزر بـ flex
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px 0;';
+      wrap.appendChild(btn);
+      sidebar.insertBefore(wrap, sidebar.firstChild);
+    }
+    
+    // طبّق الـ theme الحالي على الزر
+    applyTheme(getInitialTheme());
+  }
+  
+  // طبّق الـ theme فوراً قبل DOMContentLoaded لمنع flicker
+  applyTheme(getInitialTheme());
+  
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', injectToggle);
+  } else {
+    injectToggle();
+  }
+})();
+</script>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   Sidebar Domain Reorganization + Last Visited + View Toggle
+   ═══════════════════════════════════════════════════════════
+*/
+(function(){
+  // —————— تعريف المجالات والربط ——————
+  const DOMAINS = {
+    strategy:     {label: 'الاستراتيجية والرؤية', icon: '🎯', color: '#1d4ed8', order: 1},
+    measurement:  {label: 'القياس والمؤشرات',     icon: '📊', color: '#b45309', order: 2},
+    diagnosis:    {label: 'التشخيص والتحسين',     icon: '🔍', color: '#15803d', order: 3},
+    communication:{label: 'التواصل والقرار',      icon: '📣', color: '#7c3aed', order: 4},
+    governance:   {label: 'الحوكمة والمخاطر',    icon: '🏛️', color: '#b91c1c', order: 5},
+    finance:      {label: 'المالية',              icon: '💰', color: '#0f766e', order: 6},
+    digital:      {label: 'التحول الرقمي والبيانات', icon: '🚀', color: '#0891b2', order: 7},
+    reference:    {label: 'الإدارة والمراجع',     icon: '📚', color: '#57534e', order: 8},
+  };
+  
+  // ربط module-id إلى domain
+  const MOD_DOMAIN = {
+    // Strategy
+    'vision-strategy': 'strategy',
+    'bsc': 'strategy',
+    'okr': 'strategy',
+    'strategic': 'strategy',
+    'decisions': 'strategy',
+    // Measurement
+    'kpi': 'measurement',
+    'evm': 'measurement',
+    'variance': 'measurement',
+    'mon': 'measurement',
+    'perf': 'measurement',
+    'pattern': 'measurement',
+    // Diagnosis
+    'rca': 'diagnosis',
+    'questions': 'diagnosis',
+    'lean': 'diagnosis',
+    // Communication
+    'exec': 'communication',
+    'skills': 'communication',
+    // Governance
+    'risk': 'governance',
+    'oversight': 'governance',
+    'grc': 'governance',
+    'gov': 'governance',
+    'comp': 'governance',
+    'ppm': 'governance',
+    'gate': 'governance',
+    'change': 'governance',
+    // Finance
+    'fpa': 'finance',
+    'corpfin': 'finance',
+    'projfin': 'finance',
+    // Digital
+    'digital': 'digital',
+    'dxgov': 'digital',
+    'datagov': 'digital',
+    'systems': 'digital',
+    // Reference
+    'role': 'reference',
+    'cpm': 'reference',
+    'certs': 'reference',
+  };
+  
+  // —————— CSS ——————
+  const css = `
+    /* ═══ View Toggle (Domain / Priority) ═══ */
+    .sb-view-toggle{
+      display: flex;
+      gap: 4px;
+      margin: 10px 14px 12px;
+      padding: 3px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .sb-view-toggle button{
+      flex: 1;
+      padding: 7px 10px;
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Tajawal','Cairo',sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sb-view-toggle button:hover{
+      color: rgba(255,255,255,0.85);
+    }
+    .sb-view-toggle button.active{
+      background: rgba(251,191,36,0.18);
+      color: #fbbf24;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    
+    /* ═══ Last Visited ═══ */
+    .sb-last-visited{
+      margin: 0 10px 12px;
+      padding: 9px 12px;
+      background: linear-gradient(135deg, rgba(251,191,36,0.12), rgba(251,191,36,0.04));
+      border: 1px solid rgba(251,191,36,0.25);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+      display: none;
+    }
+    .sb-last-visited.has-mod{
+      display: block;
+    }
+    .sb-last-visited:hover{
+      background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,191,36,0.08));
+      transform: translateY(-1px);
+    }
+    .sb-last-lbl{
+      font-size: 9.5px;
+      color: #fbbf24;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .sb-last-name{
+      font-family: 'Tajawal','Cairo',sans-serif;
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.95);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    
+    /* ═══ Domain Groups ═══ */
+    .sb-domain-group{
+      margin-bottom: 4px;
+    }
+    .sb-domain-header{
+      padding: 8px 16px 6px;
+      font-family: 'Tajawal','Cairo',sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      color: rgba(251,191,36,0.85);
+      letter-spacing: 1.5px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 14px;
+      border-bottom: 1px dashed rgba(255,255,255,0.08);
+      padding-bottom: 7px;
+    }
+    .sb-domain-header .sd-ic{
+      font-size: 13px;
+    }
+    .sb-domain-header .sd-count{
+      margin-right: auto;
+      background: rgba(255,255,255,0.08);
+      padding: 1px 7px;
+      border-radius: 8px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    /* ═══ مخفي إذا كانت في وضع المجال ═══ */
+    body[data-sb-view="domain"] .sb-priority-legend{
+      display: none;
+    }
+  `;
+  const styleEl = document.createElement('style');
+  styleEl.textContent = css;
+  document.head.appendChild(styleEl);
+  
+  // —————— حفظ العناصر الأصلية ——————
+  let originalWraps = null;
+  let originalParent = null;
+  let originalNextSibling = null;
+  
+  function captureOriginal(){
+    if(originalWraps) return;
+    
+    const wraps = document.querySelectorAll('.sb-item-wrap');
+    if(wraps.length === 0) return;
+    
+    originalWraps = Array.from(wraps);
+    originalParent = wraps[0].parentNode;
+    originalNextSibling = wraps[0].nextSibling;
+  }
+  
+  // —————— بناء عرض المجال ——————
+  function buildDomainView(){
+    captureOriginal();
+    if(!originalWraps || !originalParent) return;
+    
+    // امسح الـ wraps الحالية والمجموعات السابقة
+    document.querySelectorAll('.sb-domain-group').forEach(g => g.remove());
+    originalWraps.forEach(w => {
+      if(w.parentNode) w.parentNode.removeChild(w);
+    });
+    
+    // اجمع حسب المجال
+    const byDomain = {};
+    originalWraps.forEach(wrap => {
+      const item = wrap.querySelector('.sb-item');
+      if(!item) return;
+      const modId = item.dataset.mod;
+      const domain = MOD_DOMAIN[modId] || 'reference';
+      if(!byDomain[domain]) byDomain[domain] = [];
+      byDomain[domain].push(wrap);
+    });
+    
+    // رتّب داخل كل مجال: حسب النجوم تنازلياً
+    Object.values(byDomain).forEach(wraps => {
+      wraps.sort((a, b) => {
+        const sA = a.querySelector('[class*="sb-"][class*="stars"]');
+        const sB = b.querySelector('[class*="sb-"][class*="stars"]');
+        const nA = sA ? (sA.className.match(/sb-(\d)stars/) || [0,0])[1] : 0;
+        const nB = sB ? (sB.className.match(/sb-(\d)stars/) || [0,0])[1] : 0;
+        return parseInt(nB) - parseInt(nA);
+      });
+    });
+    
+    // اعرض المجالات بالترتيب المحدد
+    const domainKeys = Object.keys(DOMAINS).sort((a, b) => DOMAINS[a].order - DOMAINS[b].order);
+    
+    const fragment = document.createDocumentFragment();
+    domainKeys.forEach(key => {
+      const wraps = byDomain[key];
+      if(!wraps || wraps.length === 0) return;
+      
+      const config = DOMAINS[key];
+      const group = document.createElement('div');
+      group.className = 'sb-domain-group';
+      group.dataset.domain = key;
+      
+      group.innerHTML = `
+        <div class="sb-domain-header">
+          <span class="sd-ic">${config.icon}</span>
+          <span>${config.label}</span>
+          <span class="sd-count">${wraps.length}</span>
+        </div>
+      `;
+      
+      wraps.forEach(w => group.appendChild(w));
+      fragment.appendChild(group);
+    });
+    
+    // أدخل في نفس مكان الأصل
+    if(originalNextSibling && originalParent.contains(originalNextSibling)){
+      originalParent.insertBefore(fragment, originalNextSibling);
+    } else {
+      originalParent.appendChild(fragment);
+    }
+  }
+  
+  // —————— استعادة عرض الأولوية الأصلي ——————
+  function buildPriorityView(){
+    if(!originalWraps || !originalParent) return;
+    
+    // امسح المجموعات
+    document.querySelectorAll('.sb-domain-group').forEach(g => {
+      // نقل الـ wraps خارج المجموعة قبل الحذف
+      const wraps = g.querySelectorAll('.sb-item-wrap');
+      wraps.forEach(w => g.parentNode.insertBefore(w, g));
+      g.remove();
+    });
+    
+    // أعد ترتيب الـ wraps في موضعها الأصلي بالترتيب الأصلي
+    const fragment = document.createDocumentFragment();
+    originalWraps.forEach(w => {
+      if(w.parentNode) w.parentNode.removeChild(w);
+      fragment.appendChild(w);
+    });
+    
+    if(originalNextSibling && originalParent.contains(originalNextSibling)){
+      originalParent.insertBefore(fragment, originalNextSibling);
+    } else {
+      originalParent.appendChild(fragment);
+    }
+  }
+  
+  // —————— تبديل العرض ——————
+  function setView(view){
+    if(view === 'domain'){
+      buildDomainView();
+      document.body.setAttribute('data-sb-view', 'domain');
+    } else {
+      buildPriorityView();
+      document.body.setAttribute('data-sb-view', 'priority');
+    }
+    
+    localStorage.setItem('sbView', view);
+    
+    // حدّث الأزرار
+    document.querySelectorAll('.sb-view-toggle button').forEach(b => {
+      b.classList.toggle('active', b.dataset.view === view);
+    });
+  }
+  
+  // —————— حقن toggle ——————
+  function injectViewToggle(){
+    if(document.querySelector('.sb-view-toggle')) return;
+    
+    const toggle = document.createElement('div');
+    toggle.className = 'sb-view-toggle';
+    toggle.innerHTML = `
+      <button type="button" data-view="domain">🎯 حسب المجال</button>
+      <button type="button" data-view="priority">★ حسب الأولوية</button>
+    `;
+    
+    toggle.querySelectorAll('button').forEach(b => {
+      b.addEventListener('click', () => setView(b.dataset.view));
+    });
+    
+    // أدخله قبل أول sb-item-wrap
+    const sidebar = document.querySelector('.sidebar');
+    const firstWrap = sidebar ? sidebar.querySelector('.sb-item-wrap') : null;
+    if(firstWrap && firstWrap.parentNode){
+      // اعثر على الـ priority legend أو أول group-title قبل الـ wrap
+      let beforeEl = firstWrap;
+      let prev = firstWrap.previousElementSibling;
+      while(prev && (prev.classList.contains('sb-priority-legend') || 
+                     prev.classList.contains('sb-group-title') ||
+                     prev.classList.contains('sb-sec-link'))){
+        beforeEl = prev;
+        prev = prev.previousElementSibling;
+      }
+      beforeEl.parentNode.insertBefore(toggle, beforeEl);
+    }
+  }
+  
+  // —————— Last Visited ——————
+  function injectLastVisited(){
+    if(document.querySelector('.sb-last-visited')) return;
+    
+    const lv = document.createElement('div');
+    lv.className = 'sb-last-visited';
+    lv.innerHTML = `
+      <div class="sb-last-lbl">📌 آخر زيارة</div>
+      <div class="sb-last-name"></div>
+    `;
+    
+    const toggle = document.querySelector('.sb-view-toggle');
+    if(toggle && toggle.parentNode){
+      toggle.parentNode.insertBefore(lv, toggle);
+    }
+    
+    // حدّث المحتوى
+    updateLastVisited();
+    
+    lv.addEventListener('click', () => {
+      const modId = lv.dataset.modId;
+      if(!modId) return;
+      const item = document.querySelector(`.sb-item[data-mod="${modId}"]`);
+      if(item) item.click();
+    });
+  }
+  
+  function updateLastVisited(){
+    const last = localStorage.getItem('lastModule');
+    if(!last) return;
+    
+    try {
+      const data = JSON.parse(last);
+      const lv = document.querySelector('.sb-last-visited');
+      if(!lv || !data.name) return;
+      
+      lv.dataset.modId = data.id;
+      lv.querySelector('.sb-last-name').textContent = data.name;
+      lv.classList.add('has-mod');
+    } catch(e){}
+  }
+  
+  function trackLastVisited(){
+    document.addEventListener('click', (e) => {
+      const item = e.target.closest('.sb-item[data-mod]');
+      if(!item) return;
+      
+      const modId = item.dataset.mod;
+      const label = item.querySelector('.sb-label');
+      if(!modId || !label) return;
+      
+      localStorage.setItem('lastModule', JSON.stringify({
+        id: modId,
+        name: label.textContent.trim(),
+        at: Date.now()
+      }));
+      
+      setTimeout(updateLastVisited, 100);
+    });
+  }
+  
+  // —————— تشغيل ——————
+  function init(){
+    setTimeout(() => {
+      captureOriginal();
+      injectViewToggle();
+      injectLastVisited();
+      trackLastVisited();
+      
+      // طبّق العرض المحفوظ (أو default = domain)
+      const savedView = localStorage.getItem('sbView') || 'domain';
+      setView(savedView);
+    }, 200);
+  }
+  
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 </body>
 </html>

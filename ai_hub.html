@@ -32,24 +32,23 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .sb-num{font-family:'Tajawal',sans-serif;font-weight:700;color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:1px;margin-right:auto}
 .sb-foot{margin-top:auto;padding:16px 22px;border-top:1px solid rgba(255,255,255,0.06);font-size:10.5px;color:rgba(255,255,255,0.28);line-height:1.6}
 .main{margin-right:280px;min-height:100vh}
-.hero{background:linear-gradient(135deg,#0c0a09 0%,#1c1917 50%,#0c0a09 100%);color:#fff;padding:60px 48px 44px;position:relative;overflow:hidden;border-bottom:1px solid rgba(251,191,36,0.15)}
-.hero::before{content:'';position:absolute;top:-120px;left:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,0.1),transparent 60%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-80px;right:20%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.07),transparent 60%);pointer-events:none}
-.hero-inner{position:relative;z-index:1;max-width:1100px}
-.hero-brand{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.08)}
-.hero-mark{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#fbbf24 0%,#d97706 100%);display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 6px 16px -4px rgba(251,191,36,0.4)}
-.hero-brand-name{font-family:'Tajawal',sans-serif;font-weight:900;font-size:15px;color:#fff}
-.hero-brand-tag{font-size:10px;font-weight:700;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-top:2px}
-.hero-eyebrow{font-size:10px;letter-spacing:4px;font-weight:700;color:rgba(251,191,36,0.7);margin-bottom:16px}
-.hero h1{font-family:'Tajawal',sans-serif;font-size:clamp(30px,4.5vw,52px);font-weight:900;line-height:1.15;margin-bottom:14px;letter-spacing:-0.5px}
-.hero h1 em{font-style:normal;color:var(--gold);background:linear-gradient(135deg,#fbbf24 0%,#fde047 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:14.5px;color:rgba(255,255,255,0.6);line-height:1.85;margin-bottom:28px;max-width:780px}
-.hero-sub strong{color:rgba(255,255,255,0.85);font-weight:700}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px;max-width:760px}
-.hero-stat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px}
-.hero-stat-num{font-family:'Tajawal',sans-serif;font-size:26px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px}
-.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.55);font-weight:600;line-height:1.3}
-@media(max-width:900px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+/* Hero — Compact (unified style across hubs) */
+.hero{background:linear-gradient(135deg,#0c0a09 0%,#1c1917 50%,#0c0a09 100%);color:#fff;padding:16px 48px 14px;position:relative;overflow:hidden;border-bottom:1px solid rgba(251,191,36,0.15);width:100%;box-sizing:border-box}
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto}
+.hero-top-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid rgba(251,191,36,0.15);margin-bottom:10px;flex-wrap:wrap}
+.hero-brand{display:flex;align-items:center;gap:12px}
+.hero-brand-text{text-align:right}
+.hero-brand-name{font-size:18px;font-weight:800;color:#fbbf24;line-height:1.2;letter-spacing:0.3px;font-family:'Tajawal',sans-serif}
+.hero-brand-tag{font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,0.5);margin-top:3px;font-weight:600}
+.hero-stats-compact{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.hero-stat-c{display:flex;align-items:baseline;gap:5px;padding:3px 10px;background:rgba(251,191,36,0.05);border:1px solid rgba(251,191,36,0.18);border-radius:6px}
+.hero-stat-c-num{font-size:18px;font-weight:800;color:#fbbf24;font-family:'Tajawal',sans-serif;line-height:1}
+.hero-stat-c-lbl{font-size:11px;color:rgba(255,255,255,0.6);font-weight:500}
+.hero-bottom-row{direction:rtl;padding-top:4px}
+.hero-eyebrow{font-size:9.5px;letter-spacing:2px;color:#fbbf24;font-weight:700;margin-bottom:6px;text-align:right}
+.hero-sub-compact{font-size:13px;line-height:1.65;color:rgba(255,255,255,0.85);margin:0}
+.hero-sub-compact strong{color:#fbbf24;font-weight:700}
+@media(max-width:900px){.hero{padding:14px 24px 12px}.hero-top-row{flex-direction:column;align-items:flex-start;gap:10px}.hero-stats-compact{gap:8px}}
 .content{padding:44px 48px 80px;max-width:1100px}
 .module{display:none}
 .module.active{display:block;animation:fadeIn 0.3s}
@@ -511,22 +510,32 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-brand">
-      <div class="hero-mark">🧠</div>
-      <div>
-        <div class="hero-brand-name">مركز معرفة الذكاء الاصطناعي</div>
-        <div class="hero-brand-tag">AI KNOWLEDGE HUB · 2026</div>
+
+    <!-- Top Row: Brand + Stats -->
+    <div class="hero-top-row">
+      <div class="hero-brand">
+        <div class="hero-brand-text">
+          <div class="hero-brand-name">🧠 مركز معرفة الذكاء الاصطناعي</div>
+          <div class="hero-brand-tag">AI KNOWLEDGE HUB · 2026</div>
+        </div>
+      </div>
+
+      <div class="hero-stats-compact">
+        <div class="hero-stat-c"><span class="hero-stat-c-num">٢٢</span><span class="hero-stat-c-lbl">وحدة</span></div>
+        <div class="hero-stat-c"><span class="hero-stat-c-num">+١٥٠</span><span class="hero-stat-c-lbl">أداة</span></div>
+        <div class="hero-stat-c"><span class="hero-stat-c-num">٧</span><span class="hero-stat-c-lbl">فريق</span></div>
+        <div class="hero-stat-c"><span class="hero-stat-c-num">٦</span><span class="hero-stat-c-lbl">أشهر</span></div>
       </div>
     </div>
-    <div class="hero-eyebrow">AGENTS · LLMs · TOOLS · WORKFLOWS · PRICING</div>
-    <h1>كل ما تحتاج معرفته عن<br>أدوات <em>الذكاء الاصطناعي</em> في مكان واحد</h1>
-    <p class="hero-sub">منظومة من <strong>٢٢ وحدة</strong> — كل وحدة تغطي مفهوماً بعمق: <strong>التعريف · الأنواع · مزوّدو الخدمة · طريقة الاستخدام · الأفضل حالياً</strong>. تختم بخارطة طريق ٦ أشهر وجداول تكاليف مفصّلة.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">٢٢</div><div class="hero-stat-label">وحدة معرفية</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">+١٥٠</div><div class="hero-stat-label">أداة ومزوّد</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">٧</div><div class="hero-stat-label">أعضاء الفريق</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">٦</div><div class="hero-stat-label">أشهر · خارطة طريق</div></div>
+
+    <!-- Description Row -->
+    <div class="hero-bottom-row">
+      <div class="hero-eyebrow">AGENTS · LLMs · RAG · MCP · WORKFLOWS · PRICING</div>
+      <p class="hero-sub-compact">
+        منظومة من <strong>٢٢ وحدة</strong> — كل وحدة تغطي مفهوماً بعمق: <strong>التعريف · الأنواع · مزوّدو الخدمة · طريقة الاستخدام · الأفضل حالياً</strong>. تختم بخارطة طريق ٦ أشهر وجداول تكاليف مفصّلة.
+      </p>
     </div>
+
   </div>
 </div>
 

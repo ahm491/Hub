@@ -343,6 +343,33 @@ nav{position:sticky;top:0;z-index:100;background:#0c0a09;border-bottom:1px solid
   transform:scale(0.95);
 }
 
+/* Floating mobile sidebar toggle (replaces nav-bar toggle) */
+.sb-tog-float{
+  display:none;
+  position:fixed;
+  top:14px;right:14px;
+  z-index:1500;
+  width:42px;height:42px;
+  background:rgba(28,25,23,0.88);
+  color:#fbbf24;
+  border:1px solid rgba(251,191,36,0.25);
+  border-radius:10px;
+  cursor:pointer;
+  font-size:18px;
+  align-items:center;justify-content:center;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  box-shadow:0 6px 20px -4px rgba(0,0,0,0.25);
+  transition:all .2s ease;
+}
+.sb-tog-float:hover{
+  background:rgba(28,25,23,0.96);
+  border-color:#fbbf24;
+}
+@media(max-width:900px){
+  .sb-tog-float{display:flex;}
+}
+
 /* PAGES */
 .pg{display:none;flex:1;}.pg.active{display:block;}
 
@@ -975,9 +1002,65 @@ html,body{max-width:100%;overflow-x:hidden;}
   *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
   html{scroll-behavior:auto;}
 }
+
+/* ━━ Back-to-Home floating button ━━ */
+.back-home{
+  position:fixed;
+  top:14px;
+  left:14px;
+  z-index:1500;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 14px 8px 12px;
+  background:rgba(28,25,23,0.88);
+  color:#fafaf9;
+  border-radius:999px;
+  font-family:'Tajawal',sans-serif;
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:0.2px;
+  text-decoration:none;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 6px 20px -4px rgba(0,0,0,0.25);
+  transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+.back-home:hover{
+  background:rgba(28,25,23,0.96);
+  border-color:rgba(251,191,36,0.4);
+  box-shadow:0 8px 24px -4px rgba(0,0,0,0.3);
+  transform:translateY(-1px);
+}
+.back-home-icon{
+  color:#fbbf24;
+  flex-shrink:0;
+  transition:transform 0.2s ease;
+}
+.back-home:hover .back-home-icon{
+  transform:scale(1.08);
+}
+.back-home-text{line-height:1}
+@media(max-width:640px){
+  .back-home{
+    top:10px;left:10px;
+    padding:6px 12px 6px 10px;
+    font-size:11.5px;
+  }
+}
+
 </style>
 </head>
 <body>
+<!-- Back to Home Button -->
+<a href="./index.html" class="back-home" aria-label="العودة للصفحة الرئيسية" title="العودة للصفحة الرئيسية">
+  <svg class="back-home-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/>
+  </svg>
+  <span class="back-home-text">الرئيسية</span>
+</a>
+
 <div class="mobile-overlay" id="mobileOverlay" onclick="closeSb()"></div>
 <div class="wrap">
 
@@ -992,6 +1075,19 @@ html,body{max-width:100%;overflow-x:hidden;}
     <input class="sb-search" type="text" placeholder="🔍 ابحث عن شهادة أو مجال..." id="sbSearch" oninput="sbSearch(this.value)">
   </div>
   <nav class="sb-nav" id="sbNav">
+
+    <!-- ━━━━━━━━ Page Navigation (replaces top nav bar) ━━━━━━━━ -->
+    <div class="sb-tier">
+      <span class="sb-tier-icon">🧭</span>
+      <span class="sb-tier-title">التنقّل الرئيسي</span>
+      <span class="sb-tier-count">6</span>
+    </div>
+    <div class="sb-item sb-pg-item active" onclick="showPg('home')"><span class="sb-dot"></span>🏠 الصفحة الرئيسية</div>
+    <div class="sb-item sb-pg-item" onclick="showPg('knowledge')"><span class="sb-dot"></span>📚 المعرفة</div>
+    <div class="sb-item sb-pg-item" onclick="showPg('certifications')"><span class="sb-dot"></span>📜 الشهادات</div>
+    <div class="sb-item sb-pg-item" onclick="showPg('roadmap')"><span class="sb-dot"></span>🗺️ خارطة الطريق</div>
+    <div class="sb-item sb-pg-item" onclick="showPg('resources')"><span class="sb-dot"></span>🔗 الموارد</div>
+    <div class="sb-item sb-pg-item" onclick="showPg('executive')"><span class="sb-dot"></span>👑 مسار CTO/CDO/CISO</div>
 
     <!-- ━━━━━━━━ TIER 1 — ابدأ هنا ━━━━━━━━ -->
     <div class="sb-tier">
@@ -1310,23 +1406,8 @@ html,body{max-width:100%;overflow-x:hidden;}
 
 <!-- ========= MAIN ========= -->
 <div class="main">
-<nav>
-  <div class="nl" onclick="showPg('home')">
-    <div class="ni">IT</div>
-    <div class="nt">مركز المعرفة <span>التقنية</span></div>
-  </div>
-  <div class="ntabs">
-    <button class="ntab active" onclick="showPg('home')">🏠 الرئيسية</button>
-    <button class="ntab" onclick="showPg('knowledge')">📚 المعرفة</button>
-    <button class="ntab" onclick="showPg('certifications')">📜 الشهادات</button>
-    <button class="ntab" onclick="showPg('roadmap')">🗺️ الطريق</button>
-    <button class="ntab" onclick="showPg('resources')">🔗 الموارد</button>
-    <button class="ntab" onclick="showPg('executive')">👑 CTO</button>
-  </div>
-  <div style="display:flex;align-items:center;gap:.4rem;">
-    <button class="sb-tog" onclick="toggleSbMobile()">☰</button>
-  </div>
-</nav>
+<!-- Mobile sidebar toggle (floating, replaces removed nav bar toggle) -->
+<button class="sb-tog-float" onclick="toggleSbMobile()" aria-label="فتح القائمة" title="القائمة">☰</button>
 
 <!-- ===== HOME PAGE ===== -->
 <div class="pg active" id="pg-home">
@@ -13967,6 +14048,14 @@ function showPg(id) {
     const allTabs = document.querySelectorAll('.ntab');
     if(allTabs[idx]) allTabs[idx].classList.add('active');
   }
+  // Sync sidebar nav items active state (only those calling showPg)
+  document.querySelectorAll('.sb-pg-item').forEach(i => {
+    i.classList.remove('active');
+    const onclick = i.getAttribute('onclick') || '';
+    if(onclick === "showPg('" + id + "')") {
+      i.classList.add('active');
+    }
+  });
   window.scrollTo({top:0,behavior:'smooth'});
 }
 

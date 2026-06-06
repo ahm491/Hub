@@ -406,9 +406,65 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .rich-label small{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-top:2px}
 .rich-value{font-size:12.5px;line-height:1.85;color:var(--ink2)}
 .rich-value strong{color:var(--ink)}
+
+/* ━━ Back-to-Home floating button ━━ */
+.back-home{
+  position:fixed;
+  top:14px;
+  left:14px;
+  z-index:1500;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 14px 8px 12px;
+  background:rgba(28,25,23,0.88);
+  color:#fafaf9;
+  border-radius:999px;
+  font-family:'Tajawal',sans-serif;
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:0.2px;
+  text-decoration:none;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 6px 20px -4px rgba(0,0,0,0.25);
+  transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+.back-home:hover{
+  background:rgba(28,25,23,0.96);
+  border-color:rgba(251,191,36,0.4);
+  box-shadow:0 8px 24px -4px rgba(0,0,0,0.3);
+  transform:translateY(-1px);
+}
+.back-home-icon{
+  color:#fbbf24;
+  flex-shrink:0;
+  transition:transform 0.2s ease;
+}
+.back-home:hover .back-home-icon{
+  transform:scale(1.08);
+}
+.back-home-text{line-height:1}
+@media(max-width:640px){
+  .back-home{
+    top:10px;left:10px;
+    padding:6px 12px 6px 10px;
+    font-size:11.5px;
+  }
+}
+
 </style>
 </head>
 <body>
+<!-- Back to Home Button -->
+<a href="./index.html" class="back-home" aria-label="العودة للصفحة الرئيسية" title="العودة للصفحة الرئيسية">
+  <svg class="back-home-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/>
+  </svg>
+  <span class="back-home-text">الرئيسية</span>
+</a>
+
 
 <nav class="sidebar">
   <div class="sb-head">

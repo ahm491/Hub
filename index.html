@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>مكتبة المراكز المعرفية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fafaf9;
+  --bg2:#f5f5f4;
+  --ink:#1c1917;
+  --ink2:#44403c;
+  --muted:#78716c;
+  --line:#e7e5e4;
+  --line2:#d6d3d1;
+  --gold:#a16207;
+  --gold-soft:#fef3c7;
+  --indigo:#3730a3;
+  --indigo-soft:#e0e7ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(161,98,7,0.04), transparent),
+    radial-gradient(ellipse 80% 50% at 50% 120%, rgba(55,48,163,0.04), transparent);
+}
+
+/* Header */
+.brand{
+  max-width:1280px;
+  margin:0 auto;
+  padding:48px 32px 24px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.brand-mark{
+  font-family:'Tajawal',sans-serif;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:5px;
+  color:var(--muted);
+  margin-bottom:18px;
+  text-transform:uppercase;
+  position:relative;
+  padding:0 24px;
+}
+.brand-mark::before,
+.brand-mark::after{
+  content:'';
+  position:absolute;
+  top:50%;
+  width:18px;
+  height:1px;
+  background:var(--line2);
+}
+.brand-mark::before{right:0}
+.brand-mark::after{left:0}
+.brand-title{
+  font-family:'Tajawal',sans-serif;
+  font-size:34px;
+  font-weight:900;
+  color:var(--ink);
+  line-height:1.2;
+  margin-bottom:14px;
+  letter-spacing:-0.5px;
+}
+.brand-sub{
+  font-size:15px;
+  color:var(--ink2);
+  max-width:560px;
+  line-height:1.85;
+  font-weight:400;
+}
+.brand-sub em{
+  font-style:normal;
+  color:var(--gold);
+  font-weight:700;
+}
+.brand-sub strong{
+  color:var(--indigo);
+  font-weight:700;
+}
+.brand-sub .brand-it-tag{
+  color:#0f766e;
+  font-weight:700;
+}
+
+/* Main content area */
+.main{
+  flex:1;
+  max-width:1280px;
+  margin:0 auto;
+  padding:24px 32px 48px;
+  width:100%;
+  display:flex;
+  align-items:center;
+}
+.hubs{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px;
+  width:100%;
+}
+
+/* Card base */
+.hub{
+  position:relative;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:36px 32px 32px;
+  transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
+  text-decoration:none;
+  color:inherit;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hub::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:0;
+  transition:opacity 0.35s ease;
+}
+.hub:hover{
+  transform:translateY(-4px);
+  border-color:var(--accent);
+  box-shadow:0 24px 48px -16px var(--shadow);
+}
+.hub:hover::before{opacity:1}
+.hub:hover .hub-cta{
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--accent);
+}
+.hub:hover .hub-cta-arrow{transform:translateX(-6px)}
+
+/* Card 1: Corporate Performance — warm gold */
+.hub-corp{
+  --accent:#a16207;
+  --accent-dark:#854d0e;
+  --accent-soft:#fef3c7;
+  --shadow:rgba(161,98,7,0.18);
+}
+.hub-corp::before{
+  background:linear-gradient(135deg, rgba(254,243,199,0.4) 0%, transparent 100%);
+}
+
+/* Card 2: AI — cool indigo */
+.hub-ai{
+  --accent:#3730a3;
+  --accent-dark:#312e81;
+  --accent-soft:#e0e7ff;
+  --shadow:rgba(55,48,163,0.18);
+}
+.hub-ai::before{
+  background:linear-gradient(135deg, rgba(224,231,255,0.5) 0%, transparent 100%);
+}
+
+/* Card 3: IT Knowledge — deep teal */
+.hub-it{
+  --accent:#0f766e;
+  --accent-dark:#115e59;
+  --accent-soft:#ccfbf1;
+  --shadow:rgba(15,118,110,0.18);
+}
+.hub-it::before{
+  background:linear-gradient(135deg, rgba(204,251,241,0.5) 0%, transparent 100%);
+}
+
+/* Card header */
+.hub-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:24px;
+  padding-bottom:24px;
+  border-bottom:1px solid var(--line);
+}
+.hub-icon{
+  width:56px;
+  height:56px;
+  border-radius:14px;
+  background:var(--accent-soft);
+  color:var(--accent-dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  flex-shrink:0;
+}
+.hub-num{
+  text-align:left;
+  direction:ltr;
+}
+.hub-num-big{
+  font-family:'Tajawal',sans-serif;
+  font-size:32px;
+  font-weight:900;
+  color:var(--accent);
+  line-height:1;
+  letter-spacing:-1px;
+}
+.hub-num-label{
+  font-family:'Tajawal',sans-serif;
+  font-size:10px;
+  font-weight:700;
+  color:var(--muted);
+  letter-spacing:2px;
+  margin-top:4px;
+  text-transform:uppercase;
+}
+
+/* Card body */
+.hub-tag{
+  font-family:'Tajawal',sans-serif;
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:2.5px;
+  color:var(--accent);
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+.hub-title{
+  font-family:'Tajawal',sans-serif;
+  font-size:24px;
+  font-weight:900;
+  color:var(--ink);
+  line-height:1.25;
+  margin-bottom:10px;
+  letter-spacing:-0.3px;
+}
+.hub-desc{
+  font-size:13.5px;
+  color:var(--ink2);
+  line-height:1.85;
+  margin-bottom:22px;
+}
+
+/* Features */
+.hub-feats{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  margin-bottom:28px;
+  flex:1;
+}
+.hub-feat{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  font-size:12.5px;
+  color:var(--ink2);
+  line-height:1.6;
+}
+.hub-feat-dot{
+  width:5px;
+  height:5px;
+  background:var(--accent);
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:8px;
+}
+.hub-feat strong{
+  color:var(--ink);
+  font-weight:700;
+}
+
+/* CTA */
+.hub-cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:14px 20px;
+  background:transparent;
+  border:1.5px solid var(--accent);
+  color:var(--accent);
+  border-radius:10px;
+  font-family:'Tajawal',sans-serif;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:0.5px;
+  transition:all 0.25s ease;
+  margin-top:auto;
+}
+.hub-cta-arrow{
+  font-size:18px;
+  font-weight:400;
+  transition:transform 0.25s ease;
+  font-family:system-ui,sans-serif;
+}
+
+/* Coming soon ribbon (optional, for placeholder state) */
+.hub-meta{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+.hub-chip{
+  font-family:'Tajawal',sans-serif;
+  font-size:9.5px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  padding:3px 10px;
+  border-radius:5px;
+  background:var(--accent-soft);
+  color:var(--accent-dark);
+  text-transform:uppercase;
+}
+
+/* Footer */
+.foot{
+  border-top:1px solid var(--line);
+  padding:24px 32px;
+  max-width:1280px;
+  margin:0 auto;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:11.5px;
+  color:var(--muted);
+  letter-spacing:0.3px;
+}
+.foot-divider{
+  display:inline-block;
+  width:3px;
+  height:3px;
+  background:var(--line2);
+  border-radius:50%;
+  margin:0 10px;
+  vertical-align:middle;
+}
+
+/* Entry animation */
+@keyframes rise{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.brand{animation:rise 0.6s cubic-bezier(0.16,1,0.3,1) both}
+.hub-corp{animation:rise 0.7s 0.15s cubic-bezier(0.16,1,0.3,1) both}
+.hub-ai{animation:rise 0.7s 0.25s cubic-bezier(0.16,1,0.3,1) both}
+.hub-it{animation:rise 0.7s 0.35s cubic-bezier(0.16,1,0.3,1) both}
+.foot{animation:rise 0.6s 0.5s cubic-bezier(0.16,1,0.3,1) both}
+
+/* Tablet */
+@media(max-width:1080px){
+  .hubs{grid-template-columns:repeat(2, 1fr)}
+  .main{max-width:900px}
+  .brand{max-width:900px}
+  .foot{max-width:900px}
+}
+
+/* Mobile */
+@media(max-width:780px){
+  .brand{padding:36px 22px 16px}
+  .brand-title{font-size:26px}
+  .brand-sub{font-size:13.5px}
+  .main{padding:18px 22px 36px}
+  .hubs{grid-template-columns:1fr;gap:18px}
+  .hub{padding:28px 24px 24px}
+  .hub-title{font-size:21px}
+  .hub-icon{width:48px;height:48px;font-size:22px}
+  .hub-num-big{font-size:28px}
+  .foot{padding:20px 22px;font-size:10.5px;flex-direction:column;gap:6px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="brand">
+  <div class="brand-mark">المكتبة المعرفية</div>
+  <h1 class="brand-title">ثلاثة مراكز معرفيّة · هدف واحد</h1>
+  <p class="brand-sub">
+    منظومات متكاملة من المعرفة التطبيقية في
+    <em>الأداء المؤسسي</em>، <strong>الذكاء الاصطناعي</strong>، و<span class="brand-it-tag">تقنية المعلومات</span> — مُصمَّمة للتعلّم الذاتي والتطبيق الفوري دون الحاجة لمصادر خارجية.
+  </p>
+</header>
+
+<main class="main">
+  <div class="hubs">
+
+    <!-- ════════════════════════════════════════════════ -->
+    <!-- CARD 1: CORPORATE PERFORMANCE HUB                -->
+    <!-- استبدل href أدناه بـ URL مركز الأداء المؤسسي     -->
+    <!-- ════════════════════════════════════════════════ -->
+    <a class="hub hub-corp" href="REPLACE_WITH_CORPORATE_HUB_URL" target="_self">
+      <div class="hub-head">
+        <div class="hub-icon">📊</div>
+        <div class="hub-num">
+          <div class="hub-num-big">٣٤</div>
+          <div class="hub-num-label">Modules</div>
+        </div>
+      </div>
+
+      <div class="hub-meta">
+        <span class="hub-chip">CORPORATE PERFORMANCE</span>
+      </div>
+      <div class="hub-tag">UNIT · المنظومة الأولى</div>
+      <h2 class="hub-title">مركز الأداء المؤسسي</h2>
+      <p class="hub-desc">
+        الإطار الجامع للأداء المؤسسي · منظومة شاملة لإدارة الأداء، التخطيط الاستراتيجي، وقياس الفاعلية في المؤسسات الحديثة.
+      </p>
+
+      <div class="hub-feats">
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٣٤ وحدة</strong> تغطّي إدارة الأداء من البنية الاستراتيجية إلى التنفيذ</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٦٨+ حالة دراسية</strong> من تطبيقات إقليمية وعالمية</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>أُطر معتمدة: <strong>BSC · OKRs · KPIs · EFQM · Baldrige</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>محتوى عربي احترافي · جاهز للمراجعة التنفيذية</div></div>
+      </div>
+
+      <div class="hub-cta">
+        <span>ادخل للمركز</span>
+        <span class="hub-cta-arrow">←</span>
+      </div>
+    </a>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <!-- CARD 2: AI HUB                                   -->
+    <!-- الرابط النسبي: تأكّد أن الملف ai_hub.html         -->
+    <!-- موجود بنفس المجلّد، أو غيّر المسار حسب التنظيم    -->
+    <!-- ════════════════════════════════════════════════ -->
+    <a class="hub hub-ai" href="./ai_hub.html" target="_self">
+      <div class="hub-head">
+        <div class="hub-icon">🧠</div>
+        <div class="hub-num">
+          <div class="hub-num-big">٢٢</div>
+          <div class="hub-num-label">Modules</div>
+        </div>
+      </div>
+
+      <div class="hub-meta">
+        <span class="hub-chip">ARTIFICIAL INTELLIGENCE</span>
+      </div>
+      <div class="hub-tag">UNIT · المنظومة الثانية</div>
+      <h2 class="hub-title">مركز الذكاء الاصطناعي</h2>
+      <p class="hub-desc">
+        منظومة معرفية متكاملة في تطبيقات AI العملية · من فهم النماذج اللغوية إلى بناء وكلاء أذكياء يخدمون أعمالك يومياً.
+      </p>
+
+      <div class="hub-feats">
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٢٢ وحدة</strong> تغطّي LLMs · Agents · RAG · MCP · Frameworks · أمن وحوكمة</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٤ تمريناً تطبيقياً</strong> + ٧٠ خطأ موثّق بحلوله + كود قابل للتشغيل</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>مكتبة <strong>٢٠ Prompt عقاري</strong> + معجم <strong>٨٥ مصطلحاً</strong> EN↔AR</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>خطّة <strong>٣٠ يوم تطبيقية</strong> · cheatsheets · معايير تقييم ذاتي</div></div>
+      </div>
+
+      <div class="hub-cta">
+        <span>ادخل للمركز</span>
+        <span class="hub-cta-arrow">←</span>
+      </div>
+    </a>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <!-- CARD 3: IT KNOWLEDGE CENTER                      -->
+    <!-- الرابط النسبي: تأكّد أن الملف it_hub.html         -->
+    <!-- موجود بنفس المجلّد، أو غيّر المسار حسب التنظيم    -->
+    <!-- ════════════════════════════════════════════════ -->
+    <a class="hub hub-it" href="./it_hub.html" target="_self">
+      <div class="hub-head">
+        <div class="hub-icon">💻</div>
+        <div class="hub-num">
+          <div class="hub-num-big">١٣٥</div>
+          <div class="hub-num-label">Topics</div>
+        </div>
+      </div>
+
+      <div class="hub-meta">
+        <span class="hub-chip">IT KNOWLEDGE CENTER</span>
+      </div>
+      <div class="hub-tag">UNIT · المنظومة الثالثة</div>
+      <h2 class="hub-title">مركز المعرفة التقنية</h2>
+      <p class="hub-desc">
+        مرجع شامل لمسارات تقنية المعلومات والشهادات الاحترافية · من المبتدئ إلى الـ C-Level · مع خرائط طريق ومقابلات ورواتب.
+      </p>
+
+      <div class="hub-feats">
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٣ مساراً تخصّصياً</strong>: شبكات · أمن سيبراني · سحابة · DevOps · AI · DBs</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٣٥+ شهادة وموضوع</strong>: CompTIA · Cisco · AWS · Azure · GCP · CISSP</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>مسارات للمبتدئ + المحترف + <strong>CTO / CDO / CISO</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>تحضير المقابلات · جداول رواتب · قاموس مصطلحات</div></div>
+      </div>
+
+      <div class="hub-cta">
+        <span>ادخل للمركز</span>
+        <span class="hub-cta-arrow">←</span>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div>
+    <span>المكتبة المعرفية</span>
+    <span class="foot-divider"></span>
+    <span>محتوى أصلي للتعلّم الذاتي</span>
+  </div>
+  <div>
+    <span>v1.0</span>
+    <span class="foot-divider"></span>
+    <span>2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

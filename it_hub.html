@@ -1401,6 +1401,19 @@ html,body{max-width:100%;overflow-x:hidden;}
       </div>
     </div>
 
+
+    <div class="sb-sec" id="ss-enterprise-saudi">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-enterprise-saudi')">
+        <div class="sb-sec-title">🏢 أدوات المؤسّسة السعودية</div>
+        <span class="sb-num">٢</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('power-bi')"><span class="sb-dot"></span>🆕 Power BI · DAX · M Language</div>
+        <div class="sb-item" onclick="showK('oracle-fusion')"><span class="sb-dot"></span>🆕 Oracle Fusion Cloud</div>
+      </div>
+    </div>
+
   </nav>
 </aside>
 
@@ -5161,7 +5174,277 @@ output "vpc_id" {
       </div>
     </div>
 
-  </div>
+  
+      <!-- KA: Power BI -->
+      <div class="ka" id="k-power-bi" style="display:none;">
+        <div class="kah"><div class="kai" style="background:var(--orange-bg);color:var(--orange);">📊</div>
+          <div class="kam"><div class="katitle">Power BI · DAX · M Language — المعمّق</div>
+            <div class="kasub">منصّة Microsoft للـ BI · Data Modeling · DAX · M · RLS · سياق سعودي</div>
+            <div class="kabadges"><span class="kab kab-2">متقدّم</span><span class="kab kab-1">ضروري للقياديّين</span><span class="kab">🇸🇦 Saudi Enterprise</span></div></div>
+        </div>
+        <div class="kab-body">
+
+          <div class="kb"><div class="kb-title">لماذا Power BI سيطر على السعودية?</div>
+            <div class="kb-text">Microsoft Power BI أصبح <strong>المعيار الفعلي</strong> للـ Business Intelligence في السعودية. كل شركة كبرى تستخدمه:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">💰 السعر</div><div class="ti-d">$١٠/مستخدم/شهر · أرخص من Tableau و Qlik بـ ٣-٥×.</div></div>
+              <div class="ti"><div class="ti-t">🔗 Microsoft Stack</div><div class="ti-d">تكامل أصلي مع Excel · M365 · Teams · Azure · Dynamics.</div></div>
+              <div class="ti"><div class="ti-t">🌍 العربية</div><div class="ti-d">دعم كامل للـ RTL والعربية · الأفضل عالمياً.</div></div>
+              <div class="ti"><div class="ti-t">📱 الـ Mobile</div><div class="ti-d">تطبيقات ممتازة للجوّال · للقياديّين في الميدان.</div></div>
+              <div class="ti"><div class="ti-t">🤖 AI Embedded</div><div class="ti-d">Copilot · Q&A بالعربية · ML built-in.</div></div>
+              <div class="ti"><div class="ti-t">🏢 Enterprise</div><div class="ti-d">Aramco · STC · سابك · NHC · ROSHN · الحكومة كلّها عليه.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">المكوّنات الأساسية</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Power BI Desktop</div><div class="ti-d">التطبيق الرئيسي للـ Development · مجّاني · Windows فقط.</div></div>
+              <div class="ti"><div class="ti-t">Power BI Service</div><div class="ti-d">الـ Cloud platform · Workspaces · Sharing · Scheduled refresh.</div></div>
+              <div class="ti"><div class="ti-t">Power BI Mobile</div><div class="ti-d">iOS · Android · Windows. للقياديّين والميدان.</div></div>
+              <div class="ti"><div class="ti-t">Power BI Report Server</div><div class="ti-d">On-premise option للـ Compliance · Saudi data residency.</div></div>
+              <div class="ti"><div class="ti-t">Power BI Embedded</div><div class="ti-d">دمج الـ Reports في تطبيقاتك الخاصّة.</div></div>
+              <div class="ti"><div class="ti-t">Power BI Premium / Fabric</div><div class="ti-d">للشركات الكبرى · Capacity-based · Fabric ٢٠٢٤+.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">٤ مراحل في Power BI Workflow</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">١. الـ Connect (Power Query)</div><div class="ti-d">اتّصل بـ ١٥٠+ مصدر بيانات (Oracle · SQL Server · Excel · APIs · Web · Files).</div></div>
+              <div class="ti"><div class="ti-t">٢. الـ Transform (M Language)</div><div class="ti-d">تنظيف · دمج · إعادة تشكيل البيانات. كل Step موثّق.</div></div>
+              <div class="ti"><div class="ti-t">٣. الـ Model (Star Schema)</div><div class="ti-d">جداول الـ Fact والـ Dimension · Relationships · DAX measures.</div></div>
+              <div class="ti"><div class="ti-t">٤. الـ Visualize (Reports)</div><div class="ti-d">الـ Visuals · Bookmarks · Drill-through · Custom Visuals.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">M Language (Power Query) — السلاح المخفي</div>
+            <div class="kb-text">الـ M = لغة الـ Data Transformation. تتعلّمها = تتحكّم في ٧٠٪ من الـ Workflow:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Filter Rows</div><div class="ti-d"><code>Table.SelectRows(Source, each [Status] = "Active")</code></div></div>
+              <div class="ti"><div class="ti-t">Add Column</div><div class="ti-d"><code>Table.AddColumn(Prev, "Year", each Date.Year([Date]))</code></div></div>
+              <div class="ti"><div class="ti-t">Merge Queries</div><div class="ti-d"><code>Table.NestedJoin(Sales, "CustID", Customers, "CustID")</code></div></div>
+              <div class="ti"><div class="ti-t">Pivot/Unpivot</div><div class="ti-d">تحويل الـ Wide format إلى Long للـ Analysis.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">DAX (Data Analysis Expressions) — الجوهر</div>
+            <div class="kb-text">الـ DAX = الفرق بين مستخدم عادي و Power BI Developer:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Basic Measures</div><div class="ti-d"><code>Total Sales = SUM(Sales[Amount])</code></div></div>
+              <div class="ti"><div class="ti-t">CALCULATE — الأهمّ</div><div class="ti-d"><code>Sales YTD = CALCULATE([Sales], DATESYTD(Cal[Date]))</code></div></div>
+              <div class="ti"><div class="ti-t">Time Intelligence</div><div class="ti-d">YTD · QTD · MTD · SAMEPERIODLASTYEAR · PARALLELPERIOD</div></div>
+              <div class="ti"><div class="ti-t">Iterators (X functions)</div><div class="ti-d">SUMX · AVERAGEX · MAXX. للحسابات على صفّ-صفّ.</div></div>
+              <div class="ti"><div class="ti-t">Filter Functions</div><div class="ti-d">FILTER · ALL · ALLEXCEPT · KEEPFILTERS. تتحكّم بالسياق.</div></div>
+              <div class="ti"><div class="ti-t">Variables (VAR)</div><div class="ti-d">يحسّن الأداء ويبسّط الكود. <code>VAR x = ... RETURN ...</code></div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Star Schema — Best Practice</div>
+            <div class="kb-text">قاعدة ذهبية: <strong>Fact Tables في الوسط · Dimension Tables حولها</strong>. لا Snowflake إلّا للضرورة:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Fact Tables</div><div class="ti-d">الـ Transactions · المقاييس (Sales · Orders · Project Hours).</div></div>
+              <div class="ti"><div class="ti-t">Dimension Tables</div><div class="ti-d">الـ Lookup (Customers · Products · Projects · Calendar).</div></div>
+              <div class="ti"><div class="ti-t">Relationships</div><div class="ti-d">One-to-Many من Dim للـ Fact · Single direction عادةً.</div></div>
+              <div class="ti"><div class="ti-t">Calendar Table</div><div class="ti-d">إلزامي للـ Time Intelligence. Hijri + Gregorian للسعودية.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">HTML Content Visual — للقادة المتقدّمين</div>
+            <div class="kb-text">الـ HTML Content visual يفتح إمكانيّات هائلة:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Weekly HTML Trackers</div><div class="ti-d">Tables مخصّصة مع Color coding و Delta indicators.</div></div>
+              <div class="ti"><div class="ti-t">DAX HTML Measures</div><div class="ti-d">توليد HTML ديناميكي عبر DAX. الـ Output يتغيّر مع البيانات.</div></div>
+              <div class="ti"><div class="ti-t">CEO Dashboards</div><div class="ti-d">Executive views بتصميم مخصّص لا يقدّمه الـ Native Visuals.</div></div>
+              <div class="ti"><div class="ti-t">LLI Tracking</div><div class="ti-d">Material status visualizations للمقاولات (نفعل هذا في NHC).</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">DAX Patterns الشائعة في المقاولات</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">SPI (Schedule Performance Index)</div><div class="ti-d"><code>SPI = DIVIDE([Earned Value], [Planned Value])</code></div></div>
+              <div class="ti"><div class="ti-t">CPI (Cost Performance Index)</div><div class="ti-d"><code>CPI = DIVIDE([Earned Value], [Actual Cost])</code></div></div>
+              <div class="ti"><div class="ti-t">LLI Status Color Coding</div><div class="ti-d"><code>IF([Days to Need] &lt; 30, "🔴", IF(...))</code></div></div>
+              <div class="ti"><div class="ti-t">Saudization Compliance</div><div class="ti-d">DAX measure مقارنة بنطاقات (أخضر/أصفر/أحمر).</div></div>
+              <div class="ti"><div class="ti-t">ABC Analysis</div><div class="ti-d">RANKX + Cumulative % للموردين والمواد.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Power BI في السعودية · الواقع</div>
+            <div class="kb-text">المشهد الفعلي ٢٠٢٦:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Aramco</div><div class="ti-d">Power BI + Spotfire · مئات الـ Dashboards على Azure.</div></div>
+              <div class="ti"><div class="ti-t">STC · Mobily</div><div class="ti-d">Power BI الأساسي + بعض Tableau.</div></div>
+              <div class="ti"><div class="ti-t">سابك</div><div class="ti-d">Power BI + SAP Analytics Cloud (Hybrid).</div></div>
+              <div class="ti"><div class="ti-t">NHC · ROSHN</div><div class="ti-d">Power BI Premium · للقادة · CEO Dashboards.</div></div>
+              <div class="ti"><div class="ti-t">الحكومة</div><div class="ti-d">Power BI Premium مدمج في Microsoft 365 GCC.</div></div>
+              <div class="ti"><div class="ti-t">SAMA · المصارف</div><div class="ti-d">Power BI + إنتاج محلّي ضمن الـ Cyber requirements.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Microsoft Fabric ٢٠٢٤+ — الجيل القادم</div>
+            <div class="kb-text">Microsoft دمجت Power BI في منصّة Fabric الشاملة:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Data Factory</div><div class="ti-d">للـ ETL/ELT pipelines.</div></div>
+              <div class="ti"><div class="ti-t">Lakehouse</div><div class="ti-d">Delta lake · Storage موحّد.</div></div>
+              <div class="ti"><div class="ti-t">Real-Time Analytics</div><div class="ti-d">للـ Streaming data.</div></div>
+              <div class="ti"><div class="ti-t">Copilot in Fabric</div><div class="ti-d">AI لكتابة DAX · M · SQL · Visuals.</div></div>
+              <div class="ti"><div class="ti-t">OneLake</div><div class="ti-d">Single storage · مثل OneDrive للبيانات.</div></div>
+              <div class="ti"><div class="ti-t">Data Science</div><div class="ti-d">Notebooks · MLflow integration.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">المسار المهني والرواتب · السعودية ٢٠٢٦</div>
+            <div class="schart">
+              <div class="srow"><div class="slbl">Power BI Analyst (Junior)</div><div class="sbar-w"><div class="sbar" style="width:30%"></div></div><div class="sval">١٢٠-١٨٠K SAR/سنة</div></div>
+              <div class="srow"><div class="slbl">Power BI Developer</div><div class="sbar-w"><div class="sbar" style="width:50%"></div></div><div class="sval">١٨٠-٢٨٠K SAR/سنة</div></div>
+              <div class="srow"><div class="slbl">Senior BI Engineer</div><div class="sbar-w"><div class="sbar" style="width:70%"></div></div><div class="sval">٢٨٠-٤٥٠K SAR/سنة</div></div>
+              <div class="srow"><div class="slbl">BI Manager / Lead</div><div class="sbar-w"><div class="sbar" style="width:85%"></div></div><div class="sval">٤٥٠-٦٥٠K SAR/سنة</div></div>
+              <div class="srow"><div class="slbl">Head of Data / Analytics</div><div class="sbar-w"><div class="sbar" style="width:95%"></div></div><div class="sval">٦٥٠K-١.٢M SAR/سنة</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">شهادات Power BI · ٢٠٢٦</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">PL-300 (Power BI Data Analyst)</div><div class="ti-d">الشهادة الأساسية · $١٦٥ · ضروري.</div></div>
+              <div class="ti"><div class="ti-t">DP-500 (Enterprise Data Analyst)</div><div class="ti-d">المتقدّم · Architecture · للسنوات ٣+.</div></div>
+              <div class="ti"><div class="ti-t">DP-600 (Fabric Analytics Engineer)</div><div class="ti-d">الجديد ٢٠٢٤ · للـ Fabric era.</div></div>
+              <div class="ti"><div class="ti-t">Microsoft Learn</div><div class="ti-d">مجّاناً · المسار الرسمي · YouTube (Guy in a Cube) ممتاز.</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- KA: Oracle Fusion Cloud -->
+      <div class="ka" id="k-oracle-fusion" style="display:none;">
+        <div class="kah"><div class="kai" style="background:var(--red-bg);color:var(--red);">🏛️</div>
+          <div class="kam"><div class="katitle">Oracle Fusion Cloud — المعمّق</div>
+            <div class="kasub">ERP · Procurement · SCM · HCM · OIC · Primavera · Saudi Mega Projects</div>
+            <div class="kabadges"><span class="kab kab-2">متقدّم</span><span class="kab kab-1">Enterprise</span><span class="kab">🇸🇦 NHC · Aramco</span></div></div>
+        </div>
+        <div class="kab-body">
+
+          <div class="kb"><div class="kb-title">لماذا Oracle في السعودية?</div>
+            <div class="kb-text">Oracle لها وضع خاصّ في السعودية. الـ Mega Projects كلّها عليها:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">🛢️ Aramco</div><div class="ti-d">أكبر Oracle deployment في الشرق الأوسط · ERP + EBS + Cloud.</div></div>
+              <div class="ti"><div class="ti-t">🏢 NHC · ROSHN</div><div class="ti-d">Oracle Fusion Cloud (ERP + Procurement + EPM).</div></div>
+              <div class="ti"><div class="ti-t">⛰️ NEOM</div><div class="ti-d">Oracle Cloud + Custom architecture.</div></div>
+              <div class="ti"><div class="ti-t">🏥 الصحّة</div><div class="ti-d">وزارة الصحّة · مستشفيات كبرى.</div></div>
+              <div class="ti"><div class="ti-t">🛒 المشتريات</div><div class="ti-d">Etimad يتكامل مع Oracle لكثير من الجهات الحكومية.</div></div>
+              <div class="ti"><div class="ti-t">📊 Saudi DC</div><div class="ti-d">Oracle Cloud Region في الرياض ٢٠٢٢+ · Data residency.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Oracle Fusion Cloud — التطوّر</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Oracle E-Business Suite (EBS)</div><div class="ti-d">الـ Legacy On-premise · لا يزال شائعاً في Aramco · يُهجَر تدريجياً.</div></div>
+              <div class="ti"><div class="ti-t">Oracle Cloud Applications</div><div class="ti-d">الجديد · SaaS · Quarterly updates · No customization deep.</div></div>
+              <div class="ti"><div class="ti-t">Oracle Fusion Cloud</div><div class="ti-d">الـ Suite الموحّد · ERP + SCM + HCM + EPM + CX.</div></div>
+              <div class="ti"><div class="ti-t">Oracle Industry Solutions</div><div class="ti-d">للـ Public Sector · Construction · Healthcare · إلخ.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">الـ Suite الكامل · ٦ Modules رئيسية</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">١. Financials Cloud</div><div class="ti-d">GL · AP · AR · Fixed Assets · Cash Management · Revenue Mgmt.</div></div>
+              <div class="ti"><div class="ti-t">٢. Procurement Cloud</div><div class="ti-d">Self-Service Procurement · Sourcing · Contracts · Supplier Portal.</div></div>
+              <div class="ti"><div class="ti-t">٣. SCM Cloud</div><div class="ti-d">Inventory · Order Mgmt · Manufacturing · Logistics · Planning.</div></div>
+              <div class="ti"><div class="ti-t">٤. HCM Cloud</div><div class="ti-d">Core HR · Talent · Compensation · Payroll · Saudi-localized.</div></div>
+              <div class="ti"><div class="ti-t">٥. EPM Cloud</div><div class="ti-d">Planning · Budgeting · Consolidation · Narrative Reporting.</div></div>
+              <div class="ti"><div class="ti-t">٦. CX Cloud</div><div class="ti-d">Sales · Service · Marketing · Customer Data Platform.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Oracle Procurement Cloud — تفصيلي</div>
+            <div class="kb-text">للقائد في المشتريات · هذا الـ Module هو الأهمّ:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Self-Service Procurement</div><div class="ti-d">للمستخدمين النهائيّين · PR · Catalog · Smart forms.</div></div>
+              <div class="ti"><div class="ti-t">Sourcing</div><div class="ti-d">RFI · RFQ · RFP · Reverse Auctions · Weighted scoring.</div></div>
+              <div class="ti"><div class="ti-t">Purchasing</div><div class="ti-d">POs · Blanket · Frame agreements · Approval workflows.</div></div>
+              <div class="ti"><div class="ti-t">Supplier Portal</div><div class="ti-d">Suppliers يدخلون · يقدّمون فواتير · يرون مدفوعات.</div></div>
+              <div class="ti"><div class="ti-t">Procurement Contracts</div><div class="ti-d">CLM · Clauses library · Approvals · Renewal alerts.</div></div>
+              <div class="ti"><div class="ti-t">Spend Classification</div><div class="ti-d">AI-driven categorization · Spend Analytics dashboards.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Oracle Primavera Suite</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Primavera P6 Professional</div><div class="ti-d">الـ Standard العالمي لجدولة المشاريع · للمشاريع المعقّدة.</div></div>
+              <div class="ti"><div class="ti-t">Primavera Cloud</div><div class="ti-d">الـ Web/Cloud version · أبسط · للمستويات المتعدّدة.</div></div>
+              <div class="ti"><div class="ti-t">Primavera Unifier</div><div class="ti-d">Project controls · Cost · Budget · Contracts · NHC و ROSHN يستخدمونه.</div></div>
+              <div class="ti"><div class="ti-t">Primavera Risk Analysis</div><div class="ti-d">Monte Carlo · Schedule + Cost risk.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Oracle Integration Cloud (OIC) — السحري</div>
+            <div class="kb-text">OIC هو الـ "Glue" بين Oracle و كل شيء آخر:</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">٥٠٠+ Pre-built Adapters</div><div class="ti-d">SAP · Salesforce · Workday · Microsoft · ZATCA · Etimad.</div></div>
+              <div class="ti"><div class="ti-t">Process Automation</div><div class="ti-d">Workflows عبر أنظمة متعدّدة · Low-code.</div></div>
+              <div class="ti"><div class="ti-t">Visual Builder</div><div class="ti-d">Custom UIs · Mobile apps لـ Oracle.</div></div>
+              <div class="ti"><div class="ti-t">B2B Integration</div><div class="ti-d">EDI · XML · API · Trading partners.</div></div>
+              <div class="ti"><div class="ti-t">ZATCA Integration</div><div class="ti-d">E-Invoicing فاتورة · Phase 2 compliant.</div></div>
+              <div class="ti"><div class="ti-t">Etimad Integration</div><div class="ti-d">للجهات الحكومية · Tenders + Procurement.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Implementation · ما يجب أن تعرفه</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">المدّة</div><div class="ti-d">١٢-٢٤ شهراً للـ Full ERP · ٦-١٢ شهراً للـ Single module.</div></div>
+              <div class="ti"><div class="ti-t">التكلفة</div><div class="ti-d">License: $٢-٥٠M سنوياً · Implementation: $٥-٥٠M one-time.</div></div>
+              <div class="ti"><div class="ti-t">الـ Partner</div><div class="ti-d">Accenture · Deloitte · PwC · KPMG · المحلّيّون (Saudi Oracle partners).</div></div>
+              <div class="ti"><div class="ti-t">المنهجية</div><div class="ti-d">OUM (Oracle Unified Method) · True Cloud Method.</div></div>
+              <div class="ti"><div class="ti-t">المخاطر</div><div class="ti-d">Over-customization · Data migration · Change management.</div></div>
+              <div class="ti"><div class="ti-t">الـ Success Factors</div><div class="ti-d">Executive sponsor · Clean data · Strong PMO · Training.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Oracle vs SAP — المقارنة الإستراتيجية</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Oracle Cloud</div><div class="ti-d">السعودية · الـ Mega projects · Construction · Healthcare · Public Sector.</div></div>
+              <div class="ti"><div class="ti-t">SAP S/4HANA</div><div class="ti-d">سابك · الصناعات · Manufacturing · Automotive.</div></div>
+              <div class="ti"><div class="ti-t">Pricing</div><div class="ti-d">Oracle: User-based · SAP: User + Module-based.</div></div>
+              <div class="ti"><div class="ti-t">Complexity</div><div class="ti-d">Oracle Cloud أبسط · SAP أعمق customization.</div></div>
+              <div class="ti"><div class="ti-t">UX</div><div class="ti-d">Oracle Redwood UX حديث · SAP Fiori تطوّر.</div></div>
+              <div class="ti"><div class="ti-t">Arabic Support</div><div class="ti-d">كلاهما يدعم · Oracle أوسع في Localizations.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Oracle في السياق السعودي ٢٠٢٦</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">Oracle Cloud Riyadh Region</div><div class="ti-d">منذ ٢٠٢٢ · Data residency · يخدم القطاع الحكومي.</div></div>
+              <div class="ti"><div class="ti-t">ZATCA E-Invoicing</div><div class="ti-d">Native support في Oracle Cloud · Phase 2 compliant.</div></div>
+              <div class="ti"><div class="ti-t">LCGPA Local Content</div><div class="ti-d">Reports جاهزة في Fusion Procurement.</div></div>
+              <div class="ti"><div class="ti-t">السعودة Reports</div><div class="ti-d">HCM Cloud مع Nitaqat tracking.</div></div>
+              <div class="ti"><div class="ti-t">Vision 2030 Projects</div><div class="ti-d">NEOM · Red Sea · Diriyah · معظمها على Oracle.</div></div>
+              <div class="ti"><div class="ti-t">CostOS Integration</div><div class="ti-d">Cost estimating tool · يتكامل مع Primavera.</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">المسار المهني والرواتب · السعودية ٢٠٢٦</div>
+            <div class="schart">
+              <div class="srow"><div class="slbl">Oracle Functional Junior</div><div class="sbar-w"><div class="sbar" style="width:25%"></div></div><div class="sval">١٢٠-١٨٠K SAR</div></div>
+              <div class="srow"><div class="slbl">Oracle Senior Consultant</div><div class="sbar-w"><div class="sbar" style="width:55%"></div></div><div class="sval">٢٤٠-٤٠٠K SAR</div></div>
+              <div class="srow"><div class="slbl">Oracle Lead/Manager</div><div class="sbar-w"><div class="sbar" style="width:75%"></div></div><div class="sval">٤٠٠-٦٥٠K SAR</div></div>
+              <div class="srow"><div class="slbl">Solution Architect</div><div class="sbar-w"><div class="sbar" style="width:90%"></div></div><div class="sval">٦٥٠K-١M SAR</div></div>
+              <div class="srow"><div class="slbl">Practice Lead / CTO</div><div class="sbar-w"><div class="sbar" style="width:99%"></div></div><div class="sval">١M-٢M+ SAR</div></div>
+            </div>
+          </div>
+
+          <div class="kb"><div class="kb-title">Oracle Certifications الأهمّ</div>
+            <div class="tgrid">
+              <div class="ti"><div class="ti-t">OCI Foundations</div><div class="ti-d">الأساس · مجّاناً عبر Oracle University.</div></div>
+              <div class="ti"><div class="ti-t">OCI Associate/Professional/Architect</div><div class="ti-d">للـ Cloud architects.</div></div>
+              <div class="ti"><div class="ti-t">Fusion Cloud Procurement Specialist</div><div class="ti-d">للقائد في المشتريات.</div></div>
+              <div class="ti"><div class="ti-t">Fusion Cloud Financials Specialist</div><div class="ti-d">للماليّين.</div></div>
+              <div class="ti"><div class="ti-t">Primavera P6 Professional</div><div class="ti-d">للمدراء المشاريع.</div></div>
+              <div class="ti"><div class="ti-t">Oracle Autonomous Database</div><div class="ti-d">الـ DB Generation الجديد.</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+</div>
     <!-- CRYPTO -->
     <div id="k-crypto-deep" style="display:none">
       <div class="ka">

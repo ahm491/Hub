@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>مكتبة المراكز المعرفية</title>
+<title>المنظومة المعرفية · ٦ مراكز تخصّصية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@ body{
 
 /* Header */
 .brand{
-  max-width:1280px;
+  max-width:1400px;
   margin:0 auto;
   padding:48px 32px 24px;
   width:100%;
@@ -83,7 +83,7 @@ body{
 .brand-sub{
   font-size:15px;
   color:var(--ink2);
-  max-width:560px;
+  max-width:700px;
   line-height:1.85;
   font-weight:400;
 }
@@ -96,25 +96,48 @@ body{
   color:var(--indigo);
   font-weight:700;
 }
-.brand-sub .brand-it-tag{
-  color:#0f766e;
+.brand-stats{
+  display:flex;
+  gap:32px;
+  margin-top:22px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.brand-stat{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+}
+.brand-stat-num{
+  font-family:'Tajawal',sans-serif;
+  font-size:24px;
+  font-weight:900;
+  color:var(--ink);
+  letter-spacing:-0.5px;
+  line-height:1;
+}
+.brand-stat-label{
+  font-family:'Tajawal',sans-serif;
+  font-size:10px;
   font-weight:700;
+  color:var(--muted);
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 /* Main content area */
 .main{
   flex:1;
-  max-width:1280px;
+  max-width:1400px;
   margin:0 auto;
   padding:24px 32px 48px;
   width:100%;
-  display:flex;
-  align-items:center;
 }
 .hubs{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
-  gap:22px;
+  gap:20px;
   width:100%;
 }
 
@@ -124,7 +147,7 @@ body{
   background:#fff;
   border:1px solid var(--line);
   border-radius:16px;
-  padding:36px 32px 32px;
+  padding:32px 28px 28px;
   transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
   text-decoration:none;
   color:inherit;
@@ -187,26 +210,59 @@ body{
   background:linear-gradient(135deg, rgba(204,251,241,0.5) 0%, transparent 100%);
 }
 
+/* Card 4: Finance — emerald green */
+.hub-fin{
+  --accent:#047857;
+  --accent-dark:#065f46;
+  --accent-soft:#d1fae5;
+  --shadow:rgba(4,120,87,0.18);
+}
+.hub-fin::before{
+  background:linear-gradient(135deg, rgba(209,250,229,0.5) 0%, transparent 100%);
+}
+
+/* Card 5: Leadership — royal purple */
+.hub-lead{
+  --accent:#7c3aed;
+  --accent-dark:#6d28d9;
+  --accent-soft:#ede9fe;
+  --shadow:rgba(124,58,237,0.18);
+}
+.hub-lead::before{
+  background:linear-gradient(135deg, rgba(237,233,254,0.5) 0%, transparent 100%);
+}
+
+/* Card 6: SCM — navy steel blue */
+.hub-scm{
+  --accent:#1e3a8a;
+  --accent-dark:#1e40af;
+  --accent-soft:#dbeafe;
+  --shadow:rgba(30,58,138,0.18);
+}
+.hub-scm::before{
+  background:linear-gradient(135deg, rgba(219,234,254,0.5) 0%, transparent 100%);
+}
+
 /* Card header */
 .hub-head{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
   gap:16px;
-  margin-bottom:24px;
-  padding-bottom:24px;
+  margin-bottom:20px;
+  padding-bottom:20px;
   border-bottom:1px solid var(--line);
 }
 .hub-icon{
-  width:56px;
-  height:56px;
+  width:52px;
+  height:52px;
   border-radius:14px;
   background:var(--accent-soft);
   color:var(--accent-dark);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:26px;
+  font-size:24px;
   flex-shrink:0;
 }
 .hub-num{
@@ -215,7 +271,7 @@ body{
 }
 .hub-num-big{
   font-family:'Tajawal',sans-serif;
-  font-size:32px;
+  font-size:30px;
   font-weight:900;
   color:var(--accent);
   line-height:1;
@@ -243,7 +299,7 @@ body{
 }
 .hub-title{
   font-family:'Tajawal',sans-serif;
-  font-size:24px;
+  font-size:22px;
   font-weight:900;
   color:var(--ink);
   line-height:1.25;
@@ -251,25 +307,25 @@ body{
   letter-spacing:-0.3px;
 }
 .hub-desc{
-  font-size:13.5px;
+  font-size:13px;
   color:var(--ink2);
   line-height:1.85;
-  margin-bottom:22px;
+  margin-bottom:20px;
 }
 
 /* Features */
 .hub-feats{
   display:flex;
   flex-direction:column;
-  gap:9px;
-  margin-bottom:28px;
+  gap:8px;
+  margin-bottom:24px;
   flex:1;
 }
 .hub-feat{
   display:flex;
   align-items:flex-start;
   gap:11px;
-  font-size:12.5px;
+  font-size:12px;
   color:var(--ink2);
   line-height:1.6;
 }
@@ -279,7 +335,7 @@ body{
   background:var(--accent);
   border-radius:50%;
   flex-shrink:0;
-  margin-top:8px;
+  margin-top:7px;
 }
 .hub-feat strong{
   color:var(--ink);
@@ -292,13 +348,13 @@ body{
   align-items:center;
   justify-content:space-between;
   gap:8px;
-  padding:14px 20px;
+  padding:13px 18px;
   background:transparent;
   border:1.5px solid var(--accent);
   color:var(--accent);
   border-radius:10px;
   font-family:'Tajawal',sans-serif;
-  font-size:14px;
+  font-size:13.5px;
   font-weight:800;
   letter-spacing:0.5px;
   transition:all 0.25s ease;
@@ -311,12 +367,12 @@ body{
   font-family:system-ui,sans-serif;
 }
 
-/* Coming soon ribbon (optional, for placeholder state) */
+/* Meta chip */
 .hub-meta{
   display:flex;
   gap:6px;
   align-items:center;
-  margin-bottom:16px;
+  margin-bottom:14px;
   flex-wrap:wrap;
 }
 .hub-chip{
@@ -330,12 +386,16 @@ body{
   color:var(--accent-dark);
   text-transform:uppercase;
 }
+.hub-chip.chip-new{
+  background:#fef3c7;
+  color:#92400e;
+}
 
 /* Footer */
 .foot{
   border-top:1px solid var(--line);
   padding:24px 32px;
-  max-width:1280px;
+  max-width:1400px;
   margin:0 auto;
   width:100%;
   display:flex;
@@ -361,13 +421,16 @@ body{
   to{opacity:1;transform:translateY(0)}
 }
 .brand{animation:rise 0.6s cubic-bezier(0.16,1,0.3,1) both}
-.hub-corp{animation:rise 0.7s 0.15s cubic-bezier(0.16,1,0.3,1) both}
-.hub-ai{animation:rise 0.7s 0.25s cubic-bezier(0.16,1,0.3,1) both}
-.hub-it{animation:rise 0.7s 0.35s cubic-bezier(0.16,1,0.3,1) both}
-.foot{animation:rise 0.6s 0.5s cubic-bezier(0.16,1,0.3,1) both}
+.hub-corp{animation:rise 0.7s 0.10s cubic-bezier(0.16,1,0.3,1) both}
+.hub-lead{animation:rise 0.7s 0.20s cubic-bezier(0.16,1,0.3,1) both}
+.hub-scm{animation:rise 0.7s 0.30s cubic-bezier(0.16,1,0.3,1) both}
+.hub-ai{animation:rise 0.7s 0.40s cubic-bezier(0.16,1,0.3,1) both}
+.hub-it{animation:rise 0.7s 0.50s cubic-bezier(0.16,1,0.3,1) both}
+.hub-fin{animation:rise 0.7s 0.60s cubic-bezier(0.16,1,0.3,1) both}
+.foot{animation:rise 0.6s 0.70s cubic-bezier(0.16,1,0.3,1) both}
 
-/* Tablet */
-@media(max-width:1080px){
+/* Tablet (large) — 3 → 2 cols */
+@media(max-width:1180px){
   .hubs{grid-template-columns:repeat(2, 1fr)}
   .main{max-width:900px}
   .brand{max-width:900px}
@@ -379,12 +442,14 @@ body{
   .brand{padding:36px 22px 16px}
   .brand-title{font-size:26px}
   .brand-sub{font-size:13.5px}
+  .brand-stats{gap:20px;margin-top:18px}
+  .brand-stat-num{font-size:20px}
   .main{padding:18px 22px 36px}
   .hubs{grid-template-columns:1fr;gap:18px}
-  .hub{padding:28px 24px 24px}
-  .hub-title{font-size:21px}
-  .hub-icon{width:48px;height:48px;font-size:22px}
-  .hub-num-big{font-size:28px}
+  .hub{padding:26px 22px 22px}
+  .hub-title{font-size:20px}
+  .hub-icon{width:46px;height:46px;font-size:22px}
+  .hub-num-big{font-size:26px}
   .foot{padding:20px 22px;font-size:10.5px;flex-direction:column;gap:6px;text-align:center}
 }
 </style>
@@ -392,12 +457,23 @@ body{
 <body>
 
 <header class="brand">
-  <div class="brand-mark">المكتبة المعرفية</div>
-  <h1 class="brand-title">ثلاثة مراكز معرفيّة · هدف واحد</h1>
+  <div class="brand-mark">المنظومة المعرفية</div>
+  <h1 class="brand-title">ستّة مراكز معرفيّة · هدف واحد</h1>
   <p class="brand-sub">
     منظومات متكاملة من المعرفة التطبيقية في
-    <em>الأداء المؤسسي</em>، <strong>الذكاء الاصطناعي</strong>، و<span class="brand-it-tag">تقنية المعلومات</span> — مُصمَّمة للتعلّم الذاتي والتطبيق الفوري دون الحاجة لمصادر خارجية.
+    <em>الأداء المؤسسي</em>،
+    <strong>القيادة والإستراتيجية</strong>،
+    <strong>المشتريات وسلسلة الإمداد</strong>،
+    <em>الذكاء الاصطناعي</em>،
+    <strong>تقنية المعلومات</strong>،
+    و<em>المالية</em> — مُصمَّمة للتعلّم الذاتي والتطبيق الفوري في السياق السعودي.
   </p>
+  <div class="brand-stats">
+    <div class="brand-stat"><div class="brand-stat-num">٦</div><div class="brand-stat-label">Hubs</div></div>
+    <div class="brand-stat"><div class="brand-stat-num">٣١٣</div><div class="brand-stat-label">Modules</div></div>
+    <div class="brand-stat"><div class="brand-stat-num">~٥.٤MB</div><div class="brand-stat-label">Content</div></div>
+    <div class="brand-stat"><div class="brand-stat-num">٢٠٢٦</div><div class="brand-stat-label">Edition</div></div>
+  </div>
 </header>
 
 <main class="main">
@@ -406,11 +482,11 @@ body{
     <!-- ════════════════════════════════════════════════ -->
     <!-- CARD 1: CORPORATE PERFORMANCE HUB                -->
     <!-- ════════════════════════════════════════════════ -->
-    <a class="hub hub-corp" href="./cpm_hub.html" target="_self">
+    <a class="hub hub-corp" href="./cpm.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">📊</div>
         <div class="hub-num">
-          <div class="hub-num-big">٣٤</div>
+          <div class="hub-num-big">٤٠</div>
           <div class="hub-num-label">Modules</div>
         </div>
       </div>
@@ -421,14 +497,14 @@ body{
       <div class="hub-tag">UNIT · المنظومة الأولى</div>
       <h2 class="hub-title">مركز الأداء المؤسسي</h2>
       <p class="hub-desc">
-        الإطار الجامع للأداء المؤسسي · منظومة شاملة لإدارة الأداء، التخطيط الاستراتيجي، وقياس الفاعلية في المؤسسات الحديثة.
+        الإطار الجامع للأداء المؤسّسي · BSC · OKRs · KPIs · EVM · FP&A · مع وحدات حديثة ٢٠٢٦ في AI · ESG · People Analytics.
       </p>
 
       <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٣٤ وحدة</strong> تغطّي إدارة الأداء من البنية الاستراتيجية إلى التنفيذ</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٦٨+ حالة دراسية</strong> من تطبيقات إقليمية وعالمية</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>أُطر معتمدة: <strong>BSC · OKRs · KPIs · EFQM · Baldrige</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>محتوى عربي احترافي · جاهز للمراجعة التنفيذية</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٤٠ وحدة</strong> · من الإستراتيجية للتنفيذ</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>أُطر معتمدة: <strong>BSC · OKRs · EFQM · Baldrige · EVM</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>🆕 <strong>AI في الأداء · ESG · People Analytics</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>السياق السعودي · NHC · Vision 2030 · CMA</div></div>
       </div>
 
       <div class="hub-cta">
@@ -438,15 +514,81 @@ body{
     </a>
 
     <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 2: AI HUB                                   -->
-    <!-- الرابط النسبي: تأكّد أن الملف ai_hub.html         -->
-    <!-- موجود بنفس المجلّد، أو غيّر المسار حسب التنظيم    -->
+    <!-- CARD 2: LEADERSHIP HUB                           -->
+    <!-- ════════════════════════════════════════════════ -->
+    <a class="hub hub-lead" href="./leadership_hub.html" target="_self">
+      <div class="hub-head">
+        <div class="hub-icon">👑</div>
+        <div class="hub-num">
+          <div class="hub-num-big">٣٧</div>
+          <div class="hub-num-label">Modules</div>
+        </div>
+      </div>
+
+      <div class="hub-meta">
+        <span class="hub-chip">LEADERSHIP & STRATEGY</span>
+      </div>
+      <div class="hub-tag">UNIT · المنظومة الثانية</div>
+      <h2 class="hub-title">مركز القيادة والإستراتيجية</h2>
+      <p class="hub-desc">
+        الإطار الفكري للقائد التنفيذي · من نظريّات القيادة الكلاسيكية إلى Modern Strategy · المفاوضات · M&A · الابتكار · رؤية ٢٠٣٠.
+      </p>
+
+      <div class="hub-feats">
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٣٧ وحدة</strong> · للقائد التنفيذي السعودي</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٤ كتاب كلاسيكي</strong> مدمج (Getting to Yes · 7 Habits · Lencioni · Christensen)</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>المفاوضات · M&A · الابتكار · الحضور التنفيذي</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>Vision 2030 module ختامي · مسار EMBA/DBA</div></div>
+      </div>
+
+      <div class="hub-cta">
+        <span>ادخل للمركز</span>
+        <span class="hub-cta-arrow">←</span>
+      </div>
+    </a>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <!-- CARD 3: SCM HUB                                  -->
+    <!-- ════════════════════════════════════════════════ -->
+    <a class="hub hub-scm" href="./scm_hub.html" target="_self">
+      <div class="hub-head">
+        <div class="hub-icon">📦</div>
+        <div class="hub-num">
+          <div class="hub-num-big">٢٩</div>
+          <div class="hub-num-label">Modules</div>
+        </div>
+      </div>
+
+      <div class="hub-meta">
+        <span class="hub-chip">PROCUREMENT & SCM</span>
+      </div>
+      <div class="hub-tag">UNIT · المنظومة الثالثة</div>
+      <h2 class="hub-title">مركز المشتريات وسلسلة الإمداد</h2>
+      <p class="hub-desc">
+        المرجع التخصّصي السعودي · Procurement · SCM · مشتريات المقاولات · المنظومة السعودية (Etimad · IKTVA · LCGPA · نزاهة) · حوكمة.
+      </p>
+
+      <div class="hub-feats">
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٢٩ وحدة</strong> · أعمق سياق سعودي</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>Etimad · IKTVA · LCGPA · نزاهة · CCS · المستخلصات</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>تخصّص المقاولات · LLI · المقاولون الباطن · NHC</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>AI in Procurement · مكافحة الفساد · FCPA</div></div>
+      </div>
+
+      <div class="hub-cta">
+        <span>ادخل للمركز</span>
+        <span class="hub-cta-arrow">←</span>
+      </div>
+    </a>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <!-- CARD 4: AI HUB                                   -->
     <!-- ════════════════════════════════════════════════ -->
     <a class="hub hub-ai" href="./ai_hub.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">🧠</div>
         <div class="hub-num">
-          <div class="hub-num-big">٢٢</div>
+          <div class="hub-num-big">٢٣</div>
           <div class="hub-num-label">Modules</div>
         </div>
       </div>
@@ -454,17 +596,17 @@ body{
       <div class="hub-meta">
         <span class="hub-chip">ARTIFICIAL INTELLIGENCE</span>
       </div>
-      <div class="hub-tag">UNIT · المنظومة الثانية</div>
+      <div class="hub-tag">UNIT · المنظومة الرابعة</div>
       <h2 class="hub-title">مركز الذكاء الاصطناعي</h2>
       <p class="hub-desc">
-        منظومة معرفية متكاملة في تطبيقات AI العملية · من فهم النماذج اللغوية إلى بناء وكلاء أذكياء يخدمون أعمالك يومياً.
+        منظومة متكاملة في الـ AI العملي · من LLMs إلى Agents · RAG · MCP · GenAI · مع تركيز على PDPL السعودي و Allam.
       </p>
 
       <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٢٢ وحدة</strong> تغطّي LLMs · Agents · RAG · MCP · Frameworks · أمن وحوكمة</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٤ تمريناً تطبيقياً</strong> + ٧٠ خطأ موثّق بحلوله + كود قابل للتشغيل</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>مكتبة <strong>٢٠ Prompt عقاري</strong> + معجم <strong>٨٥ مصطلحاً</strong> EN↔AR</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>خطّة <strong>٣٠ يوم تطبيقية</strong> · cheatsheets · معايير تقييم ذاتي</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٢٣ وحدة</strong> كلّها عميقة (١٢-٥٩ KB)</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>LLMs · Agents · RAG · MCP · Vector DBs · Frameworks</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>🆕 Sora 2 · Veo 3 · ElevenLabs · Voice Agents</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>OWASP LLM · PDPL · NCA ECC · Allam السعودي</div></div>
       </div>
 
       <div class="hub-cta">
@@ -474,15 +616,13 @@ body{
     </a>
 
     <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 3: IT KNOWLEDGE CENTER                      -->
-    <!-- الرابط النسبي: تأكّد أن الملف it_hub.html         -->
-    <!-- موجود بنفس المجلّد، أو غيّر المسار حسب التنظيم    -->
+    <!-- CARD 5: IT KNOWLEDGE CENTER                      -->
     <!-- ════════════════════════════════════════════════ -->
     <a class="hub hub-it" href="./it_hub.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">💻</div>
         <div class="hub-num">
-          <div class="hub-num-big">١٣٥</div>
+          <div class="hub-num-big">١٤١</div>
           <div class="hub-num-label">Topics</div>
         </div>
       </div>
@@ -490,17 +630,51 @@ body{
       <div class="hub-meta">
         <span class="hub-chip">IT KNOWLEDGE CENTER</span>
       </div>
-      <div class="hub-tag">UNIT · المنظومة الثالثة</div>
+      <div class="hub-tag">UNIT · المنظومة الخامسة</div>
       <h2 class="hub-title">مركز المعرفة التقنية</h2>
       <p class="hub-desc">
-        مرجع شامل لمسارات تقنية المعلومات والشهادات الاحترافية · من المبتدئ إلى الـ C-Level · مع خرائط طريق ومقابلات ورواتب.
+        مرجع شامل لمسارات تقنية المعلومات والشهادات الاحترافية · من المبتدئ إلى CTO/CISO · مع أدوات المؤسّسة السعودية.
       </p>
 
       <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٣ مساراً تخصّصياً</strong>: شبكات · أمن سيبراني · سحابة · DevOps · AI · DBs</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٣٥+ شهادة وموضوع</strong>: CompTIA · Cisco · AWS · Azure · GCP · CISSP</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>مسارات للمبتدئ + المحترف + <strong>CTO / CDO / CISO</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>تحضير المقابلات · جداول رواتب · قاموس مصطلحات</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٤١ موضوعاً</strong>: شبكات · أمن · سحابة · DevOps · AI · DBs</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>+٢٠٠ شهادة</strong>: CompTIA · Cisco · AWS · Azure · CISSP</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>🆕 <strong>Power BI · DAX · Oracle Fusion Cloud</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>المقابلات · الرواتب السعودية · قاموس المصطلحات</div></div>
+      </div>
+
+      <div class="hub-cta">
+        <span>ادخل للمركز</span>
+        <span class="hub-cta-arrow">←</span>
+      </div>
+    </a>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <!-- CARD 6: FINANCE HUB                              -->
+    <!-- ════════════════════════════════════════════════ -->
+    <a class="hub hub-fin" href="./finance_hub.html" target="_self">
+      <div class="hub-head">
+        <div class="hub-icon">💰</div>
+        <div class="hub-num">
+          <div class="hub-num-big">٤٣</div>
+          <div class="hub-num-label">Modules</div>
+        </div>
+      </div>
+
+      <div class="hub-meta">
+        <span class="hub-chip">FINANCE KNOWLEDGE HUB</span>
+      </div>
+      <div class="hub-tag">UNIT · المنظومة السادسة</div>
+      <h2 class="hub-title">مركز المعرفة المالية</h2>
+      <p class="hub-desc">
+        منظومة شاملة في التمويل والاستثمار · من القوائم المالية إلى تقييم الشركات والاستثمار في تداول · مع تركيز على السياق السعودي.
+      </p>
+
+      <div class="hub-feats">
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٤٣ وحدة</strong>: أساسيات · شركات · استثمار · أسواق · بنوك</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>التمويل الإسلامي</strong> · المرابحة · الإجارة · الصكوك · التكافل</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>تداول · PIF · SAMA · ZATCA</strong> · رؤية ٢٠٣٠</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>صيغ ومعادلات · حالات دراسية · أمثلة محسوبة</div></div>
       </div>
 
       <div class="hub-cta">
@@ -514,14 +688,16 @@ body{
 
 <footer class="foot">
   <div>
-    <span>المكتبة المعرفية</span>
+    <span>المنظومة المعرفية</span>
     <span class="foot-divider"></span>
-    <span>محتوى أصلي للتعلّم الذاتي</span>
+    <span>محتوى أصلي للتعلّم الذاتي والتطبيق</span>
   </div>
   <div>
-    <span>v1.0</span>
+    <span>v2.0</span>
     <span class="foot-divider"></span>
-    <span>2026</span>
+    <span>2026 Edition</span>
+    <span class="foot-divider"></span>
+    <span>~٥.٤MB · ٣١٣ وحدة</span>
   </div>
 </footer>
 

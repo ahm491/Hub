@@ -2393,65 +2393,9 @@ body:has(.sidebar.mobile-open){
   background: linear-gradient(90deg, #d4cdbe 0%, transparent 100%) !important;
 }
 
-
-/* ━━ Back-to-Home floating button ━━ */
-.back-home{
-  position:fixed;
-  top:14px;
-  left:14px;
-  z-index:1500;
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  padding:8px 14px 8px 12px;
-  background:rgba(28,25,23,0.88);
-  color:#fafaf9;
-  border-radius:999px;
-  font-family:'Tajawal',sans-serif;
-  font-size:12.5px;
-  font-weight:700;
-  letter-spacing:0.2px;
-  text-decoration:none;
-  -webkit-backdrop-filter:blur(10px);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 6px 20px -4px rgba(0,0,0,0.25);
-  transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
-}
-.back-home:hover{
-  background:rgba(28,25,23,0.96);
-  border-color:rgba(251,191,36,0.4);
-  box-shadow:0 8px 24px -4px rgba(0,0,0,0.3);
-  transform:translateY(-1px);
-}
-.back-home-icon{
-  color:#fbbf24;
-  flex-shrink:0;
-  transition:transform 0.2s ease;
-}
-.back-home:hover .back-home-icon{
-  transform:scale(1.08);
-}
-.back-home-text{line-height:1}
-@media(max-width:640px){
-  .back-home{
-    top:10px;left:10px;
-    padding:6px 12px 6px 10px;
-    font-size:11.5px;
-  }
-}
-
 </style>
 </head>
 <body>
-<!-- Back to Home Button -->
-<a href="./index.html" class="back-home" aria-label="العودة للصفحة الرئيسية" title="العودة للصفحة الرئيسية">
-  <svg class="back-home-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/>
-  </svg>
-  <span class="back-home-text">الرئيسية</span>
-</a>
-
 
 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="القائمة">☰</button>
 <div class="mobile-overlay" id="mobile-overlay"></div>
@@ -2519,7 +2463,19 @@ body:has(.sidebar.mobile-open){
   <div class="sb-item-wrap" data-mod-wrap="fpa"><div class="sb-item" data-mod="fpa"><div class="sb-dot" style="background:#0c4a6e"></div><span class="sb-stars sb-2stars" title="أهمية عالية — أسبوعي/شهري">★★</span><span class="sb-label">FP&A · التخطيط والتحليل المالي</span><span class="sb-num">٣٢</span><span class="sb-expand-arrow">▾</span></div><div class="sb-secs-list"><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-3">دورة FP&A السنوية الكاملة</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-4">Budgeting · الموازنة — تفصيل عملي لـ FP&A Manager</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-5">Forecasting — التنبؤ في FP&A</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-6">Variance Analysis — تحليل الانحرافات بعمق</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-7">Management Reporting — تقارير الإدارة</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-8">Driver-Based Planning — التخطيط القائم على المحركات</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-9">Business Partnering — الوظيفة الأهم لـ FP&A Manager الح</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-10">3-Statement Model — النموذج الجوهري</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-11">KPIs المالية الجوهرية لكل FP&A Manager</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-12">Driver-Based Budgeting — الميزانية القائمة على المحركات</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-13">3-Statement Model — النموذج المالي المتكامل</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-14">Rolling Forecast — التوقع المتدحرج</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-15">Variance Analysis المتقدم — تشخيص أسباب الانحراف</a><a class="sb-sec-link" data-mod="fpa" data-sec="m-fpa-sec-16">حالات دراسية سعودية</a></div></div>
   <div class="sb-item-wrap" data-mod-wrap="projfin"><div class="sb-item" data-mod="projfin"><div class="sb-dot" style="background:#581c87"></div><span class="sb-stars sb-2stars" title="أهمية عالية — أسبوعي/شهري">★★</span><span class="sb-label">Project Finance · تمويل المشاريع</span><span class="sb-num">٣٤</span><span class="sb-expand-arrow">▾</span></div><div class="sb-secs-list"><a class="sb-sec-link" data-mod="projfin" data-sec="m-projfin-sec-4">Special Purpose Vehicle (SPV) — العمود الفقري</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-projfin-sec-5">Risk Allocation — توزيع المخاطر</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-projfin-sec-6">Concession Agreement & Off-take Contracts</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-projfin-sec-7">DSCR · LLCR · PLCR — مؤشرات الاقتراض الجوهرية</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-projfin-sec-8">Greenfield vs Brownfield · جودة المخاطر</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-projfin-sec-9">Sponsor Structure · بنية الشركاء</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-projfin-sec-10">مراحل تمويل المشروع · من Concept إلى Financial Close</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-projfin-sec-11">حالات دراسية سعودية</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-certs-sec-1">نموذج تمويل المشاريع مع NHC — Saudi Housing Project Fin</a><a class="sb-sec-link" data-mod="projfin" data-sec="m-certs-sec-2">مشاريع الاستثمار العام السعودي — Public Investment Mega</a></div></div>
 
-  <!-- ════ TIER 3: ★ ════ -->
+  
+  <!-- ════ TIER 4: حديث ٢٠٢٦ ════ -->
+  <div class="sb-section sb-section-2stars">
+    <span class="sb-section-stars">🆕</span> أدوات الأداء الحديثة ٢٠٢٦
+  </div>
+
+  <div class="sb-item-wrap" data-mod-wrap="ai-pm"><div class="sb-item" data-mod="ai-pm"><div class="sb-dot" style="background:#8b5cf6"></div><span class="sb-stars sb-2stars" title="مهم — أسبوعي">★★</span><span class="sb-label">🤖 الذكاء الاصطناعي في الأداء</span><span class="sb-num">٣٨</span></div></div>
+
+  <div class="sb-item-wrap" data-mod-wrap="esg"><div class="sb-item" data-mod="esg"><div class="sb-dot" style="background:#15803d"></div><span class="sb-stars sb-2stars" title="مهم — أسبوعي">★★</span><span class="sb-label">🌱 مقاييس ESG والاستدامة</span><span class="sb-num">٣٩</span></div></div>
+
+  <div class="sb-item-wrap" data-mod-wrap="people-analytics"><div class="sb-item" data-mod="people-analytics"><div class="sb-dot" style="background:#fbbf24"></div><span class="sb-stars sb-2stars" title="مهم — أسبوعي">★★</span><span class="sb-label">👥 People Analytics</span><span class="sb-num">٤٠</span></div></div>
+
+<!-- ════ TIER 3: ★ ════ -->
   <div class="sb-section sb-section-1star">
     <span class="sb-section-stars">★</span> مرجعي — للقراءة
   </div>
@@ -35385,6 +35341,846 @@ body:has(.sidebar.mobile-open){
 
 
 
+
+<div class="module" id="m-ai-pm" data-mod="ai-pm" style="display:none">
+
+  <div class="mod-head">
+    <div class="mod-icon" style="background:#ede9fe;color:var(--purple)">🤖</div>
+    <div class="mod-meta">
+      <div class="mod-tag" style="color:var(--purple)">UNIT 38 — AI IN PERFORMANCE</div>
+      <div class="mod-title">الذكاء الاصطناعي في إدارة الأداء</div>
+      <div class="mod-desc">كيف يعيد AI تشكيل KPIs · الـ Reviews · الـ Reports · الـ Analytics في ٢٠٢٦+</div>
+    </div>
+  </div>
+
+  <div class="intro">
+    <div class="intro-icon">🤖</div>
+    <div class="intro-text">
+      <strong>"الأداء في عصر الـ AI لم يعد كما كان."</strong> الـ Performance Management قبل ٢٠٢٣ كان عن: <em>قياس · تقارير · مراجعات سنوية</em>. بعد ٢٠٢٤ مع GenAI: <em>Predictive · Real-time · Continuous · Personalized</em>.
+      <br><br>
+      McKinsey: <strong>٧٠٪+ من شركات Fortune 500 تستخدم AI في الـ Performance Management الآن</strong>. السعودية تتسارع — Aramco · STC · NHC كلّها تستثمر في AI-driven Performance. السؤال لم يعد "هل?" بل "كيف?".
+    </div>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-1">▸ التحوّل · من Performance Management التقليدي إلى AI-Augmented</div>
+
+  <div class="card">
+    <table class="tbl">
+      <thead><tr><th width="200">البُعد</th><th>التقليدي (قبل ٢٠٢٤)</th><th>AI-Augmented (٢٠٢٦+)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>الـ Cadence</strong></td><td>سنوي · ربعي</td><td>Real-time · مستمرّ</td></tr>
+        <tr><td><strong>الـ Feedback</strong></td><td>من المدير · في الـ Reviews</td><td>متعدّد المصادر · فوري · AI-synthesized</td></tr>
+        <tr><td><strong>الـ Reports</strong></td><td>Manual · أيّام إنتاج</td><td>Auto-generated · دقائق</td></tr>
+        <tr><td><strong>الـ Forecasting</strong></td><td>Excel formulas</td><td>ML predictions · 30-50% أدقّ</td></tr>
+        <tr><td><strong>الـ Anomaly Detection</strong></td><td>اكتشاف متأخّر · بعد المشكلة</td><td>Real-time alerts · قبل المشكلة</td></tr>
+        <tr><td><strong>الـ Goal Setting</strong></td><td>Top-down · جامد</td><td>Data-driven · ديناميكي</td></tr>
+        <tr><td><strong>الـ Coaching</strong></td><td>محدود · من المدير المباشر</td><td>AI coaching متاح ٢٤/٧</td></tr>
+        <tr><td><strong>الـ Bias</strong></td><td>عالٍ (Human bias)</td><td>منخفض (مع careful AI design)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-2">▸ ١٠ Use Cases عملية للـ AI في الأداء</div>
+
+  <div class="card">
+    <div class="g2">
+      <div class="cb accent-blue"><div class="cb-lbl">١</div><div class="cb-title">KPI Auto-Generation</div><div class="cb-body">GenAI يقترح KPIs مناسبة لكل دور · بناءً على Best practices صناعياً + استراتيجية الشركة.</div></div>
+      <div class="cb accent-purple"><div class="cb-lbl">٢</div><div class="cb-title">Predictive Performance Analytics</div><div class="cb-body">ML يتنبّأ بأداء الأشخاص · المشاريع · الإدارات قبل ٣-٦ شهور من النتيجة الفعلية.</div></div>
+      <div class="cb accent-green"><div class="cb-lbl">٣</div><div class="cb-title">Automated Report Generation</div><div class="cb-body">Executive reports · Board decks · KPI summaries · كلّها مولّدة من البيانات. Power BI + Copilot.</div></div>
+      <div class="cb accent-amber"><div class="cb-lbl">٤</div><div class="cb-title">Real-time Anomaly Detection</div><div class="cb-body">AI يكتشف انحرافات غير عادية في KPIs قبل أن تصبح أزمات (Variance spikes · trend reversals).</div></div>
+      <div class="cb accent-red"><div class="cb-lbl">٥</div><div class="cb-title">Performance Review AI Co-pilot</div><div class="cb-body">المدير يكتب ملاحظات قصيرة · AI يحوّلها لـ Reviews مفصّلة · موضوعية · بدون bias.</div></div>
+      <div class="cb"><div class="cb-lbl">٦</div><div class="cb-title">Goal Coaching Bots</div><div class="cb-body">Chatbots شخصية لكل موظّف · تساعده في وضع OKRs · المتابعة · التحديث الأسبوعي.</div></div>
+      <div class="cb accent-blue"><div class="cb-lbl">٧</div><div class="cb-title">Skills Gap Analysis</div><div class="cb-body">AI يحلّل CVs · Projects · LinkedIn · ويحدّد فجوات المهارات في الفريق.</div></div>
+      <div class="cb accent-purple"><div class="cb-lbl">٨</div><div class="cb-title">Sentiment Analysis</div><div class="cb-body">تحليل النصوص في الإيميلات · Slack · المراجعات · لكشف الإحباط/الاحتراق قبل الاستقالة.</div></div>
+      <div class="cb accent-green"><div class="cb-lbl">٩</div><div class="cb-title">Resource Optimization</div><div class="cb-body">AI يقترح التوزيع الأمثل للموارد على المشاريع بناءً على Skills + Workload + Performance.</div></div>
+      <div class="cb accent-amber"><div class="cb-lbl">١٠</div><div class="cb-title">Natural Language Querying</div><div class="cb-body">"أرني CPI لمشروع Jadaya مقارناً بالمشاريع المشابهة" — AI يجيب من Power BI/Tableau.</div></div>
+    </div>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-3">▸ الـ Tools Landscape · ٢٠٢٦</div>
+
+  <div class="card">
+    <table class="tbl">
+      <thead><tr><th>الفئة</th><th>الأدوات الرائدة</th><th>الاستخدام</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Generic GenAI</strong></td><td>Claude · ChatGPT · Gemini · Allam</td><td>Reports · Analysis · Coaching</td></tr>
+        <tr><td><strong>BI + AI</strong></td><td>Power BI Copilot · Tableau Pulse · Qlik Sense AI</td><td>Dashboards + Q&A</td></tr>
+        <tr><td><strong>HR Performance</strong></td><td>Lattice · 15Five · Culture Amp · Workday Talent</td><td>Modern PM platforms</td></tr>
+        <tr><td><strong>People Analytics</strong></td><td>Visier · ChartHop · Crunchr · TalentNeuron</td><td>Predictive HR analytics</td></tr>
+        <tr><td><strong>OKR Platforms</strong></td><td>Gtmhub · Workboard · Quantive · Asana Goals</td><td>OKR management مع AI</td></tr>
+        <tr><td><strong>Engagement</strong></td><td>Glint · Peakon · Officevibe · Leapsome</td><td>Sentiment + Pulse surveys</td></tr>
+        <tr><td><strong>Performance APIs</strong></td><td>OpenAI · Anthropic API · Azure AI Services</td><td>Custom AI solutions</td></tr>
+        <tr><td><strong>Saudi</strong></td><td>Allam (SDAIA) · HUMAIN · NEOM AI tools</td><td>للسياق العربي والسعودي</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-4">▸ GenAI في كتابة الـ Performance Reviews · مثال عملي</div>
+
+  <div class="card">
+    <p>قبل GenAI · كتابة Review موضوعي عادل = ساعتان من العمل. بعد GenAI = ١٠ دقائق + جودة أعلى.</p>
+
+    <div class="codebox" style="margin-top:14px">
+      <div class="codebox-lbl">PROMPT STRUCTURE · PERFORMANCE REVIEW</div>
+<pre class="codebox-code">SYSTEM PROMPT:
+"أنت مساعد لكتابة Performance Reviews. كن:
+- موضوعياً (بناءً على البيانات فقط)
+- بنّاءً (focus on growth · ليس criticism)
+- مهنياً (لغة مهذّبة احترافية)
+- محدّداً (أمثلة ملموسة)
+تجنّب:
+- التحيّز (gender · age · ethnicity)
+- التعميمات (دائماً · أبداً · غالباً)
+- المقارنة بزملاء آخرين"
+
+USER INPUT:
+"اكتب Performance Review للربع الرابع:
+- Mohammed Ali · Project Engineer
+- المشروع: NHC Jadaya
+- النتائج: CPI 0.91 (target 0.95) · SPI 0.98
+- النقاط الإيجابية:
+  * Schedule adherence ممتاز
+  * Team collaboration قويّ
+  * توصيات تحسين × 3 قُبلت
+- نقاط للتطوير:
+  * إدارة الـ Cost Variance
+  * Reports timeliness
+- Goals الربع القادم:
+  * رفع CPI لـ ≥ 0.95
+  * Mentorship لـ Junior engineer"
+
+GENAI OUTPUT (مختصر):
+─────────────────────────────────
+Performance Review · Q4 · Mohammed Ali
+
+ABSTRACT:
+أدّى محمد دوراً قيادياً بارزاً في مشروع NHC Jadaya
+خلال الربع الرابع. حقّق Schedule Performance قويّ
+(SPI 0.98) مع تعاون استثنائي مع الفريق...
+
+[تابع مع Strengths · Improvement Areas · Next 
+Quarter Goals · Recognition · Action Plan]
+─────────────────────────────────
+
+النتيجة:
+- وقت الكتابة: 10 دقائق بدلاً من 2 ساعة
+- جودة أعلى (شامل · موضوعي · بنّاء)
+- Consistency عبر كل الـ Reviews
+- وقت المدير يذهب للمحادثة الفعلية</pre>
+    </div>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-5">▸ Predictive Analytics · أمثلة من الواقع</div>
+
+  <div class="card">
+    <p>أين الـ Predictive AI يضيف قيمة فعلية في الـ Performance Management:</p>
+
+    <div class="g2" style="margin-top:14px">
+      <div class="cb accent-red">
+        <div class="cb-lbl">EARLY WARNING</div>
+        <div class="cb-title">تنبّؤ بفشل المشاريع</div>
+        <div class="cb-body">
+          ML model يحلّل: SPI trend · Variations rate · Subcontractor performance · Weather · Resource availability. ينبّه قبل ٣-٦ شهور من الـ Delay المتوقّع. NHC تستفيد هائلاً.
+        </div>
+      </div>
+      <div class="cb accent-amber">
+        <div class="cb-lbl">TURNOVER</div>
+        <div class="cb-title">تنبّؤ باستقالة الموظّفين</div>
+        <div class="cb-body">
+          الـ Signals: Engagement drops · Email patterns · Late arrivals · Performance variance · 1-on-1 frequency. الـ Accuracy ٧٥-٨٥٪. التدخّل المبكّر يحفظ Talent.
+        </div>
+      </div>
+      <div class="cb accent-green">
+        <div class="cb-lbl">DEMAND</div>
+        <div class="cb-title">تنبّؤ بالاحتياج للموارد</div>
+        <div class="cb-body">
+          المشاريع القادمة · Skills المطلوبة · توقيت Hiring · تحوّلات Skills. تخطيط القوى العاملة قبل الحاجة بـ ٦-١٢ شهراً.
+        </div>
+      </div>
+      <div class="cb accent-blue">
+        <div class="cb-lbl">BUDGET</div>
+        <div class="cb-title">تنبّؤ بانحراف الميزانية</div>
+        <div class="cb-body">
+          ML يكتشف Patterns في الإنفاق المبكّر تشير لـ Cost Overrun متوقّع. CFOs يحبّونه — تدخّل مبكّر بدل Year-end shock.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-6">▸ الـ Risks · ما يجب الحذر منه</div>
+
+  <div class="card">
+    <table class="tbl">
+      <thead><tr><th>الخطر</th><th>التخفيف</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bias Amplification</strong> · AI يتعلّم تحيّزات البيانات التاريخية</td><td>Diverse training data · Regular bias audits · Human review</td></tr>
+        <tr><td><strong>Black Box decisions</strong> · لا أحد يفهم لماذا</td><td>Explainable AI (XAI) · مع شرح القرار للموظّف</td></tr>
+        <tr><td><strong>Privacy concerns</strong> · بيانات حسّاسة جدّاً</td><td>PDPL compliance · Data minimization · Consent · On-premise للحرج</td></tr>
+        <tr><td><strong>Over-reliance</strong> · المدير يثق عمياً</td><td>AI suggests · Human decides · Always</td></tr>
+        <tr><td><strong>Employee resistance</strong> · "Big Brother is watching"</td><td>Transparency · Communication · Employee involvement في الـ Design</td></tr>
+        <tr><td><strong>Hallucinations</strong> · GenAI يخترع أرقاماً</td><td>Verify معلومات · لا تنسب من GenAI</td></tr>
+        <tr><td><strong>Skill atrophy</strong> · المدراء يفقدون مهارة التقييم</td><td>Training مستمرّ · AI كمساعد ليس بديل</td></tr>
+        <tr><td><strong>Legal/Compliance</strong> · قرارات HR الـ AI</td><td>Audit trail · Human in the loop · Legal review</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-7">▸ السياق السعودي · Vision 2030 + AI in PM</div>
+
+  <div class="card">
+    <p>السعودية في طليعة المنطقة للـ AI in Performance Management:</p>
+
+    <ul style="margin-top:12px;line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>Aramco:</strong> AI for predictive maintenance · Linked إلى Performance KPIs</li>
+      <li><strong>STC:</strong> AI-driven employee experience platform</li>
+      <li><strong>NHC:</strong> Predictive analytics للمشاريع · Power BI + Custom ML</li>
+      <li><strong>SAMA:</strong> AI Governance Framework للقطاع المصرفي</li>
+      <li><strong>SDAIA · Allam:</strong> Saudi LLM للجهات الحكومية · يفهم الـ Saudi context</li>
+      <li><strong>HUMAIN:</strong> Saudi AI Company الجديدة (PIF) · ستكون لاعب رئيسي</li>
+      <li><strong>NEOM:</strong> AI-first من البداية في كل العمليات</li>
+      <li><strong>Vision 2030:</strong> الهدف · ٢٠٪ من الـ GDP من AI و Tech بحلول ٢٠٣٠</li>
+    </ul>
+
+    <p style="margin-top:14px"><strong>للقائد في الـ Performance Management السعودي:</strong> فجوة ضخمة بين الإمكانيّات والتطبيق. الشركات التي تتبنّى مبكّراً تحصل على ميزة تنافسية ١-٢ سنوات.</p>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-8">▸ Roadmap عملي · كيف تبدأ?</div>
+
+  <div class="card">
+    <ol style="line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>الشهر ١-٢ · GenAI Productivity:</strong> ابدأ بسيطاً · Claude/ChatGPT للـ Reports · Reviews · Communications. مكسب فوري ٣٠-٥٠٪ توفير وقت.</li>
+      <li><strong>الشهر ٣-٤ · Power BI Copilot:</strong> فعّل الـ AI في Power BI (Premium). الـ Natural Language Q&A · Auto-insights · Forecasting.</li>
+      <li><strong>الشهر ٥-٦ · People Analytics Platform:</strong> اختر منصّة (Visier · Workday · أو Custom). ابدأ بـ Predictive turnover · Engagement.</li>
+      <li><strong>الشهر ٧-١٢ · Custom Models:</strong> Predictive Project Performance · Resource optimization · Anomaly detection.</li>
+      <li><strong>السنة الثانية · Embedded AI:</strong> AI في كل عملية HR · Performance · Budget · مع Governance قويّة.</li>
+    </ol>
+
+    <p style="margin-top:14px"><strong>الـ Success Factors:</strong></p>
+    <ul style="margin-top:6px;line-height:2;padding-right:20px;color:var(--ink2)">
+      <li>Executive sponsor قويّ (CEO · CHRO · CFO)</li>
+      <li>Data quality أوّلاً (Garbage in · Garbage out)</li>
+      <li>Pilot صغير قبل التوسّع</li>
+      <li>Change management · للموظّفين والمدراء</li>
+      <li>Ethics framework · PDPL compliance</li>
+      <li>Continuous learning · Field يتطوّر شهرياً</li>
+    </ul>
+  </div>
+
+  <div class="sec" id="m-ai-pm-sec-9">▸ ١٠ مبادئ ذهبية للقائد</div>
+
+  <div class="card" style="background:linear-gradient(135deg,#ede9fe 0%,#f3e8ff 100%);border-color:#c4b5fd">
+    <ol style="line-height:2;padding-right:20px;color:var(--ink)">
+      <li><strong>AI Augments · لا Replaces:</strong> القرار النهائي بشري · دائماً</li>
+      <li><strong>ابدأ صغيراً · اربح سريعاً:</strong> Quick wins تبني الثقة في الـ AI</li>
+      <li><strong>الـ Data Foundation أوّلاً:</strong> AI سيّء بدون بيانات نظيفة</li>
+      <li><strong>الـ Transparency للموظّفين:</strong> اشرح ما يحدث · ولماذا</li>
+      <li><strong>الـ Bias Audits دوريّة:</strong> ربعياً · من فريق مستقلّ</li>
+      <li><strong>الـ Human-in-the-loop:</strong> للقرارات المؤثّرة على الناس</li>
+      <li><strong>الـ Privacy by Design:</strong> PDPL · ECC · من البداية</li>
+      <li><strong>الـ Training المستمرّ:</strong> المدراء والموظّفين</li>
+      <li><strong>قس الأثر:</strong> ROI · Adoption · Quality · Bias metrics</li>
+      <li><strong>تطوّر مع المجال:</strong> AI يتغيّر شهرياً · تابع</li>
+    </ol>
+  </div>
+
+</div>
+
+<div class="module" id="m-esg" data-mod="esg" style="display:none">
+
+  <div class="mod-head">
+    <div class="mod-icon" style="background:#dcfce7;color:#15803d">🌱</div>
+    <div class="mod-meta">
+      <div class="mod-tag" style="color:#15803d">UNIT 39 — ESG METRICS</div>
+      <div class="mod-title">مقاييس ESG والاستدامة المؤسّسية</div>
+      <div class="mod-desc">Environmental · Social · Governance · Vision 2030 · Saudi Green Initiative · CMA</div>
+    </div>
+  </div>
+
+  <div class="intro">
+    <div class="intro-icon">🌱</div>
+    <div class="intro-text">
+      <strong>"الـ ESG لم يعد خياراً · أصبح شرطاً للأعمال."</strong>
+      <br><br>
+      <em>BlackRock · Goldman Sachs · Vanguard</em> — كلّ المستثمرين العمالقة يربطون الـ Capital بـ ESG performance. في السعودية · Tadawul يطالب الشركات المدرجة بتقارير ESG. CMA أصدرت Guidelines ٢٠٢٤ ملزمة. Saudi Green Initiative هدفها ٥٠٪ كهرباء متجدّدة بحلول ٢٠٣٠.
+      <br><br>
+      للقائد في الـ Performance Management · الـ ESG = طبقة جديدة من KPIs · بقياسات جديدة · وضغوط جديدة. هذه الوحدة: <strong>الإطار الكامل · الـ Frameworks · Vision 2030 + ESG · الـ KPIs · التطبيق العملي</strong>.
+    </div>
+  </div>
+
+  <div class="sec" id="m-esg-sec-1">▸ ESG · الـ ٣ Pillars</div>
+
+  <div class="card">
+    <div class="g3">
+      <div class="cb accent-green">
+        <div class="cb-lbl">E · ENVIRONMENTAL</div>
+        <div class="cb-title">البيئة</div>
+        <div class="cb-body">
+          • Carbon Emissions (Scope 1 · 2 · 3)<br>
+          • Energy Consumption<br>
+          • Water Usage<br>
+          • Waste Management<br>
+          • Biodiversity Impact<br>
+          • Climate Risk<br>
+          • Circular Economy
+        </div>
+      </div>
+      <div class="cb accent-blue">
+        <div class="cb-lbl">S · SOCIAL</div>
+        <div class="cb-title">المجتمع</div>
+        <div class="cb-body">
+          • Diversity, Equity, Inclusion (DEI)<br>
+          • Labor Practices<br>
+          • Saudization (Nitaqat)<br>
+          • Health & Safety<br>
+          • Community Engagement<br>
+          • Human Rights<br>
+          • Customer Welfare
+        </div>
+      </div>
+      <div class="cb accent-purple">
+        <div class="cb-lbl">G · GOVERNANCE</div>
+        <div class="cb-title">الحوكمة</div>
+        <div class="cb-body">
+          • Board Diversity<br>
+          • Executive Compensation<br>
+          • Anti-corruption (Nazaha)<br>
+          • Cybersecurity<br>
+          • Risk Management<br>
+          • Audit & Transparency<br>
+          • Stakeholder Rights
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="m-esg-sec-2">▸ الـ Frameworks الدولية · ما يجب أن تعرفه</div>
+
+  <div class="card">
+    <table class="tbl">
+      <thead><tr><th>الـ Framework</th><th>المحور</th><th>الاستخدام</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GRI (Global Reporting Initiative)</strong></td><td>الأشمل</td><td>الأكثر شيوعاً عالمياً · ١٠٬٠٠٠+ شركة</td></tr>
+        <tr><td><strong>SASB (Sustainability Accounting)</strong></td><td>صناعي محدّد</td><td>للـ Investors · Sector-specific</td></tr>
+        <tr><td><strong>TCFD (Task Force on Climate)</strong></td><td>المناخ</td><td>Climate Risk · للمصارف والـ Insurers</td></tr>
+        <tr><td><strong>ISSB (IFRS Sustainability)</strong></td><td>المعيار الدولي الجديد</td><td>S1 · S2 · المعيار العالمي الموحّد ٢٠٢٤+</td></tr>
+        <tr><td><strong>CDP (Carbon Disclosure Project)</strong></td><td>الكربون</td><td>أكبر database للـ Climate data</td></tr>
+        <tr><td><strong>UN SDGs (17 Goals)</strong></td><td>الأهداف العالمية</td><td>للمحاذاة مع الـ UN Agenda 2030</td></tr>
+        <tr><td><strong>UN Global Compact</strong></td><td>المبادئ الـ ١٠</td><td>Human Rights · Labor · Environment · Anti-corruption</td></tr>
+        <tr><td><strong>EU Taxonomy</strong></td><td>Green finance</td><td>أوروبي · للـ Sustainable investments</td></tr>
+        <tr><td><strong>CMA Saudi Guidelines ٢٠٢٤</strong></td><td>سعودي</td><td>للشركات المدرجة في تداول</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:14px"><strong>التوصية:</strong> ابدأ بـ <em>GRI + ISSB</em> · ثمّ أضف TCFD لو في القطاع المالي. لتداول السعودي · اتّبع CMA Guidelines.</p>
+  </div>
+
+  <div class="sec" id="m-esg-sec-3">▸ Carbon Accounting · الـ ٣ Scopes</div>
+
+  <div class="card">
+    <p>أهمّ مفهوم في الـ ESG · يحتاج فهماً عميقاً:</p>
+
+    <div class="codebox" style="margin-top:14px">
+      <div class="codebox-lbl">CARBON ACCOUNTING SCOPES</div>
+<pre class="codebox-code">SCOPE 1 · الانبعاثات المباشرة
+─────────────────────────────
+ما تُحرقه/تُنتجه شركتك مباشرة:
+- وقود السيّارات والشاحنات
+- محطات توليد الكهرباء داخلياً
+- الـ Fugitive emissions (تسرّبات)
+- العمليّات الصناعية
+أمثلة سعودية: أرامكو · سابك · معادن
+
+SCOPE 2 · الانبعاثات غير المباشرة من الطاقة
+─────────────────────────────
+ما تشتريه من Utilities:
+- الكهرباء (SEC)
+- التدفئة · التبريد · البخار
+السعودية: شبكة الكربون عالية لأنّ ٦٥٪+
+من الكهرباء من النفط/الغاز
+
+SCOPE 3 · الانبعاثات في سلسلة القيمة
+─────────────────────────────
+الأكبر · والأصعب · والأهمّ:
+- موردين (Upstream)
+- استخدام منتجاتك (Downstream)
+- سفر الموظّفين
+- النقل واللوجستيات
+- النفايات
+- الـ Investments
+
+غالباً Scope 3 = 70-90% من إجمالي البصمة
+يحتاج تعاوناً مع موردين وعملاء
+
+التقدير:
+- ابدأ بـ Scope 1 + 2 (سهل القياس)
+- ادخل Scope 3 تدريجياً (categories 1-15)
+- استخدم Carbon accounting software:
+  Persefoni · Watershed · Sweep · IBM Envizi</pre>
+    </div>
+  </div>
+
+  <div class="sec" id="m-esg-sec-4">▸ Vision 2030 + Saudi Green Initiative</div>
+
+  <div class="card">
+    <p>السعودية لديها أكبر التزامات ESG في المنطقة:</p>
+
+    <div class="g2" style="margin-top:14px">
+      <div class="cb accent-green">
+        <div class="cb-lbl">SGI</div>
+        <div class="cb-title">Saudi Green Initiative ٢٠٢١+</div>
+        <div class="cb-body">
+          • ٥٠٪ كهرباء متجدّدة بحلول ٢٠٣٠<br>
+          • ١٠ مليار شجرة على مستوى المملكة<br>
+          • تقليل الانبعاثات ٢٧٨ مليون طن سنوياً<br>
+          • Net Zero بحلول ٢٠٦٠
+        </div>
+      </div>
+      <div class="cb accent-blue">
+        <div class="cb-lbl">MGI</div>
+        <div class="cb-title">Middle East Green Initiative</div>
+        <div class="cb-body">
+          • السعودية تقود ١١ دولة عربية<br>
+          • ٥٠ مليار شجرة على مستوى المنطقة<br>
+          • تقليل ٢.٥ مليار طن انبعاثات
+        </div>
+      </div>
+      <div class="cb accent-amber">
+        <div class="cb-lbl">NEOM</div>
+        <div class="cb-title">١٠٠٪ Renewable Energy</div>
+        <div class="cb-body">
+          NEOM ستعمل ١٠٠٪ بطاقة متجدّدة · أكبر مشروع Hydrogen أخضر في العالم ($٥ مليار).
+        </div>
+      </div>
+      <div class="cb accent-purple">
+        <div class="cb-lbl">PIF</div>
+        <div class="cb-title">Sustainability Strategy</div>
+        <div class="cb-body">
+          PIF أعلنت Net Zero by 2050 لمحفظتها · $٢٠٠ مليار في الـ Renewables بحلول ٢٠٢٧.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="m-esg-sec-5">▸ CMA Saudi · المتطلّبات للشركات المدرجة</div>
+
+  <div class="card">
+    <p>منذ ٢٠٢٤ · CMA (هيئة السوق المالية) ألزمت الشركات المدرجة بـ ESG reporting:</p>
+
+    <ul style="margin-top:12px;line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>Mandatory Disclosures:</strong> ESG report مع الـ Annual Financial Report</li>
+      <li><strong>الـ Framework:</strong> CMA Guidelines (مرتكزة على GRI · TCFD · ISSB)</li>
+      <li><strong>المحتوى:</strong> Environmental · Social · Governance KPIs</li>
+      <li><strong>التحقّق:</strong> Independent assurance مستحبّ (سيكون إلزامياً تدريجياً)</li>
+      <li><strong>الـ Sectors:</strong> البنوك · الـ Petrochemicals · الـ Real Estate · المقاولات · Telecom كلّها</li>
+      <li><strong>الـ Penalties:</strong> غرامات + تعليق التداول للمتأخّرين</li>
+    </ul>
+
+    <p style="margin-top:14px"><strong>للشركات غير المدرجة:</strong> اختياري · لكنّ Investors والـ Lenders يطالبون به متزايداً.</p>
+  </div>
+
+  <div class="sec" id="m-esg-sec-6">▸ ESG KPIs الأساسية للقائد</div>
+
+  <div class="card">
+    <table class="tbl">
+      <thead><tr><th>الفئة</th><th>الـ KPI</th><th>الحساب</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="4"><strong>Environmental</strong></td><td>Carbon Intensity</td><td>tCO2e / Revenue (or / Unit produced)</td></tr>
+        <tr><td>Energy Intensity</td><td>MWh / Revenue</td></tr>
+        <tr><td>Water Intensity</td><td>m³ / Revenue</td></tr>
+        <tr><td>Waste Diversion Rate</td><td>Recycled / Total waste %</td></tr>
+        <tr><td rowspan="4"><strong>Social</strong></td><td>Saudization Rate</td><td>سعوديّون / إجمالي · حسب القطاع</td></tr>
+        <tr><td>Gender Diversity</td><td>إناث / إجمالي · الإدارة العليا والوسطى</td></tr>
+        <tr><td>Employee Engagement</td><td>Survey scores · NPS</td></tr>
+        <tr><td>LTIFR (Lost Time Injury Freq.)</td><td>عدد الحوادث / مليون ساعة عمل</td></tr>
+        <tr><td rowspan="4"><strong>Governance</strong></td><td>Board Independence</td><td>أعضاء مستقلّون / إجمالي</td></tr>
+        <tr><td>Board Diversity</td><td>إناث في المجلس %</td></tr>
+        <tr><td>Whistleblower Cases</td><td>عدد · معدّل الحلّ</td></tr>
+        <tr><td>Cybersecurity Maturity</td><td>NCA ECC compliance score</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="m-esg-sec-7">▸ ESG في قطاع المقاولات السعودي</div>
+
+  <div class="card">
+    <p>قطاع المقاولات من أكثر القطاعات تأثيراً بيئياً واجتماعياً. التحدّيات الخاصّة:</p>
+
+    <ul style="margin-top:12px;line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>Carbon Footprint:</strong> الأسمنت · الحديد · النقل · يمثّلون ٣٠٪+ من Carbon emissions الوطنية</li>
+      <li><strong>Embodied Carbon:</strong> Carbon في المواد · ليس فقط في التشغيل</li>
+      <li><strong>Worker Safety:</strong> HSE معدّلات مهمّة · OSHA · LTIFR · TRIR</li>
+      <li><strong>Saudization:</strong> Construction sector تحدّيات مع التوطين</li>
+      <li><strong>Waste Management:</strong> Construction = ٣٠٪+ من النفايات الوطنية</li>
+      <li><strong>Water Stress:</strong> السعودية من أكثر الدول stress · Construction water-intensive</li>
+      <li><strong>Community Impact:</strong> NHC مشاريع تؤثّر على Communities · يجب الإدارة</li>
+    </ul>
+
+    <p style="margin-top:14px"><strong>الـ Best Practice:</strong></p>
+    <ul style="margin-top:6px;line-height:2;padding-right:20px;color:var(--ink2)">
+      <li>LEED · Mostadam certification للمشاريع</li>
+      <li>Green Cement · Recycled Steel</li>
+      <li>Solar power على المواقع</li>
+      <li>Water recycling</li>
+      <li>Saudization plans قويّة</li>
+      <li>HSE world-class</li>
+    </ul>
+  </div>
+
+  <div class="sec" id="m-esg-sec-8">▸ Mostadam · الـ Saudi Green Building Standard</div>
+
+  <div class="card">
+    <p><strong>Mostadam</strong> = نظام التقييم السعودي للمباني الخضراء · أُطلق ٢٠٢١.</p>
+
+    <ul style="margin-top:12px;line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>الفلسفة:</strong> مصمّم للمناخ والثقافة السعودية (Hot/Arid · Cultural needs)</li>
+      <li><strong>الـ Schemes:</strong> Residential · Commercial · Communities</li>
+      <li><strong>المستويات:</strong> Bronze · Silver · Gold · Diamond</li>
+      <li><strong>المعايير:</strong> ٧ مجالات (الطاقة · المياه · المواد · جودة الهواء الداخلي · إلخ)</li>
+      <li><strong>الإلزامية:</strong> للمشاريع الحكومية الكبرى · NHC · ROSHN</li>
+      <li><strong>الـ Local Content:</strong> تشجيع المواد المحلّية</li>
+    </ul>
+
+    <p style="margin-top:14px"><strong>Mostadam vs LEED:</strong> Mostadam أنسب للسعودية · LEED شائع عالمياً. الـ Mega Projects تستخدم الاثنين.</p>
+  </div>
+
+  <div class="sec" id="m-esg-sec-9">▸ Tools & Platforms للـ ESG</div>
+
+  <div class="card">
+    <table class="tbl">
+      <thead><tr><th>الفئة</th><th>الأدوات</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Carbon Accounting</strong></td><td>Persefoni · Watershed · Sweep · IBM Envizi · Microsoft Sustainability Manager</td></tr>
+        <tr><td><strong>ESG Reporting</strong></td><td>Workiva · Sphera · Diligent · OneTrust ESG · MSCI ESG Manager</td></tr>
+        <tr><td><strong>ESG Ratings</strong></td><td>MSCI · Sustainalytics · S&P Global · Refinitiv · ISS ESG</td></tr>
+        <tr><td><strong>EHS / Safety</strong></td><td>Intelex · Cority · SAI360 · Velocity EHS</td></tr>
+        <tr><td><strong>Materiality Assessment</strong></td><td>Datamaran · Sustainserv · Manifest Climate</td></tr>
+        <tr><td><strong>Supply Chain ESG</strong></td><td>EcoVadis · SupplyShift · Sedex</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="m-esg-sec-10">▸ Roadmap عملي · للقائد</div>
+
+  <div class="card">
+    <ol style="line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>الشهر ١-٢:</strong> Materiality Assessment · ما هي الـ ESG topics الأهمّ لشركتك?</li>
+      <li><strong>الشهر ٣-٤:</strong> Baseline Measurement · Scope 1 + 2 emissions · Social metrics</li>
+      <li><strong>الشهر ٥-٦:</strong> Strategy & Targets · Net Zero by when? · Saudization · DEI</li>
+      <li><strong>الشهر ٧-٩:</strong> Implementation · Energy efficiency · Solar · DEI initiatives</li>
+      <li><strong>الشهر ١٠-١٢:</strong> First ESG Report · GRI · ISSB · CMA · External assurance</li>
+      <li><strong>السنة الثانية:</strong> Scope 3 · Supply chain · Advanced KPIs</li>
+      <li><strong>السنة الثالثة:</strong> ESG-linked Compensation · Embedded في كل القرارات</li>
+    </ol>
+
+    <p style="margin-top:14px"><strong>الـ Investment:</strong> $٥٠K-$٥٠٠K السنة الأولى · يعتمد على حجم الشركة. الـ ROI هائل (Access to capital · Brand · Talent retention · Risk reduction).</p>
+  </div>
+
+</div>
+
+<div class="module" id="m-people-analytics" data-mod="people-analytics" style="display:none">
+
+  <div class="mod-head">
+    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">👥</div>
+    <div class="mod-meta">
+      <div class="mod-tag" style="color:var(--gold)">UNIT 40 — PEOPLE ANALYTICS</div>
+      <div class="mod-title">تحليلات الموارد البشرية · People Analytics</div>
+      <div class="mod-desc">من Excel HR Reports إلى Predictive Workforce Analytics · Visier · Workday · Saudi context</div>
+    </div>
+  </div>
+
+  <div class="intro">
+    <div class="intro-icon">👥</div>
+    <div class="intro-text">
+      <strong>"الـ HR التقليدي يقول ماذا حدث. الـ People Analytics يقول ماذا سيحدث."</strong>
+      <br><br>
+      Google كان أوّل من أثبت قوّة الـ People Analytics بـ <em>Project Oxygen</em> (٢٠٠٨) — اكتشف ما يجعل المدراء عظماء. Microsoft بنت Workplace Analytics. الشركات الذكية اليوم تقيس: <em>الـ Engagement · الـ Burnout · Skill gaps · Turnover risk · Productivity · Collaboration patterns</em>.
+      <br><br>
+      للقائد في الـ Performance Management · الـ People Analytics = المرحلة التالية. ليس فقط "كم عدد الموظّفين?" بل "<strong>من سيغادر في ٦ أشهر?</strong>" و "<strong>أيّ Skills نحتاج في ٢٠٢٧?</strong>".
+    </div>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-1">▸ ٤ مستويات للـ People Analytics</div>
+
+  <div class="card">
+    <div class="g2">
+      <div class="cb accent-blue">
+        <div class="cb-lbl">١ · DESCRIPTIVE</div>
+        <div class="cb-title">ماذا حدث?</div>
+        <div class="cb-body">
+          الـ Reports التقليدية:<br>
+          - عدد الموظّفين<br>
+          - معدّل الدوران<br>
+          - متوسّط الرواتب<br>
+          - السعودة %<br>
+          <em>٧٠٪ من شركات السعودية هنا</em>
+        </div>
+      </div>
+      <div class="cb accent-amber">
+        <div class="cb-lbl">٢ · DIAGNOSTIC</div>
+        <div class="cb-title">لماذا حدث?</div>
+        <div class="cb-body">
+          تحليلات أعمق:<br>
+          - لماذا الـ Turnover ارتفع؟<br>
+          - أيّ الإدارات الأكثر مغادرة؟<br>
+          - علاقة الأجر بالأداء<br>
+          <em>٢٠٪ من الشركات هنا</em>
+        </div>
+      </div>
+      <div class="cb accent-purple">
+        <div class="cb-lbl">٣ · PREDICTIVE</div>
+        <div class="cb-title">ماذا سيحدث?</div>
+        <div class="cb-body">
+          ML models:<br>
+          - من سيغادر في ٦ أشهر؟<br>
+          - أيّ Skills سنحتاج؟<br>
+          - أيّ موظّف Promoteable؟<br>
+          <em>٨٪ من الشركات هنا</em>
+        </div>
+      </div>
+      <div class="cb accent-green">
+        <div class="cb-lbl">٤ · PRESCRIPTIVE</div>
+        <div class="cb-title">ماذا يجب أن نفعل?</div>
+        <div class="cb-body">
+          AI-driven recommendations:<br>
+          - الـ Optimal Promotion paths<br>
+          - Compensation packages<br>
+          - Resource allocation<br>
+          <em>٢٪ من الشركات هنا</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-2">▸ Workforce KPIs الجوهرية</div>
+
+  <div class="card">
+    <table class="tbl">
+      <thead><tr><th>الفئة</th><th>الـ KPI</th><th>التعريف</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3"><strong>Workforce</strong></td><td>Headcount</td><td>إجمالي · بحسب الإدارة · المستوى · العقد</td></tr>
+        <tr><td>Saudization Rate</td><td>سعوديّون / الإجمالي · حسب القطاع</td></tr>
+        <tr><td>Gender Diversity</td><td>الإناث · في الإجمالي + الإدارة</td></tr>
+        <tr><td rowspan="4"><strong>Turnover</strong></td><td>Voluntary Turnover Rate</td><td>(الاستقالات / الإجمالي) × ١٠٠</td></tr>
+        <tr><td>Regretted vs Non-regretted</td><td>الموظّفون الـ High Performers الذين غادروا</td></tr>
+        <tr><td>Tenure</td><td>متوسّط سنوات العمل · بـ Segment</td></tr>
+        <tr><td>Quit Predictors</td><td>Signals مبكّرة (Engagement drops · Late · إلخ)</td></tr>
+        <tr><td rowspan="3"><strong>Engagement</strong></td><td>eNPS</td><td>"كم من المحتمل أن توصي بشركتك للعمل?"</td></tr>
+        <tr><td>Pulse Survey Score</td><td>Weekly micro-surveys (٢-٥ أسئلة)</td></tr>
+        <tr><td>Manager Effectiveness</td><td>360 feedback · Direct reports surveys</td></tr>
+        <tr><td rowspan="3"><strong>Performance</strong></td><td>Performance Distribution</td><td>Top / Middle / Bottom %</td></tr>
+        <tr><td>Goal Achievement Rate</td><td>OKRs/Goals attained</td></tr>
+        <tr><td>9-Box Grid</td><td>Potential × Performance matrix</td></tr>
+        <tr><td rowspan="3"><strong>Skills</strong></td><td>Skills Gap</td><td>Needed - Available skills</td></tr>
+        <tr><td>Training Hours per Employee</td><td>Investment in development</td></tr>
+        <tr><td>Internal Mobility Rate</td><td>الترقيات + التنقّلات الداخلية</td></tr>
+        <tr><td rowspan="3"><strong>Productivity</strong></td><td>Revenue per Employee</td><td>Revenue / Headcount</td></tr>
+        <tr><td>Time to Productivity</td><td>كم يستغرق الموظّف الجديد ليصبح Productive</td></tr>
+        <tr><td>Cost per Hire</td><td>Total recruitment cost / Hires</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-3">▸ Predictive Turnover Modeling · مثال عملي</div>
+
+  <div class="card">
+    <p>التنبّؤ بالاستقالة هو أشهر Use Case في الـ People Analytics:</p>
+
+    <div class="codebox" style="margin-top:14px">
+      <div class="codebox-lbl">TURNOVER PREDICTION MODEL</div>
+<pre class="codebox-code">FEATURES (المتغيّرات المستخدمة):
+
+DEMOGRAPHIC:
+- Age · Gender · Tenure · Location
+
+JOB FACTORS:
+- Salary band vs Market
+- Last promotion date
+- Manager tenure
+- Team size
+
+PERFORMANCE:
+- Last 2 review scores
+- Goal achievement %
+- Project success rate
+
+ENGAGEMENT:
+- eNPS score
+- Pulse survey trends
+- Late arrivals frequency
+- Sick leaves pattern
+
+ACTIVITY (with consent):
+- Email response time
+- Calendar utilization
+- Late-night work patterns
+- Meeting attendance
+
+EXTERNAL:
+- Industry job market heat
+- Competitor hiring nearby
+- LinkedIn profile updates
+
+MODEL:
+- Random Forest · XGBoost · Neural Network
+- Trained on 3+ years historical data
+- Accuracy: 75-85% typical
+- Output: % probability to leave in 6 months
+
+ACTIONS:
+- High risk (>70%): Manager intervention
+- Medium (40-70%): Engagement plan
+- Low (<40%): Monitor
+
+CRITICAL CAVEATS:
+- Don't fire predicted-to-leave employees
+- Use predictions to INTERVENE not REPLACE
+- Bias audit حتمي · ربعياً
+- Privacy by Design · PDPL compliance
+- Transparency · Don't hide it from employees</pre>
+    </div>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-4">▸ Skills Analytics · الموجة الجديدة</div>
+
+  <div class="card">
+    <p>الـ Skills Mapping تحوّل من PDF static إلى dynamic intelligence:</p>
+
+    <ul style="margin-top:12px;line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>Skills Inventory:</strong> أيّ Skills موجودة في الشركة الآن (من CVs · Projects · LinkedIn · Certifications)</li>
+      <li><strong>Skills Forecast:</strong> أيّ Skills سنحتاج في ١-٣ سنوات (بناءً على Strategy)</li>
+      <li><strong>Skills Gap:</strong> الفرق بين المتاح والمطلوب</li>
+      <li><strong>Reskilling Plans:</strong> AI يقترح مسارات تطوير لكل موظّف</li>
+      <li><strong>Internal Marketplace:</strong> Skills-based job rotations · Gigs</li>
+      <li><strong>Buy vs Build:</strong> هل نوظّف أم ندرّب?</li>
+    </ul>
+
+    <p style="margin-top:14px"><strong>Tools:</strong> Eightfold · Gloat · Fuel50 · Workday Skills Cloud · LinkedIn Talent Insights.</p>
+
+    <p style="margin-top:10px"><strong>Vision 2030 angle:</strong> Skills shortage = أكبر تحدّي للقطاع الخاصّ السعودي. الـ Skills Analytics تساعد في تخطيط Hiring · Training · Reskilling.</p>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-5">▸ Engagement & Sentiment Analytics</div>
+
+  <div class="card">
+    <p>الـ Engagement لم يعد Annual Survey:</p>
+
+    <div class="g2" style="margin-top:14px">
+      <div class="cb accent-blue">
+        <div class="cb-lbl">PULSE</div>
+        <div class="cb-title">Surveys صغيرة متكرّرة</div>
+        <div class="cb-body">
+          ٢-٥ أسئلة · أسبوعياً/شهرياً<br>
+          Glint · Peakon · Officevibe · 15Five<br>
+          Real-time pulse للـ Engagement<br>
+          المقياس الـ eNPS · Pulse score
+        </div>
+      </div>
+      <div class="cb accent-purple">
+        <div class="cb-lbl">SENTIMENT</div>
+        <div class="cb-title">تحليل النصوص بالـ AI</div>
+        <div class="cb-body">
+          Open-text feedback<br>
+          Slack/Teams messages (مع consent)<br>
+          NLP يستخرج themes · sentiment<br>
+          الـ AI يفهم العربية الفصحى جيّداً
+        </div>
+      </div>
+      <div class="cb accent-green">
+        <div class="cb-lbl">PASSIVE</div>
+        <div class="cb-title">Passive Data Collection</div>
+        <div class="cb-body">
+          Microsoft Workplace Analytics<br>
+          Calendar · Email · Collaboration patterns<br>
+          مع consent + privacy<br>
+          يكشف Burnout · Silos · Workload
+        </div>
+      </div>
+      <div class="cb accent-amber">
+        <div class="cb-lbl">EXIT</div>
+        <div class="cb-title">Exit Interviews البيانات</div>
+        <div class="cb-body">
+          AI يحلّل سنوات من Exit interviews<br>
+          يستخرج Patterns<br>
+          ما الأسباب الحقيقية للاستقالة?<br>
+          غالباً يفاجئ القيادة
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-6">▸ Saudization Analytics · موضوع حسّاس</div>
+
+  <div class="card">
+    <p>الـ Saudization (نطاقات) من أهمّ مجالات Analytics في السعودية:</p>
+
+    <ul style="margin-top:12px;line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>Real-time Nitaqat Tracking:</strong> الـ Status (أخضر/أصفر/أحمر) · لحظياً</li>
+      <li><strong>Saudization Pipeline:</strong> توقّع التراجع/التقدّم في النطاقات</li>
+      <li><strong>Saudi Talent Retention:</strong> الـ Saudis turnover أعلى من Expats عادةً</li>
+      <li><strong>Salary Equity:</strong> Saudi vs Expat للأدوار المتماثلة</li>
+      <li><strong>Internal Promotion Pipeline:</strong> هل السعوديّون يصلون لمناصب قيادية?</li>
+      <li><strong>Skills Development:</strong> Saudi Talent reskilling · مع HRDF · TVTC</li>
+      <li><strong>Vacancy Time:</strong> كم يستغرق ملء وظائف سعودية vs أجنبية?</li>
+      <li><strong>Hidden Bias:</strong> هل القرارات neutral حقّاً?</li>
+    </ul>
+
+    <p style="margin-top:14px"><strong>التحدّيات الـ Cultural:</strong> الـ Saudization Analytics يحتاج حسّاسية ثقافية. الشفافية مع الفرق + التركيز على Development · ليس Compliance فقط.</p>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-7">▸ Tools & Platforms · ٢٠٢٦</div>
+
+  <div class="card">
+    <table class="tbl">
+      <thead><tr><th>الفئة</th><th>الأدوات</th><th>السياق</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Enterprise HRIS</strong></td><td>Workday · SAP SuccessFactors · Oracle HCM</td><td>الـ Foundation للبيانات</td></tr>
+        <tr><td><strong>People Analytics</strong></td><td>Visier · Crunchr · ChartHop · OneModel</td><td>الـ Pure-play tools</td></tr>
+        <tr><td><strong>Engagement</strong></td><td>Glint (LinkedIn) · Peakon (Workday) · Culture Amp · Lattice</td><td>Modern engagement</td></tr>
+        <tr><td><strong>Skills</strong></td><td>Eightfold · Gloat · Fuel50 · Workday Skills</td><td>Skills cloud / marketplace</td></tr>
+        <tr><td><strong>Talent Acquisition</strong></td><td>iCIMS · Greenhouse · SmartRecruiters</td><td>ATS مع analytics</td></tr>
+        <tr><td><strong>Workforce Planning</strong></td><td>Anaplan · Adaptive Insights · Visier Workforce</td><td>Strategic planning</td></tr>
+        <tr><td><strong>Microsoft Stack</strong></td><td>Viva Insights · Viva Glint · LinkedIn Talent Hub</td><td>للشركات على M365</td></tr>
+        <tr><td><strong>Open Source</strong></td><td>Apache Superset · Metabase · Power BI</td><td>Custom dashboards</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-8">▸ Ethics & PDPL · الجانب الحرج</div>
+
+  <div class="card">
+    <p>الـ People Analytics = أحسّ مجال للبيانات. كل شيء عن الموظّفين:</p>
+
+    <table class="tbl" style="margin-top:14px">
+      <thead><tr><th>المخاطرة</th><th>المعالجة</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Privacy Violations</strong></td><td>PDPL compliance · Consent · Data minimization</td></tr>
+        <tr><td><strong>Surveillance Concerns</strong></td><td>Transparency · Aggregate (not individual) · No Big Brother</td></tr>
+        <tr><td><strong>Bias in Predictions</strong></td><td>Bias audits ربعياً · Diverse training data · Human review</td></tr>
+        <tr><td><strong>Discrimination Risk</strong></td><td>لا قرارات HR تلقائية مبنيّة على AI · دائماً Human Final</td></tr>
+        <tr><td><strong>Trust Erosion</strong></td><td>Communication · Employee involvement في الـ Design</td></tr>
+        <tr><td><strong>Manager Misuse</strong></td><td>Training · Access controls · Audit logs</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:14px"><strong>الـ Golden Rule:</strong> <em>"Would you be comfortable explaining this analysis to the employee being analyzed?"</em> لو لا · لا تفعله.</p>
+  </div>
+
+  <div class="sec" id="m-people-analytics-sec-9">▸ Roadmap · بناء People Analytics Capability</div>
+
+  <div class="card">
+    <ol style="line-height:2;padding-right:20px;color:var(--ink2)">
+      <li><strong>الشهر ١-٣ · Data Foundation:</strong> Single source of truth · Workday/Oracle/SAP · Clean data</li>
+      <li><strong>الشهر ٤-٦ · Basic Dashboards:</strong> Power BI/Tableau · الـ Core KPIs (Headcount · Turnover · Saudization)</li>
+      <li><strong>الشهر ٧-٩ · Engagement Platform:</strong> Pulse surveys · Peakon/Glint · Regular cadence</li>
+      <li><strong>الشهر ١٠-١٢ · Predictive Pilot:</strong> Turnover prediction · Small pilot · Validate</li>
+      <li><strong>السنة الثانية · Skills + Mobility:</strong> Skills mapping · Internal marketplace · AI matching</li>
+      <li><strong>السنة الثالثة · Embedded Analytics:</strong> AI in all HR decisions · Real-time insights</li>
+    </ol>
+
+    <p style="margin-top:14px"><strong>الـ Team:</strong> ابدأ بـ ١ People Analyst · مع HR Business Partner. توسّع إلى ٣-٥ Analytics + ١ Data Scientist مع النضج.</p>
+  </div>
+
+</div>
 </div><!-- /content -->
 
 </main>

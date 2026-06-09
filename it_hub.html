@@ -1044,7 +1044,7 @@ html,body{max-width:100%;overflow-x:hidden;}
 .back-home-text{line-height:1}
 @media(max-width:640px){
   .back-home{
-    top:10px;left:10px;
+    top:10px;right:10px;
     padding:6px 12px 6px 10px;
     font-size:11.5px;
   }
@@ -1075,24 +1075,10 @@ html,body{max-width:100%;overflow-x:hidden;}
     <input class="sb-search" type="text" placeholder="🔍 ابحث عن شهادة أو مجال..." id="sbSearch" oninput="sbSearch(this.value)">
   </div>
   <nav class="sb-nav" id="sbNav">
-
-    <!-- ━━━━━━━━ Page Navigation (replaces top nav bar) ━━━━━━━━ -->
-    <div class="sb-tier">
-      <span class="sb-tier-icon">🧭</span>
-      <span class="sb-tier-title">التنقّل الرئيسي</span>
-      <span class="sb-tier-count">6</span>
-    </div>
-    <div class="sb-item sb-pg-item active" onclick="showPg('home')"><span class="sb-dot"></span>🏠 الصفحة الرئيسية</div>
-    <div class="sb-item sb-pg-item" onclick="showPg('knowledge')"><span class="sb-dot"></span>📚 المعرفة</div>
-    <div class="sb-item sb-pg-item" onclick="showPg('certifications')"><span class="sb-dot"></span>📜 الشهادات</div>
-    <div class="sb-item sb-pg-item" onclick="showPg('roadmap')"><span class="sb-dot"></span>🗺️ خارطة الطريق</div>
-    <div class="sb-item sb-pg-item" onclick="showPg('resources')"><span class="sb-dot"></span>🔗 الموارد</div>
-    <div class="sb-item sb-pg-item" onclick="showPg('executive')"><span class="sb-dot"></span>👑 مسار CTO/CDO/CISO</div>
-
-    <!-- ━━━━━━━━ TIER 1 — ابدأ هنا ━━━━━━━━ -->
+    <!-- ━━━━━━━━ TIER · ابدأ هنا · المسار التأسيسي ━━━━━━━━ -->
     <div class="sb-tier">
       <span class="sb-tier-icon">🎯</span>
-      <span class="sb-tier-title">ابدأ هنا</span>
+      <span class="sb-tier-title">ابدأ هنا · المسار التأسيسي</span>
       <span class="sb-tier-count">3</span>
     </div>
 
@@ -1104,48 +1090,42 @@ html,body{max-width:100%;overflow-x:hidden;}
       </div>
       <div class="sb-items">
         <div class="sb-item active" onclick="showK('home')"><span class="sb-dot"></span>نظرة عامة</div>
-        <div class="sb-item" onclick="showK('where-start')"><span class="sb-dot"></span>من أين أبدأ؟</div>
-        <div class="sb-item" onclick="showPg('roadmap')"><span class="sb-dot"></span>خارطة الطريق</div>
-        <div class="sb-item" onclick="showPg('executive')"><span class="sb-dot"></span>مسار CTO/CDO/CISO</div>
+        <div class="sb-item" onclick="showK('where-start')"><span class="sb-dot"></span>من أين أبدأ؟ — خارطة الطريق</div>
       </div>
     </div>
 
     <div class="sb-sec" id="ss-beg">
       <div class="sb-sec-hd" onclick="toggleSS('ss-beg')">
-        <div class="sb-sec-title">🌱 للمبتدئين</div>
+        <div class="sb-sec-title">🌱 شهادات البداية</div>
         <span class="sb-num">٠٢</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
-        <div class="sb-item" onclick="showK('where-start')"><span class="sb-dot"></span>من أين أبدأ؟</div>
-        <div class="sb-item" onclick="showK('google-it')"><span class="sb-dot"></span>Google IT Support</div>
-        <div class="sb-item" onclick="showK('comptia-a')"><span class="sb-dot"></span>CompTIA A+</div>
         <div class="sb-item" onclick="showK('comptia-a-v2')"><span class="sb-dot"></span>CompTIA A+ — الشرح الكامل</div>
         <div class="sb-item" onclick="showK('google-it-full')"><span class="sb-dot"></span>Google IT Support — الكامل</div>
         <div class="sb-item" onclick="showK('net-plus-full')"><span class="sb-dot"></span>Network+ — الدليل الكامل</div>
         <div class="sb-item" onclick="showK('google-cyber')"><span class="sb-dot"></span>Google Cybersecurity</div>
-        <div class="sb-item" onclick="showK('first-job')"><span class="sb-dot"></span>الوظيفة الأولى في IT</div>
-        <div class="sb-item" onclick="showK('first-job-v2')"><span class="sb-dot"></span>CV + LinkedIn + أول 90 يوم</div>
       </div>
     </div>
 
     <div class="sb-sec" id="ss-career">
       <div class="sb-sec-hd" onclick="toggleSS('ss-career')">
-        <div class="sb-sec-title">🎯 المقابلات والتحضير</div>
+        <div class="sb-sec-title">💼 المسار الوظيفي والمقابلات</div>
         <span class="sb-num">٠٣</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
-        <div class="sb-item" onclick="showK('interview')"><span class="sb-dot"></span>التحضير للمقابلات</div>
+        <div class="sb-item" onclick="showK('first-job-v2')"><span class="sb-dot"></span>CV + LinkedIn + أوّل ٩٠ يوم</div>
+        <div class="sb-item" onclick="showK('interview')"><span class="sb-dot"></span>التحضير للمقابلات — عامّ</div>
         <div class="sb-item" onclick="showK('interview-v2')"><span class="sb-dot"></span>مقابلات DevOps والبيانات</div>
       </div>
     </div>
 
-    <!-- ━━━━━━━━ TIER 2 — التخصصات الرئيسية ━━━━━━━━ -->
+    <!-- ━━━━━━━━ TIER · التخصصات الرئيسية ━━━━━━━━ -->
     <div class="sb-tier">
       <span class="sb-tier-icon">⚙️</span>
       <span class="sb-tier-title">التخصصات الرئيسية</span>
-      <span class="sb-tier-count">5</span>
+      <span class="sb-tier-count">6</span>
     </div>
 
     <div class="sb-sec" id="ss-net">
@@ -1156,18 +1136,19 @@ html,body{max-width:100%;overflow-x:hidden;}
       </div>
       <div class="sb-items">
         <div class="sb-item" onclick="showK('net-ov')"><span class="sb-dot"></span>نظرة شاملة على الشبكات</div>
+        <div class="sb-item" onclick="showK('net-proto')"><span class="sb-dot"></span>البروتوكولات TCP/IP</div>
         <div class="sb-item" onclick="showK('net-plus')"><span class="sb-dot"></span>CompTIA Network+</div>
         <div class="sb-item" onclick="showK('ccna')"><span class="sb-dot"></span>Cisco CCNA — المعيار الذهبي</div>
         <div class="sb-item" onclick="showK('ccnp')"><span class="sb-dot"></span>Cisco CCNP Enterprise</div>
-        <div class="sb-item" onclick="showK('ccie')"><span class="sb-dot"></span>Cisco CCIE — القمة</div>
-        <div class="sb-item" onclick="showK('net-proto')"><span class="sb-dot"></span>البروتوكولات الأساسية</div>
+        <div class="sb-item" onclick="showK('ccie')"><span class="sb-dot"></span>Cisco CCIE — القمّة</div>
         <div class="sb-item" onclick="showK('sdwan')"><span class="sb-dot"></span>SD-WAN وأتمتة الشبكات</div>
+        <div class="sb-item" onclick="showK('cloud-networking')"><span class="sb-dot"></span>Cloud Networking — VPC/eBPF</div>
       </div>
     </div>
 
     <div class="sb-sec" id="ss-sec">
       <div class="sb-sec-hd" onclick="toggleSS('ss-sec')">
-        <div class="sb-sec-title">🔐 الأمن السيبراني</div>
+        <div class="sb-sec-title">🔐 الأمن السيبراني — الشهادات</div>
         <span class="sb-num">٠٥</span>
         <span class="sb-arr">▼</span>
       </div>
@@ -1178,234 +1159,171 @@ html,body{max-width:100%;overflow-x:hidden;}
         <div class="sb-item" onclick="showK('ceh')"><span class="sb-dot"></span>CEH — Ethical Hacker</div>
         <div class="sb-item" onclick="showK('oscp')"><span class="sb-dot"></span>OSCP — الأصعب والأعلى</div>
         <div class="sb-item" onclick="showK('cism')"><span class="sb-dot"></span>CISM — إدارة أمن المعلومات</div>
+      </div>
+    </div>
+
+    <div class="sb-sec" id="ss-sec-deep">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-sec-deep')">
+        <div class="sb-sec-title">🗡️ الأمن السيبراني — التطبيق</div>
+        <span class="sb-num">٠٦</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
         <div class="sb-item" onclick="showK('soc')"><span class="sb-dot"></span>SOC Analyst — المنهجية</div>
         <div class="sb-item" onclick="showK('pentest')"><span class="sb-dot"></span>منهجية اختبار الاختراق</div>
-        <div class="sb-item" onclick="showK('google-cyber')"><span class="sb-dot"></span>Google Cybersecurity Cert</div>
-        <div class="sb-item" onclick="showK('cism-v2')"><span class="sb-dot"></span>CISM — الدليل المعمّق</div>
+        <div class="sb-item" onclick="showK('owasp')"><span class="sb-dot"></span>OWASP Top 10</div>
+        <div class="sb-item" onclick="showK('threat-model')"><span class="sb-dot"></span>Threat Modeling — STRIDE</div>
+        <div class="sb-item" onclick="showK('malware')"><span class="sb-dot"></span>Malware Analysis</div>
+        <div class="sb-item" onclick="showK('forensics')"><span class="sb-dot"></span>Digital Forensics — DFIR</div>
+        <div class="sb-item" onclick="showK('devsecops-v2')"><span class="sb-dot"></span>DevSecOps — التطبيق الكامل</div>
+        <div class="sb-item" onclick="showK('cloud-sec')"><span class="sb-dot"></span>Cloud Security</div>
+        <div class="sb-item" onclick="showK('k8s-security')"><span class="sb-dot"></span>Kubernetes Security</div>
+        <div class="sb-item" onclick="showK('netsec')"><span class="sb-dot"></span>أمن الشبكات</div>
+        <div class="sb-item" onclick="showK('crypto-deep')"><span class="sb-dot"></span>التشفير — الدليل العميق</div>
       </div>
     </div>
 
     <div class="sb-sec" id="ss-cloud">
       <div class="sb-sec-hd" onclick="toggleSS('ss-cloud')">
         <div class="sb-sec-title">☁️ الحوسبة السحابية</div>
-        <span class="sb-num">٠٦</span>
+        <span class="sb-num">٠٧</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
         <div class="sb-item" onclick="showK('cloud-ov')"><span class="sb-dot"></span>نظرة شاملة على السحابة</div>
-        <div class="sb-item" onclick="showK('aws-ccp')"><span class="sb-dot"></span>AWS Cloud Practitioner</div>
-        <div class="sb-item" onclick="showK('aws-saa')"><span class="sb-dot"></span>AWS Solutions Architect</div>
-        <div class="sb-item" onclick="showK('aws-sap')"><span class="sb-dot"></span>AWS SAP — المستوى المتقدم</div>
-        <div class="sb-item" onclick="showK('az900')"><span class="sb-dot"></span>Azure Fundamentals AZ-900</div>
+        <div class="sb-item" onclick="showK('cloud-arch')"><span class="sb-dot"></span>هندسة السحابة المتقدّمة</div>
+        <div class="sb-item" onclick="showK('aws-ccp')"><span class="sb-dot"></span>AWS Cloud Practitioner — البداية</div>
+        <div class="sb-item" onclick="showK('aws-saa')"><span class="sb-dot"></span>AWS Solutions Architect Associate</div>
+        <div class="sb-item" onclick="showK('aws-sap-v2')"><span class="sb-dot"></span>AWS Solutions Architect Pro</div>
+        <div class="sb-item" onclick="showK('aws-services')"><span class="sb-dot"></span>AWS Services — دليل ٥٠ خدمة</div>
+        <div class="sb-item" onclick="showK('az900-v2')"><span class="sb-dot"></span>Azure AZ-900 — الشرح الكامل</div>
         <div class="sb-item" onclick="showK('az104')"><span class="sb-dot"></span>Azure Administrator AZ-104</div>
         <div class="sb-item" onclick="showK('gcp-ace')"><span class="sb-dot"></span>GCP Associate Cloud Engineer</div>
-        <div class="sb-item" onclick="showK('cka')"><span class="sb-dot"></span>CKA — Kubernetes Admin</div>
-        <div class="sb-item" onclick="showK('cloud-arch')"><span class="sb-dot"></span>هندسة السحابة المتقدمة</div>
+        <div class="sb-item" onclick="showK('cka-v2')"><span class="sb-dot"></span>CKA — Kubernetes Admin (كامل)</div>
       </div>
     </div>
 
     <div class="sb-sec" id="ss-devops">
       <div class="sb-sec-hd" onclick="toggleSS('ss-devops')">
         <div class="sb-sec-title">⚙️ DevOps & SRE</div>
-        <span class="sb-num">٠٧</span>
+        <span class="sb-num">٠٨</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
         <div class="sb-item" onclick="showK('devops-ov')"><span class="sb-dot"></span>نظرة شاملة على DevOps</div>
+        <div class="sb-item" onclick="showK('linux-adm')"><span class="sb-dot"></span>Linux Administration</div>
         <div class="sb-item" onclick="showK('docker-k8s')"><span class="sb-dot"></span>Docker & Kubernetes</div>
+        <div class="sb-item" onclick="showK('k8s-full')"><span class="sb-dot"></span>Kubernetes — إنتاج كامل</div>
         <div class="sb-item" onclick="showK('terraform')"><span class="sb-dot"></span>Terraform & IaC</div>
         <div class="sb-item" onclick="showK('cicd')"><span class="sb-dot"></span>CI/CD Pipelines</div>
-        <div class="sb-item" onclick="showK('linux-adm')"><span class="sb-dot"></span>Linux Administration</div>
         <div class="sb-item" onclick="showK('monitoring')"><span class="sb-dot"></span>Monitoring & Observability</div>
-        <div class="sb-item" onclick="showK('sre')"><span class="sb-dot"></span>SRE — هندسة الموثوقية</div>
       </div>
     </div>
 
     <div class="sb-sec" id="ss-ai">
       <div class="sb-sec-hd" onclick="toggleSS('ss-ai')">
-        <div class="sb-sec-title">🤖 الذكاء الاصطناعي والبيانات</div>
-        <span class="sb-num">٠٨</span>
-        <span class="sb-arr">▼</span>
-      </div>
-      <div class="sb-items">
-        <div class="sb-item" onclick="showK('ai-ov')"><span class="sb-dot"></span>نظرة شاملة على AI</div>
-        <div class="sb-item" onclick="showK('ml-fund')"><span class="sb-dot"></span>Machine Learning الأساسيات</div>
-        <div class="sb-item" onclick="showK('deep-learn')"><span class="sb-dot"></span>Deep Learning والشبكات العصبية</div>
-        <div class="sb-item" onclick="showK('gen-ai')"><span class="sb-dot"></span>Generative AI & LLMs</div>
-        <div class="sb-item" onclick="showK('data-eng')"><span class="sb-dot"></span>Data Engineering</div>
-        <div class="sb-item" onclick="showK('google-ml')"><span class="sb-dot"></span>Google ML Engineer Cert</div>
-      </div>
-    </div>
-
-    <!-- ━━━━━━━━ TIER 3 — مراجع وتخصصات متقدمة ━━━━━━━━ -->
-    <div class="sb-tier">
-      <span class="sb-tier-icon">📚</span>
-      <span class="sb-tier-title">مراجع متخصصة</span>
-      <span class="sb-tier-count">7</span>
-    </div>
-
-    <div class="sb-sec" id="ss-db">
-      <div class="sb-sec-hd" onclick="toggleSS('ss-db')">
-        <div class="sb-sec-title">🗄️ قواعد البيانات وERP</div>
+        <div class="sb-sec-title">🤖 الذكاء الاصطناعي</div>
         <span class="sb-num">٠٩</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
-        <div class="sb-item" onclick="showK('db-ov')"><span class="sb-dot"></span>نظرة على قواعد البيانات</div>
-        <div class="sb-item" onclick="showK('sql-deep')"><span class="sb-dot"></span>SQL — من الأساس للاحتراف</div>
-        <div class="sb-item" onclick="showK('nosql')"><span class="sb-dot"></span>NoSQL — MongoDB وRedis</div>
-        <div class="sb-item" onclick="showK('erp-ov')"><span class="sb-dot"></span>ERP والتحول الرقمي</div>
-        <div class="sb-item" onclick="showK('sap')"><span class="sb-dot"></span>SAP S/4HANA</div>
-        <div class="sb-item" onclick="showK('db-ov-v2')"><span class="sb-dot"></span>قواعد البيانات — المعمّق</div>
-        <div class="sb-item" onclick="showK('db-ov-full')"><span class="sb-dot"></span>قواعد البيانات — الدليل الشامل</div>
+        <div class="sb-item" onclick="showK('ai-ov')"><span class="sb-dot"></span>نظرة شاملة على AI</div>
+        <div class="sb-item" onclick="showK('ml-full')"><span class="sb-dot"></span>Machine Learning — الدليل المعمّق</div>
+        <div class="sb-item" onclick="showK('deep-learn')"><span class="sb-dot"></span>Deep Learning والشبكات العصبية</div>
+        <div class="sb-item" onclick="showK('gen-ai-full')"><span class="sb-dot"></span>Generative AI — التطبيق</div>
+        <div class="sb-item" onclick="showK('ai-agents')"><span class="sb-dot"></span>🆕 AI Agents — الجيل القادم</div>
+        <div class="sb-item" onclick="showK('ml-pipeline')"><span class="sb-dot"></span>ML Pipeline للإنتاج</div>
       </div>
     </div>
 
-    <div class="sb-sec" id="ss-security-deep">
-      <div class="sb-sec-hd" onclick="toggleSS('ss-security-deep')">
-        <div class="sb-sec-title">🗡️ أمن متخصص</div>
+    <div class="sb-sec" id="ss-data">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-data')">
+        <div class="sb-sec-title">📊 البيانات وقواعد البيانات</div>
         <span class="sb-num">١٠</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
-        <div class="sb-item" onclick="showK('owasp')"><span class="sb-dot"></span>OWASP Top 10</div>
-        <div class="sb-item" onclick="showK('threat-model')"><span class="sb-dot"></span>Threat Modeling — STRIDE</div>
-        <div class="sb-item" onclick="showK('malware')"><span class="sb-dot"></span>Malware Analysis</div>
-        <div class="sb-item" onclick="showK('netsec')"><span class="sb-dot"></span>أمن الشبكات</div>
-        <div class="sb-item" onclick="showK('cloud-sec')"><span class="sb-dot"></span>Cloud Security</div>
-        <div class="sb-item" onclick="showK('forensics')"><span class="sb-dot"></span>Digital Forensics — DFIR</div>
-        <div class="sb-item" onclick="showK('devsecops')"><span class="sb-dot"></span>DevSecOps</div>
-        <div class="sb-item" onclick="showK('devsecops-v2')"><span class="sb-dot"></span>DevSecOps — التطبيق الكامل</div>
-        <div class="sb-item" onclick="showK('owasp-v2')"><span class="sb-dot"></span>OWASP — SSRF/XXE/IDOR</div>
-        <div class="sb-item" onclick="showK('active-directory-v2')"><span class="sb-dot"></span>Active Directory — الهجمات</div>
-        <div class="sb-item" onclick="showK('malware-v2')"><span class="sb-dot"></span>Malware Analysis — المعمّق</div>
-        <div class="sb-item" onclick="showK('net-forensics')"><span class="sb-dot"></span>Network Forensics</div>
-        <div class="sb-item" onclick="showK('soc-v2')"><span class="sb-dot"></span>SOC — بناء وتشغيل</div>
-        <div class="sb-item" onclick="showK('incident-response')"><span class="sb-dot"></span>Incident Response</div>
-        <div class="sb-item" onclick="showK('cloud-sec-v2')"><span class="sb-dot"></span>Cloud Security — الحوادث</div>
-        <div class="sb-item" onclick="showK('cloud-sec-aws')"><span class="sb-dot"></span>AWS Security — الدليل</div>
-        <div class="sb-item" onclick="showK('pentest-full')"><span class="sb-dot"></span>Penetration Testing — الكامل</div>
-        <div class="sb-item" onclick="showK('oscp-full')"><span class="sb-dot"></span>OSCP — دليل الاجتياز</div>
+        <div class="sb-item" onclick="showK('data-eng-full')"><span class="sb-dot"></span>Data Engineering — الشامل</div>
+        <div class="sb-item" onclick="showK('sql-deep')"><span class="sb-dot"></span>SQL — من الأساس للاحتراف</div>
+        <div class="sb-item" onclick="showK('nosql')"><span class="sb-dot"></span>NoSQL — MongoDB و Redis</div>
+        <div class="sb-item" onclick="showK('db-ov-v2')"><span class="sb-dot"></span>قواعد البيانات — المعمّق</div>
+        <div class="sb-item" onclick="showK('erp-ov')"><span class="sb-dot"></span>ERP والتحوّل الرقمي</div>
+        <div class="sb-item" onclick="showK('sap')"><span class="sb-dot"></span>SAP S/4HANA</div>
       </div>
+    </div>
+
+    <!-- ━━━━━━━━ TIER · الاحتراف والإدارة ━━━━━━━━ -->
+    <div class="sb-tier">
+      <span class="sb-tier-icon">🏆</span>
+      <span class="sb-tier-title">الاحتراف والإدارة</span>
+      <span class="sb-tier-count">4</span>
     </div>
 
     <div class="sb-sec" id="ss-mgmt">
       <div class="sb-sec-hd" onclick="toggleSS('ss-mgmt')">
-        <div class="sb-sec-title">📊 الإدارة والحوكمة</div>
+        <div class="sb-sec-title">📋 الإدارة والحوكمة</div>
         <span class="sb-num">١١</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
-        <div class="sb-item" onclick="showK('itil4')"><span class="sb-dot"></span>ITIL 4 Foundation</div>
-        <div class="sb-item" onclick="showK('pmp')"><span class="sb-dot"></span>PMP — إدارة المشاريع</div>
+        <div class="sb-item" onclick="showK('pmp-v2')"><span class="sb-dot"></span>PMP — EVM والمخاطر</div>
         <div class="sb-item" onclick="showK('scrum')"><span class="sb-dot"></span>Agile & Scrum Master</div>
+        <div class="sb-item" onclick="showK('itil4')"><span class="sb-dot"></span>ITIL 4 Foundation</div>
         <div class="sb-item" onclick="showK('cobit')"><span class="sb-dot"></span>COBIT 2019 — الحوكمة</div>
         <div class="sb-item" onclick="showK('iso27001')"><span class="sb-dot"></span>ISO 27001 — أمن المعلومات</div>
-        <div class="sb-item" onclick="showK('togaf')"><span class="sb-dot"></span>TOGAF — معمارية المؤسسات</div>
-        <div class="sb-item" onclick="showK('togaf-v2')"><span class="sb-dot"></span>TOGAF — الدليل المعمّق</div>
-        <div class="sb-item" onclick="showK('pmp-v2')"><span class="sb-dot"></span>PMP — EVM والمخاطر</div>
-        <div class="sb-item" onclick="showK('scrum-v2')"><span class="sb-dot"></span>Scrum — الشرح الكامل</div>
-        <div class="sb-item" onclick="showK('itil4-full')"><span class="sb-dot"></span>ITIL 4 — الدليل الشامل</div>
-        <div class="sb-item" onclick="showK('scrum-full')"><span class="sb-dot"></span>Scrum — الإتقان الكامل</div>
-        <div class="sb-item" onclick="showK('pmp-full')"><span class="sb-dot"></span>PMP — EVM والمخاطر</div>
-        <div class="sb-item" onclick="showK('cobit-full')"><span class="sb-dot"></span>COBIT — الدليل التشغيلي</div>
-        <div class="sb-item" onclick="showK('iso27001-full')"><span class="sb-dot"></span>ISO 27001 — التطبيق الكامل</div>
+        <div class="sb-item" onclick="showK('togaf-v2')"><span class="sb-dot"></span>TOGAF — معمارية المؤسّسات</div>
       </div>
     </div>
 
-    <div class="sb-sec" id="ss-advanced">
-      <div class="sb-sec-hd" onclick="toggleSS('ss-advanced')">
-        <div class="sb-sec-title">🔬 مفاهيم متعمقة</div>
+    <div class="sb-sec" id="ss-arch">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-arch')">
+        <div class="sb-sec-title">🏗️ معمارية الأنظمة المتقدّمة</div>
         <span class="sb-num">١٢</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
-        <div class="sb-item" onclick="showK('crypto-deep')"><span class="sb-dot"></span>التشفير — الدليل العميق</div>
-        <div class="sb-item" onclick="showK('net-proto')"><span class="sb-dot"></span>البروتوكولات TCP/IP</div>
-        <div class="sb-item" onclick="showK('cloud-arch')"><span class="sb-dot"></span>هندسة السحابة المتقدمة</div>
-        <div class="sb-item" onclick="showK('az900-v2')"><span class="sb-dot"></span>Azure AZ-900 — الشرح الكامل</div>
-        <div class="sb-item" onclick="showK('aws-sap-v2')"><span class="sb-dot"></span>AWS SAP — المتقدم</div>
-        <div class="sb-item" onclick="showK('cka-v2')"><span class="sb-dot"></span>CKA — الشرح الكامل</div>
-        <div class="sb-item" onclick="showK('aws-services')"><span class="sb-dot"></span>AWS Services — دليل 50 خدمة</div>
-        <div class="sb-item" onclick="showK('aws-sap')"><span class="sb-dot"></span>AWS Solutions Architect Pro</div>
-        <div class="sb-item" onclick="showK('az104')"><span class="sb-dot"></span>Azure Administrator AZ-104</div>
-        <div class="sb-item" onclick="showK('gcp-ace')"><span class="sb-dot"></span>GCP Associate Engineer</div>
-        <div class="sb-item" onclick="showK('k8s-deep')"><span class="sb-dot"></span>Kubernetes — الدليل المعمّق</div>
-        <div class="sb-item" onclick="showK('terraform')"><span class="sb-dot"></span>Terraform & IaC</div>
-        <div class="sb-item" onclick="showK('system-design')"><span class="sb-dot"></span>System Design</div>
-        <div class="sb-item" onclick="showK('prog-it')"><span class="sb-dot"></span>البرمجة لمهندسي IT</div>
-        <div class="sb-item" onclick="showK('active-directory')"><span class="sb-dot"></span>Active Directory</div>
-        <div class="sb-item" onclick="showK('ipv6')"><span class="sb-dot"></span>IPv6 والشبكات الحديثة</div>
-        <div class="sb-item" onclick="showK('net-history')"><span class="sb-dot"></span>تاريخ الإنترنت</div>
-      </div>
-    </div>
-
-    <div class="sb-sec" id="ss-emerging2">
-      <div class="sb-sec-hd" onclick="toggleSS('ss-emerging2')">
-        <div class="sb-sec-title">🏗️ هندسة الأنظمة</div>
-        <span class="sb-num">١٣</span>
-        <span class="sb-arr">▼</span>
-      </div>
-      <div class="sb-items">
         <div class="sb-item" onclick="showK('system-design-v2')"><span class="sb-dot"></span>System Design — أمثلة كاملة</div>
-        <div class="sb-item" onclick="showK('k8s-security')"><span class="sb-dot"></span>Kubernetes Security</div>
-        <div class="sb-item" onclick="showK('cloud-networking')"><span class="sb-dot"></span>Cloud Networking — VPC/eBPF</div>
-        <div class="sb-item" onclick="showK('ml-pipeline')"><span class="sb-dot"></span>ML Pipeline للإنتاج</div>
-        <div class="sb-item" onclick="showK('ml-full')"><span class="sb-dot"></span>ML — الدليل المعمّق</div>
-        <div class="sb-item" onclick="showK('gen-ai-full')"><span class="sb-dot"></span>Generative AI — التطبيق</div>
-        <div class="sb-item" onclick="showK('data-eng-full')"><span class="sb-dot"></span>Data Engineering — الشامل</div>
-        <div class="sb-item" onclick="showK('k8s-full')"><span class="sb-dot"></span>Kubernetes — إنتاج كامل</div>
-        <div class="sb-item" onclick="showK('linux-full')"><span class="sb-dot"></span>Linux — أسرار المحترفين</div>
-        <div class="sb-item" onclick="showK('ai-careers')"><span class="sb-dot"></span>AI Careers — المسارات</div>
-        <div class="sb-item" onclick="showK('gcp-ace-v2')"><span class="sb-dot"></span>GCP ACE — الشرح الكامل</div>
-        <div class="sb-item" onclick="showK('google-ml-v2')"><span class="sb-dot"></span>Google ML Engineer</div>
-        <div class="sb-item" onclick="showK('devops-metrics')"><span class="sb-dot"></span>DORA Metrics وTeam Topologies</div>
-        <div class="sb-item" onclick="showK('monitoring-deep')"><span class="sb-dot"></span>Prometheus وGrafana — الكامل</div>
-        <div class="sb-item" onclick="showK('cicd-full')"><span class="sb-dot"></span>GitHub Actions — Pipeline</div>
-        <div class="sb-item" onclick="showK('deep-learn-full')"><span class="sb-dot"></span>Deep Learning — CNN وTransformer</div>
-        <div class="sb-item" onclick="showK('blockchain-full')"><span class="sb-dot"></span>Blockchain — من النظرية للتطبيق</div>
-        <div class="sb-item" onclick="showK('aws-ccp-v2')"><span class="sb-dot"></span>AWS CCP — الشرح الكامل</div>
-        <div class="sb-item" onclick="showK('aws-saa-scenarios')"><span class="sb-dot"></span>AWS SAA — سيناريوهات</div>
-        <div class="sb-item" onclick="showK('sap-v2')"><span class="sb-dot"></span>SAP S/4HANA — المعمّق</div>
       </div>
     </div>
 
     <div class="sb-sec" id="ss-emerging">
       <div class="sb-sec-hd" onclick="toggleSS('ss-emerging')">
-        <div class="sb-sec-title">🚀 تقنيات ناشئة</div>
-        <span class="sb-num">١٤</span>
+        <div class="sb-sec-title">🚀 التقنيات الناشئة</div>
+        <span class="sb-num">١٣</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
-        <div class="sb-item" onclick="showK('ai-agents')"><span class="sb-dot"></span>🆕 AI Agents — الجيل القادم</div>
         <div class="sb-item" onclick="showK('quantum')"><span class="sb-dot"></span>Quantum Computing</div>
         <div class="sb-item" onclick="showK('blockchain')"><span class="sb-dot"></span>Blockchain التقني</div>
         <div class="sb-item" onclick="showK('web3')"><span class="sb-dot"></span>🆕 Web3 — الإنترنت اللامركزي</div>
         <div class="sb-item" onclick="showK('iot')"><span class="sb-dot"></span>IoT وأمن الأجهزة</div>
         <div class="sb-item" onclick="showK('metaverse')"><span class="sb-dot"></span>🆕 Metaverse · AR/VR · XR</div>
-        <div class="sb-item" onclick="showK('gen-ai')"><span class="sb-dot"></span>Generative AI & LLMs</div>
-        <div class="sb-item" onclick="showK('quantum-v2')"><span class="sb-dot"></span>Quantum Computing — العملي</div>
       </div>
     </div>
 
-    <div class="sb-sec" id="ss-extra">
-      <div class="sb-sec-hd" onclick="toggleSS('ss-extra')">
-        <div class="sb-sec-title">💼 رواتب وقاموس</div>
-        <span class="sb-num">١٥</span>
+    <div class="sb-sec" id="ss-careers">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-careers')">
+        <div class="sb-sec-title">💰 المسار المهني والرواتب</div>
+        <span class="sb-num">١٤</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
-        <div class="sb-item" onclick="showK('career-paths')"><span class="sb-dot"></span>الرواتب والتطور المهني</div>
+        <div class="sb-item" onclick="showK('career-paths')"><span class="sb-dot"></span>الرواتب والتطوّر المهني</div>
         <div class="sb-item" onclick="showK('ai-careers')"><span class="sb-dot"></span>🆕 AI/ML Careers — مسارات تفصيلية</div>
-        <div class="sb-item" onclick="showK('glossary')"><span class="sb-dot"></span>قاموس مصطلحات IT</div>
       </div>
     </div>
 
+    <!-- ━━━━━━━━ TIER · السياق السعودي ━━━━━━━━ -->
+    <div class="sb-tier">
+      <span class="sb-tier-icon">🇸🇦</span>
+      <span class="sb-tier-title">السياق السعودي</span>
+      <span class="sb-tier-count">1</span>
+    </div>
 
-    <div class="sb-sec" id="ss-enterprise-saudi">
-      <div class="sb-sec-hd" onclick="toggleSS('ss-enterprise-saudi')">
+    <div class="sb-sec" id="ss-saudi">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-saudi')">
         <div class="sb-sec-title">🏢 أدوات المؤسّسة السعودية</div>
-        <span class="sb-num">٢</span>
+        <span class="sb-num">١٥</span>
         <span class="sb-arr">▼</span>
       </div>
       <div class="sb-items">
@@ -1413,7 +1331,155 @@ html,body{max-width:100%;overflow-x:hidden;}
         <div class="sb-item" onclick="showK('oracle-fusion')"><span class="sb-dot"></span>🆕 Oracle Fusion Cloud</div>
       </div>
     </div>
+  
+    <!-- ━━━━━━━━ TIER · 📚 مراجع إضافية ━━━━━━━━ -->
+    <div class="sb-tier">
+      <span class="sb-tier-icon">📚</span>
+      <span class="sb-tier-title">مراجع إضافية للتوسّع</span>
+      <span class="sb-tier-count">8</span>
+    </div>
 
+    <div class="sb-sec" id="ss-extras-basics">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-extras-basics')">
+        <div class="sb-sec-title">🌱 نسخ مختصرة للبداية</div>
+        <span class="sb-num">١٦</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('comptia-a')"><span class="sb-dot"></span>CompTIA A+ — النسخة المختصرة</div>
+        <div class="sb-item" onclick="showK('google-it')"><span class="sb-dot"></span>Google IT Support — مختصر</div>
+        <div class="sb-item" onclick="showK('first-job')"><span class="sb-dot"></span>الوظيفة الأولى — النسخة الأولى</div>
+      </div>
+    </div>
+
+    <div class="sb-sec" id="ss-extras-unique">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-extras-unique')">
+        <div class="sb-sec-title">📖 مواضيع تكميلية فريدة</div>
+        <span class="sb-num">١٧</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('glossary')"><span class="sb-dot"></span>📕 قاموس مصطلحات IT</div>
+        <div class="sb-item" onclick="showK('prog-it')"><span class="sb-dot"></span>💻 البرمجة لمحترفي IT</div>
+        <div class="sb-item" onclick="showK('ipv6')"><span class="sb-dot"></span>🌐 IPv6 — التفاصيل</div>
+        <div class="sb-item" onclick="showK('active-directory')"><span class="sb-dot"></span>🪪 Active Directory</div>
+        <div class="sb-item" onclick="showK('active-directory-v2')"><span class="sb-dot"></span>🪪 Active Directory — المعمّق</div>
+        <div class="sb-item" onclick="showK('sre')"><span class="sb-dot"></span>🔧 Site Reliability Engineering (SRE)</div>
+        <div class="sb-item" onclick="showK('incident-response')"><span class="sb-dot"></span>🚨 الاستجابة للحوادث الأمنية</div>
+        <div class="sb-item" onclick="showK('net-history')"><span class="sb-dot"></span>📜 تاريخ الشبكات</div>
+        <div class="sb-item" onclick="showK('net-forensics')"><span class="sb-dot"></span>🔍 Network Forensics</div>
+        <div class="sb-item" onclick="showK('system-design')"><span class="sb-dot"></span>🏗️ System Design — الأساسيات</div>
+      </div>
+    </div>
+
+    <div class="sb-sec" id="ss-extras-net">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-extras-net')">
+        <div class="sb-sec-title">🌐 شبكات — نسخ Deep-Dive</div>
+        <span class="sb-num">١٨</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('net-ov-v2')"><span class="sb-dot"></span>نظرة الشبكات — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('net-ov-full')"><span class="sb-dot"></span>نظرة الشبكات — الكاملة</div>
+        <div class="sb-item" onclick="showK('net-proto-v2')"><span class="sb-dot"></span>البروتوكولات TCP/IP — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('ccna-labs')"><span class="sb-dot"></span>CCNA — مختبرات تطبيقية</div>
+        <div class="sb-item" onclick="showK('ccnp-v2')"><span class="sb-dot"></span>CCNP — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('sdwan-v2')"><span class="sb-dot"></span>SD-WAN — نسخة ٢</div>
+      </div>
+    </div>
+
+    <div class="sb-sec" id="ss-extras-sec">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-extras-sec')">
+        <div class="sb-sec-title">🔐 أمن — نسخ Deep-Dive</div>
+        <span class="sb-num">١٩</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('google-cyber-v2')"><span class="sb-dot"></span>Google Cyber — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('cism-v2')"><span class="sb-dot"></span>CISM — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('oscp-full')"><span class="sb-dot"></span>OSCP — الكامل</div>
+        <div class="sb-item" onclick="showK('soc-v2')"><span class="sb-dot"></span>SOC Analyst — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('pentest-full')"><span class="sb-dot"></span>اختبار الاختراق — الكامل</div>
+        <div class="sb-item" onclick="showK('owasp-v2')"><span class="sb-dot"></span>OWASP — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('malware-v2')"><span class="sb-dot"></span>Malware Analysis — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('devsecops')"><span class="sb-dot"></span>DevSecOps — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('cloud-sec-v2')"><span class="sb-dot"></span>Cloud Security — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('cloud-sec-aws')"><span class="sb-dot"></span>Cloud Security — AWS التطبيقي</div>
+      </div>
+    </div>
+
+    <div class="sb-sec" id="ss-extras-cloud">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-extras-cloud')">
+        <div class="sb-sec-title">☁️ سحابة — نسخ Deep-Dive</div>
+        <span class="sb-num">٢٠</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('aws-ccp-v2')"><span class="sb-dot"></span>AWS CCP — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('aws-saa-scenarios')"><span class="sb-dot"></span>AWS SAA — سيناريوهات تطبيقية</div>
+        <div class="sb-item" onclick="showK('aws-sap')"><span class="sb-dot"></span>AWS SAP — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('az900')"><span class="sb-dot"></span>Azure AZ-900 — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('gcp-ace-v2')"><span class="sb-dot"></span>GCP ACE — نسخة ٢</div>
+      </div>
+    </div>
+
+    <div class="sb-sec" id="ss-extras-devops">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-extras-devops')">
+        <div class="sb-sec-title">⚙️ DevOps — نسخ Deep-Dive</div>
+        <span class="sb-num">٢١</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('linux-adm-v2')"><span class="sb-dot"></span>Linux Admin — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('linux-full')"><span class="sb-dot"></span>Linux — الدليل الكامل</div>
+        <div class="sb-item" onclick="showK('k8s-deep')"><span class="sb-dot"></span>Kubernetes — العميق</div>
+        <div class="sb-item" onclick="showK('cka')"><span class="sb-dot"></span>CKA — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('cicd-full')"><span class="sb-dot"></span>CI/CD — الكامل</div>
+        <div class="sb-item" onclick="showK('terraform-v2')"><span class="sb-dot"></span>Terraform — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('monitoring-deep')"><span class="sb-dot"></span>Monitoring — العميق</div>
+        <div class="sb-item" onclick="showK('devops-metrics')"><span class="sb-dot"></span>DevOps Metrics (DORA + SPACE)</div>
+      </div>
+    </div>
+
+    <div class="sb-sec" id="ss-extras-ai">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-extras-ai')">
+        <div class="sb-sec-title">🤖 AI والبيانات — نسخ Deep-Dive</div>
+        <span class="sb-num">٢٢</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('ml-fund')"><span class="sb-dot"></span>ML — الأساسيات</div>
+        <div class="sb-item" onclick="showK('google-ml')"><span class="sb-dot"></span>Google ML — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('google-ml-v2')"><span class="sb-dot"></span>Google ML — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('deep-learn-full')"><span class="sb-dot"></span>Deep Learning — الكامل</div>
+        <div class="sb-item" onclick="showK('gen-ai')"><span class="sb-dot"></span>GenAI — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('data-eng')"><span class="sb-dot"></span>Data Engineering — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('db-ov')"><span class="sb-dot"></span>قواعد البيانات — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('db-ov-full')"><span class="sb-dot"></span>قواعد البيانات — الكاملة</div>
+        <div class="sb-item" onclick="showK('sap-v2')"><span class="sb-dot"></span>SAP S/4HANA — نسخة ٢</div>
+      </div>
+    </div>
+
+    <div class="sb-sec" id="ss-extras-mgmt">
+      <div class="sb-sec-hd" onclick="toggleSS('ss-extras-mgmt')">
+        <div class="sb-sec-title">📋 إدارة وناشئة — نسخ Deep-Dive</div>
+        <span class="sb-num">٢٣</span>
+        <span class="sb-arr">▼</span>
+      </div>
+      <div class="sb-items">
+        <div class="sb-item" onclick="showK('pmp')"><span class="sb-dot"></span>PMP — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('pmp-full')"><span class="sb-dot"></span>PMP — الكامل</div>
+        <div class="sb-item" onclick="showK('scrum-v2')"><span class="sb-dot"></span>Scrum — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('scrum-full')"><span class="sb-dot"></span>Scrum — الكامل</div>
+        <div class="sb-item" onclick="showK('itil4-full')"><span class="sb-dot"></span>ITIL 4 — الكامل</div>
+        <div class="sb-item" onclick="showK('cobit-v2')"><span class="sb-dot"></span>COBIT — نسخة ٢</div>
+        <div class="sb-item" onclick="showK('cobit-full')"><span class="sb-dot"></span>COBIT — الكامل</div>
+        <div class="sb-item" onclick="showK('iso27001-full')"><span class="sb-dot"></span>ISO 27001 — الكامل</div>
+        <div class="sb-item" onclick="showK('togaf')"><span class="sb-dot"></span>TOGAF — النسخة الأولى</div>
+        <div class="sb-item" onclick="showK('blockchain-full')"><span class="sb-dot"></span>Blockchain — الكامل</div>
+        <div class="sb-item" onclick="showK('quantum-v2')"><span class="sb-dot"></span>Quantum — نسخة ٢</div>
+      </div>
+    </div>
   </nav>
 </aside>
 
@@ -3591,7 +3657,8 @@ html,body{max-width:100%;overflow-x:hidden;}
             <div class="kabadges"><span class="kab kab-hot">🔥 طلب هائل</span></div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">المبادئ الأساسية</div>
+          <div class="kb"><div class="kb-title">📚 الأصل والمراجع المؤسِّسة</div><div class="kb-text"><strong>DevOps</strong> نشأ ~2009 (Patrick Debois · مؤتمر DevOpsDays). أسّسه فكرياً كتابان: <strong>"The Phoenix Project" (Kim et al. 2013)</strong> و<strong>"The DevOps Handbook" (2016)</strong>. مبني على <strong>"The Three Ways"</strong>: التدفّق · التغذية الراجعة · التعلّم المستمرّ — متأثّراً بـ Lean (Toyota). تقرير <strong>DORA / Accelerate (Forsgren 2018)</strong> أثبت علمياً ارتباط ممارسات DevOps بالأداء التنظيمي عبر ٤ مقاييس رئيسية.</div></div>
+        <div class="kb"><div class="kb-title">المبادئ الأساسية</div>
             <div class="tgrid">
               <div class="ti"><div class="ti-t">🔄 CI/CD</div><div class="ti-d">Continuous Integration + Delivery. دمج الكود ونشره تلقائياً عشرات المرات يومياً.</div></div>
               <div class="ti"><div class="ti-t">🏗️ IaC</div><div class="ti-d">إدارة البنية التحتية بالكود. Terraform وAnsible. قابلية التكرار وإزالة الأخطاء اليدوية.</div></div>
@@ -5454,7 +5521,8 @@ output "vpc_id" {
             <div class="kabadges"><span class="kab kab-3">متقدم</span><span class="kab kab-hot">🔥 أساس كل أمن</span></div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">مبادئ CIA الثلاثة</div>
+          <div class="kb"><div class="kb-title">🎓 الأسس النظرية للتشفير</div><div class="kb-text">التشفير الحديث يقوم على نظرية الأعداد والتعقيد الحسابي. <strong>تشفير المفتاح العامّ</strong> اخترعه <strong>Diffie & Hellman (1976)</strong> — ثورة حلّت مشكلة تبادل المفاتيح. خوارزمية <strong>RSA</strong> (Rivest · Shamir · Adleman · 1977) تعتمد على صعوبة تحليل الأعداد الأوّلية الكبيرة. معيار <strong>AES</strong> اعتمده NIST (2001). <strong>تهديد مستقبلي:</strong> الحوسبة الكمّية تكسر RSA نظرياً (خوارزمية Shor) — لهذا يتطوّر <strong>التشفير ما بعد الكمّي (Post-Quantum · NIST 2024)</strong>.</div></div>
+        <div class="kb"><div class="kb-title">مبادئ CIA الثلاثة</div>
             <div class="tgrid">
               <div class="ti"><div class="ti-t" style="color:var(--gold);">Confidentiality — السرية</div><div class="ti-d">ضمان قراءة البيانات فقط من المصرح لهم. يتحقق بـ AES-256 وRSA وTLS.</div></div>
               <div class="ti"><div class="ti-t" style="color:var(--green);">Integrity — النزاهة</div><div class="ti-d">ضمان عدم تعديل البيانات. يتحقق بـ SHA-256 وHMAC وDigital Signatures.</div></div>
@@ -5719,7 +5787,8 @@ output "vpc_id" {
             <div class="kabadges"><span class="kab kab-3">متقدم</span><span class="kab kab-4">Cloud Architect</span></div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">أنماط المعمارية السحابية</div>
+          <div class="kb"><div class="kb-title">🎓 المبادئ النظرية لبنية الأنظمة</div><div class="kb-text"><strong>قانون Conway (1968):</strong> "تصميم النظام يعكس بنية تواصل المنظّمة التي صنعته" — أساس فهم لماذا تنتج الفرق المنعزلة أنظمة منعزلة. <strong>نظرية CAP (Brewer)</strong> تحكم الأنظمة الموزّعة السحابية. <strong>المعمارية الميكروية (Microservices):</strong> تطوّرت من العمارة الموجّهة بالخدمات (SOA) — تقسيم النظام لخدمات صغيرة مستقلّة النشر. <strong>مبادئ الـ 12-Factor App (Heroku 2011)</strong> و<strong>إطار Well-Architected (AWS)</strong> هما المرجع العملي لبناء أنظمة سحابية موثوقة وقابلة للتوسّع.</div></div>
+        <div class="kb"><div class="kb-title">أنماط المعمارية السحابية</div>
             <div class="tgrid">
               <div class="ti"><div class="ti-t">Monolith vs Microservices</div><div class="ti-d">Monolith: تطبيق واحد — سهل في البداية، صعب في التوسع. Microservices: خدمات مستقلة — Netflix وAmazon نموذج.</div></div>
               <div class="ti"><div class="ti-t">Event-Driven Architecture</div><div class="ti-d">الخدمات تتواصل بالأحداث. SQS وKafka. فك الاقتران. مقاوم للفشل.</div></div>
@@ -7416,7 +7485,8 @@ LEFT JOIN recent_orders r ON h.customer_id = r.customer_id;</pre></div>
           <div><div class="kaprice">$495</div><div class="kaplbl">Level 1 + 2</div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">الأبعاد الأربعة للمعمارية</div>
+          <div class="kb"><div class="kb-title">📚 الأصل والجهة الحاكمة</div><div class="kb-text"><strong>TOGAF</strong> (The Open Group Architecture Framework) يديره <strong>The Open Group</strong> منذ 1995 (مبني أصلاً على إطار TAFIM لوزارة الدفاع الأمريكية). جوهره منهج <strong>ADM (Architecture Development Method)</strong> — دورة من ٨ مراحل لتطوير بنية المؤسّسة. الإطار الأشهر عالمياً لـ Enterprise Architecture، ويتكامل مع أطر أخرى مثل Zachman (1987 · أوّل إطار بنية مؤسّسية).</div></div>
+        <div class="kb"><div class="kb-title">الأبعاد الأربعة للمعمارية</div>
             <div class="tgrid">
               <div class="ti"><div class="ti-t">Business Architecture</div><div class="ti-d">هيكل الأعمال والعمليات. ما الذي تفعله الشركة وكيف؟</div></div>
               <div class="ti"><div class="ti-t">Data Architecture</div><div class="ti-d">أين تعيش البيانات وكيف تتدفق؟</div></div>
@@ -8853,7 +8923,8 @@ LEFT JOIN recent_orders r ON h.customer_id = r.customer_id;</pre></div>
             <div class="kabadges"><span class="kab kab-3">متقدم</span></div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">Firewall — الأجيال والفروق</div>
+          <div class="kb"><div class="kb-title">🎓 المبادئ التأسيسية لأمن المعلومات</div><div class="kb-text"><strong>ثالوث CIA</strong> (السرّية · السلامة · التوافر) هو حجر أساس الأمن. المبادئ الهندسية الكلاسيكية وضعها <strong>Saltzer & Schroeder (1975)</strong> — منها <strong>أقلّ امتياز (Least Privilege)</strong> و<strong>الدفاع في العمق (Defense in Depth)</strong> و<strong>الفشل الآمن</strong>. <strong>مبدأ Kerckhoffs (1883):</strong> أمان النظام يجب ألّا يعتمد على سرّية تصميمه بل على سرّية المفتاح فقط. <strong>Zero Trust (Kindervag · Forrester 2010):</strong> "لا تثق أبداً · تحقّق دائماً" — النموذج الأمني السائد اليوم.</div></div>
+        <div class="kb"><div class="kb-title">Firewall — الأجيال والفروق</div>
             <table class="etbl">
               <thead><tr><th>الجيل</th><th>يفحص</th><th>المثال</th><th>الميزة</th></tr></thead>
               <tbody>
@@ -12860,7 +12931,8 @@ spec:
             <div class="kabadges"><span class="kab kab-2">متوسط-متقدم</span><span class="kab kab-1">أساسي لكل مسار</span></div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">أنواع قواعد البيانات — الصورة الكاملة</div>
+          <div class="kb"><div class="kb-title">🎓 الأسس النظرية لقواعد البيانات</div><div class="kb-text"><strong>النموذج العلائقي</strong> ابتكره <strong>Edgar F. Codd (IBM · 1970)</strong> في ورقة تاريخية — أساس كل قواعد SQL (جائزة Turing). خصائص <strong>ACID</strong> (الذرّية · الاتّساق · العزل · الديمومة) تضمن موثوقية المعاملات. <strong>مبرهنة CAP (Eric Brewer · 2000):</strong> نظام موزّع لا يحقّق إلّا اثنين من ثلاثة — الاتّساق · التوافر · تحمّل التجزئة. هذه المبرهنة تفسّر لماذا ظهرت قواعد <strong>NoSQL</strong> (تضحّي بالاتّساق الفوري مقابل التوسّع والتوافر).</div></div>
+        <div class="kb"><div class="kb-title">أنواع قواعد البيانات — الصورة الكاملة</div>
             <table class="etbl">
               <thead><tr><th>النوع</th><th>نموذج البيانات</th><th>المثال</th><th>أفضل لـ</th><th>تجنّب لـ</th></tr></thead>
               <tbody>
@@ -13019,7 +13091,8 @@ spec:
             <div class="kabadges"><span class="kab kab-3">متقدم</span><span class="kab kab-4">CIO/CDO/CTO</span></div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">الـ 5 Domains و 40 Governance Objective</div>
+          <div class="kb"><div class="kb-title">📚 الأصل والجهة الحاكمة</div><div class="kb-text"><strong>COBIT</strong> (Control Objectives for Information & Related Technologies) تصدره <strong>ISACA</strong> منذ 1996. الإصدار الحالي <strong>COBIT 2019</strong> يميّز بوضوح بين <strong>الحوكمة (Governance)</strong> و<strong>الإدارة (Management)</strong> — إطار حوكمة تقنية المعلومات المؤسّسية الأبرز. يربط أهداف IT بأهداف الأعمال عبر سلسلة أهداف (Goals Cascade)، ويتكامل مع ITIL و ISO و NIST.</div></div>
+        <div class="kb"><div class="kb-title">الـ 5 Domains و 40 Governance Objective</div>
             <table class="etbl">
               <thead><tr><th>المجال</th><th>#</th><th>الاسم</th><th>الهدف الرئيسي</th></tr></thead>
               <tbody>
@@ -13078,7 +13151,8 @@ spec:
             <div class="kabadges"><span class="kab kab-3">متقدم</span><span class="kab kab-hot">🔥 Compliance إلزامي</span></div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">ما هو ISMS وما يشمله؟</div>
+          <div class="kb"><div class="kb-title">📚 الأصل والجهة الحاكمة</div><div class="kb-text"><strong>ISO/IEC 27001</strong> معيار دولي لإدارة أمن المعلومات (ISMS) تصدره <strong>ISO + IEC</strong> (الإصدار الأحدث 2022). أصله المعيار البريطاني BS 7799 (1995). يقوم على دورة <strong>PDCA</strong> (Plan-Do-Check-Act · Deming) ونهج قائم على المخاطر. يُكمّله الدليل ISO 27002 (الضوابط). في السعودية يتقاطع مع ضوابط <strong>الهيئة الوطنية للأمن السيبراني (NCA)</strong> ومعيار <strong>NIST CSF</strong> الأمريكي.</div></div>
+        <div class="kb"><div class="kb-title">ما هو ISMS وما يشمله؟</div>
             <div class="kb-text">ISMS = Information Security Management System. نظام شامل يُدير أمن المعلومات: السياسات، العمليات، الأدوات، الأشخاص، والمراجعة المستمرة. ISO 27001 هو المعيار الدولي لبناء ISMS والحصول على الشهادة.</div>
           </div>
           <div class="kb"><div class="kb-title">رحلة الحصول على الشهادة المؤسسية</div>
@@ -13659,7 +13733,8 @@ spec:
           <div><div class="kaprice">$350–$500</div><div class="kaplbl">دورة + امتحان</div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">Service Value System (SVS) — الرؤية الكاملة</div>
+          <div class="kb"><div class="kb-title">📚 الأصل والجهة الحاكمة</div><div class="kb-text"><strong>ITIL</strong> (Information Technology Infrastructure Library) نشأت في الثمانينيات عن الحكومة البريطانية (CCTA). تطوّرت إلى <strong>ITIL 4</strong> (2019) تحت إدارة <strong>AXELOS</strong> (ثمّ PeopleCert). الإصدار الرابع تحوّل من "عمليات" إلى "نظام القيمة الخدمي (Service Value System)" متأثّراً بـ Agile و DevOps و Lean. المعيار العالمي الأوسع تبنّياً لإدارة خدمات IT (ITSM).</div></div>
+        <div class="kb"><div class="kb-title">Service Value System (SVS) — الرؤية الكاملة</div>
             <div class="tgrid">
               <div class="ti"><div class="ti-t">Guiding Principles</div><div class="ti-d">7 مبادئ توجيهية تُطبَّق في أي ظرف. "Focus on Value" أهمها — كل قرار يُقيَّم بالقيمة التي يُقدمها.</div></div>
               <div class="ti"><div class="ti-t">Governance</div><div class="ti-d">التوجيه والتحكم والتقييم. يضمن توافق IT مع أهداف المنظمة. من مسؤولية الإدارة العليا.</div></div>
@@ -13845,7 +13920,8 @@ spec:
             <div class="kabadges"><span class="kab kab-2">متوسط</span><span class="kab kab-1">أساس كل مسار</span></div></div>
         </div>
         <div class="kab-body">
-          <div class="kb"><div class="kb-title">Routing Protocols — متى تختار ماذا؟</div>
+          <div class="kb"><div class="kb-title">🎓 الأسس النظرية للشبكات</div><div class="kb-text"><strong>نموذج OSI</strong> طوّرته <strong>ISO</strong> (1984) — سبع طبقات مرجعية. عملياً ساد <strong>نموذج TCP/IP</strong> الذي صمّمه <strong>Vint Cerf و Bob Kahn (1974)</strong> — "أبوا الإنترنت" (جائزة Turing). الأساس الرياضي كلّه يعود لـ <strong>Claude Shannon (1948)</strong> ونظرية المعلومات: حدّ السعة القصوى لأيّ قناة اتّصال (Shannon Capacity). هذه النظرية تحكم كل شبكة من الألياف إلى 5G.</div></div>
+        <div class="kb"><div class="kb-title">Routing Protocols — متى تختار ماذا؟</div>
             <table class="etbl">
               <thead><tr><th>البروتوكول</th><th>Type</th><th>Metric</th><th>Admin Distance</th><th>يُستخدم لـ</th></tr></thead>
               <tbody>

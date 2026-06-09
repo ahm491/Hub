@@ -14,8 +14,8 @@
   --ink:#1c1917; --ink2:#44403c; --muted:#a8a29e;
   --s1:#1d4ed8; --s2:#15803d; --s3:#b45309; --red:#dc2626; --purple:#7c3aed;
   --teal:#0d9488; --pink:#db2777; --indigo:#4338ca;
-  --gold:#fbbf24;
-  --gold-bg:#fef3c7;
+  --gold:#34d399;
+  --gold-bg:#d1fae5;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
@@ -23,12 +23,12 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 /* SIDEBAR */
 .sidebar{position:fixed;right:0;top:0;bottom:0;width:280px;background:var(--ink);color:#fff;display:flex;flex-direction:column;z-index:100;overflow-y:auto}
 .sb-head{padding:14px 22px 12px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:10px}
-.sb-brand{color:#fbbf24;font-weight:800;font-size:14px;letter-spacing:0.3px;font-family:'Tajawal',sans-serif}
+.sb-brand{color:#34d399;font-weight:800;font-size:14px;letter-spacing:0.3px;font-family:'Tajawal',sans-serif}
 .sb-tagline{color:rgba(255,255,255,0.5);font-size:11px;margin-top:3px;line-height:1.5}
 .sb-section{padding:18px 22px 7px;font-size:9px;color:rgba(255,255,255,0.22);letter-spacing:2.5px;font-weight:700}
 .sb-item{display:flex;align-items:center;gap:11px;padding:10px 22px;cursor:pointer;transition:all 0.15s;border-right:3px solid transparent;font-size:12.5px;color:rgba(255,255,255,0.58)}
 .sb-item:hover{background:rgba(255,255,255,0.04);color:#fff}
-.sb-item.active{background:rgba(251,191,36,0.08);border-right-color:var(--gold);color:#fff}
+.sb-item.active{background:rgba(52,211,153,0.08);border-right-color:var(--gold);color:#fff}
 .sb-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 .sb-num{margin-right:auto;font-size:9.5px;color:rgba(255,255,255,0.35);font-family:'Tajawal',sans-serif;font-weight:700;letter-spacing:1px}
 .sb-item.active .sb-num{color:var(--gold)}
@@ -37,21 +37,21 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .main{margin-right:280px;min-height:100vh}
 
 /* HERO (compact - unified) */
-.hero{background:linear-gradient(135deg,#0c0a09 0%,#1c1917 50%,#0c0a09 100%);color:#fff;padding:16px 48px 14px;position:relative;overflow:hidden;border-bottom:1px solid rgba(251,191,36,0.15);width:100%;box-sizing:border-box}
+.hero{background:linear-gradient(135deg,#0c0a09 0%,#1c1917 50%,#0c0a09 100%);color:#fff;padding:16px 48px 14px;position:relative;overflow:hidden;border-bottom:1px solid rgba(52,211,153,0.15);width:100%;box-sizing:border-box}
 .hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto}
-.hero-top-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid rgba(251,191,36,0.15);margin-bottom:10px;flex-wrap:wrap}
+.hero-top-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid rgba(52,211,153,0.15);margin-bottom:10px;flex-wrap:wrap}
 .hero-brand{display:flex;align-items:center;gap:12px}
 .hero-brand-text{text-align:right}
-.hero-brand-name{font-size:18px;font-weight:800;color:#fbbf24;line-height:1.2;letter-spacing:0.3px;font-family:'Tajawal',sans-serif}
+.hero-brand-name{font-size:18px;font-weight:800;color:#34d399;line-height:1.2;letter-spacing:0.3px;font-family:'Tajawal',sans-serif}
 .hero-brand-tag{font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,0.5);margin-top:3px;font-weight:600}
 .hero-stats-compact{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.hero-stat-c{display:flex;align-items:baseline;gap:5px;padding:3px 10px;background:rgba(251,191,36,0.05);border:1px solid rgba(251,191,36,0.18);border-radius:6px}
-.hero-stat-c-num{font-size:18px;font-weight:800;color:#fbbf24;font-family:'Tajawal',sans-serif;line-height:1}
+.hero-stat-c{display:flex;align-items:baseline;gap:5px;padding:3px 10px;background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.18);border-radius:6px}
+.hero-stat-c-num{font-size:18px;font-weight:800;color:#34d399;font-family:'Tajawal',sans-serif;line-height:1}
 .hero-stat-c-lbl{font-size:11px;color:rgba(255,255,255,0.6);font-weight:500}
 .hero-bottom-row{direction:rtl;padding-top:4px}
-.hero-eyebrow{font-size:9.5px;letter-spacing:2px;color:#fbbf24;font-weight:700;margin-bottom:6px;text-align:right}
+.hero-eyebrow{font-size:9.5px;letter-spacing:2px;color:#34d399;font-weight:700;margin-bottom:6px;text-align:right}
 .hero-sub-compact{font-size:13px;line-height:1.65;color:rgba(255,255,255,0.85);margin:0}
-.hero-sub-compact strong{color:#fbbf24;font-weight:700}
+.hero-sub-compact strong{color:#34d399;font-weight:700}
 
 /* CONTENT */
 .content{padding:36px 48px 80px;max-width:1100px;margin:0 auto}
@@ -68,7 +68,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
 .sec{font-size:11px;color:var(--ink);font-weight:900;letter-spacing:0.5px;margin:32px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--gold);font-family:'Tajawal',sans-serif}
 
-.intro{display:flex;gap:14px;background:linear-gradient(135deg,#fef9e7 0%,#fef3c7 100%);border:1px solid #fde68a;border-radius:13px;padding:18px 22px;margin-bottom:18px}
+.intro{display:flex;gap:14px;background:linear-gradient(135deg,#fef9e7 0%,#d1fae5 100%);border:1px solid #fde68a;border-radius:13px;padding:18px 22px;margin-bottom:18px}
 .intro-icon{font-size:32px;flex-shrink:0;line-height:1}
 .intro-text{font-size:13px;color:#713f12;line-height:1.85}
 .intro-text strong{color:#451a03;font-weight:800}
@@ -120,7 +120,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .archd b{color:#92400e;font-weight:700}
 
 /* Placeholder modules */
-.placeholder{background:linear-gradient(135deg,#fef9e7 0%,#fef3c7 100%);border:1px dashed #fde68a;border-radius:13px;padding:30px;text-align:center;color:#713f12;margin-top:30px}
+.placeholder{background:linear-gradient(135deg,#fef9e7 0%,#d1fae5 100%);border:1px dashed #fde68a;border-radius:13px;padding:30px;text-align:center;color:#713f12;margin-top:30px}
 .placeholder-icon{font-size:42px;margin-bottom:12px}
 .placeholder-title{font-family:'Tajawal',sans-serif;font-weight:800;font-size:16px;color:#451a03;margin-bottom:8px}
 .placeholder-text{font-size:13px;line-height:1.85;max-width:520px;margin:0 auto;color:#713f12}
@@ -140,8 +140,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 }
 
 /* Floating mobile sidebar toggle */
-.sb-tog-float{display:none;position:fixed;top:14px;right:14px;z-index:1500;width:42px;height:42px;background:rgba(28,25,23,0.88);color:#fbbf24;border:1px solid rgba(251,191,36,0.25);border-radius:10px;cursor:pointer;font-size:18px;align-items:center;justify-content:center;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 6px 20px -4px rgba(0,0,0,0.25);transition:all .2s ease}
-.sb-tog-float:hover{background:rgba(28,25,23,0.96);border-color:#fbbf24}
+.sb-tog-float{display:none;position:fixed;top:14px;right:14px;z-index:1500;width:42px;height:42px;background:rgba(28,25,23,0.88);color:#34d399;border:1px solid rgba(52,211,153,0.25);border-radius:10px;cursor:pointer;font-size:18px;align-items:center;justify-content:center;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 6px 20px -4px rgba(0,0,0,0.25);transition:all .2s ease}
+.sb-tog-float:hover{background:rgba(28,25,23,0.96);border-color:#34d399}
 @media(max-width:900px){.sb-tog-float{display:flex}}
 
 /* Mobile overlay */
@@ -150,8 +150,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
 /* Back-to-Home floating button */
 .back-home{position:fixed;top:14px;left:14px;z-index:1500;display:inline-flex;align-items:center;gap:7px;padding:8px 14px 8px 12px;background:rgba(28,25,23,0.88);color:#fafaf9;border-radius:999px;font-family:'Tajawal',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.2px;text-decoration:none;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);box-shadow:0 6px 20px -4px rgba(0,0,0,0.25);transition:all 0.2s cubic-bezier(0.4,0,0.2,1)}
-.back-home:hover{background:rgba(28,25,23,0.96);border-color:rgba(251,191,36,0.4);box-shadow:0 8px 24px -4px rgba(0,0,0,0.3);transform:translateY(-1px)}
-.back-home-icon{color:#fbbf24;flex-shrink:0;transition:transform 0.2s ease}
+.back-home:hover{background:rgba(28,25,23,0.96);border-color:rgba(52,211,153,0.4);box-shadow:0 8px 24px -4px rgba(0,0,0,0.3);transform:translateY(-1px)}
+.back-home-icon{color:#34d399;flex-shrink:0;transition:transform 0.2s ease}
 .back-home:hover .back-home-icon{transform:scale(1.08)}
 .back-home-text{line-height:1}
 @media(max-width:640px){.back-home{top:10px;right:10px;padding:6px 12px 6px 10px;font-size:11.5px}}
@@ -206,7 +206,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .ph-card::before{content:'';position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--s2),#10b981)}
 .ph-card.p2::before{background:linear-gradient(90deg,#0ea5e9,#38bdf8)}
 .ph-card.p3::before{background:linear-gradient(90deg,var(--purple),#a78bfa)}
-.ph-card.p4::before{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.ph-card.p4::before{background:linear-gradient(90deg,#f59e0b,#34d399)}
 .ph-card.p5::before{background:linear-gradient(90deg,#ef4444,#f87171)}
 .ph-num{font-family:'Courier New',monospace;font-size:11px;color:var(--s2);font-weight:700;letter-spacing:1px;margin-bottom:4px}
 .ph-card.p2 .ph-num{color:#0ea5e9}.ph-card.p3 .ph-num{color:var(--purple)}
@@ -268,6 +268,84 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   .lc-grid.cols-3,.lc-grid.cols-4{grid-template-columns:1fr}
   .cmp-2{grid-template-columns:1fr}
 }
+
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  UPGRADE LAYER v1 · منظومة المالية                   ║
+   ║  HUB COLOR TOKENS · FINANCE = زمردي/Emerald                          ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+:root{
+  --accent:#34d399;
+  --accent-2:#6ee7b7;
+  --accent-deep:#047857;
+  --accent-glow:rgba(52,211,153,0.10);
+}
+
+/* ── أشرطة تمرير داكنة + عناصر النظام ───────────────────────── */
+body[data-theme="dark"]{color-scheme:dark}
+body:not([data-theme="dark"]){color-scheme:light}
+body[data-theme="dark"] ::-webkit-scrollbar{width:11px;height:11px}
+body[data-theme="dark"] ::-webkit-scrollbar-track{background:#080b14}
+body[data-theme="dark"] ::-webkit-scrollbar-thumb{background:#262c3d;border-radius:8px;border:2px solid #080b14}
+body[data-theme="dark"] ::-webkit-scrollbar-thumb:hover{background:#39415a}
+body[data-theme="dark"]{scrollbar-color:#262c3d #080b14}
+.sidebar{scrollbar-width:thin}
+
+/* ── شارات الوحدة (وقت قراءة · موقع) ─────────────────────────── */
+.mod-extras{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}
+.mod-extras span{
+  font-size:10.5px;font-weight:700;padding:3px 11px;border-radius:99px;
+  background:var(--accent-glow);color:var(--accent-deep);
+  border:1px solid rgba(52,211,153,0.3);
+}
+body[data-theme="dark"] .mod-extras span{color:var(--accent-2)}
+
+/* ── تنقّل السابق/التالي أسفل كل وحدة ────────────────────────── */
+.mod-nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+.mod-nav button{
+  flex:1;max-width:48%;display:flex;flex-direction:column;gap:4px;
+  padding:13px 17px;border:1px solid var(--border);border-radius:13px;
+  background:var(--surface);cursor:pointer;font-family:'Cairo',sans-serif;
+  transition:transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+.mod-nav button.nav-prev{text-align:right;align-items:flex-start}
+.mod-nav button.nav-next{text-align:left;align-items:flex-end;margin-right:auto}
+.mod-nav button:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 10px 26px -14px var(--accent-glow)}
+.mod-nav .nav-dir{font-size:10.5px;font-weight:800;color:var(--muted);letter-spacing:0.5px}
+.mod-nav .nav-ttl{font-size:13px;font-weight:800;color:var(--accent-deep)}
+body[data-theme="dark"] .mod-nav .nav-ttl{color:var(--accent)}
+body[data-theme="dark"] .mod-nav button{background:#10141f;border-color:#222a3f}
+@media(max-width:780px){.mod-nav{flex-direction:column}.mod-nav button{max-width:100%}}
+
+/* ── تتبّع القراءة في الشريط الجانبي ─────────────────────────── */
+.sb-item .sb-check{display:none;margin-right:auto;color:#22c55e;font-size:10px;font-weight:900;padding-right:6px}
+.sb-item.read .sb-check{display:inline}
+.sb-item.read .sb-num{color:#22c55e}
+.sb-sec-count{
+  font-size:9px;font-weight:800;color:var(--accent-2);
+  background:rgba(52,211,153,0.12);padding:1px 8px;border-radius:99px;margin-right:8px;
+}
+.sb-sec-count.done{color:#4ade80;background:rgba(34,197,94,0.14)}
+
+/* ── جداول قابلة للتمرير أفقيًا ───────────────────────────────── */
+.tbl-wrap{overflow-x:auto;margin:12px 0;-webkit-overflow-scrolling:touch}
+.tbl-wrap > table{margin:0;min-width:560px}
+
+/* ── كشف عند التمرير + لمسات حركة ────────────────────────────── */
+.rv{opacity:0;transform:translateY(16px)}
+.rv.in{opacity:1;transform:none;transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.card{transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease}
+.card:hover{transform:translateY(-2px)}
+body[data-theme="dark"] .card:hover{border-color:rgba(52,211,153,0.4);box-shadow:0 14px 34px -16px var(--accent-glow)}
+
+/* ── وصولية ──────────────────────────────────────────────────── */
+.sb-item{outline:none}
+.sb-item:focus-visible{box-shadow:0 0 0 2px var(--accent) inset}
+
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -381,7 +459,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">⏱️</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">⏱️</div>
 
     <div class="mod-meta">
 
@@ -653,7 +731,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 </div>
 <div class="h-bar">
   <div class="hb-row"><div class="hb-label">السنة ١</div><div class="hb-track"><div class="hb-fill" style="width:70%;background:linear-gradient(90deg,#dc2626,#ef4444)">٨٠٪ فوائد · ٢٠٪ أصل</div></div><div class="hb-note">معظمه فوائد</div></div>
-  <div class="hb-row"><div class="hb-label">السنة ٥</div><div class="hb-track"><div class="hb-fill" style="width:60%;background:linear-gradient(90deg,#f59e0b,#fbbf24)">٧٠٪ فوائد · ٣٠٪ أصل</div></div><div class="hb-note">يتحسّن قليلاً</div></div>
+  <div class="hb-row"><div class="hb-label">السنة ٥</div><div class="hb-track"><div class="hb-fill" style="width:60%;background:linear-gradient(90deg,#f59e0b,#34d399)">٧٠٪ فوائد · ٣٠٪ أصل</div></div><div class="hb-note">يتحسّن قليلاً</div></div>
   <div class="hb-row"><div class="hb-label">السنة ١٥</div><div class="hb-track"><div class="hb-fill" style="width:50%">٥٠٪ فوائد · ٥٠٪ أصل</div></div><div class="hb-note">نقطة تعادل</div></div>
   <div class="hb-row"><div class="hb-label">السنة ٢٥</div><div class="hb-track"><div class="hb-fill" style="width:90%;background:linear-gradient(90deg,#15803d,#10b981)">١٠٪ فوائد · ٩٠٪ أصل</div></div><div class="hb-note" style="color:var(--s2)">معظمه أصل ✓</div></div>
 </div>
@@ -1525,7 +1603,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--s3)">💵</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--s3)">💵</div>
 
     <div class="mod-meta">
 
@@ -1597,7 +1675,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
     <p style="margin-top:12px"><strong>طريقتان لإعداده:</strong></p>
 
     <div class="cmp-2">
-  <div class="cmp-col" style="border-color:#fbbf24;background:linear-gradient(135deg,#fffbeb,#fff)">
+  <div class="cmp-col" style="border-color:#34d399;background:linear-gradient(135deg,#fffbeb,#fff)">
     <div class="cmp-head"><div class="cmp-icon" style="background:#f59e0b">📥</div>الطريقة المباشرة (نادرة)</div>
     <div class="cmp-body">
       <strong>المنطق:</strong> تتبّع كل النقد الفعلي الداخل والخارج<br><br>
@@ -2125,7 +2203,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">⚖️</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">⚖️</div>
 
     <div class="mod-meta">
 
@@ -2280,8 +2358,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   <div class="formula-box">
     <div class="fb-formula"><em>K<sub>e</sub></em> <span class="fb-op">=</span> R<sub>f</sub> <span class="fb-op">+</span> β × (R<sub>m</sub> − R<sub>f</sub>)</div>
   </div>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)">للسوق السعودي: R<sub>f</sub> ≈ عائد الصكوك السيادية · علاوة المخاطر للأسواق الناشئة أعلى (٦-٨٪ مقابل ٤-٥٪ للمتقدّمة) · β يُقاس من حركة السهم مقابل مؤشّر تاسي (TASI).</p>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>نموذج بديل · Gordon Growth (1956):</strong> K<sub>e</sub> = (التوزيع المتوقّع ÷ السعر) + معدّل النموّ. للشركات المستقرّة الموزّعة. <strong>تنبيه:</strong> WACC الصحيح يستخدم القيم السوقية لا الدفترية للأوزان.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)">للسوق السعودي: R<sub>f</sub> ≈ عائد الصكوك السيادية · علاوة المخاطر للأسواق الناشئة أعلى (٦-٨٪ مقابل ٤-٥٪ للمتقدّمة) · β يُقاس من حركة السهم مقابل مؤشّر تاسي (TASI).</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>نموذج بديل · Gordon Growth (1956):</strong> K<sub>e</sub> = (التوزيع المتوقّع ÷ السعر) + معدّل النموّ. للشركات المستقرّة الموزّعة. <strong>تنبيه:</strong> WACC الصحيح يستخدم القيم السوقية لا الدفترية للأوزان.</p>
 
   </div>
 
@@ -2444,8 +2522,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="sec">▸ الأساس النظري · لماذا NPV هو المعيار الذهبي</div>
   <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">قاعدة NPV ليست اعتباطية — مبنية على <strong>مبدأ تعظيم ثروة المساهمين</strong> (Fisher 1930 · "نظرية الفائدة"):</p>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>فصل Fisher (Fisher Separation Theorem):</strong> قرار الاستثمار (أيّ مشاريع؟) منفصل عن قرار التمويل وتفضيلات المالك — اقبل كل مشروع بـ NPV موجب بغضّ النظر. هذا يبرّر استخدام NPV كمعيار موحّد.</p>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>عيوب IRR الأكاديمية:</strong> (١) <strong>معدّلات متعدّدة</strong> حين تتناوب التدفّقات إشارتها. (٢) <strong>افتراض إعادة الاستثمار</strong> بمعدّل IRR نفسه (غير واقعي) — الحلّ MIRR. (٣) <strong>تحيّز الحجم</strong>: IRR نسبة مئوية تتجاهل حجم القيمة المُضافة. <strong>لهذا الأكاديميا تفضّل NPV عند التعارض.</strong> <strong>Profitability Index = PV ÷ الاستثمار</strong> مفيد عند تقييد الموازنة.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>فصل Fisher (Fisher Separation Theorem):</strong> قرار الاستثمار (أيّ مشاريع؟) منفصل عن قرار التمويل وتفضيلات المالك — اقبل كل مشروع بـ NPV موجب بغضّ النظر. هذا يبرّر استخدام NPV كمعيار موحّد.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>عيوب IRR الأكاديمية:</strong> (١) <strong>معدّلات متعدّدة</strong> حين تتناوب التدفّقات إشارتها. (٢) <strong>افتراض إعادة الاستثمار</strong> بمعدّل IRR نفسه (غير واقعي) — الحلّ MIRR. (٣) <strong>تحيّز الحجم</strong>: IRR نسبة مئوية تتجاهل حجم القيمة المُضافة. <strong>لهذا الأكاديميا تفضّل NPV عند التعارض.</strong> <strong>Profitability Index = PV ÷ الاستثمار</strong> مفيد عند تقييد الموازنة.</p>
 
   </div>
 
@@ -2576,7 +2654,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
       <div class="fb-term"><div class="fb-term-name">T<sub>c</sub> × D</div><div class="fb-term-desc">قيمة الدرع الضريبي (الضريبة × الدين)</div></div>
     </div>
   </div>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>افتراضات MM المثالية:</strong> لا ضرائب (أُزيلت ١٩٦٣) · لا تكاليف إفلاس · لا تكاليف وكالة · معلومات متماثلة. انتهاكها أنتج نظريتي <strong>المقايضة</strong> (الدرع مقابل تكاليف الإفلاس) و<strong>الترتيب الهرمي</strong> (Myers & Majluf 1984: التمويل الداخلي أولاً لعدم تماثل المعلومات).</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>افتراضات MM المثالية:</strong> لا ضرائب (أُزيلت ١٩٦٣) · لا تكاليف إفلاس · لا تكاليف وكالة · معلومات متماثلة. انتهاكها أنتج نظريتي <strong>المقايضة</strong> (الدرع مقابل تكاليف الإفلاس) و<strong>الترتيب الهرمي</strong> (Myers & Majluf 1984: التمويل الداخلي أولاً لعدم تماثل المعلومات).</p>
 
   </div>
 
@@ -2584,7 +2662,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--s3)">🔄</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--s3)">🔄</div>
 
     <div class="mod-meta">
 
@@ -3046,7 +3124,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
     
     <div class="archd">       العائد │
               │            ┌─── الحدّ الكفء (الأفضل)
-        <span style="color:#fbbf24">●</span> ─── │      ┌──┘
+        <span style="color:#34d399">●</span> ─── │      ┌──┘
               │   ┌──┘
               │ ┌─┘  <span style="color:#dc2626">●</span>  <span style="color:#dc2626">●</span>  ◄── محافظ غير كفؤة
               │/    <span style="color:#dc2626">●</span>
@@ -3125,7 +3203,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
       <div class="fb-term"><div class="fb-term-name">(R<sub>m</sub>−R<sub>f</sub>)</div><div class="fb-term-desc">علاوة مخاطر السوق</div></div>
     </div>
   </div>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الحدّ الكفء (Efficient Frontier):</strong> المحافظ ذات أعلى عائد لكل مستوى مخاطرة. β=1 يتحرّك مع السوق · β>1 أكثر تقلّباً · β<1 دفاعي. <strong>نقد Fama-French (1992):</strong> أضافا عاملي الحجم والقيمة لأنّ CAPM وحده لا يفسّر العوائد كاملةً.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الحدّ الكفء (Efficient Frontier):</strong> المحافظ ذات أعلى عائد لكل مستوى مخاطرة. β=1 يتحرّك مع السوق · β>1 أكثر تقلّباً · β<1 دفاعي. <strong>نقد Fama-French (1992):</strong> أضافا عاملي الحجم والقيمة لأنّ CAPM وحده لا يفسّر العوائد كاملةً.</p>
 
   </div>
 
@@ -3133,7 +3211,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">💎</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">💎</div>
 
     <div class="mod-meta">
 
@@ -3280,7 +3358,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
       <div class="fb-term"><div class="fb-term-name">g</div><div class="fb-term-desc">معدّل النموّ الثابت للتوزيعات</div></div>
     </div>
   </div>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>حسّاسية القيمة النهائية (Terminal Value):</strong> في DCF · تشكّل القيمة النهائية ٦٠-٨٠٪ من التقييم — وتعتمد بشدّة على فرضية g. تغيير g بـ ١٪ قد يغيّر التقييم ٢٠-٣٠٪. <strong>درس Graham:</strong> اطلب هامش أمان لأنّ كل التقييمات تقديرية.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>حسّاسية القيمة النهائية (Terminal Value):</strong> في DCF · تشكّل القيمة النهائية ٦٠-٨٠٪ من التقييم — وتعتمد بشدّة على فرضية g. تغيير g بـ ١٪ قد يغيّر التقييم ٢٠-٣٠٪. <strong>درس Graham:</strong> اطلب هامش أمان لأنّ كل التقييمات تقديرية.</p>
 
   </div>
 
@@ -3438,7 +3516,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
     </tbody>
   </table>
   <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0"><strong>ثلاث نظريات تفسّر شكل منحنى العائد:</strong></p>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>١. توقّعات الفائدة (Expectations):</strong> المنحنى يعكس توقّعات السوق للفائدة المستقبلية. <strong>٢. تفضيل السيولة (Liquidity Preference · Keynes):</strong> المستثمرون يطلبون علاوة للآجال الطويلة → ميل تصاعدي طبيعي. <strong>٣. تجزئة السوق (Market Segmentation):</strong> العرض/الطلب في كل أجل مستقلّ. <strong>المنحنى المقلوب (Inverted):</strong> مؤشّر تاريخي قويّ على ركود قادم.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>١. توقّعات الفائدة (Expectations):</strong> المنحنى يعكس توقّعات السوق للفائدة المستقبلية. <strong>٢. تفضيل السيولة (Liquidity Preference · Keynes):</strong> المستثمرون يطلبون علاوة للآجال الطويلة → ميل تصاعدي طبيعي. <strong>٣. تجزئة السوق (Market Segmentation):</strong> العرض/الطلب في كل أجل مستقلّ. <strong>المنحنى المقلوب (Inverted):</strong> مؤشّر تاريخي قويّ على ركود قادم.</p>
 
   </div>
 
@@ -3446,7 +3524,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">🎯</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">🎯</div>
 
     <div class="mod-meta">
 
@@ -3598,8 +3676,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
       <tr><td><strong>Black · Scholes · Merton</strong></td><td>١٩٧٣</td><td>صيغة مغلقة لتسعير خيار أوروبي. Scholes و Merton نوبل ١٩٩٧ (توفّي Black ١٩٩٥). أطلقت صناعة المشتقّات العالمية.</td></tr>
     </tbody>
   </table>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)">المدخلات الخمسة: <strong>سعر الأصل · سعر التنفيذ · الوقت للاستحقاق · التقلّب (σ) · الفائدة الخالية من المخاطر</strong>. أصعبها قياساً: التقلّب.</p>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الإغريق (The Greeks)</strong> — حساسيّات سعر الخيار: <strong>Delta</strong> (سعر الأصل) · <strong>Gamma</strong> (تغيّر Delta) · <strong>Theta</strong> (مرور الوقت) · <strong>Vega</strong> (التقلّب) · <strong>Rho</strong> (الفائدة). <strong>تنبيه:</strong> يفترض النموذج تقلّباً ثابتاً وتوزيعاً طبيعياً — أزمة ٢٠٠٨ كشفت محدوديّته في الأحداث المتطرّفة (Taleb · Black Swan).</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)">المدخلات الخمسة: <strong>سعر الأصل · سعر التنفيذ · الوقت للاستحقاق · التقلّب (σ) · الفائدة الخالية من المخاطر</strong>. أصعبها قياساً: التقلّب.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الإغريق (The Greeks)</strong> — حساسيّات سعر الخيار: <strong>Delta</strong> (سعر الأصل) · <strong>Gamma</strong> (تغيّر Delta) · <strong>Theta</strong> (مرور الوقت) · <strong>Vega</strong> (التقلّب) · <strong>Rho</strong> (الفائدة). <strong>تنبيه:</strong> يفترض النموذج تقلّباً ثابتاً وتوزيعاً طبيعياً — أزمة ٢٠٠٨ كشفت محدوديّته في الأحداث المتطرّفة (Taleb · Black Swan).</p>
 
   </div>
 
@@ -3753,8 +3831,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="sec">▸ الأساس النظري · لماذا الأصول البديلة</div>
   <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">منطق الأصول البديلة مؤصّل في نظرية المحفظة (Markowitz):</p>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الارتباط المنخفض (Low Correlation):</strong> القيمة الأساسية للأصول البديلة أنّ عوائدها لا تتحرّك مع الأسهم/السندات — فتُحسّن نسبة <strong>Sharpe Ratio</strong> للمحفظة (العائد لكل وحدة مخاطرة · Sharpe 1966). <strong>علاوة عدم السيولة (Illiquidity Premium):</strong> الـ PE/العقار يدفعان عائداً أعلى تعويضاً عن صعوبة البيع السريع.</p>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>نموذج التمويل الجماعي الخليجي:</strong> صناديق PIF · صناديق الـ VC المحلّية (STV · Raed) · والعقار عبر صناديق REITs المدرجة في تاسي — تتيح للمستثمر السعودي وصولاً منظّماً للأصول البديلة ضمن إطار CMA.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الارتباط المنخفض (Low Correlation):</strong> القيمة الأساسية للأصول البديلة أنّ عوائدها لا تتحرّك مع الأسهم/السندات — فتُحسّن نسبة <strong>Sharpe Ratio</strong> للمحفظة (العائد لكل وحدة مخاطرة · Sharpe 1966). <strong>علاوة عدم السيولة (Illiquidity Premium):</strong> الـ PE/العقار يدفعان عائداً أعلى تعويضاً عن صعوبة البيع السريع.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>نموذج التمويل الجماعي الخليجي:</strong> صناديق PIF · صناديق الـ VC المحلّية (STV · Raed) · والعقار عبر صناديق REITs المدرجة في تاسي — تتيح للمستثمر السعودي وصولاً منظّماً للأصول البديلة ضمن إطار CMA.</p>
 
   </div>
 
@@ -3997,7 +4075,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--s3)">💱</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--s3)">💱</div>
 
     <div class="mod-meta">
 
@@ -4076,7 +4154,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   </div>
   <div class="hb-row">
     <div class="hb-label" style="color:var(--s2);font-weight:800">SPREAD</div>
-    <div class="hb-track"><div class="hb-fill" style="width:5%;background:linear-gradient(90deg,#f59e0b,#fbbf24)">0.0010</div></div>
+    <div class="hb-track"><div class="hb-fill" style="width:5%;background:linear-gradient(90deg,#f59e0b,#34d399)">0.0010</div></div>
     <div class="hb-note" style="color:var(--s2);font-weight:800">10 pips</div>
   </div>
 </div>
@@ -4150,7 +4228,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">🛢️</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">🛢️</div>
 
     <div class="mod-meta">
 
@@ -4429,7 +4507,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
       <tr><td><strong>Kahneman & Tversky</strong><br>نظرية الاحتمال (Prospect Theory)</td><td>١٩٧٩</td><td>المستثمرون يكرهون الخسارة ضعف حبّهم للربح (Loss Aversion) — تحيّزات تشرح فقاعة تاسي ٢٠٠٦.</td></tr>
     </tbody>
   </table>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>تطبيق على تاسي:</strong> انهيار ٢٠٠٦ (المؤشّر من ٢٠٬٠٠٠ إلى ٧٬٠٠٠) مثال كلاسيكي على "الحماس غير العقلاني" (Shiller) و"سلوك القطيع". <strong>الكفاءة المتنامية:</strong> دخول المستثمرين الأجانب (QFI · ٢٠١٥) وإدراج تاسي في مؤشّر MSCI الناشئ (٢٠١٩) رفعا كفاءة السوق وسيولته. السوق السعودي يقترب من "شبه القويّة".</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>تطبيق على تاسي:</strong> انهيار ٢٠٠٦ (المؤشّر من ٢٠٬٠٠٠ إلى ٧٬٠٠٠) مثال كلاسيكي على "الحماس غير العقلاني" (Shiller) و"سلوك القطيع". <strong>الكفاءة المتنامية:</strong> دخول المستثمرين الأجانب (QFI · ٢٠١٥) وإدراج تاسي في مؤشّر MSCI الناشئ (٢٠١٩) رفعا كفاءة السوق وسيولته. السوق السعودي يقترب من "شبه القويّة".</p>
 
   </div>
 
@@ -4766,7 +4844,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
       <tr><td><strong>تحريم الغرر (Gharar)</strong></td><td>منع الغموض الفاحش = شفافية العقود = تقليل عدم تماثل المعلومات (Akerlof). يفسّر الحذر من المشتقّات المعقّدة.</td></tr>
     </tbody>
   </table>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>المعايير المؤسّسية · AAOIFI:</strong> هيئة المحاسبة والمراجعة للمؤسّسات المالية الإسلامية (البحرين · ١٩٩١) تضع المعايير الشرعية والمحاسبية عالمياً. <strong>الفرق الجوهري للصكوك عن السندات:</strong> الصك يمثّل <em>ملكية حصّة في أصل</em> (عائده من الأصل) بينما السند <em>دَين</em> (عائده فائدة). السوق السعودي والماليزي روّاد عالمياً في إصدار الصكوك السيادية.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>المعايير المؤسّسية · AAOIFI:</strong> هيئة المحاسبة والمراجعة للمؤسّسات المالية الإسلامية (البحرين · ١٩٩١) تضع المعايير الشرعية والمحاسبية عالمياً. <strong>الفرق الجوهري للصكوك عن السندات:</strong> الصك يمثّل <em>ملكية حصّة في أصل</em> (عائده من الأصل) بينما السند <em>دَين</em> (عائده فائدة). السوق السعودي والماليزي روّاد عالمياً في إصدار الصكوك السيادية.</p>
 
   </div>
 
@@ -5007,7 +5085,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--s3)">🛡️</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--s3)">🛡️</div>
 
     <div class="mod-meta">
 
@@ -5128,7 +5206,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">🏘️</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">🏘️</div>
 
     <div class="mod-meta">
 
@@ -5729,7 +5807,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--s3)">💼</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--s3)">💼</div>
 
     <div class="mod-meta">
 
@@ -6037,7 +6115,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   <div class="scn-quote"><strong>VaR = ٢٥٠٬٠٠٠ ر.س</strong></div>
   <div class="scn-text" style="margin-top:8px"><strong>التفسير:</strong> هناك ٥٪ احتمال أن نخسر أكثر من ٢٥٠٬٠٠٠ ر.س في يوم واحد · أو · في ٩٥٪ من الأيّام لن نخسر أكثر من هذا.</div>
 </div>
-<div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:#78350f">
+<div style="background:#d1fae5;border:1px solid #34d399;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:#78350f">
 <strong>التحذير المعروف:</strong> VaR <em>لا يخبرك بالخسارة في الـ ٥٪ المتبقّية</em>. أزمة ٢٠٠٨ أظهرت أنّ هذه الـ "Tail risks" قد تكون كارثية. اقرأ Nassim Taleb!
 </div>
 
@@ -6214,7 +6292,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">🏛️</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">🏛️</div>
 
     <div class="mod-meta">
 
@@ -6510,7 +6588,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
 
   <div class="sec">▸ الأساس النظري · صناديق الثروة السيادية</div>
-  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>مبادئ Santiago (2008):</strong> ٢٤ مبدأً طوعياً يحكم حوكمة وشفافية صناديق الثروة السيادية عالمياً (وضعها صندوق النقد الدولي بعد قلق غربي من نفوذها). <strong>نموذج PIF الفريد:</strong> معظم الصناديق السيادية "سلبية" (تحفظ الثروة · مثل النرويج) — لكن PIF <strong>صندوق استراتيجي نشط (Strategic Active Investor)</strong> يستخدم رأس المال لـ <em>بناء قطاعات محلّية جديدة</em> (السياحة · الترفيه · الصناعة)، لا مجرّد العائد المالي. هذا يربطه بنظرية "الدولة التنموية" (Developmental State · Johnson 1982) ولعنة الموارد (مرحلة EMBA): PIF أداة تحويل الريع النفطي إلى أصول منتجة متنوّعة.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#d1fae5);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>مبادئ Santiago (2008):</strong> ٢٤ مبدأً طوعياً يحكم حوكمة وشفافية صناديق الثروة السيادية عالمياً (وضعها صندوق النقد الدولي بعد قلق غربي من نفوذها). <strong>نموذج PIF الفريد:</strong> معظم الصناديق السيادية "سلبية" (تحفظ الثروة · مثل النرويج) — لكن PIF <strong>صندوق استراتيجي نشط (Strategic Active Investor)</strong> يستخدم رأس المال لـ <em>بناء قطاعات محلّية جديدة</em> (السياحة · الترفيه · الصناعة)، لا مجرّد العائد المالي. هذا يربطه بنظرية "الدولة التنموية" (Developmental State · Johnson 1982) ولعنة الموارد (مرحلة EMBA): PIF أداة تحويل الريع النفطي إلى أصول منتجة متنوّعة.</p>
 
   </div>
 
@@ -6914,7 +6992,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
     <div class="doc-sec"><div class="doc-sec-title">📉 المصادر السلبية (يُخصم)</div><div class="doc-sec-body">• الأصول الثابتة<br>• الاستثمارات في شركات تابعة<br>• الأصول غير الملموسة<br>• الخسائر المتراكمة</div></div>
     <div class="doc-sec"><div class="doc-sec-title">💰 الـ Zakat Base</div><div class="doc-sec-body">= [المصادر الإيجابية] − [المصادر السلبية]</div></div>
     <div class="doc-sec" style="background:#f0fdf4;border-radius:8px"><div class="doc-sec-title">⭐ Zakat المستحقّة</div><div class="doc-sec-body" style="text-align:center;font-family:monospace;font-size:16px;font-weight:900;color:var(--s2)">Zakat Base × 2.5%</div></div>
-    <div class="doc-sec"><div class="doc-sec-body" style="background:#fef3c7;padding:8px 12px;border-radius:6px;color:#78350f"><strong>ملاحظة:</strong> للشركات السعودية المملوكة لسعوديّين · ZATCA تطبّق Zakat. الشركات الأجنبية تدفع ضريبة الدخل ٢٠٪.</div></div>
+    <div class="doc-sec"><div class="doc-sec-body" style="background:#d1fae5;padding:8px 12px;border-radius:6px;color:#78350f"><strong>ملاحظة:</strong> للشركات السعودية المملوكة لسعوديّين · ZATCA تطبّق Zakat. الشركات الأجنبية تدفع ضريبة الدخل ٢٠٪.</div></div>
   </div>
 </div>
 
@@ -7262,7 +7340,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">🇸🇦</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">🇸🇦</div>
 
     <div class="mod-meta">
 
@@ -7848,7 +7926,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--gold)">⏱️</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--gold)">⏱️</div>
 
     <div class="mod-meta">
 
@@ -7869,12 +7947,12 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .calc-field{display:flex;flex-direction:column}
 .calc-field label{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;font-family:'Tajawal',sans-serif}
 .calc-field input,.calc-field select{padding:10px 12px;border:1px solid var(--border2);border-radius:8px;font-size:14px;font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);transition:border-color 0.15s}
-.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(251,191,36,0.1)}
+.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(52,211,153,0.1)}
 .calc-field-hint{font-size:10.5px;color:var(--muted);margin-top:4px}
-.calc-btn{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
-.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(251,191,36,0.4)}
+.calc-btn{background:linear-gradient(135deg,#34d399,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
+.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(52,211,153,0.4)}
 .calc-btn:active{transform:translateY(0)}
-.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#fef3c7 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
+.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#d1fae5 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
 .calc-result.show{display:block;animation:fadeInUp 0.3s}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .calc-result-title{font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;color:#451a03;margin-bottom:10px}
@@ -8075,12 +8153,12 @@ function calcTVM(){
 .calc-field{display:flex;flex-direction:column}
 .calc-field label{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;font-family:'Tajawal',sans-serif}
 .calc-field input,.calc-field select{padding:10px 12px;border:1px solid var(--border2);border-radius:8px;font-size:14px;font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);transition:border-color 0.15s}
-.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(251,191,36,0.1)}
+.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(52,211,153,0.1)}
 .calc-field-hint{font-size:10.5px;color:var(--muted);margin-top:4px}
-.calc-btn{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
-.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(251,191,36,0.4)}
+.calc-btn{background:linear-gradient(135deg,#34d399,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
+.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(52,211,153,0.4)}
 .calc-btn:active{transform:translateY(0)}
-.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#fef3c7 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
+.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#d1fae5 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
 .calc-result.show{display:block;animation:fadeInUp 0.3s}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .calc-result-title{font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;color:#451a03;margin-bottom:10px}
@@ -8250,12 +8328,12 @@ function calcNPV(){
 .calc-field{display:flex;flex-direction:column}
 .calc-field label{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;font-family:'Tajawal',sans-serif}
 .calc-field input,.calc-field select{padding:10px 12px;border:1px solid var(--border2);border-radius:8px;font-size:14px;font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);transition:border-color 0.15s}
-.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(251,191,36,0.1)}
+.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(52,211,153,0.1)}
 .calc-field-hint{font-size:10.5px;color:var(--muted);margin-top:4px}
-.calc-btn{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
-.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(251,191,36,0.4)}
+.calc-btn{background:linear-gradient(135deg,#34d399,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
+.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(52,211,153,0.4)}
 .calc-btn:active{transform:translateY(0)}
-.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#fef3c7 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
+.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#d1fae5 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
 .calc-result.show{display:block;animation:fadeInUp 0.3s}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .calc-result-title{font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;color:#451a03;margin-bottom:10px}
@@ -8393,7 +8471,7 @@ function calcWACC(){
 
   <div class="mod-head">
 
-    <div class="mod-icon" style="background:#fef3c7;color:var(--s3)">🏦</div>
+    <div class="mod-icon" style="background:#d1fae5;color:var(--s3)">🏦</div>
 
     <div class="mod-meta">
 
@@ -8414,12 +8492,12 @@ function calcWACC(){
 .calc-field{display:flex;flex-direction:column}
 .calc-field label{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;font-family:'Tajawal',sans-serif}
 .calc-field input,.calc-field select{padding:10px 12px;border:1px solid var(--border2);border-radius:8px;font-size:14px;font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);transition:border-color 0.15s}
-.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(251,191,36,0.1)}
+.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(52,211,153,0.1)}
 .calc-field-hint{font-size:10.5px;color:var(--muted);margin-top:4px}
-.calc-btn{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
-.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(251,191,36,0.4)}
+.calc-btn{background:linear-gradient(135deg,#34d399,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
+.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(52,211,153,0.4)}
 .calc-btn:active{transform:translateY(0)}
-.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#fef3c7 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
+.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#d1fae5 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
 .calc-result.show{display:block;animation:fadeInUp 0.3s}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .calc-result-title{font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;color:#451a03;margin-bottom:10px}
@@ -8591,12 +8669,12 @@ function toggleAmortization(){
 .calc-field{display:flex;flex-direction:column}
 .calc-field label{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;font-family:'Tajawal',sans-serif}
 .calc-field input,.calc-field select{padding:10px 12px;border:1px solid var(--border2);border-radius:8px;font-size:14px;font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);transition:border-color 0.15s}
-.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(251,191,36,0.1)}
+.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(52,211,153,0.1)}
 .calc-field-hint{font-size:10.5px;color:var(--muted);margin-top:4px}
-.calc-btn{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
-.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(251,191,36,0.4)}
+.calc-btn{background:linear-gradient(135deg,#34d399,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
+.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(52,211,153,0.4)}
 .calc-btn:active{transform:translateY(0)}
-.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#fef3c7 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
+.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#d1fae5 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
 .calc-result.show{display:block;animation:fadeInUp 0.3s}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .calc-result-title{font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;color:#451a03;margin-bottom:10px}
@@ -8814,12 +8892,12 @@ function calcZakat(){
 .calc-field{display:flex;flex-direction:column}
 .calc-field label{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;font-family:'Tajawal',sans-serif}
 .calc-field input,.calc-field select{padding:10px 12px;border:1px solid var(--border2);border-radius:8px;font-size:14px;font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);transition:border-color 0.15s}
-.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(251,191,36,0.1)}
+.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(52,211,153,0.1)}
 .calc-field-hint{font-size:10.5px;color:var(--muted);margin-top:4px}
-.calc-btn{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
-.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(251,191,36,0.4)}
+.calc-btn{background:linear-gradient(135deg,#34d399,#f59e0b);color:#1c1917;border:none;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.2s;margin-top:8px;width:100%}
+.calc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(52,211,153,0.4)}
 .calc-btn:active{transform:translateY(0)}
-.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#fef3c7 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
+.calc-result{background:linear-gradient(135deg,#fef9e7 0%,#d1fae5 100%);border:1px solid #fde68a;border-radius:11px;padding:18px;margin-top:14px;display:none}
 .calc-result.show{display:block;animation:fadeInUp 0.3s}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .calc-result-title{font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;color:#451a03;margin-bottom:10px}
@@ -8846,7 +8924,7 @@ function calcZakat(){
 /* ═══ Sidebar Search ═══ */
 .sb-search{width:100%;padding:9px 12px;margin-top:10px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.1);color:#fff;font-family:'Tajawal',sans-serif;font-size:12.5px;outline:none;transition:all 0.2s;box-sizing:border-box}
 .sb-search::placeholder{color:rgba(255,255,255,0.55)}
-.sb-search:focus{background:rgba(255,255,255,0.16);border-color:rgba(251,191,36,0.5)}
+.sb-search:focus{background:rgba(255,255,255,0.16);border-color:rgba(52,211,153,0.5)}
 .sb-item.sb-hidden,.sb-section.sb-hidden{display:none !important}
 .sb-no-results{padding:16px 18px;color:var(--muted);font-size:12.5px;text-align:center;display:none}
 .sb-no-results.show{display:block}
@@ -8860,7 +8938,7 @@ function calcZakat(){
 .fin-cat.blue h4{color:#1d4ed8}
 .fin-cat.green{background:linear-gradient(135deg,#f0fdf4,#fff);border-color:#86efac}
 .fin-cat.green h4{color:#15803d}
-.fin-cat.amber{background:linear-gradient(135deg,#fef3c7,#fff);border-color:#fbbf24}
+.fin-cat.amber{background:linear-gradient(135deg,#d1fae5,#fff);border-color:#34d399}
 .fin-cat.amber h4{color:#b45309}
 
 @media(max-width:780px){.fin-cat-grid{grid-template-columns:1fr 1fr}}
@@ -8970,37 +9048,165 @@ function calcRatios(){
 
 
 <script>
-/* Module navigation */
-document.querySelectorAll('.sb-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const mod = item.getAttribute('data-mod');
-    if (!mod) return;
-    document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
-    document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
-    item.classList.add('active');
-    const target = document.getElementById('m-' + mod);
-    if (target) {
-      target.classList.add('active');
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-    if (window.innerWidth <= 900) closeSidebar();
+/* ╔════════════════════════════════════════════════════════════╗
+   ║  UPGRADE JS v1 · منظومة الذكاء الاصطناعي · HUB = 'finance'        ║
+   ╚════════════════════════════════════════════════════════════╝ */
+(function(){
+var HUB = 'finance';
+var KEY_READ = HUB + '-read', KEY_LAST = HUB + '-last';
+var AR = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+function toAr(n){ return String(n).replace(/\d/g, function(d){ return AR[+d]; }); }
+
+function getRead(){ try{ return JSON.parse(localStorage.getItem(KEY_READ)) || []; }catch(e){ return []; } }
+function markRead(id){
+  var r = getRead();
+  if(r.indexOf(id) === -1){ r.push(id); try{ localStorage.setItem(KEY_READ, JSON.stringify(r)); }catch(e){} }
+  paintRead();
+}
+function paintRead(){
+  var read = getRead();
+  document.querySelectorAll('.sb-item').forEach(function(it){
+    var id = it.dataset.mod;
+    it.classList.toggle('read', !!id && read.indexOf(id) !== -1);
   });
+  document.querySelectorAll('.sb-section').forEach(function(sec){
+    var total = 0, done = 0, sib = sec.nextElementSibling;
+    while(sib && !sib.classList.contains('sb-section')){
+      if(sib.classList.contains('sb-item')){
+        total++;
+        if(sib.dataset.mod && read.indexOf(sib.dataset.mod) !== -1) done++;
+      }
+      sib = sib.nextElementSibling;
+    }
+    var c = sec.querySelector('.sb-sec-count');
+    if(!c && total){
+      c = document.createElement('span');
+      c.className = 'sb-sec-count';
+      sec.appendChild(c);
+    }
+    if(c && total){
+      c.textContent = toAr(done) + '/' + toAr(total);
+      c.classList.toggle('done', done === total);
+    }
+  });
+}
+
+var ORDER = [], TITLES = {};
+document.querySelectorAll('.sidebar .sb-item').forEach(function(it){
+  var id = it.dataset.mod;
+  if(id && ORDER.indexOf(id) === -1){
+    ORDER.push(id);
+    TITLES[id] = it.textContent.replace(/[✓★]|[٠-٩]+/g,'').trim();
+  }
 });
 
-/* Mobile sidebar toggle */
-function toggleSidebar(){
-  const sb = document.querySelector('.sidebar');
-  const ov = document.getElementById('mobileOverlay');
-  if(sb.classList.contains('open')){
-    closeSidebar();
-  } else {
-    sb.classList.add('open');
-    if(ov) ov.classList.add('active');
+function showMod(id, silent){
+  var target = document.getElementById('m-' + id);
+  if(!target) return;
+  document.querySelectorAll('.module').forEach(function(m){ m.classList.remove('active'); });
+  document.querySelectorAll('.sb-item').forEach(function(s){ s.classList.toggle('active', s.dataset.mod === id); });
+  target.classList.add('active');
+  if(!silent){ try{ history.pushState(null, '', '#' + id); }catch(e){} }
+  try{ localStorage.setItem(KEY_LAST, id); }catch(e){}
+  markRead(id);
+  if(window.innerWidth <= 900 && typeof closeSidebar === 'function') closeSidebar();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+window.showMod = showMod;
+
+document.querySelectorAll('.sb-item').forEach(function(item){
+  item.addEventListener('click', function(){ showMod(item.dataset.mod); });
+  item.setAttribute('tabindex','0');
+  item.setAttribute('role','button');
+});
+document.addEventListener('keydown', function(e){
+  if((e.key === 'Enter' || e.key === ' ') && e.target && e.target.classList && e.target.classList.contains('sb-item')){
+    e.preventDefault(); e.target.click();
   }
+});
+window.addEventListener('popstate', function(){
+  var id = location.hash.replace('#','');
+  if(id && document.getElementById('m-' + id)) showMod(id, true);
+});
+
+/* شارات الوحدة + تنقّل سابق/تالي */
+document.querySelectorAll('.module').forEach(function(mod){
+  var id = mod.id.replace(/^m-/,'');
+  var idx = ORDER.indexOf(id);
+  var meta = mod.querySelector('.mod-meta');
+  if(meta && !meta.querySelector('.mod-extras')){
+    var words = (mod.textContent || '').trim().split(/\s+/).length;
+    var mins = Math.max(1, Math.round(words / 180));
+    var ex = document.createElement('div');
+    ex.className = 'mod-extras';
+    ex.innerHTML = '<span>⏱ ~' + toAr(mins) + ' دقيقة قراءة</span>' +
+      (idx > -1 ? '<span>📍 وحدة ' + toAr(idx + 1) + ' من ' + toAr(ORDER.length) + '</span>' : '');
+    meta.appendChild(ex);
+  }
+  if(idx > -1 && !mod.querySelector('.mod-nav')){
+    var nav = document.createElement('div');
+    nav.className = 'mod-nav';
+    var prev = ORDER[idx - 1], next = ORDER[idx + 1];
+    if(prev){
+      var bp = document.createElement('button');
+      bp.className = 'nav-prev';
+      bp.innerHTML = '<span class="nav-dir">→ الوحدة السابقة</span><span class="nav-ttl">' + TITLES[prev] + '</span>';
+      bp.addEventListener('click', function(){ showMod(prev); });
+      nav.appendChild(bp);
+    }
+    if(next){
+      var bn = document.createElement('button');
+      bn.className = 'nav-next';
+      bn.innerHTML = '<span class="nav-dir">الوحدة التالية ←</span><span class="nav-ttl">' + TITLES[next] + '</span>';
+      bn.addEventListener('click', function(){ showMod(next); });
+      nav.appendChild(bn);
+    }
+    if(nav.children.length) mod.appendChild(nav);
+  }
+});
+
+/* لفّ الجداول لتمرير أفقي */
+document.querySelectorAll('.module table').forEach(function(t){
+  if(t.parentElement.classList.contains('tbl-wrap')) return;
+  var w = document.createElement('div');
+  w.className = 'tbl-wrap';
+  t.parentNode.insertBefore(w, t);
+  w.appendChild(t);
+});
+
+/* كشف البطاقات عند التمرير */
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduced && 'IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, {threshold:0.06, rootMargin:'0px 0px -4% 0px'});
+  document.querySelectorAll('.module > .card, .module > .intro').forEach(function(s){
+    s.classList.add('rv'); io.observe(s);
+  });
+}
+
+paintRead();
+
+/* الفتح: hash → آخر وحدة → الافتراضي */
+var start = location.hash.replace('#','');
+if(!(start && document.getElementById('m-' + start))){
+  try{ start = localStorage.getItem(KEY_LAST) || ''; }catch(e){ start = ''; }
+}
+if(start && document.getElementById('m-' + start)) showMod(start, true);
+})();
+
+/* Mobile sidebar toggle (عامة — تُستدعى من HTML) */
+function toggleSidebar(){
+  var sb = document.querySelector('.sidebar');
+  var ov = document.getElementById('mobileOverlay');
+  if(sb.classList.contains('open')){ closeSidebar(); }
+  else { sb.classList.add('open'); if(ov) ov.classList.add('active'); }
 }
 function closeSidebar(){
-  const sb = document.querySelector('.sidebar');
-  const ov = document.getElementById('mobileOverlay');
+  var sb = document.querySelector('.sidebar');
+  var ov = document.getElementById('mobileOverlay');
   sb.classList.remove('open');
   if(ov) ov.classList.remove('active');
 }
@@ -9015,45 +9221,45 @@ function closeSidebar(){
 (function(){
   const css = `
     [data-theme="dark"]{
-      --bg: #1c1917 !important; --surface: #292524 !important; --surface2: #1c1917 !important;
-      --ink: #fafaf7 !important; --ink2: #e7e5e4 !important; --muted: #a8a29e !important;
-      --border: #44403c !important; --border2: #57534e !important;
+      --bg: #080b14 !important; --surface: #10141f !important; --surface2: #161b29 !important;
+      --ink: #eceaf2 !important; --ink2: #b9bdcf !important; --muted: #7d8299 !important;
+      --border: #222a3f !important; --border2: #303a55 !important;
     }
-    [data-theme="dark"] body{background:#1c1917 !important;color:#fafaf7 !important}
-    [data-theme="dark"] .card{background:#292524;border-color:#44403c}
-    [data-theme="dark"] .cb{background:#292524;border-color:#44403c}
-    [data-theme="dark"] .tbl{border-color:#44403c}
-    [data-theme="dark"] .tbl th{background:#1c1917;color:#fafaf7;border-color:#44403c}
-    [data-theme="dark"] .tbl td{border-color:#44403c;color:#e7e5e4}
-    [data-theme="dark"] .intro{background:linear-gradient(135deg,#3a2e1a 0%,#4a3a1a 100%);border-color:#92400e;color:#fef3c7}
-    [data-theme="dark"] .intro-text{color:#fef3c7}
+    [data-theme="dark"] body{background:#080b14 !important;color:#eceaf2 !important}
+    [data-theme="dark"] .card{background:#10141f;border-color:#222a3f}
+    [data-theme="dark"] .cb{background:#10141f;border-color:#222a3f}
+    [data-theme="dark"] .tbl{border-color:#222a3f}
+    [data-theme="dark"] .tbl th{background:#080b14;color:#eceaf2;border-color:#222a3f}
+    [data-theme="dark"] .tbl td{border-color:#222a3f;color:#b9bdcf}
+    [data-theme="dark"] .intro{background:linear-gradient(135deg,#3a2e1a 0%,#4a3a1a 100%);border-color:#92400e;color:#d1fae5}
+    [data-theme="dark"] .intro-text{color:#d1fae5}
     [data-theme="dark"] .intro-text strong{color:#fde68a}
-    [data-theme="dark"] .sec{color:#fafaf7;border-bottom-color:var(--gold)}
-    [data-theme="dark"] .mod-title{color:#fafaf7}
-    [data-theme="dark"] .mod-desc{color:#e7e5e4}
-    [data-theme="dark"] .mod-icon{background:#44403c;color:#fef3c7}
-    [data-theme="dark"] .mod-head{border-bottom-color:#44403c}
+    [data-theme="dark"] .sec{color:#eceaf2;border-bottom-color:var(--gold)}
+    [data-theme="dark"] .mod-title{color:#eceaf2}
+    [data-theme="dark"] .mod-desc{color:#b9bdcf}
+    [data-theme="dark"] .mod-icon{background:#222a3f;color:#d1fae5}
+    [data-theme="dark"] .mod-head{border-bottom-color:#222a3f}
     [data-theme="dark"] .tip{background:#1e3a8a;border-color:#1d4ed8;color:#dbeafe}
-    [data-theme="dark"] .placeholder{background:linear-gradient(135deg,#3a2e1a 0%,#4a3a1a 100%);border-color:#92400e;color:#fef3c7}
+    [data-theme="dark"] .placeholder{background:linear-gradient(135deg,#3a2e1a 0%,#4a3a1a 100%);border-color:#92400e;color:#d1fae5}
     [data-theme="dark"] .placeholder-title{color:#fde68a}
-    [data-theme="dark"] .placeholder-text{color:#fef3c7}
-    [data-theme="dark"] .archd{background:#292524;border-color:#57534e;color:#e7e5e4}
-    [data-theme="dark"] .err-tbl{border-color:#44403c}
+    [data-theme="dark"] .placeholder-text{color:#d1fae5}
+    [data-theme="dark"] .archd{background:#10141f;border-color:#303a55;color:#b9bdcf}
+    [data-theme="dark"] .err-tbl{border-color:#222a3f}
     [data-theme="dark"] .err-tbl th{background:#3a1818;color:#fecaca;border-color:#5a2828}
-    [data-theme="dark"] .err-tbl td{border-color:#44403c;color:#e7e5e4}
+    [data-theme="dark"] .err-tbl td{border-color:#222a3f;color:#b9bdcf}
     [data-theme="dark"] .err-tbl td:first-child{background:#3a1818;color:#fecaca}
     
     .theme-toggle{
       display:inline-flex;align-items:center;justify-content:center;
       width:36px;height:36px;border-radius:10px;
-      background:rgba(251,191,36,0.12);
-      border:1px solid rgba(251,191,36,0.25);
-      color:#fbbf24;cursor:pointer;font-size:16px;
+      background:rgba(52,211,153,0.12);
+      border:1px solid rgba(52,211,153,0.25);
+      color:#34d399;cursor:pointer;font-size:16px;
       transition:all 0.2s ease;
       -webkit-tap-highlight-color:transparent;
       flex-shrink:0;line-height:1;padding:0;font-family:inherit;
     }
-    .theme-toggle:hover{background:rgba(251,191,36,0.2);transform:scale(1.05)}
+    .theme-toggle:hover{background:rgba(52,211,153,0.2);transform:scale(1.05)}
     .theme-toggle:active{transform:scale(0.95)}
   `;
   const styleEl = document.createElement('style');
@@ -9076,7 +9282,7 @@ function closeSidebar(){
   function toggleTheme(){
     const current = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     const next = current === 'dark' ? 'light' : 'dark';
-    try{localStorage.setItem('theme', next)}catch(e){}
+    try{localStorage.setItem('finance-theme-v2', next)}catch(e){}
     applyTheme(next);
   }
 
@@ -9097,8 +9303,8 @@ function closeSidebar(){
     sidebar.insertBefore(wrap, sidebar.firstChild);
 
     let saved = null;
-    try{saved = localStorage.getItem('theme')}catch(e){}
-    applyTheme(saved || 'light');
+    try{saved = localStorage.getItem('finance-theme-v2')}catch(e){}
+    applyTheme(saved || 'dark');
   }
 
   if(document.readyState === 'loading'){

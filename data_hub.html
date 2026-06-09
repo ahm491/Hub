@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مركز تحليل البيانات وذكاء الأعمال</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6fafb;--surface:#fff;--surface2:#eef6f8;--border:#dbe9ed;--border2:#c2dbe1;
+  --ink:#0f2730;--ink2:#33505a;--muted:#6b8590;
+  --cyan:#0891b2;--cyan-2:#06b6d4;--cyan-dark:#0e7490;--cyan-bg:#ecfeff;--cyan-soft:#cffafe;
+  --s1:#0284c7;--s2:#0d9488;--s3:#7c3aed;--s4:#d97706;--red:#dc2626;--green:#15803d;--amber:#d97706;
+}
+[data-theme="dark"]{
+  --bg:#08151a;--surface:#0e1f25;--surface2:#13272e;--border:#1e3a43;--border2:#2b4f5a;
+  --ink:#e6f3f7;--ink2:#b3d2db;--muted:#688591;
+  --cyan-bg:#0c2c33;--cyan-soft:#103942;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;transition:background .3s,color .3s}
+
+/* Back home — top-LEFT */
+.back-home{position:fixed;top:14px;left:14px;z-index:1001;display:flex;align-items:center;gap:6px;padding:8px 14px;background:var(--surface);color:var(--cyan-dark);border:1px solid var(--border);border-radius:99px;text-decoration:none;font-weight:700;font-size:12.5px;box-shadow:0 2px 8px rgba(8,145,178,.12);transition:all .2s}
+.back-home:hover{background:var(--cyan);color:#fff;border-color:var(--cyan)}
+.back-home span:first-child{font-size:15px;line-height:1}
+[data-theme="dark"] .back-home{background:var(--surface)}
+
+/* Menu toggle — top-RIGHT (mobile) */
+.sb-tog-float{display:none;position:fixed;top:14px;right:14px;z-index:1500;width:42px;height:42px;background:var(--cyan-dark);color:#fff;border:none;border-radius:10px;cursor:pointer;font-size:18px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1200}
+.mobile-overlay.open{display:block}
+
+/* Sidebar — RIGHT */
+.sidebar{position:fixed;right:0;top:0;bottom:0;width:300px;background:linear-gradient(180deg,#0e7490,#072d37);color:#fff;overflow-y:auto;z-index:1300;transition:transform .3s}
+.theme-toggle-wrap{display:flex;align-items:center;justify-content:flex-end;padding:12px 16px 0}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;cursor:pointer;font-size:16px;transition:all .2s}
+.theme-toggle:hover{background:rgba(255,255,255,.22)}
+.sb-head{padding:6px 20px 14px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:8px}
+.sb-brand{font-size:18px;font-weight:900;letter-spacing:-.3px}
+.sb-tagline{font-size:11.5px;color:rgba(255,255,255,.7);margin-top:4px;line-height:1.5}
+.sb-search{width:100%;padding:9px 12px;margin-top:12px;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:rgba(255,255,255,.1);color:#fff;font-family:'Tajawal',sans-serif;font-size:12.5px;outline:none;transition:all .2s;box-sizing:border-box}
+.sb-search::placeholder{color:rgba(255,255,255,.55)}
+.sb-search:focus{background:rgba(255,255,255,.16);border-color:var(--cyan-2)}
+.sb-section{padding:14px 20px 6px;font-size:11px;font-weight:800;color:var(--cyan-2);letter-spacing:.3px;text-transform:uppercase}
+.sb-item{display:flex;align-items:center;gap:9px;padding:8px 20px;cursor:pointer;font-size:12.8px;color:rgba(255,255,255,.82);transition:all .15s;border-right:3px solid transparent}
+.sb-item:hover{background:rgba(255,255,255,.07);color:#fff}
+.sb-item.active{background:rgba(6,182,212,.18);color:#fff;border-right-color:var(--cyan-2);font-weight:700}
+.sb-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan-2);flex-shrink:0}
+.sb-num{margin-right:auto;font-size:10.5px;color:rgba(255,255,255,.4);font-weight:700}
+.sb-item.sb-hidden,.sb-section.sb-hidden{display:none!important}
+.sb-no-results{padding:16px 20px;color:rgba(255,255,255,.6);font-size:12.5px;text-align:center;display:none}
+.sb-no-results.show{display:block}
+
+/* Main */
+.main{margin-right:300px;padding:30px 40px 70px;min-height:100vh;max-width:calc(100vw - 300px)}
+.hero{background:linear-gradient(135deg,#0891b2,#0e7490 60%,#155e6e);border-radius:18px;padding:30px 34px;color:#fff;margin-bottom:26px;box-shadow:0 8px 30px rgba(8,145,178,.25)}
+.hero-inner{display:flex;align-items:center;gap:18px}
+.hero-mark{font-size:42px}
+.hero h1{font-size:24px;font-weight:900;letter-spacing:-.5px}
+.hero p{font-size:13.5px;color:rgba(255,255,255,.85);margin-top:6px;line-height:1.6}
+.hero-stats{display:flex;gap:22px;margin-top:18px;flex-wrap:wrap}
+.hero-stat{font-size:12px;color:rgba(255,255,255,.8)}
+.hero-stat b{display:block;font-size:20px;font-weight:900;color:#fff}
+
+/* Modules */
+.module{display:none;animation:fade .3s}
+.module.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.module h1.m-title{font-size:23px;font-weight:900;color:var(--cyan-dark);margin-bottom:6px;letter-spacing:-.4px}
+.module .m-sub{font-size:13.5px;color:var(--muted);margin-bottom:22px;line-height:1.6}
+[data-theme="dark"] .module h1.m-title{color:var(--cyan-2)}
+
+/* Section title */
+.sec{font-size:15px;font-weight:800;color:var(--ink);margin:24px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--cyan-soft);display:flex;align-items:center;gap:8px}
+[data-theme="dark"] .sec{border-bottom-color:var(--cyan-soft)}
+
+/* Paragraph helper */
+.p{font-size:13px;line-height:1.8;color:var(--ink2);margin:8px 0}
+
+/* Table */
+.tbl{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:12.5px;background:var(--surface);border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.tbl thead th{background:var(--cyan);color:#fff;padding:10px 12px;text-align:right;font-weight:700;font-size:12px}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--ink2);vertical-align:top}
+.tbl tr:nth-child(even) td{background:var(--surface2)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td strong{color:var(--ink)}
+
+/* Note callout (DEFINED!) */
+.note{margin:12px 0;padding:11px 15px;background:var(--cyan-bg);border-right:3px solid var(--cyan);border-radius:8px;font-size:12.5px;line-height:1.7;color:var(--ink2)}
+.note strong{color:var(--cyan-dark)}
+[data-theme="dark"] .note strong{color:var(--cyan-2)}
+
+/* Quote / highlight box */
+.quote-box{margin:16px 0;padding:15px 18px;background:linear-gradient(135deg,var(--cyan-bg),var(--surface));border:1px solid var(--cyan-soft);border-right:4px solid var(--cyan);border-radius:10px}
+.quote-box h3{font-size:13.5px;font-weight:800;color:var(--cyan-dark);margin-bottom:7px}
+.quote-box p{font-size:12.5px;color:var(--ink2);line-height:1.75}
+[data-theme="dark"] .quote-box h3{color:var(--cyan-2)}
+
+/* Cards grid */
+.cards-grid{display:grid;gap:12px;margin:14px 0 18px}
+.cards-grid.cols-1{grid-template-columns:1fr}
+.cards-grid.cols-2{grid-template-columns:1fr 1fr}
+.cards-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.cards-grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 14px rgba(8,145,178,.1)}
+.card h4{font-size:13px;font-weight:800;color:var(--cyan-dark);margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.card p{font-size:12px;color:var(--ink2);line-height:1.65}
+[data-theme="dark"] .card h4{color:var(--cyan-2)}
+
+/* Formula box */
+.formula-box{margin:14px 0;background:var(--surface);border:1px solid var(--border2);border-radius:12px;overflow:hidden}
+.fb-formula{background:linear-gradient(135deg,#0f2730,#143842);color:#7dd3e8;padding:16px;text-align:center;font-size:16px;font-family:'Courier New',monospace;letter-spacing:.5px}
+.fb-formula em{color:#fde68a;font-style:italic}
+.fb-op{color:#94a3b8;margin:0 6px}
+.fb-terms{padding:8px}
+.fb-term{display:flex;gap:10px;padding:7px 10px;border-bottom:1px solid var(--border)}
+.fb-term:last-child{border-bottom:none}
+.fb-term-name{font-weight:800;color:var(--cyan-dark);font-size:12px;min-width:90px}
+.fb-term-desc{font-size:12px;color:var(--ink2)}
+[data-theme="dark"] .fb-term-name{color:var(--cyan-2)}
+
+/* Two-col comparison */
+.cmp-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 18px}
+.cmp-col{border-radius:10px;padding:14px;border:1px solid var(--border)}
+.cmp-col h4{font-size:12.5px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.cmp-col ul{margin:0;padding-right:18px;font-size:11.8px;line-height:1.7;color:var(--ink2)}
+.cmp-a{background:linear-gradient(135deg,var(--cyan-bg),var(--surface))}
+.cmp-a h4{color:var(--cyan-dark)}
+.cmp-b{background:var(--surface2)}
+.cmp-b h4{color:var(--ink2)}
+
+/* Steps flow */
+.flow{display:flex;flex-wrap:wrap;gap:0;margin:16px 0 20px;align-items:stretch}
+.flow-step{flex:1;min-width:120px;background:linear-gradient(135deg,var(--cyan-bg),var(--surface));border:1px solid var(--cyan-soft);border-radius:10px;padding:12px;text-align:center;position:relative}
+.flow-step .fs-num{position:absolute;top:-9px;right:10px;width:22px;height:22px;border-radius:50%;background:var(--cyan);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.flow-step h5{font-size:11.5px;font-weight:800;color:var(--cyan-dark);margin:3px 0 4px}
+.flow-step p{font-size:10.5px;color:var(--ink2);line-height:1.45}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--cyan-2);font-size:18px;font-weight:900;padding:0 2px}
+[data-theme="dark"] .flow-step h5{color:var(--cyan-2)}
+
+/* List */
+.lst{margin:8px 0 12px;padding-right:6px;list-style:none}
+.lst li{position:relative;padding-right:20px;margin-bottom:7px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+.lst li::before{content:'▸';position:absolute;right:0;top:0;color:var(--cyan);font-weight:900}
+.lst li strong{color:var(--ink)}
+
+/* Placeholder */
+.ph-box{text-align:center;padding:50px 20px;color:var(--muted)}
+.ph-box .ph-icon{font-size:46px;margin-bottom:12px}
+.ph-box .ph-title{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.ph-box .ph-msg{font-size:13px}
+
+@media(max-width:980px){
+  .sidebar{transform:translateX(100%);width:85%;max-width:330px}
+  .sidebar.open{transform:translateX(0)}
+  .sb-tog-float{display:flex;align-items:center;justify-content:center}
+  .main{margin-right:0;padding:64px 16px 40px;max-width:100vw}
+  .back-home .back-home-text{display:none}
+  .back-home{padding:9px 11px}
+  .hero-inner{flex-direction:column;text-align:center}
+}
+@media(max-width:680px){
+  .cards-grid.cols-2,.cards-grid.cols-3,.cards-grid.cols-4{grid-template-columns:1fr}
+  .cmp-2{grid-template-columns:1fr}
+  .flow{flex-direction:column}
+  .flow-arrow{transform:rotate(90deg);padding:4px 0}
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-home" title="العودة للرئيسية"><span>←</span><span class="back-home-text">الرئيسية</span></a>
+<button class="sb-tog-float" onclick="toggleSidebar()" aria-label="القائمة">☰</button>
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="theme-toggle-wrap"><button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع الليلي">🌓</button></div>
+  <div class="sb-head">
+    <div class="sb-brand">📈 تحليل البيانات</div>
+    <div class="sb-tagline">ذكاء الأعمال · ٣١ وحدة · من الأسس إلى Oracle FDI</div>
+    <input type="text" class="sb-search" id="sbSearch" placeholder="🔍 ابحث في الوحدات..." oninput="sbSearch(this.value)" autocomplete="off">
+  </div>
+
+  <div class="sb-section">المستوى ١ · الأسس</div>
+  <div class="sb-item active" data-mod="intro-levels"><span class="sb-dot"></span>ما هو التحليل + المستويات الأربعة<span class="sb-num">٠١</span></div>
+  <div class="sb-item" data-mod="lifecycle"><span class="sb-dot"></span>دورة حياة البيانات<span class="sb-num">٠٢</span></div>
+  <div class="sb-item" data-mod="culture"><span class="sb-dot"></span>الثقافة القائمة على البيانات<span class="sb-num">٠٣</span></div>
+  <div class="sb-item" data-mod="data-types"><span class="sb-dot"></span>أنواع البيانات والقياس<span class="sb-num">٠٤</span></div>
+
+  <div class="sb-section">المستوى ٢ · النمذجة والمعمارية</div>
+  <div class="sb-item" data-mod="relational-model"><span class="sb-dot"></span>النمذجة العلائقية والتطبيع<span class="sb-num">٠٥</span></div>
+  <div class="sb-item" data-mod="dimensional-model"><span class="sb-dot"></span>النمذجة البُعدية (Kimball)<span class="sb-num">٠٦</span></div>
+  <div class="sb-item" data-mod="bi-architecture"><span class="sb-dot"></span>معمارية ذكاء الأعمال<span class="sb-num">٠٧</span></div>
+  <div class="sb-item" data-mod="etl-elt"><span class="sb-dot"></span>ETL/ELT والطبقة الدلالية<span class="sb-num">٠٨</span></div>
+  <div class="sb-item" data-mod="data-quality"><span class="sb-dot"></span>جودة البيانات<span class="sb-num">٠٩</span></div>
+
+  <div class="sb-section">المستوى ٣ · أدوات التحليل</div>
+  <div class="sb-item" data-mod="sql"><span class="sb-dot"></span>SQL — لغة البيانات<span class="sb-num">١٠</span></div>
+  <div class="sb-item" data-mod="power-query"><span class="sb-dot"></span>Power Query / M<span class="sb-num">١١</span></div>
+  <div class="sb-item" data-mod="dax"><span class="sb-dot"></span>DAX بعمق<span class="sb-num">١٢</span></div>
+  <div class="sb-item" data-mod="excel-adv"><span class="sb-dot"></span>Excel المتقدّم للتحليل<span class="sb-num">١٣</span></div>
+  <div class="sb-item" data-mod="oracle-otbi"><span class="sb-dot"></span>تقارير Oracle Fusion (OTBI)<span class="sb-num">١٤</span></div>
+  <div class="sb-item" data-mod="oracle-fdi"><span class="sb-dot"></span>Oracle FDI<span class="sb-num">١٥</span></div>
+
+  <div class="sb-section">المستوى ٤ · الإحصاء التطبيقي</div>
+  <div class="sb-item" data-mod="descriptive-stats"><span class="sb-dot"></span>الإحصاء الوصفي والتوزيعات<span class="sb-num">١٦</span></div>
+  <div class="sb-item" data-mod="correlation-regression"><span class="sb-dot"></span>الارتباط والانحدار<span class="sb-num">١٧</span></div>
+  <div class="sb-item" data-mod="significance"><span class="sb-dot"></span>الدلالة والثقة<span class="sb-num">١٨</span></div>
+  <div class="sb-item" data-mod="predictive"><span class="sb-dot"></span>التحليل التنبّؤي<span class="sb-num">١٩</span></div>
+
+  <div class="sb-section">المستوى ٥ · التصوير وسرد البيانات</div>
+  <div class="sb-item" data-mod="perception-theory"><span class="sb-dot"></span>نظرية الإدراك البصري<span class="sb-num">٢٠</span></div>
+  <div class="sb-item" data-mod="chart-selection"><span class="sb-dot"></span>اختيار الرسم الصحيح<span class="sb-num">٢١</span></div>
+  <div class="sb-item" data-mod="dashboard-design"><span class="sb-dot"></span>تصميم لوحات المعلومات<span class="sb-num">٢٢</span></div>
+  <div class="sb-item" data-mod="data-storytelling"><span class="sb-dot"></span>السرد بالبيانات<span class="sb-num">٢٣</span></div>
+
+  <div class="sb-section">المستوى ٦ · الحوكمة والتحليلات المؤسّسية</div>
+  <div class="sb-item" data-mod="data-governance"><span class="sb-dot"></span>حوكمة البيانات (DAMA)<span class="sb-num">٢٤</span></div>
+  <div class="sb-item" data-mod="analytics-maturity"><span class="sb-dot"></span>نضج التحليلات<span class="sb-num">٢٥</span></div>
+  <div class="sb-item" data-mod="kpi-design"><span class="sb-dot"></span>تصميم مؤشّرات الأداء<span class="sb-num">٢٦</span></div>
+  <div class="sb-item" data-mod="data-ethics"><span class="sb-dot"></span>أخلاقيات البيانات والخصوصية<span class="sb-num">٢٧</span></div>
+
+  <div class="sb-section">المستوى ٧ · السعودي والتطبيق</div>
+  <div class="sb-item" data-mod="saudi-data"><span class="sb-dot"></span>منظومة البيانات السعودية<span class="sb-num">٢٨</span></div>
+  <div class="sb-item" data-mod="construction-analytics"><span class="sb-dot"></span>تحليلات الأداء (مقاولات وعقار)<span class="sb-num">٢٩</span></div>
+  <div class="sb-item" data-mod="oracle-saudi"><span class="sb-dot"></span>Oracle في المؤسّسة السعودية<span class="sb-num">٣٠</span></div>
+  <div class="sb-item" data-mod="capstone"><span class="sb-dot"></span>مشروع تطبيقي شامل<span class="sb-num">٣١</span></div>
+
+  <div class="sb-no-results" id="sbNoResults">لا توجد نتائج مطابقة</div>
+</nav>
+
+<main class="main">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-mark">📈</div>
+      <div>
+        <h1>مركز تحليل البيانات وذكاء الأعمال</h1>
+        <p>من الأسس النظرية إلى Oracle FDI — منظومة معرفية بعمق دكتوراة · موطّنة للسياق السعودي</p>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>٣١</b>وحدة</div>
+      <div class="hero-stat"><b>٧</b>مستويات</div>
+      <div class="hero-stat"><b>Power BI</b>· SQL · Oracle FDI · Excel</div>
+    </div>
+  </div>
+
+  <!-- ===== MODULE 1 · intro-levels ===== -->
+  <div class="module active" id="m-intro-levels">
+    <h1 class="m-title">ما هو تحليل البيانات + المستويات الأربعة</h1>
+    <div class="m-sub">الفرق بين البيانات والمعلومة والرؤية — وسلّم التحليلات من "ماذا حدث" إلى "ماذا نفعل"</div>
+
+    <div class="sec">🎯 من البيانات إلى القرار · سلسلة القيمة</div>
+    <p class="p">تحليل البيانات هو عملية تحويل البيانات الخام إلى رؤى قابلة للتنفيذ تدعم القرار. التسلسل المعرفي الكلاسيكي (هرم <strong>DIKW</strong> · Ackoff 1989):</p>
+    <div class="flow">
+      <div class="flow-step"><div class="fs-num">١</div><h5>📦 Data</h5><p>أرقام خام بلا سياق (٥٢٠ فيلا)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٢</div><h5>📋 Information</h5><p>بيانات منظّمة بسياق</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٣</div><h5>💡 Knowledge</h5><p>أنماط وعلاقات</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٤</div><h5>🎯 Wisdom</h5><p>قرار سليم</p></div>
+    </div>
+    <div class="note"><strong>التمييز الجوهري:</strong> البيانات وفيرة · لكنّ الرؤية نادرة. قيمتك كمحلّل ليست في جمع البيانات بل في تحويلها لقرار. "نغرق في البيانات ونعطش للرؤية" (John Naisbitt).</div>
+
+    <div class="sec">📊 المستويات الأربعة للتحليلات (إطار Gartner / Davenport)</div>
+    <p class="p">تتدرّج التحليلات في أربعة مستويات متصاعدة القيمة والصعوبة — أسّسها فكرياً <strong>Thomas Davenport</strong> في "Competing on Analytics" (2007) وشاعها Gartner:</p>
+    <table class="tbl">
+      <thead><tr><th>المستوى</th><th>السؤال</th><th>التقنية</th><th>مثال في عملك</th></tr></thead>
+      <tbody>
+        <tr><td><strong>وصفي · Descriptive</strong></td><td>ماذا حدث؟</td><td>تقارير · لوحات</td><td>كم فيلا أُنجزت هذا الربع؟</td></tr>
+        <tr><td><strong>تشخيصي · Diagnostic</strong></td><td>لماذا حدث؟</td><td>تنقيب · ارتباط</td><td>لماذا تأخّر التسليم؟</td></tr>
+        <tr><td><strong>تنبّؤي · Predictive</strong></td><td>ماذا سيحدث؟</td><td>إحصاء · ML</td><td>توقّع تكلفة الإنهاء (EAC)</td></tr>
+        <tr><td><strong>إرشادي · Prescriptive</strong></td><td>ماذا نفعل؟</td><td>تحسين · محاكاة</td><td>أيّ خطّة تقلّل التأخّر؟</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>القاعدة العملية:</strong> ٩٠٪ من المؤسّسات عالقة في "الوصفي" (تقارير عمّا حدث). القيمة الحقيقية — والتمايز التنافسي — تبدأ من التشخيصي صعوداً. هدف تحوّلك الرقمي: نقل مؤسّستك من "ماذا حدث" إلى "ماذا سيحدث وماذا نفعل".</div>
+
+    <div class="sec">🆚 تحليل البيانات vs علم البيانات vs ذكاء الأعمال</div>
+    <div class="cards-grid cols-3">
+      <div class="card"><h4>📊 Business Intelligence</h4><p>التركيز على <strong>الماضي والحاضر</strong> — تقارير ولوحات تصف الأداء. أدواتها: Power BI · Oracle FDI.</p></div>
+      <div class="card"><h4>📈 Data Analysis</h4><p>استكشاف البيانات للإجابة عن أسئلة محدّدة — يشمل الوصفي والتشخيصي وبدايات التنبّؤي.</p></div>
+      <div class="card"><h4>🔬 Data Science</h4><p>التركيز على <strong>المستقبل</strong> — نماذج تنبّؤية وML معقّدة. تتطلّب برمجة (Python/R) إحصاءً متقدّماً.</p></div>
+    </div>
+    <div class="note"><strong>أين تقع أنت:</strong> دورك يتمركز في BI + Data Analysis (Power BI · Oracle · Excel) مع التوسّع نحو التنبّؤي. هذا التموضع الدقيق — "محلّل أداء يتقن BI ويفهم AI" — هو ما يميّزك، لا أن تصبح Data Scientist كامل.</div>
+  
+
+  <div class="sec">🔬 مثال محسوب · المستويات الأربعة على مشروع واحد</div>
+  <p class="p">لنرَ كيف يتدرّج تحليل "تأخّر تسليم الفلل" عبر المستويات الأربعة — نفس البيانات، عمق متصاعد:</p>
+  <table class="tbl"><thead><tr><th>المستوى</th><th>السؤال والإجابة</th><th>القيمة</th></tr></thead><tbody>
+    <tr><td><strong>وصفي</strong></td><td>"تأخّرت ١٢ فيلا بمتوسّط ١٨ يوماً." — رقم.</td><td>وعي بالمشكلة</td></tr>
+    <tr><td><strong>تشخيصي</strong></td><td>"٨ منها بسبب تأخّر توريد الحديد · ٤ بسبب نقص عمالة." — سبب.</td><td>فهم الجذر</td></tr>
+    <tr><td><strong>تنبّؤي</strong></td><td>"بالوتيرة الحالية · ٦ فلل إضافية ستتأخّر الشهر القادم." — توقّع.</td><td>استباق</td></tr>
+    <tr><td><strong>إرشادي</strong></td><td>"تقديم طلب الحديد أسبوعين يقلّل التأخّر ٧٠٪." — قرار.</td><td>حلّ موجّه</td></tr>
+  </tbody></table>
+  <div class="note"><strong>الدرس:</strong> القيمة (والصعوبة والعائد) تتضاعف كلّما صعدت. معظم لوحات المؤسّسات تقف عند الوصفي ("ماذا حدث") — والقفزة للتشخيصي ثمّ التنبّؤي هي ما يحوّل البيانات من "تقرير" إلى "ميزة تنافسية". هذا التدرّج نفسه هو خارطة طريق تحوّلك الرقمي.</div>
+
+  <div class="sec">🎓 جذر المفهوم · من البيانات للحكمة</div>
+  <p class="p">هرم DIKW ليس ترفاً نظرياً — صاغه <strong>Russell Ackoff</strong> (١٩٨٩) في خطاب رئاسي شهير. الفكرة العميقة: كل طبقة تضيف <em>سياقاً</em> للأدنى. البيانات (٥٢٠) → معلومة (٥٢٠ فيلا مسلّمة) → معرفة (٥٢٠ من أصل ٦٢٠ = ٨٤٪ متأخّر عن الخطّة) → حكمة (نسرّع التوريد). أداة المحلّل هي <strong>تسلّق هذا الهرم</strong> — تحويل أرقام صمّاء إلى قرار حكيم. الذكاء الاصطناعي يضيف طبقة خامسة أحياناً (الفعل التلقائي).</p>
+
+  </div>
+
+
+  <!-- ===== MODULE 5 · relational-model ===== -->
+  <div class="module" id="m-relational-model">
+    <h1 class="m-title">النمذجة العلائقية والتطبيع</h1>
+    <div class="m-sub">الأساس الذي بُنيت عليه كل قواعد البيانات — من Codd إلى التطبيع</div>
+
+    <div class="sec">🎓 الأصل · ثورة Codd</div>
+    <p class="p">قبل ١٩٧٠ كانت البيانات تُخزّن في هياكل هرمية وشبكية معقّدة. غيّر <strong>Edgar F. Codd</strong> (IBM) كل شيء:</p>
+    <table class="tbl">
+      <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Edgar F. Codd</strong><br>"A Relational Model of Data..."</td><td>١٩٧٠</td><td>النموذج العلائقي — تمثيل البيانات في جداول (علاقات) مترابطة بالمنطق الرياضي (جبر العلاقات). جائزة Turing ١٩٨١.</td></tr>
+        <tr><td><strong>Peter Chen</strong><br>Entity-Relationship Model</td><td>١٩٧٦</td><td>نموذج الكيان-العلاقة (ERD) — الطريقة المعيارية لتصميم قواعد البيانات بصرياً قبل بنائها.</td></tr>
+        <tr><td><strong>C.J. Date</strong></td><td>١٩٧٥+</td><td>المرجع النظري الأشمل لنظرية قواعد البيانات العلائقية.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sec">🔑 المفاهيم الأساسية · المفاتيح والعلاقات</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>🔑 المفتاح الأساسي · Primary Key</h4><p>عمود (أو أعمدة) يميّز كل صفّ بشكل فريد — لا تكرار ولا قيمة فارغة. مثل رقم الفيلا.</p></div>
+      <div class="card"><h4>🔗 المفتاح الأجنبي · Foreign Key</h4><p>عمود يشير لمفتاح أساسي في جدول آخر — يربط الجداول ويضمن السلامة المرجعية.</p></div>
+      <div class="card"><h4>↔️ العلاقات · Relationships</h4><p>واحد-لواحد · واحد-لمتعدّد (الأشهر) · متعدّد-لمتعدّد (يحتاج جدول وسيط).</p></div>
+      <div class="card"><h4>✅ السلامة · Integrity</h4><p>قيود تضمن صحّة البيانات: سلامة الكيان · السلامة المرجعية · سلامة المجال.</p></div>
+    </div>
+
+    <div class="sec">📐 التطبيع · Normalization (تقليل التكرار)</div>
+    <p class="p">التطبيع عملية تنظيم الجداول لتقليل التكرار ومنع تناقضات التحديث. الأشكال الطبيعية الثلاثة الأولى (Codd):</p>
+    <table class="tbl">
+      <thead><tr><th>الشكل</th><th>القاعدة</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1NF (الأول)</strong></td><td>كل خلية قيمة واحدة ذرّية · لا مجموعات متكرّرة.</td></tr>
+        <tr><td><strong>2NF (الثاني)</strong></td><td>1NF + كل عمود غير مفتاحي يعتمد على المفتاح <em>كاملاً</em> (يزيل التبعية الجزئية).</td></tr>
+        <tr><td><strong>3NF (الثالث)</strong></td><td>2NF + لا تبعية متعدّية (عمود يعتمد على عمود غير مفتاحي).</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>المفارقة الجوهرية:</strong> التطبيع ممتاز لقواعد <em>المعاملات</em> (OLTP) — يمنع التكرار ويسرّع الكتابة. لكنّه <strong>سيّئ للتحليلات</strong>! الاستعلامات التحليلية تحتاج ربط جداول كثيرة (Joins) فتبطؤ. لهذا التحليلات تستخدم نمذجة مختلفة (بُعدية · الوحدة التالية) تتعمّد بعض التكرار للسرعة. فهم هذا الفرق هو جوهر الانتقال من "مدخل بيانات" إلى "محلّل".</div>
+  
+
+  <div class="sec">🔬 مثال محسوب · التطبيع خطوة بخطوة</div>
+  <p class="p">جدول مشتريات غير مطبّع (مشاكله واضحة):</p>
+  <table class="tbl"><thead><tr><th>أمر شراء</th><th>المورّد</th><th>هاتف المورّد</th><th>الأصناف</th></tr></thead><tbody>
+    <tr><td>PO-1</td><td>الراجحي للحديد</td><td>0501111</td><td>حديد، أسمنت</td></tr>
+    <tr><td>PO-2</td><td>الراجحي للحديد</td><td>0501111</td><td>حديد</td></tr>
+  </tbody></table>
+  <div class="note"><strong>المشاكل:</strong> "الأصناف" خلية متعدّدة القيم (ينتهك 1NF) · هاتف المورّد مكرّر (تبعية متعدّية · ينتهك 3NF) — لو تغيّر الهاتف نحدّثه في صفوف كثيرة (خطر التناقض).</div>
+  <p class="p"><strong>بعد التطبيع</strong> — ثلاثة جداول مترابطة:</p>
+  <div class="cards-grid cols-3">
+    <div class="card"><h4>📋 أوامر الشراء</h4><p>PO_ID (مفتاح) · المورّد_ID (مفتاح أجنبي) · التاريخ</p></div>
+    <div class="card"><h4>🏢 الموردون</h4><p>المورّد_ID (مفتاح) · الاسم · الهاتف (مرّة واحدة)</p></div>
+    <div class="card"><h4>📦 بنود الأمر</h4><p>PO_ID · الصنف · الكمّية (صفّ لكل صنف)</p></div>
+  </div>
+  <div class="note"><strong>النتيجة:</strong> تغيير هاتف المورّد = تحديث خلية واحدة · لا تكرار ولا تناقض. <strong>لكن تذكّر</strong> (المستوى ٦ القادم): هذا التطبيع مثالي للنظام التشغيلي · أمّا للتحليل فنعكسه (نموذج نجمة) لأنّ كثرة الـ JOINs تبطئ الاستعلامات التحليلية.</div>
+
+  </div>
+
+  <!-- ===== MODULE 6 · dimensional-model ===== -->
+  <div class="module" id="m-dimensional-model">
+    <h1 class="m-title">النمذجة البُعدية · Kimball</h1>
+    <div class="m-sub">النموذج الذي يقف خلف كل تقرير Power BI — الحقائق والأبعاد ومخطّط النجمة</div>
+
+    <div class="sec">🎓 المدرستان الكبريان · Kimball vs Inmon</div>
+    <p class="p">معمارية مستودعات البيانات انقسمت تاريخياً بين فلسفتين:</p>
+    <table class="tbl">
+      <thead><tr><th>المرجع</th><th>السنة</th><th>الفلسفة</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bill Inmon</strong><br>"Building the Data Warehouse"</td><td>١٩٩٢</td><td>"أبو مستودع البيانات" — نهج <em>من أعلى لأسفل</em>: مستودع مركزي مُطبّع (3NF) ثمّ أسواق بيانات فرعية. صارم لكن بطيء البناء.</td></tr>
+        <tr><td><strong>Ralph Kimball</strong><br>"The Data Warehouse Toolkit"</td><td>١٩٩٦</td><td>نهج <em>من أسفل لأعلى</em>: نمذجة بُعدية مباشرة (نجمة) سهلة الفهم والاستعلام. <strong>هو الأساس الفعلي لـ Power BI و FDI.</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sec">⭐ مخطّط النجمة · Star Schema</div>
+    <p class="p">جوهر نموذج Kimball: جدول <strong>حقائق</strong> مركزي محاط بجداول <strong>أبعاد</strong> — يشبه النجمة.</p>
+    <div class="cmp-2">
+      <div class="cmp-col cmp-a"><h4>📊 جدول الحقائق · Fact</h4><ul><li>يحتوي <strong>القياسات الرقمية</strong> (تكلفة · كمّية · مدّة)</li><li>مفاتيح أجنبية للأبعاد</li><li>طويل جداً (ملايين الصفوف)</li><li>مثال: حقائق التكاليف اليومية</li></ul></div>
+      <div class="cmp-col cmp-b"><h4>📁 جداول الأبعاد · Dimension</h4><ul><li>تحتوي <strong>السياق الوصفي</strong> (من · ماذا · متى · أين)</li><li>قصيرة وعريضة</li><li>مثال: بُعد المشروع · بُعد الوقت · بُعد المورّد</li></ul></div>
+    </div>
+    <div class="note"><strong>الحُبيبة (Grain) — أهمّ قرار:</strong> قبل بناء أيّ جدول حقائق · حدّد "ماذا يمثّل الصفّ الواحد؟" (معاملة؟ يوم؟ شهر؟). الحُبيبة الخاطئة تدمّر النموذج كلّه. هذا أوّل سؤال يطرحه أيّ خبير نمذجة بُعدية.</div>
+
+    <div class="sec">❄️ النجمة vs ندفة الثلج</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>⭐ Star Schema</h4><p>الأبعاد مسطّحة (غير مطبّعة) — أسرع استعلاماً وأبسط فهماً. <strong>المفضّل في Power BI.</strong></p></div>
+      <div class="card"><h4>❄️ Snowflake Schema</h4><p>الأبعاد مطبّعة لجداول فرعية — أقلّ تكراراً لكن أبطأ وأعقد. نادر الاستخدام في BI الحديث.</p></div>
+    </div>
+    <div class="note"><strong>لماذا هذا حاسم لك:</strong> كل لوحة Power BI أو FDI تعمل أفضل بكثير على <em>مخطّط نجمة نظيف</em>. ٨٠٪ من مشاكل أداء التقارير وبطء DAX سببها نموذج بيانات سيّئ — لا الصيغ. إتقان النمذجة البُعدية = إتقان جذر BI.</div>
+  
+
+  <div class="sec">🔬 سيناريو كامل · نموذج نجمة لمشروع إنشائي</div>
+  <p class="p">لنبنِ نموذج نجمة لتحليل تكاليف مشروع الفلل — التطبيق العملي المباشر لعملك:</p>
+  <div class="cmp-2">
+    <div class="cmp-col cmp-a"><h4>⭐ جدول الحقائق · التكاليف اليومية</h4><ul><li>التاريخ_ID (← بُعد الوقت)</li><li>المشروع_ID (← بُعد المشروع)</li><li>البند_ID (← بُعد WBS)</li><li>المورّد_ID (← بُعد المورّد)</li><li><strong>القياسات:</strong> التكلفة المخطّطة · الفعلية · المكتسبة</li></ul></div>
+    <div class="cmp-col cmp-b"><h4>📁 الأبعاد المحيطة</h4><ul><li><strong>الوقت:</strong> يوم · أسبوع · شهر · سنة</li><li><strong>المشروع:</strong> الفيلا · المرحلة · الموقع</li><li><strong>WBS:</strong> بند العمل · التصنيف</li><li><strong>المورّد:</strong> الاسم · الفئة</li></ul></div>
+  </div>
+  <div class="note"><strong>الحُبيبة هنا:</strong> "صفّ واحد = تكلفة بند واحد في مشروع واحد في يوم واحد". هذا القرار يحدّد كل شيء — لو اخترت حُبيبة شهرية تفقد التفصيل اليومي · لو أدقّ من اللازم ينتفخ الجدول. <strong>قاعدة:</strong> اختر أدقّ حُبيبة تحتاجها فعلاً.</div>
+  <div class="sec">⚡ لماذا النجمة تُسرّع لوحتك</div>
+  <p class="p">في نموذج النجمة · تحسب SPI أو CPI بربط واحد بسيط بين الحقائق والأبعاد — لا سلسلة JOINs معقّدة. Power BI و FDI مُحسّنان لهذا الشكل تحديداً (محرّك VertiPaq يضغط جداول الأبعاد بكفاءة). <strong>النتيجة:</strong> لوحة سريعة الاستجابة حتّى مع ملايين صفوف التكاليف.</p>
+  <div class="note"><strong>الأبعاد المتغيّرة بطيئاً (SCD):</strong> ماذا لو تغيّر اسم مورّد أو فئته؟ Kimball وضع أنواع SCD — النوع ٢ يحفظ التاريخ (سجلّ جديد) · النوع ١ يكتب فوق القديم. مهمّ لتحليل اتّجاهات صحيحة عبر الزمن.</div>
+
+  </div>
+
+  <!-- ===== MODULE 7 · bi-architecture ===== -->
+  <div class="module" id="m-bi-architecture">
+    <h1 class="m-title">معمارية ذكاء الأعمال</h1>
+    <div class="m-sub">مستودع · بحيرة · بيت بحيرة — وأين تتدفّق بياناتك من النظام للقرار</div>
+
+    <div class="sec">⚙️ OLTP vs OLAP · الفرق الجوهري</div>
+    <div class="cmp-2">
+      <div class="cmp-col cmp-b"><h4>💳 OLTP · أنظمة المعاملات</h4><ul><li>تشغيلي · معاملات يومية (Oracle Fusion)</li><li>مُطبّع · كتابة سريعة</li><li>"ما رصيد هذا الحساب الآن؟"</li></ul></div>
+      <div class="cmp-col cmp-a"><h4>📊 OLAP · أنظمة التحليل</h4><ul><li>تحليلي · استعلامات معقّدة</li><li>بُعدي · قراءة سريعة</li><li>"ما اتّجاه التكاليف عبر ٣ سنوات؟"</li></ul></div>
+    </div>
+
+    <div class="sec">🏛️ ثلاث معماريات للتخزين التحليلي</div>
+    <table class="tbl">
+      <thead><tr><th>المعمارية</th><th>الوصف</th><th>الأنسب لـ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Data Warehouse</strong><br>(مستودع)</td><td>بيانات منظّمة ومُهيكلة مسبقاً (Schema-on-Write). نظيف وجاهز للتحليل.</td><td>تقارير الأعمال المنظّمة (FDI نموذج)</td></tr>
+        <tr><td><strong>Data Lake</strong><br>(بحيرة)</td><td>بيانات خام بكل الأشكال (Schema-on-Read). مرن لكن قد يصبح "مستنقعاً".</td><td>البيانات الضخمة · ML · غير المهيكلة</td></tr>
+        <tr><td><strong>Data Lakehouse</strong><br>(بيت بحيرة)</td><td>الجيل الحديث — يدمج مرونة البحيرة مع حوكمة المستودع (Databricks · 2020).</td><td>المؤسّسات الحديثة (الأفضل حالياً)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sec">🥉 معمارية الميداليات · Medallion</div>
+    <div class="flow">
+      <div class="flow-step"><div class="fs-num">١</div><h5>🥉 Bronze</h5><p>بيانات خام كما وصلت</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٢</div><h5>🥈 Silver</h5><p>منظّفة وموحّدة</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٣</div><h5>🥇 Gold</h5><p>جاهزة للأعمال (نماذج بُعدية)</p></div>
+    </div>
+    <div class="note"><strong>تطبيق على بيئتك:</strong> بيانات Oracle Fusion الخام (Bronze) → تُنظّف وتُوحّد (Silver) → تُحوّل لنماذج نجمة جاهزة للوحات (Gold). Oracle FDI ينفّذ هذا تلقائياً عبر طبقاته الجاهزة — وهذا سرّ قوّته (الوحدة ١٥).</div>
+  
+
+  <div class="sec">🔬 رحلة بياناتك · من Oracle للوحة</div>
+  <div class="flow">
+    <div class="flow-step"><div class="fs-num">١</div><h5>Oracle Fusion</h5><p>المصدر التشغيلي (OLTP)</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٢</div><h5>ADW (FDI)</h5><p>مستودع تحليلي (OLAP)</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٣</div><h5>نموذج نجمة</h5><p>Gold · جاهز للتحليل</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٤</div><h5>لوحة OAC/Power BI</h5><p>القرار</p></div>
+  </div>
+  <div class="sec">🧭 متى تختار أيّاً · دليل القرار</div>
+  <table class="tbl"><thead><tr><th>الحاجة</th><th>الخيار</th></tr></thead><tbody>
+    <tr><td>تقارير منظّمة على بيانات أعمال نظيفة</td><td>Data Warehouse (FDI نموذج)</td></tr>
+    <tr><td>بيانات ضخمة متنوّعة · ML · غير مهيكلة</td><td>Data Lake</td></tr>
+    <tr><td>الاثنان معاً بحوكمة موحّدة</td><td>Lakehouse (الأحدث)</td></tr>
+    <tr><td>استعلام تشغيلي لحظي</td><td>مباشرة على OLTP (OTBI)</td></tr>
+  </tbody></table>
+  <div class="note"><strong>الخطأ الشائع:</strong> محاولة التحليل التاريخي العميق مباشرةً على النظام التشغيلي (Oracle Fusion الحيّ) — يبطئ النظام ويضرّ المعاملات. لهذا يوجد المستودع (ADW/FDI): فصل التحليل عن التشغيل مبدأ معماري جوهري.</div>
+
+  </div>
+
+  <!-- ===== MODULE 8 · etl-elt ===== -->
+  <div class="module" id="m-etl-elt">
+    <h1 class="m-title">ETL / ELT والطبقة الدلالية</h1>
+    <div class="m-sub">كيف تنتقل البيانات وتتحوّل — والطبقة التي تترجمها للغة الأعمال</div>
+
+    <div class="sec">🔄 ETL vs ELT · ترتيب الخطوات يصنع الفرق</div>
+    <div class="cmp-2">
+      <div class="cmp-col cmp-b"><h4>📥 ETL (التقليدي)</h4><ul><li>Extract → <strong>Transform</strong> → Load</li><li>التحويل <em>قبل</em> التحميل (خادم وسيط)</li><li>مناسب للمستودعات التقليدية والبيانات الحسّاسة</li></ul></div>
+      <div class="cmp-col cmp-a"><h4>📤 ELT (الحديث)</h4><ul><li>Extract → Load → <strong>Transform</strong></li><li>التحويل <em>بعد</em> التحميل (داخل المستودع السحابي القويّ)</li><li>الأسرع والأشيع اليوم (السحابة)</li></ul></div>
+    </div>
+    <div class="note"><strong>في عالمك:</strong> <strong>Power Query</strong> هو أداة ETL — تستخرج من المصادر وتنظّف وتحوّل قبل التحميل لنموذج Power BI. تعلّم لغة <strong>M</strong> خلفه = تحكّم كامل بالتحويل (الوحدة ١١).</div>
+
+    <div class="sec">🧩 الطبقة الدلالية · Semantic Layer</div>
+    <p class="p">الطبقة الدلالية تترجم البيانات التقنية الخام إلى مفاهيم أعمال مفهومة — "جسر" بين قاعدة البيانات والمستخدم:</p>
+    <ul class="lst">
+      <li><strong>تعريفات موحّدة:</strong> "الإيراد" أو "نسبة الإنجاز" تُحسب بطريقة واحدة للجميع — مصدر حقيقة واحد (Single Source of Truth).</li>
+      <li><strong>تسميات أعمال:</strong> بدل <code>FCT_COST_DLY</code> ترى "التكاليف اليومية".</li>
+      <li><strong>المقاييس والعلاقات:</strong> في Power BI · نموذج البيانات + مقاييس DAX = طبقتك الدلالية.</li>
+    </ul>
+    <div class="note"><strong>القيمة الإستراتيجية:</strong> الطبقة الدلالية تمنع "فوضى الأرقام" — حين يأتي كل قسم برقم مختلف لنفس المؤشّر. هي ما يحوّل البيانات من "تقنية" إلى "لغة قرار" موحّدة في المؤسّسة.</div>
+  
+
+  <div class="sec">🔬 مثال · تحويلات Power Query لبيانات مشروع</div>
+  <p class="p">سلسلة خطوات نموذجية لتنظيف بيانات تكاليف من تصدير Oracle/Excel:</p>
+  <ul class="lst">
+    <li><strong>١. إزالة الأعمدة الزائدة</strong> — احتفظ بالمفيد فقط.</li>
+    <li><strong>٢. تغيير الأنواع</strong> — التكلفة رقم · التاريخ تاريخ (لا نصّ).</li>
+    <li><strong>٣. توحيد التصنيفات</strong> — "حديد" و"الحديد" و"steel" → قيمة واحدة.</li>
+    <li><strong>٤. ملء الفراغات</strong> — معالجة الخلايا الفارغة بمنطق واضح.</li>
+    <li><strong>٥. الدمج (Merge)</strong> — ربط بجدول الموردين لإثراء البيانات.</li>
+  </ul>
+  <div class="note"><strong>كل خطوة تُسجَّل وتتكرّر تلقائياً</strong> عند تحديث البيانات الشهر القادم — هذا جوهر قوّة Power Query: تنظّف مرّة · يتكرّر للأبد. لا تنظيف يدوي متكرّر في Excel.</div>
+  <div class="sec">⚡ طيّ الاستعلام · لماذا يهمّ للأداء</div>
+  <div class="quote-box"><h3>💡 Query Folding عملياً</h3><p>حين تتّصل بمصدر قويّ (قاعدة بيانات · ADW) · Power Query يحاول <em>دفع</em> تحويلاتك لتُنفَّذ على المصدر نفسه (كـ SQL) بدل سحب كل البيانات ثمّ معالجتها محلّياً. <strong>النتيجة:</strong> تحديث أسرع بكثير وحمل أقلّ. القاعدة: ضع التصفية والتجميع مبكّراً في الخطوات ليبقى الطيّ فعّالاً. كسر الطيّ (بخطوة معقّدة مبكّرة) يبطئ كل شيء.</p></div>
+
+  </div>
+
+  <!-- ===== MODULE 9 · data-quality ===== -->
+  <div class="module" id="m-data-quality">
+    <h1 class="m-title">جودة البيانات</h1>
+    <div class="m-sub">"مدخلات سيّئة = مخرجات سيّئة" — الأساس الذي بدونه كل تحليل بلا قيمة</div>
+
+    <div class="sec">📏 أبعاد جودة البيانات الستّة (إطار DAMA)</div>
+    <p class="p">جودة البيانات ليست مفهوماً غامضاً — تُقاس عبر أبعاد محدّدة (معهد <strong>DAMA</strong>):</p>
+    <table class="tbl">
+      <thead><tr><th>البُعد</th><th>السؤال</th><th>مثال خلل</th></tr></thead>
+      <tbody>
+        <tr><td><strong>الدقّة · Accuracy</strong></td><td>هل البيانات صحيحة؟</td><td>تكلفة مُدخلة خطأ</td></tr>
+        <tr><td><strong>الاكتمال · Completeness</strong></td><td>هل كل البيانات موجودة؟</td><td>تواريخ تسليم ناقصة</td></tr>
+        <tr><td><strong>الاتّساق · Consistency</strong></td><td>هل متطابقة عبر الأنظمة؟</td><td>اسم مورّد مختلف في نظامين</td></tr>
+        <tr><td><strong>الحداثة · Timeliness</strong></td><td>هل محدّثة في الوقت المناسب؟</td><td>تقرير ببيانات الأسبوع الماضي</td></tr>
+        <tr><td><strong>الصلاحية · Validity</strong></td><td>هل تتبع القواعد والصيغ؟</td><td>تاريخ بصيغة خاطئة</td></tr>
+        <tr><td><strong>التفرّد · Uniqueness</strong></td><td>هل لا تكرار؟</td><td>مورّد مسجّل مرّتين</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sec">🗂️ إدارة البيانات الرئيسية · MDM</div>
+    <p class="p"><strong>Master Data Management:</strong> ضمان "مصدر حقيقة واحد" للكيانات الجوهرية (الموردون · المشاريع · الموظّفون) عبر كل الأنظمة. بدونه · يصبح لكل نظام نسخته الخاصّة المتناقضة.</p>
+    <div class="quote-box">
+      <h3>⚠️ مبدأ "Garbage In, Garbage Out"</h3>
+      <p>أذكى نموذج تحليلي وأجمل لوحة لا قيمة لهما إن كانت البيانات الأساسية خاطئة. <strong>الدراسات تقدّر أنّ المحلّلين يقضون ٦٠-٨٠٪ من وقتهم في تنظيف البيانات</strong> — لا في التحليل نفسه. الاستثمار في جودة البيانات عند المصدر يوفّر أضعافه لاحقاً، ويحمي مصداقيتك حين تعرض الأرقام للقيادة.</p>
+    </div>
+    <div class="note"><strong>الربط بعملك:</strong> قبل أيّ لوحة أداء في Mukoun · تأكّد من جودة البيانات المصدرية (تصنيف موحّد · لا تكرار · اكتمال). تقرير بأرقام خاطئة أمام الإدارة يدمّر الثقة بكل عملك — الجودة حماية لسمعتك المهنية.</div>
+  
+
+  <div class="sec">🔬 حالة واقعية · أثر بيانات قذرة على قرار</div>
+  <div class="quote-box"><h3>⚠️ سيناريو</h3><p>لوحة تُظهر "إجمالي إنفاق المورّد X = ٢ مليون". القيادة تقرّر التفاوض على خصم. لكن المورّد مُسجَّل بثلاث صيغ مختلفة (X · X Co · شركة X) — إنفاقه الحقيقي ٥ مليون موزّع على ثلاثتها. <strong>القرار بُني على رقم خاطئ بسبب غياب التفرّد (Uniqueness) و MDM.</strong> هكذا تكلّف البيانات القذرة قرارات حقيقية.</p></div>
+  <div class="sec">🔍 تنميط البيانات · Data Profiling</div>
+  <p class="p">قبل أيّ تحليل · افحص بياناتك (Power BI يوفّر هذا في Power Query):</p>
+  <div class="cards-grid cols-3">
+    <div class="card"><h4>📊 توزيع القيم</h4><p>ما القيم الموجودة وتكرارها؟ يكشف الشذوذ.</p></div>
+    <div class="card"><h4>⚠️ نسبة الفراغ</h4><p>كم خلية فارغة في كل عمود؟</p></div>
+    <div class="card"><h4>🔢 التفرّد</h4><p>هل المفاتيح فريدة فعلاً؟ تكرار = مشكلة.</p></div>
+  </div>
+  <div class="note"><strong>قاعدة المحترف:</strong> لا تثق ببيانات لم تفحصها. ١٥ دقيقة تنميط توفّر ساعات إصلاح لاحقاً — وتحمي مصداقيتك حين تعرض الأرقام. البيانات النظيفة عند المصدر (MDM · حوكمة · المستوى ٦) أرخص من إصلاحها في كل تقرير.</div>
+
+  </div>
+
+
+  <!-- ===== MODULE 10 · sql ===== -->
+  <div class="module" id="m-sql">
+    <h1 class="m-title">SQL — لغة البيانات</h1>
+    <div class="m-sub">اللغة العالمية لاستخراج البيانات — أساس كل تحليل من قاعدة بيانات</div>
+    <div class="sec">🎓 الأصل · من SEQUEL إلى المعيار العالمي</div>
+    <table class="tbl"><thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead><tbody>
+      <tr><td><strong>Chamberlin & Boyce</strong> (IBM)<br>SEQUEL</td><td>١٩٧٤</td><td>أوّل لغة استعلام بنيوية مبنية على نموذج Codd العلائقي — أصل SQL.</td></tr>
+      <tr><td><strong>ANSI / ISO</strong></td><td>١٩٨٦+</td><td>توحيد SQL كمعيار عالمي — لهذا يعمل في Oracle · SQL Server · PostgreSQL بنفس المنطق.</td></tr>
+    </tbody></table>
+    <div class="sec">🧩 بنية الاستعلام الأساسية</div>
+    <div class="formula-box"><div class="fb-formula">SELECT <em>الأعمدة</em> FROM <em>الجدول</em> WHERE <em>الشرط</em> GROUP BY <em>التجميع</em></div>
+      <div class="fb-terms">
+        <div class="fb-term"><div class="fb-term-name">SELECT</div><div class="fb-term-desc">أيّ أعمدة تريد</div></div>
+        <div class="fb-term"><div class="fb-term-name">WHERE</div><div class="fb-term-desc">تصفية الصفوف</div></div>
+        <div class="fb-term"><div class="fb-term-name">GROUP BY</div><div class="fb-term-desc">التجميع للحساب (SUM · COUNT · AVG)</div></div>
+        <div class="fb-term"><div class="fb-term-name">JOIN</div><div class="fb-term-desc">ربط الجداول (INNER · LEFT · RIGHT)</div></div>
+      </div></div>
+    <div class="sec">⚡ المفاهيم المتقدّمة للمحلّل</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>🔗 JOINs</h4><p>INNER (المتطابق فقط) · LEFT (كل اليسار) — أساس دمج جداول الحقائق بالأبعاد.</p></div>
+      <div class="card"><h4>🪟 Window Functions</h4><p>ROW_NUMBER · RANK · حسابات تراكمية دون تجميع — قوّة تحليلية هائلة.</p></div>
+      <div class="card"><h4>📦 CTEs</h4><p>WITH — استعلامات فرعية مسمّاة تجعل المنطق المعقّد قابلاً للقراءة.</p></div>
+      <div class="card"><h4>📊 Aggregations</h4><p>SUM · AVG · COUNT · مع HAVING لتصفية المجموعات.</p></div>
+    </div>
+    <div class="note"><strong>لماذا SQL لك:</strong> حتّى مع Power BI و FDI · فهم SQL يجعلك تفهم ما يحدث "تحت الغطاء". يمكنك الاستعلام مباشرةً من مستودع FDI (ADW) عبر SQL — مهارة تميّزك عن مستخدم اللوحات العادي.</div>
+  
+
+  <div class="sec">🔬 استعلام حقيقي · تكلفة المشروع حسب البند</div>
+  <p class="p">استعلام يربط الحقائق بالأبعاد (نموذج النجمة) ويُجمّع التكلفة لكل بند عمل تتجاوز ١٠٠ ألف:</p>
+  <div style="direction:ltr;text-align:left;background:#0f2730;color:#9be3f0;padding:12px 14px;border-radius:8px;font-family:Consolas,Monaco,monospace;font-size:11.5px;line-height:1.65;overflow-x:auto;margin:10px 0;white-space:pre">SELECT
+    p.project_name      AS "المشروع",
+    w.category          AS "بند العمل",
+    SUM(f.actual_cost)  AS "إجمالي التكلفة"
+FROM fact_costs f
+JOIN dim_project p ON f.project_id = p.project_id
+JOIN dim_wbs     w ON f.wbs_id     = w.wbs_id
+WHERE f.cost_date &gt;= '2026-01-01'
+GROUP BY p.project_name, w.category
+HAVING SUM(f.actual_cost) &gt; 100000
+ORDER BY 3 DESC;</div>
+  <div class="note"><strong>قراءة الاستعلام:</strong> JOIN يربط جدول التكاليف ببُعدي المشروع و WBS · WHERE يصفّي بالتاريخ · GROUP BY يجمّع · HAVING يصفّي <em>بعد</em> التجميع (يختلف عن WHERE) · ORDER BY 3 يرتّب بالعمود الثالث. هذا النمط يغطّي ٧٠٪ من استعلاماتك التحليلية.</div>
+  <div class="sec">🪟 دالة نافذة · التكلفة التراكمية</div>
+  <div style="direction:ltr;text-align:left;background:#0f2730;color:#9be3f0;padding:12px 14px;border-radius:8px;font-family:Consolas,Monaco,monospace;font-size:11.5px;line-height:1.65;overflow-x:auto;margin:10px 0;white-space:pre">-- التكلفة التراكمية شهرياً (دالة نافذة)
+SELECT
+    project_name,
+    month,
+    monthly_cost,
+    SUM(monthly_cost) OVER (
+        PARTITION BY project_name
+        ORDER BY month
+    ) AS running_total
+FROM monthly_costs;</div>
+  <div class="note"><strong>قوّة الدوال النافذة:</strong> تحسب التراكمي <em>دون</em> فقدان تفصيل الصفوف (عكس GROUP BY). PARTITION BY يعيد العدّ لكل مشروع. مفيد للوحات الاتّجاه التراكمي (S-Curve في المشاريع).</div>
+
+  </div>
+
+  <!-- ===== MODULE 11 · power-query ===== -->
+  <div class="module" id="m-power-query">
+    <h1 class="m-title">Power Query / لغة M</h1>
+    <div class="m-sub">محرّك تنظيف وتحويل البيانات في Power BI و Excel — أداة الـ ETL اليومية</div>
+    <div class="sec">🔄 ما هو Power Query</div>
+    <p class="p">Power Query هو محرّك ETL منخفض الكود داخل Power BI و Excel — يستخرج البيانات من مئات المصادر · ينظّفها · يحوّلها قبل تحميلها للنموذج. كل خطوة تُسجَّل تلقائياً (Applied Steps) فتصبح العملية قابلة للتكرار.</p>
+    <div class="sec">⚙️ المفاهيم الجوهرية</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>📝 الخطوات المطبّقة</h4><p>كل تحويل يُسجَّل كخطوة — سجلّ مرئي قابل للتعديل والتكرار (لا تكتب كوداً).</p></div>
+      <div class="card"><h4>🔤 لغة M</h4><p>اللغة الوظيفية خلف Power Query — إتقانها يعطيك تحكّماً كاملاً يتجاوز الواجهة.</p></div>
+      <div class="card"><h4>📂 الدمج والإلحاق</h4><p>Merge (ربط أفقي · مثل JOIN) · Append (تكديس عمودي · توحيد جداول متشابهة).</p></div>
+      <div class="card"><h4>⚡ Query Folding</h4><p>دفع التحويلات للمصدر لتنفيذها هناك — حاسم للأداء مع البيانات الكبيرة.</p></div>
+    </div>
+    <div class="note"><strong>القاعدة الذهبية:</strong> نظّف وحوّل في <strong>Power Query</strong> (قبل التحميل) · لا في DAX (بعده). القاعدة: "حوّل بأبكر نقطة ممكنة". خطأ المبتدئين الشائع: محاولة إصلاح بيانات قذرة بصيغ DAX معقّدة بدل تنظيفها في Power Query أولاً.</div>
+  
+
+  <div class="sec">🔬 لغة M · خلف الخطوات</div>
+  <p class="p">كل خطوة تنقر عليها تُترجَم لكود M. فهمه يعطيك تحكّماً يتجاوز الواجهة:</p>
+  <div style="direction:ltr;text-align:left;background:#0f2730;color:#9be3f0;padding:12px 14px;border-radius:8px;font-family:Consolas,Monaco,monospace;font-size:11.5px;line-height:1.65;overflow-x:auto;margin:10px 0;white-space:pre">let
+    Source = Excel.Workbook( File.Contents("Costs.xlsx") ),
+    Data   = Source{[Item="Costs"]}[Data],
+    Clean  = Table.SelectRows( Data, each [Actual_Cost] &gt; 0 ),
+    Typed  = Table.TransformColumnTypes(
+                 Clean,
+                 {{"Actual_Cost", type number},
+                  {"Cost_Date", type date}} )
+in
+    Typed</div>
+  <div class="note"><strong>القراءة:</strong> <code>let ... in</code> = سلسلة خطوات مسمّاة · كل خطوة تبني على السابقة (Source → Data → Clean → Typed). <code>Table.SelectRows</code> = تصفية · <code>TransformColumnTypes</code> = تغيير الأنواع. تعديل الكود مباشرةً أسرع أحياناً من النقر · ويتيح منطقاً معقّداً يصعب بالواجهة.</div>
+
+  </div>
+
+  <!-- ===== MODULE 12 · dax ===== -->
+  <div class="module" id="m-dax">
+    <h1 class="m-title">DAX بعمق</h1>
+    <div class="m-sub">لغة التحليل في Power BI — والمفهوم الواحد الذي يفصل المحترف عن المبتدئ: السياق</div>
+    <div class="sec">🎯 ما هو DAX ولماذا يربك الجميع</div>
+    <p class="p"><strong>DAX</strong> (Data Analysis Expressions) لغة الصيغ في Power BI و Power Pivot و Analysis Services. تبدو كصيغ Excel لكنّها مختلفة جذرياً — لأنّها تعمل على <em>جداول وعلاقات</em>، لا خلايا. سبب إرباكها مفهوم واحد: <strong>السياق (Context)</strong>.</p>
+    <div class="sec">🔑 المفهوم المحوري · سياقا التقييم</div>
+    <div class="cmp-2">
+      <div class="cmp-col cmp-a"><h4>↔️ سياق الصفّ · Row Context</h4><ul><li>"الصفّ الحالي" أثناء الحساب</li><li>يوجد في الأعمدة المحسوبة ودوال التكرار (SUMX)</li><li>يعرف قيمة كل عمود في الصفّ الحالي</li></ul></div>
+      <div class="cmp-col cmp-b"><h4>🔲 سياق الفلتر · Filter Context</h4><ul><li>الفلاتر المطبّقة على الحساب (من اللوحة · الشرائح · العلاقات)</li><li>يحدّد "أيّ صفوف تدخل الحساب"</li><li>قلب عمل المقاييس (Measures)</li></ul></div>
+    </div>
+    <div class="sec">⭐ CALCULATE · أقوى دالّة في DAX</div>
+    <div class="formula-box"><div class="fb-formula">CALCULATE(<em>التعبير</em>, <em>فلتر١</em>, <em>فلتر٢</em>...)</div>
+      <div class="fb-terms"><div class="fb-term"><div class="fb-term-name">الوظيفة</div><div class="fb-term-desc">تعدّل سياق الفلتر — الدالّة الوحيدة التي تفعل ذلك</div></div>
+      <div class="fb-term"><div class="fb-term-name">القوّة</div><div class="fb-term-desc">"كم المبيعات لكن فقط للرياض" · "مقارنة بالعام الماضي"</div></div></div></div>
+    <div class="sec">📐 المقاييس vs الأعمدة المحسوبة</div>
+    <table class="tbl"><thead><tr><th>النوع</th><th>متى يُحسب</th><th>الاستخدام</th></tr></thead><tbody>
+      <tr><td><strong>Measure (مقياس)</strong></td><td>عند العرض (ديناميكي حسب الفلتر)</td><td>التجميعات (إجمالي · نسبة · متوسّط) — الأكثر استخداماً</td></tr>
+      <tr><td><strong>Calculated Column</strong></td><td>عند تحديث البيانات (ثابت)</td><td>قيم على مستوى الصفّ · يستهلك ذاكرة</td></tr>
+    </tbody></table>
+    <div class="note"><strong>قاعدة الخبراء:</strong> فضّل المقاييس على الأعمدة المحسوبة دائماً (أكفأ ذاكرةً وأكثر مرونة). و<strong>Time Intelligence</strong> (دوال مثل SAMEPERIODLASTYEAR) تتطلّب جدول تاريخ صحيحاً — أساس كل تحليل اتّجاهات. إتقان CALCULATE + السياق = إتقان DAX، وهو ما يميّزك في كل لوحة أداء تبنيها.</div>
+  
+
+  <div class="sec">🔬 مقاييس DAX جاهزة · مؤشّرات أداء مشروعك</div>
+  <p class="p">هذه مقاييس <strong>حقيقية تنسخها وتستخدمها</strong> في لوحة Power BI لمشاريعك (تفترض نموذج نجمة كالمستوى ٢):</p>
+  <div style="direction:ltr;text-align:left;background:#0f2730;color:#9be3f0;padding:12px 14px;border-radius:8px;font-family:Consolas,Monaco,monospace;font-size:11.5px;line-height:1.65;overflow-x:auto;margin:10px 0;white-space:pre">// المقاييس الأساسية
+Total Actual = SUM( Fact_Costs[Actual_Cost] )
+Total Planned = SUM( Fact_Costs[Planned_Cost] )
+Earned Value = SUM( Fact_Costs[Earned_Value] )
+
+// مؤشّرات الأداء (EVM)
+CPI = DIVIDE( [Earned Value], [Total Actual] )
+SPI = DIVIDE( [Earned Value], [Total Planned] )
+% Complete = DIVIDE( [Earned Value], [Budget at Completion] )
+
+// التنبّؤ بالتكلفة عند الإنهاء
+EAC = DIVIDE( [Budget at Completion], [CPI] )</div>
+  <div class="note"><strong>لماذا DIVIDE لا "/":</strong> دالة DIVIDE تعالج القسمة على صفر تلقائياً (تعيد فراغاً لا خطأ) — أأمن من عامل القسمة العادي. عادة محترفين أساسية في DAX.</div>
+  <div class="sec">📅 ذكاء الوقت · المقارنة بالعام السابق</div>
+  <div style="direction:ltr;text-align:left;background:#0f2730;color:#9be3f0;padding:12px 14px;border-radius:8px;font-family:Consolas,Monaco,monospace;font-size:11.5px;line-height:1.65;overflow-x:auto;margin:10px 0;white-space:pre">// المقارنة بالعام السابق (Time Intelligence)
+Cost YoY % =
+VAR Current = [Total Actual]
+VAR Prior =
+    CALCULATE(
+        [Total Actual],
+        SAMEPERIODLASTYEAR( Dim_Date[Date] )
+    )
+RETURN
+    DIVIDE( Current - Prior, Prior )</div>
+  <div class="note"><strong>الشرط الجوهري:</strong> دوال ذكاء الوقت (SAMEPERIODLASTYEAR · DATESYTD) تتطلّب <strong>جدول تاريخ مُعلَّم</strong> (Marked as Date Table) متّصلاً بالحقائق — بدونه تفشل. استخدام VAR يجعل الصيغة أوضح وأسرع (يحسب القيمة مرّة). هذه الأنماط أساس كل تحليل اتّجاهات في لوحاتك.</div>
+
+  </div>
+
+  <!-- ===== MODULE 13 · excel-adv ===== -->
+  <div class="module" id="m-excel-adv">
+    <h1 class="m-title">Excel المتقدّم للتحليل</h1>
+    <div class="m-sub">أقوى أداة تحليل على الأرض حين تُستخدم باحتراف — لا مجرّد جداول</div>
+    <div class="sec">🧰 ترسانة المحلّل في Excel</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>📊 PivotTables</h4><p>التلخيص والتجميع التفاعلي الفوري — أسرع طريقة لاستكشاف البيانات. مع PivotCharts.</p></div>
+      <div class="card"><h4>🔋 Power Pivot</h4><p>نموذج بيانات + DAX <em>داخل</em> Excel — تتجاوز حدّ المليون صفّ وتبني علاقات.</p></div>
+      <div class="card"><h4>🔍 XLOOKUP / INDEX-MATCH</h4><p>البحث والربط بين الجداول — XLOOKUP (الحديث) أقوى وأبسط من VLOOKUP.</p></div>
+      <div class="card"><h4>⚡ الصفائف الديناميكية</h4><p>FILTER · SORT · UNIQUE — صيغ تعيد نطاقات كاملة تلقائياً (Excel الحديث).</p></div>
+    </div>
+    <div class="note"><strong>التكامل الذكي:</strong> Power Query و Power Pivot موجودان في <em>Excel و Power BI معاً</em> بنفس المنطق — ما تتعلّمه في أحدهما ينتقل للآخر. Excel ممتاز للتحليل السريع والنماذج الأوّلية · Power BI للوحات المؤسّسية المشتركة.</div>
+  
+
+  <div class="sec">🔬 صيغ عملية · البحث والتجميع الشرطي</div>
+  <div style="direction:ltr;text-align:left;background:#0f2730;color:#9be3f0;padding:12px 14px;border-radius:8px;font-family:Consolas,Monaco,monospace;font-size:11.5px;line-height:1.65;overflow-x:auto;margin:10px 0;white-space:pre">=XLOOKUP( A2, Suppliers[ID], Suppliers[Name], "غير موجود" )
+
+=SUMIFS( Costs[Amount],
+         Costs[Project], "Villa-A",
+         Costs[Category], "حديد" )</div>
+  <div class="note"><strong>XLOOKUP</strong> (الحديث) يتفوّق على VLOOKUP: يبحث بأيّ اتّجاه · يعيد قيمة افتراضية عند عدم الإيجاد ("غير موجود") · لا يعتمد على رقم العمود (يقاوم إضافة/حذف الأعمدة). <strong>SUMIFS</strong> يجمّع بشروط متعدّدة — أساس التقارير التلخيصية السريعة في Excel قبل نقلها لـ Power BI.</div>
+  <div class="sec">⚡ متى Excel ومتى Power BI</div>
+  <table class="tbl"><thead><tr><th>الموقف</th><th>الأداة</th></tr></thead><tbody>
+    <tr><td>تحليل سريع · نموذج أوّلي · بيانات صغيرة</td><td>Excel</td></tr>
+    <tr><td>لوحة مشتركة · تحديث دوري · ملايين الصفوف</td><td>Power BI</td></tr>
+    <tr><td>نموذج بيانات معقّد بعلاقات</td><td>Power Pivot (الجسر)</td></tr>
+  </tbody></table>
+
+  </div>
+
+  <!-- ===== MODULE 14 · oracle-otbi ===== -->
+  <div class="module" id="m-oracle-otbi">
+    <h1 class="m-title">تقارير Oracle Fusion · OTBI</h1>
+    <div class="m-sub">التقارير التشغيلية الفورية على بيانات Fusion الحيّة</div>
+    <div class="sec">⚡ ما هو OTBI</div>
+    <p class="p"><strong>OTBI</strong> (Oracle Transactional Business Intelligence) أداة التقارير المدمجة في Oracle Fusion — تحلّل البيانات <em>التشغيلية الحيّة</em> مباشرةً دون مستودع. مبنية على نماذج موضوعية جاهزة (Subject Areas) تخفي تعقيد قاعدة البيانات.</p>
+    <div class="sec">🆚 OTBI vs BI Publisher</div>
+    <div class="cmp-2">
+      <div class="cmp-col cmp-a"><h4>📊 OTBI</h4><ul><li>تقارير وتحليلات تفاعلية ذاتية الخدمة</li><li>على البيانات الحيّة (لحظية)</li><li>للمستخدم التشغيلي</li></ul></div>
+      <div class="cmp-col cmp-b"><h4>📄 BI Publisher</h4><ul><li>تقارير منسّقة بدقّة (Pixel-Perfect)</li><li>مستندات رسمية (فواتير · كشوف)</li><li>قوالب ثابتة الشكل</li></ul></div>
+    </div>
+    <div class="note"><strong>حدود OTBI:</strong> ممتاز للتقارير التشغيلية الفورية · لكنّه <em>ليس</em> للتحليلات التاريخية العميقة عبر سنوات أو دمج مصادر متعدّدة (يضغط على النظام الحيّ). هنا يأتي دور FDI (الوحدة التالية) — وهذا الفرق جوهري.</div>
+  
+
+  <div class="sec">🔬 كيف تبني تحليلاً في OTBI</div>
+  <div class="flow">
+    <div class="flow-step"><div class="fs-num">١</div><h5>اختر Subject Area</h5><p>مجال جاهز (مثل المشتريات)</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٢</div><h5>اسحب الأعمدة</h5><p>أبعاد + مقاييس</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٣</div><h5>صفِّ ورتّب</h5><p>Filters + Prompts</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٤</div><h5>صوّر</h5><p>جدول · رسم · لوحة</p></div>
+  </div>
+  <div class="note"><strong>Subject Areas:</strong> نماذج موضوعية جاهزة تخفي تعقيد قاعدة بيانات Fusion — تسحب "مبلغ أمر الشراء" دون معرفة الجداول الخلفية. هذا يجعل OTBI ذاتيّ الخدمة (Self-Service) للمستخدم التشغيلي. <strong>الحدّ:</strong> ممتاز للحظي · لكن للتحليل التاريخي العميق متعدّد السنوات · FDI أنسب (لا يضغط النظام الحيّ).</div>
+
+  </div>
+
+  <!-- ===== MODULE 15 · oracle-fdi ===== -->
+  <div class="module" id="m-oracle-fdi">
+    <h1 class="m-title">Oracle FDI · Fusion Data Intelligence</h1>
+    <div class="m-sub">منصّة Oracle الجاهزة للتحليلات فوق بيانات Fusion — مستودع + تحليلات + ذكاء مدمج</div>
+    <div class="sec">🎯 ما هو FDI بدقّة</div>
+    <p class="p"><strong>Oracle Fusion Data Intelligence (FDI)</strong> — المعروفة سابقاً بـ Fusion Analytics Warehouse (FAW) — حلّ تحليلات سحابي جاهز (Prebuilt) مصمّم خصّيصاً لتطبيقات Oracle Fusion Cloud. ملاحظة: استخدمت Oracle مؤخّراً اسم "Fusion AI Data Platform" لكنّها عادت للمضيّ باسم FDI.</p>
+    <div class="note"><strong>المكوّنات الأساسية:</strong> FDI ليس أداة واحدة بل منصّة متكاملة مبنية على ثلاثة: <strong>Autonomous Data Warehouse (ADW)</strong> للتخزين عالي الأداء · <strong>Oracle Analytics Cloud (OAC)</strong> كمحرّك التحليل والتصوير · <strong>OCI AI Services</strong> للذكاء المدمج.</div>
+    <div class="sec">📦 ماذا يقدّم جاهزاً (Out-of-the-Box)</div>
+    <table class="tbl"><thead><tr><th>المكوّن الجاهز</th><th>الوصف</th></tr></thead><tbody>
+      <tr><td><strong>خطوط بيانات مُعَدّة</strong></td><td>تستخرج وتحمّل بيانات Fusion تلقائياً (Oracle-managed pipelines) لكل مجال وظيفي.</td></tr>
+      <tr><td><strong>نموذج بيانات بُعدي جاهز</strong></td><td>نموذج نجمة معدّ مسبقاً في ADW — لا تبني النمذجة من صفر.</td></tr>
+      <tr><td><strong>+٣٠٠٠ مقياس جاهز</strong></td><td>ومئات التقارير واللوحات الجاهزة عبر المجالات.</td></tr>
+      <tr><td><strong>إطار أمان جاهز</strong></td><td>يزامن المستخدمين والصلاحيات من Fusion تلقائياً.</td></tr>
+    </tbody></table>
+    <div class="sec">🏛️ المجالات الأربعة (Pillars)</div>
+    <div class="cards-grid cols-4">
+      <div class="card"><h4>💰 ERP Analytics</h4><p>المالية · التكاليف · رأس المال العامل</p></div>
+      <div class="card"><h4>📦 SCM Analytics</h4><p>المخزون · الموردون · التوريد</p></div>
+      <div class="card"><h4>👥 HCM Analytics</h4><p>الموارد البشرية · القوى العاملة</p></div>
+      <div class="card"><h4>🤝 CX Analytics</h4><p>العملاء · المبيعات · الإيراد</p></div>
+    </div>
+    <div class="sec">🆚 FDI vs OTBI · الفرق الجوهري</div>
+    <div class="cmp-2">
+      <div class="cmp-col cmp-b"><h4>⚡ OTBI</h4><ul><li>تشغيلي · لحظي</li><li>على البيانات الحيّة</li><li>"ما الذي يحدث الآن؟"</li></ul></div>
+      <div class="cmp-col cmp-a"><h4>📊 FDI</h4><ul><li>تحليلي · تاريخي</li><li>على مستودع مُحسّن (ADW)</li><li>وصفي · تشخيصي · <strong>تنبّؤي · معزّز (Augmented)</strong></li></ul></div>
+    </div>
+    <div class="sec">🔧 القابلية للتوسّع والذكاء</div>
+    <p class="p">FDI ليس مغلقاً — يمكن توسيعه ببيانات خارجية عبر طريقتين:</p>
+    <ul class="lst">
+      <li><strong>Data Augmentation:</strong> توسيع بدون كود (No-code) لإثراء البيانات الجاهزة بمصادر إضافية.</li>
+      <li><strong>Oracle Data Transforms:</strong> حلّ منخفض الكود (Low-code) لمهندسي البيانات — تحويلات معقّدة ومصادر أوسع.</li>
+      <li><strong>الذكاء المدمج:</strong> تحليلات معزّزة (Augmented Analytics) ونماذج AI جاهزة — التوجّه الأحدث نحو "من الرؤية إلى الفعل".</li>
+    </ul>
+    <div class="note"><strong>القيمة الإستراتيجية لك (أحمد):</strong> FDI يطبّق كل ما تعلّمته في المستوى ٢ (مستودع · نموذج نجمة · طبقات الميداليات) <em>تلقائياً</em> على بيانات مؤسّستك في Oracle Fusion. بدل بناء كل ذلك يدوياً · تحصل على أساس جاهز ثمّ تركّز على التحليل والتوسعة. فهمك للأسس (لماذا يعمل FDI هكذا) هو ما يميّزك عن مجرّد مستخدم للوحات — وهذا جوهر تموضعك كخبير أداء + بيانات.</div>
+  
+
+  <div class="sec">🔬 سير العمل العملي في FDI</div>
+  <div class="flow">
+    <div class="flow-step"><div class="fs-num">١</div><h5>تفعيل خطّ البيانات</h5><p>للمجال الوظيفي (ERP مثلاً)</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٢</div><h5>تحميل تلقائي</h5><p>Oracle يستخرج من Fusion لـ ADW</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٣</div><h5>استخدم الجاهز</h5><p>+٣٠٠٠ مقياس · لوحات معدّة</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٤</div><h5>وسّع</h5><p>Augmentation / Data Transforms</p></div>
+  </div>
+  <div class="note"><strong>الفرق الجوهري عن البناء اليدوي:</strong> بدل أن تبني النموذج العلائقي ثمّ النجمة ثمّ الطبقة الدلالية ثمّ المقاييس (المستويات ٢-٣) — FDI يأتي بكلّ ذلك <em>جاهزاً</em> لبيانات Fusion. دورك يتحوّل من "بنّاء أساس" إلى "محلّل وموسّع" — تركّز على الرؤية لا البنية التحتية. وفهمك للأسس (لماذا صُمّم هكذا) يجعلك توسّعه بذكاء، لا تستهلكه فقط.</div>
+
+  </div>
+
+
+  <!-- ===== MODULE 16 · descriptive-stats ===== -->
+  <div class="module" id="m-descriptive-stats">
+    <h1 class="m-title">الإحصاء الوصفي والتوزيعات</h1>
+    <div class="m-sub">تلخيص البيانات بصدق — ومتى يخدعك المتوسّط</div>
+    <div class="sec">📍 مقاييس النزعة المركزية · أيّها تستخدم؟</div>
+    <table class="tbl"><thead><tr><th>المقياس</th><th>متى يُستخدم</th><th>الحذر</th></tr></thead><tbody>
+      <tr><td><strong>المتوسّط · Mean</strong></td><td>بيانات متماثلة بلا قيم متطرّفة</td><td>تشوّهه القيم الشاذّة بشدّة</td></tr>
+      <tr><td><strong>الوسيط · Median</strong></td><td><strong>بيانات منحرفة</strong> (تكاليف · رواتب · مدد)</td><td>الأصدق غالباً في بياناتك</td></tr>
+      <tr><td><strong>المنوال · Mode</strong></td><td>البيانات الفئوية (الأكثر تكراراً)</td><td>قد لا يوجد أو يتعدّد</td></tr>
+    </tbody></table>
+    <div class="note"><strong>فخّ المتوسّط:</strong> متوسّط تكلفة ١٠ مشاريع قد يكون مضلّلاً إن كان فيها مشروع ضخم واحد. الوسيط يعطي صورة أصدق للمشروع "النموذجي". خبير البيانات يعرف <em>متى</em> يستخدم كلاً منهما — لا يستخدم المتوسّط آلياً.</div>
+    <div class="sec">📏 مقاييس التشتّت · الصورة الكاملة</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>📐 الانحراف المعياري</h4><p>متوسّط بُعد القيم عن المتوسّط — مقياس "التذبذب". صغير = متماسك · كبير = متقلّب.</p></div>
+      <div class="card"><h4>📊 المدى الربيعي · IQR</h4><p>الفرق بين الربيع الأعلى والأدنى — مقاوم للقيم الشاذّة. أساس مخطّط الصندوق (Box Plot · Tukey).</p></div>
+    </div>
+    <div class="quote-box"><h3>⚠️ رباعية Anscombe (1973)</h3><p>أربع مجموعات بيانات لها <em>نفس</em> المتوسّط والانحراف والارتباط تماماً — لكنّها مختلفة جذرياً عند الرسم! الدرس الخالد: <strong>الأرقام الملخّصة وحدها تخدع — ارسم بياناتك دائماً قبل الاستنتاج.</strong> هذا أصل "التحليل الاستكشافي" (EDA · Tukey).</p></div>
+    <div class="note"><strong>للعمق النظري للتوزيعات (الطبيعي · نظرية الحدّ المركزي):</strong> راجع منظومة EMBA · مجموعة الإحصاء — هنا نركّز على التطبيق في التحليل واللوحات.</div>
+  
+
+  <div class="sec">🔬 مثال محسوب · كيف يخدع المتوسّط</div>
+  <p class="p">مدد تسليم ٧ فلل (بالأيام): <strong>٣٠ · ٣٢ · ٣١ · ٢٩ · ٣٣ · ٣٠ · ١٢٠</strong> (الأخيرة تأخّرت لظرف استثنائي).</p>
+  <table class="tbl"><thead><tr><th>المقياس</th><th>القيمة</th><th>الدلالة</th></tr></thead><tbody>
+    <tr><td><strong>المتوسّط</strong></td><td>٤٣.٦ يوم</td><td>⚠️ مضلّل — رفعته القيمة الشاذّة</td></tr>
+    <tr><td><strong>الوسيط</strong></td><td>٣١ يوم</td><td>✅ يمثّل الفيلا "النموذجية" بصدق</td></tr>
+    <tr><td><strong>المنوال</strong></td><td>٣٠ يوم</td><td>الأكثر تكراراً</td></tr>
+  </tbody></table>
+  <div class="note"><strong>الدرس بالأرقام:</strong> لو رفعت للقيادة "متوسّط التسليم ٤٤ يوماً" تعطي صورة سوداء خاطئة · بينما الواقع أنّ معظم الفلل تُسلَّم في ~٣١ يوماً مع حالة استثنائية واحدة. <strong>القاعدة:</strong> مع وجود قيم شاذّة · استخدم الوسيط. وأبلغ عن الشاذّة منفصلةً لا مدمجةً.</div>
+  <div class="sec">📏 الانحراف المعياري · بالأرقام</div>
+  <p class="p">مشروعان · نفس متوسّط التكلفة (١٠٠ ألف/فيلا) لكن:</p>
+  <div class="cmp-2">
+    <div class="cmp-col cmp-a"><h4>مشروع أ · انحراف ٥ آلاف</h4><ul><li>التكاليف متماسكة (٩٥-١٠٥)</li><li>قابل للتنبّؤ · تحكّم جيّد</li></ul></div>
+    <div class="cmp-col cmp-b"><h4>مشروع ب · انحراف ٤٠ ألف</h4><ul><li>تكاليف متذبذبة (٦٠-١٤٠)</li><li>مخاطرة عالية · يحتاج تحقيقاً</li></ul></div>
+  </div>
+  <div class="note"><strong>الخلاصة:</strong> المتوسّط وحده يخفي القصّة — الانحراف المعياري يكشف <em>الاتّساق والمخاطرة</em>. مشروعان بنفس المتوسّط قد يكونان مختلفين جذرياً في الانضباط. لهذا اعرض دائماً مقياس تشتّت بجانب المتوسّط.</div>
+
+  </div>
+
+  <!-- ===== MODULE 17 · correlation-regression ===== -->
+  <div class="module" id="m-correlation-regression">
+    <h1 class="m-title">الارتباط والانحدار</h1>
+    <div class="m-sub">قياس العلاقات والتنبّؤ بها — والخطأ الأخطر في التحليل كلّه</div>
+    <div class="sec">🔗 الارتباط · قوّة العلاقة</div>
+    <p class="p">معامل ارتباط بيرسون (r) يقيس قوّة واتّجاه العلاقة الخطّية بين متغيّرين · من −١ (عكسي تامّ) إلى +١ (طردي تامّ) · و٠ يعني لا علاقة خطّية.</p>
+    <div class="quote-box"><h3>🚨 الارتباط ≠ السببية (أهمّ مبدأ)</h3><p>وجود علاقة لا يعني أنّ أحدهما <em>يسبّب</em> الآخر! قد يكون: صدفة · أو عامل ثالث خفي. مثال شهير: مبيعات الآيس كريم ترتبط بحوادث الغرق — لكنّ السبب الحقيقي هو الحرّ (عامل ثالث). <strong>خطأ التحليل الأخطر هو القفز من ارتباط إلى سبب.</strong> الحذر هنا يحمي مصداقيتك أمام القيادة.</p></div>
+    <div class="sec">📈 الانحدار · من العلاقة إلى التنبّؤ</div>
+    <p class="p">الانحدار الخطّي يرسم "أفضل خطّ" يصف العلاقة — فيتيح التنبّؤ (خطّ الاتّجاه في Power BI). جذوره تعود لـ <strong>Galton</strong> (مفهوم "الارتداد للمتوسّط" · ١٨٨٦).</p>
+    <table class="tbl"><thead><tr><th>المفهوم</th><th>المعنى التطبيقي</th></tr></thead><tbody>
+      <tr><td><strong>الميل · Slope</strong></td><td>كم يتغيّر Y لكل وحدة في X</td></tr>
+      <tr><td><strong>R² (معامل التحديد)</strong></td><td>نسبة التباين المُفسَّر · 0.8 يعني النموذج يفسّر ٨٠٪</td></tr>
+      <tr><td><strong>البواقي · Residuals</strong></td><td>الفرق بين الفعلي والمتنبّأ — فحصها يكشف جودة النموذج</td></tr>
+    </tbody></table>
+    <div class="note"><strong>تطبيق:</strong> خطّ الاتّجاه في لوحة Power BI هو انحدار. مفيد لربط مسبّبات التكلفة بالأداء — لكن تذكّر: R² عالٍ لا يعني سببية، ولا يضمن صحّة التنبّؤ خارج نطاق البيانات. <strong>للعمق (Gauss-Markov · الانحدار المتعدّد):</strong> راجع EMBA · الإحصاء.</div>
+  
+
+  <div class="sec">🔬 مثال محسوب · هل التكلفة ترتبط بالمدّة؟</div>
+  <p class="p">حلّلتَ ٢٠ فيلا · ووجدتَ معامل ارتباط <strong>r = 0.82</strong> بين مدّة التنفيذ والتكلفة.</p>
+  <table class="tbl"><thead><tr><th>القيمة</th><th>التفسير</th></tr></thead><tbody>
+    <tr><td><strong>r = 0.82</strong></td><td>ارتباط طردي قويّ — كلّما طالت المدّة زادت التكلفة</td></tr>
+    <tr><td><strong>R² = 0.67</strong></td><td>المدّة تفسّر ٦٧٪ من تباين التكلفة (r²)</td></tr>
+    <tr><td><strong>الباقي ٣٣٪</strong></td><td>عوامل أخرى (مورّد · تصميم · إعادة عمل)</td></tr>
+  </tbody></table>
+  <div class="quote-box"><h3>🚨 الفخّ القاتل · هل المدّة تُسبّب التكلفة؟</h3><p>r = 0.82 قويّ · لكن <strong>لا يثبت السببية!</strong> قد يكون العكس (التكلفة العالية = مشروع أكبر يأخذ وقتاً) · أو عامل ثالث (تعقيد التصميم يرفع الاثنين). <strong>لو قرّرت "نضغط المدّة لنخفّض التكلفة" بناءً على الارتباط وحده · قد تفشل</strong> — لأنّ العلاقة قد لا تكون سببية. اطلب دليلاً أعمق قبل القرار.</p></div>
+  <div class="note"><strong>في Power BI:</strong> خطّ الاتّجاه (Trend Line) في الرسم المبعثر هو انحدار · و R² يظهر مع الخطّ. أداة قويّة للاستكشاف — لكن للتفسير لا للقرار السببي المباشر.</div>
+
+  </div>
+
+  <!-- ===== MODULE 18 · significance ===== -->
+  <div class="module" id="m-significance">
+    <h1 class="m-title">الدلالة والثقة في القرارات</h1>
+    <div class="m-sub">هل هذا الفرق حقيقي أم مجرّد ضوضاء؟ — التمييز الذي يحمي قراراتك</div>
+    <div class="sec">🎲 لماذا نأخذ عيّنة</div>
+    <p class="p">غالباً نحلّل عيّنة (لا كل البيانات) ونعمّم على المجتمع. السؤال الجوهري: هل ما رأيناه في العيّنة يعكس الحقيقة · أم صدفة؟</p>
+    <div class="sec">📊 فترة الثقة · النطاق لا النقطة</div>
+    <div class="note"><strong>المبدأ:</strong> بدل قول "متوسّط التأخّر ٥ أيام" (نقطة قد تكون مضلّلة) · قل "بين ٣ و٧ أيام بثقة ٩٥٪" (نطاق صادق). فترة الثقة تعترف بعدم اليقين — علامة التحليل الناضج. النطاق الأضيق = ثقة أعلى (عيّنة أكبر).</div>
+    <div class="sec">⚖️ الدلالة الإحصائية vs العملية</div>
+    <table class="tbl"><thead><tr><th>النوع</th><th>السؤال</th></tr></thead><tbody>
+      <tr><td><strong>الدلالة الإحصائية</strong></td><td>هل الفرق حقيقي (ليس صدفة)؟ — تُقاس بقيمة p</td></tr>
+      <tr><td><strong>الدلالة العملية</strong></td><td>هل الفرق <em>كبير بما يكفي ليهمّ</em> فعلاً؟</td></tr>
+    </tbody></table>
+    <div class="quote-box"><h3>⚠️ تحذير قيمة p (بيان ASA 2016)</h3><p>قيمة p <strong>لا</strong> تعني "احتمال صحّة الفرضية" · ولا حجم الأثر. فرق ضئيل عديم القيمة قد يكون "دالاً إحصائياً" مع عيّنة ضخمة. <strong>لا تعبد العتبة 0.05</strong> — اسأل دائماً: هل الفرق يهمّ <em>عملياً</em>؟ القرار الحكيم يجمع الإحصاء بالسياق التجاري.</p></div>
+    <div class="note"><strong>للعمق النظري (Neyman-Pearson · أخطاء النوع الأول/الثاني · الاختبارات):</strong> راجع منظومة EMBA — هنا التطبيق: "هل تحسّن هذا الشهر حقيقي أم تذبذب طبيعي؟"</div>
+  
+
+  <div class="sec">🔬 مثال محسوب · هل التحسّن حقيقي أم ضوضاء؟</div>
+  <p class="p">متوسّط التأخّر انخفض من ١٨ يوماً (الربع الماضي) إلى ١٥ يوماً (هذا الربع). هل هذا <strong>تحسّن حقيقي</strong> أم تذبذب طبيعي؟</p>
+  <div class="note"><strong>الخطأ:</strong> الاحتفال فوراً بـ "تحسّن ١٧٪!". <strong>الصواب:</strong> اسأل عن <em>التباين</em>. لو كان التأخّر يتذبذب طبيعياً ±٥ أيام بين الأرباع · فإنّ فرق ٣ أيام قد يكون مجرّد ضوضاء — لا تحسّناً حقيقياً.</div>
+  <div class="sec">📊 فترة الثقة · النطاق الصادق</div>
+  <p class="p">بدل رقم نقطي · احسب النطاق:</p>
+  <div class="formula-box"><div class="fb-formula">١٥ يوم ± ٤ (بثقة ٩٥٪) → <em>النطاق ١١ إلى ١٩</em></div>
+    <div class="fb-terms"><div class="fb-term"><div class="fb-term-name">التداخل</div><div class="fb-term-desc">نطاق هذا الربع (١١-١٩) يتداخل مع الماضي (١٨)</div></div>
+    <div class="fb-term"><div class="fb-term-name">الاستنتاج</div><div class="fb-term-desc">الفرق قد لا يكون دالاً — راقب ربعاً آخر قبل الجزم</div></div></div></div>
+  <div class="note"><strong>الدلالة العملية vs الإحصائية:</strong> حتّى لو ثبت الفرق إحصائياً · اسأل: هل ٣ أيام تهمّ <em>عملياً</em> في مشروع مدّته سنتان؟ القرار الحكيم يجمع الإحصاء بالسياق — لا يعبد رقماً (تحذير ASA · أعلاه). راقب الاتّجاه عبر عدّة أرباع بدل التفاعل مع قفزة واحدة.</div>
+
+  </div>
+
+  <!-- ===== MODULE 19 · predictive ===== -->
+  <div class="module" id="m-predictive">
+    <h1 class="m-title">التحليل التنبّؤي</h1>
+    <div class="m-sub">من "ماذا حدث" إلى "ماذا سيحدث" — الجسر بين التحليل والذكاء الاصطناعي</div>
+    <div class="sec">🔮 ما هو التحليل التنبّؤي</div>
+    <p class="p">استخدام البيانات التاريخية والإحصاء لتقدير المستقبل. المستوى الثالث في سلّم التحليلات — حيث تبدأ القيمة التنافسية الحقيقية.</p>
+    <div class="sec">📈 التنبّؤ بالسلاسل الزمنية · الأهمّ لك</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>📊 الاتّجاه · Trend</h4><p>الميل العامّ طويل المدى (صعود التكاليف مثلاً).</p></div>
+      <div class="card"><h4>🔄 الموسمية · Seasonality</h4><p>أنماط دورية متكرّرة (إنتاجية أقلّ في رمضان/الصيف).</p></div>
+    </div>
+    <div class="note"><strong>تطبيق مباشر:</strong> توقّع تكلفة الإنهاء (EAC) · توقّع تقدّم المشروع · توقّع احتياج المواد. أدوات مثل Holt-Winters (راجع SCM · التنبّؤ) و<strong>التنبّؤ المدمج في Power BI</strong> و<strong>التحليلات المعزّزة في Oracle FDI</strong> تنفّذ هذا.</p></div>
+    <div class="sec">🎯 التصنيف · سؤال نعم/لا</div>
+    <p class="p">نوع آخر من التنبّؤ: تصنيف الحالات (هل سيتأخّر هذا المشروع؟ هل هذا المورّد عالي المخاطر؟). أساس كثير من نماذج تعلّم الآلة.</p>
+    <div class="quote-box"><h3>⚠️ فخّ الإفراط في التخصيص · Overfitting</h3><p>نموذج "يحفظ" البيانات التاريخية بدل "تعلّم" النمط — يبدو ممتازاً على الماضي ويفشل على المستقبل. الحلّ: تقسيم البيانات (تدريب/اختبار · Train/Test). <strong>قاعدة:</strong> النموذج البسيط القابل للتفسير غالباً أفضل من المعقّد الغامض في بيئة الأعمال.</p></div>
+    <div class="quote-box"><h3>🔗 الحدّ مع منظومة الذكاء الاصطناعي</h3><p>التحليل التنبّؤي هنا = الإحصاء وتعلّم الآلة <em>للمحلّل</em> (تنبّؤ · تصنيف · سلاسل زمنية). أمّا النماذج اللغوية الكبيرة والوكلاء و RAG فهي في <strong>منظومة AI المستقلّة</strong>. الحدّ واضح: هذه المنظومة "تحليلية"، تلك "توليدية".</p></div>
+  
+
+  <div class="sec">🔬 مثال محسوب · توقّع تكلفة الإنهاء (EAC)</div>
+  <p class="p">مشروع ميزانيته (BAC) = ١٠ مليون · أنفق حتّى الآن ٦ مليون · والقيمة المكتسبة ٥ مليون.</p>
+  <table class="tbl"><thead><tr><th>الحساب</th><th>القيمة</th></tr></thead><tbody>
+    <tr><td>CPI = القيمة المكتسبة ÷ الفعلية</td><td>٥ ÷ ٦ = <strong>0.83</strong></td></tr>
+    <tr><td>EAC = الميزانية ÷ CPI</td><td>١٠ ÷ 0.83 = <strong>١٢ مليون</strong></td></tr>
+    <tr><td>الانحراف المتوقّع</td><td>🔴 تجاوز ٢ مليون</td></tr>
+  </tbody></table>
+  <div class="note"><strong>قوّة التنبّؤ:</strong> بدل انتظار نهاية المشروع لاكتشاف التجاوز · هذا التوقّع (بناءً على الأداء الحالي) يحذّرك <em>الآن</em> — فتتدخّل مبكّراً. هذا الانتقال من "ماذا حدث" إلى "ماذا سيحدث" هو جوهر القيمة التنبّؤية.</div>
+  <div class="sec">📈 توقّع الاتّجاه · السلاسل الزمنية</div>
+  <div class="quote-box"><h3>⚠️ حدود التنبّؤ الخطّي</h3><p>لو أنفقتَ بمعدّل مليون/شهر · "خطّياً" تتوقّع نفس الوتيرة. لكن المشاريع غير خطّية (منحنى S — بطيء البداية والنهاية · سريع الوسط). <strong>التنبّؤ الساذج بخطّ مستقيم يضلّل.</strong> أدوات Power BI و FDI تلتقط الاتّجاه والموسمية · لكن احذر: دقّة أيّ تنبّؤ تنهار كلّما بَعُد الأفق — والنموذج البسيط القابل للتفسير غالباً أأمن من المعقّد الغامض في قرارات الأعمال.</p></div>
+
+  </div>
+
+
+  <!-- ===== MODULE 20 · perception-theory ===== -->
+  <div class="module" id="m-perception-theory">
+    <h1 class="m-title">نظرية الإدراك البصري</h1>
+    <div class="m-sub">لماذا يفهم الدماغ بعض الرسوم فوراً وأخرى بصعوبة — العلم خلف التصوير الفعّال</div>
+    <div class="sec">🧠 المعالجة قبل الانتباه · Preattentive</div>
+    <p class="p">الدماغ يدرك بعض الخصائص البصرية <strong>فوراً</strong> (أقلّ من ٢٥٠ مللي ثانية) دون جهد واعٍ: اللون · الحجم · الموضع · الاتّجاه. استغلال هذه الخصائص هو سرّ الرسم الذي "يُفهَم بنظرة".</p>
+    <div class="sec">🎓 ترتيب Cleveland-McGill (1984) · أدقّ الترميزات</div>
+    <p class="p">بحث تجريبي محوري رتّب الترميزات البصرية حسب دقّة قراءة العين لها — أساس علمي لاختيار نوع الرسم:</p>
+    <div class="flow">
+      <div class="flow-step"><div class="fs-num">١</div><h5>📍 الموضع</h5><p>الأدقّ (على مقياس مشترك)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٢</div><h5>📏 الطول</h5><p>دقيق (الأعمدة)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٣</div><h5>📐 الزاوية</h5><p>متوسّط (القطاعات)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٤</div><h5>🔴 المساحة/اللون</h5><p>الأقلّ دقّة</p></div>
+    </div>
+    <div class="note"><strong>الخلاصة العملية:</strong> هذا يفسّر <em>علمياً</em> لماذا الأعمدة (طول · موضع) أدقّ من الدوائر (زاوية · مساحة) في المقارنة. اختيار الرسم ليس ذوقاً — بل قرار قائم على إدراك بشري مُثبَت.</p></div>
+    <div class="sec">🖋️ مبادئ Tufte · نسبة الحبر للبيانات</div>
+    <table class="tbl"><thead><tr><th>المبدأ</th><th>المعنى</th></tr></thead><tbody>
+      <tr><td><strong>Data-Ink Ratio</strong></td><td>عظّم الحبر الذي يمثّل بيانات · احذف كل زخرفة لا تحمل معلومة.</td></tr>
+      <tr><td><strong>Chartjunk</strong></td><td>كل عنصر بصري لا يضيف معنى (٣D · خلفيات · ظلال) — احذفه.</td></tr>
+      <tr><td><strong>Lie Factor</strong></td><td>الرسم يجب أن يمثّل النسب بصدق — لا يضخّم أو يقزّم (محور مبتور مثلاً).</td></tr>
+    </tbody></table>
+    <p class="p"><strong>Edward Tufte</strong> في "The Visual Display of Quantitative Information" (١٩٨٣) — المرجع المؤسّس لتصميم المعلومات البصري.</p>
+    <div class="sec">🔲 مبادئ Gestalt · كيف يجمّع الدماغ</div>
+    <div class="cards-grid cols-3">
+      <div class="card"><h4>📍 التقارب</h4><p>العناصر المتقاربة تُدرَك كمجموعة.</p></div>
+      <div class="card"><h4>🎨 التشابه</h4><p>العناصر المتشابهة (لون/شكل) تُدرَك معاً.</p></div>
+      <div class="card"><h4>⬜ الإحاطة</h4><p>الإطار يجمع ما بداخله بصرياً.</p></div>
+    </div>
+    <div class="note"><strong>التطبيق في لوحاتك:</strong> استخدم التقارب لتجميع مؤشّرات مترابطة · واللون لتمييز الفئات · والمسافة البيضاء للفصل. هذه المبادئ تحوّل لوحة مزدحمة إلى لوحة مقروءة بلا جهد.</div>
+  
+
+  <div class="sec">🔬 تطبيق · لماذا فشلت الدائرة (مثال)</div>
+  <p class="p">أردتَ مقارنة إنفاق ٥ موردين متقاربين: ٢٢٪ · ٢١٪ · ٢٠٪ · ١٩٪ · ١٨٪.</p>
+  <div class="cmp-2">
+    <div class="cmp-col cmp-b"><h4>🥧 برسم دائري</h4><ul><li>القطاعات شبه متطابقة</li><li>العين لا تميّز الزوايا المتقاربة</li><li>"أيّها الأكبر؟" — يصعب الجزم</li></ul></div>
+    <div class="cmp-col cmp-a"><h4>📊 بأعمدة</h4><ul><li>فروق الطول واضحة فوراً</li><li>الترتيب جليّ بنظرة</li><li>المقارنة دقيقة</li></ul></div>
+  </div>
+  <div class="note"><strong>تفسير علمي (Cleveland-McGill):</strong> العين تقرأ <em>الطول والموضع</em> (الأعمدة) بدقّة أعلى بكثير من <em>الزاوية والمساحة</em> (الدائرة). ليست مسألة ذوق — بل حدود إدراك بشري مُثبَتة. لهذا الخبراء يتجنّبون الدوائر للمقارنات الدقيقة.</div>
+  <div class="sec">⚡ الانتباه المسبق · توجيه العين بلون واحد</div>
+  <div class="quote-box"><h3>💡 المبدأ عملياً</h3><p>في جدول من ٢٠ مشروعاً · لو لوّنت <strong>المتأخّرة فقط بالأحمر</strong> · تقفز للعين فوراً (أقلّ من ربع ثانية) دون قراءة كل صفّ. هذا "الانتباه المسبق" (Preattentive) — استخدم اللون <em>بقصد</em> لتوجيه النظر للأهمّ · لا للتزيين. لون واحد هادف أقوى من عشرة عشوائية.</p></div>
+
+  </div>
+
+  <!-- ===== MODULE 21 · chart-selection ===== -->
+  <div class="module" id="m-chart-selection">
+    <h1 class="m-title">اختيار الرسم الصحيح</h1>
+    <div class="m-sub">السؤال أولاً، الرسم ثانياً — أيّ علاقة تريد إظهارها؟</div>
+    <div class="sec">🎯 إطار الاختيار · ابدأ من العلاقة (Abela)</div>
+    <p class="p">القاعدة الذهبية: لا تختر الرسم ثمّ تحشر فيه البيانات — بل حدّد <strong>أيّ علاقة</strong> تريد إظهارها، فيتحدّد الرسم:</p>
+    <table class="tbl"><thead><tr><th>العلاقة</th><th>الرسم الأنسب</th><th>مثال</th></tr></thead><tbody>
+      <tr><td><strong>مقارنة · Comparison</strong></td><td>أعمدة (Bar)</td><td>تكلفة كل مشروع</td></tr>
+      <tr><td><strong>اتّجاه عبر الزمن · Trend</strong></td><td>خطّ (Line)</td><td>تطوّر الإنجاز شهرياً</td></tr>
+      <tr><td><strong>علاقة · Relationship</strong></td><td>مبعثر (Scatter)</td><td>التكلفة مقابل المدّة</td></tr>
+      <tr><td><strong>تكوين · Composition</strong></td><td>أعمدة مكدّسة / Treemap</td><td>توزيع الميزانية</td></tr>
+      <tr><td><strong>توزيع · Distribution</strong></td><td>مدرّج (Histogram) / Box Plot</td><td>توزيع مدد التسليم</td></tr>
+    </tbody></table>
+    <div class="sec">🚫 أخطاء بصرية شائعة (تجنّبها)</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>🥧 إفراط الدوائر</h4><p>الدائرة سيّئة للمقارنة (زاوية غير دقيقة) — تجنّبها لأكثر من ٣-٤ فئات. الأعمدة أفضل غالباً.</p></div>
+      <div class="card"><h4>📦 الرسوم ثلاثية الأبعاد</h4><p>3D يشوّه النسب ويربك القراءة — Chartjunk خالص. استخدم 2D دائماً.</p></div>
+      <div class="card"><h4>📊 المحور المبتور</h4><p>بدء محور Y من غير الصفر يضخّم الفروق كذباً (Lie Factor).</p></div>
+      <div class="card"><h4>🌈 الألوان الزائدة</h4><p>كثرة الألوان بلا معنى تشتّت — اللون يجب أن يحمل معلومة.</p></div>
+    </div>
+    <div class="note"><strong>قاعدة عملية:</strong> ٩٠٪ من احتياجاتك التحليلية يغطّيها الأعمدة والخطوط والمبعثر. ابدأ بسيطاً — التعقيد البصري عدوّ الفهم.</div>
+  
+
+  <div class="sec">🔬 قبل/بعد · الرسم الخاطئ مقابل الصحيح</div>
+  <table class="tbl"><thead><tr><th>الهدف</th><th>❌ خطأ شائع</th><th>✅ الصحيح</th></tr></thead><tbody>
+    <tr><td>تطوّر التكلفة عبر ١٢ شهراً</td><td>أعمدة مزدحمة</td><td>خطّ (Line) — يُظهر الاتّجاه بسلاسة</td></tr>
+    <tr><td>مقارنة ٨ موردين</td><td>دائري بـ٨ قطاعات</td><td>أعمدة أفقية مرتّبة</td></tr>
+    <tr><td>توزيع مدد التسليم</td><td>خطّ</td><td>مدرّج (Histogram)</td></tr>
+    <tr><td>تكلفة مقابل مدّة (٢٠ فيلا)</td><td>جدول أرقام</td><td>مبعثر (Scatter) — يكشف العلاقة</td></tr>
+    <tr><td>نسبة الإنجاز مقابل الهدف</td><td>عدّاد ثلاثي الأبعاد</td><td>شريط تقدّم بسيط (Bullet)</td></tr>
+  </tbody></table>
+  <div class="note"><strong>القاعدة الموحّدة:</strong> حدّد العلاقة أولاً (اتّجاه؟ مقارنة؟ توزيع؟ علاقة؟) ثمّ يتحدّد الرسم. والرسم البسيط الصحيح دائماً أقوى من المعقّد البرّاق. تذكّر: ٩٠٪ من احتياجاتك = أعمدة + خطوط + مبعثر.</div>
+
+  </div>
+
+  <!-- ===== MODULE 22 · dashboard-design ===== -->
+  <div class="module" id="m-dashboard-design">
+    <h1 class="m-title">تصميم لوحات المعلومات</h1>
+    <div class="m-sub">لوحة تُفهَم بنظرة — مبادئ Stephen Few وتطبيقها في Power BI</div>
+    <div class="sec">🎓 تعريف اللوحة الفعّالة (Stephen Few)</div>
+    <p class="p"><strong>Stephen Few</strong> (مرجع تصميم لوحات BI · "Information Dashboard Design") يعرّف اللوحة: "عرض بصري لأهمّ المعلومات اللازمة لتحقيق هدف · مرتّبة على <strong>شاشة واحدة</strong> تُراقَب بنظرة".</p>
+    <div class="sec">📐 المبادئ الجوهرية</div>
+    <ul class="lst">
+      <li><strong>شاشة واحدة بلا تمرير:</strong> اللوحة الحقيقية تُرى كاملةً دفعةً — لا تمرير ولا تنقّل للأهمّ.</li>
+      <li><strong>التسلسل الهرمي البصري:</strong> الأهمّ أبرز وأكبر. في التصميم العربي (RTL) العين تبدأ من <strong>أعلى اليمين</strong> — ضع أهمّ مؤشّر هناك.</li>
+      <li><strong>تقليل الفوضى:</strong> كل عنصر لا يخدم القرار يُحذَف (Tufte). المسافة البيضاء ليست فراغاً ضائعاً.</li>
+      <li><strong>السياق:</strong> الرقم وحده بلا معنى — أضف مقارنة (الهدف · الفترة السابقة · المعيار).</li>
+    </ul>
+    <div class="sec">🧱 مكوّنات اللوحة الجيّدة</div>
+    <div class="cards-grid cols-3">
+      <div class="card"><h4>🔢 بطاقات KPI</h4><p>المؤشّرات الجوهرية أعلى اللوحة · مع اتّجاه ومقارنة بالهدف.</p></div>
+      <div class="card"><h4>📈 رسوم الاتّجاه</h4><p>خطوط تُظهر التطوّر — السياق الزمني للأرقام.</p></div>
+      <div class="card"><h4>🎚️ الشرائح · Slicers</h4><p>تفاعل يتيح للمستخدم التنقيب (مشروع · فترة · فئة).</p></div>
+    </div>
+    <div class="quote-box"><h3>⚠️ خطأ "لوحة عيد الميلاد"</h3><p>الخطأ الأشيع: حشر كل شيء بألوان وعدّادات وأشكال زاهية فتبدو كشجرة عيد ميلاد. <strong>اللوحة الاحترافية هادئة · قليلة الألوان · واضحة الأولويات.</strong> الانضباط البصري علامة النضج — وهو ما يميّز لوحاتك أمام القيادة في Mukoun.</p></div>
+    <div class="note"><strong>تطبيق Power BI:</strong> طبّق هذه المبادئ في كل لوحة — تسلسل هرمي واضح · ألوان مؤسّسية محدودة · مقارنات بالأهداف · تفاعل مدروس. التصميم الجيّد يجعل بياناتك <em>تُقنِع</em>، لا مجرّد تُعرَض.</div>
+  
+
+  <div class="sec">🔬 تحويل لوحة · قبل وبعد</div>
+  <div class="cmp-2">
+    <div class="cmp-col cmp-b"><h4>❌ اللوحة "قبل"</h4><ul><li>١٥ رسماً متساوي الحجم</li><li>ألوان زاهية عشوائية</li><li>عدّادات ٣D وأرقام بلا سياق</li><li>تمرير لرؤية الأهمّ</li><li>"أين أنظر؟" — مشتّتة</li></ul></div>
+    <div class="cmp-col cmp-a"><h4>✅ اللوحة "بعد"</h4><ul><li>٤ بطاقات KPI أعلى اليمين (الأهمّ)</li><li>لونان مؤسّسيان · أحمر للتنبيه فقط</li><li>كل رقم بمقارنة (هدف/فترة سابقة)</li><li>شاشة واحدة بلا تمرير</li><li>تسلسل هرمي واضح</li></ul></div>
+  </div>
+  <div class="sec">🔧 الإصلاحات الخمسة الجوهرية</div>
+  <ul class="lst">
+    <li><strong>رتّب بصرياً:</strong> الأهمّ أعلى اليمين (RTL) وأكبر حجماً.</li>
+    <li><strong>قلّل الألوان:</strong> لونان + أحمر للاستثناء — لا قوس قزح.</li>
+    <li><strong>أضف سياقاً:</strong> "١٥ يوم تأخّر" بلا معنى · "١٥ يوم مقابل هدف ١٠" يحكي قصّة.</li>
+    <li><strong>احذف الزينة:</strong> لا 3D · لا ظلال · لا خلفيات (Tufte).</li>
+    <li><strong>وحّد الشاشة:</strong> الأهمّ كلّه مرئيّ دفعةً واحدة.</li>
+  </ul>
+  <div class="note"><strong>الأثر:</strong> اللوحة "بعد" تُفهَم في ٥ ثوانٍ · "قبل" تحتاج دقيقتين وتشتّت. الانضباط البصري ليس تجميلاً — بل يجعل بياناتك <em>تُقنِع</em> القيادة بدل أن تُرهقها. هذا ما يميّز لوحاتك.</div>
+
+  </div>
+
+  <!-- ===== MODULE 23 · data-storytelling ===== -->
+  <div class="module" id="m-data-storytelling">
+    <h1 class="m-title">السرد بالبيانات · Storytelling with Data</h1>
+    <div class="m-sub">تحويل الأرقام إلى قصّة تُحرّك القرار — منهج Knaflic</div>
+    <div class="sec">🎓 الإطار · Cole Nussbaumer Knaflic (2015)</div>
+    <p class="p">"Storytelling with Data" — المرجع العملي الأشهر. جوهره: البيانات وحدها لا تُقنِع · السرد المنظّم حولها هو ما يُحرّك الجمهور للفعل. ستّ خطوات:</p>
+    <table class="tbl"><thead><tr><th>الخطوة</th><th>التطبيق</th></tr></thead><tbody>
+      <tr><td><strong>١. افهم السياق</strong></td><td>من جمهورك؟ ما الفعل المطلوب منهم؟ (للقيادة غير ما للفريق)</td></tr>
+      <tr><td><strong>٢. اختر العرض المناسب</strong></td><td>الرسم الصحيح للرسالة (المستوى ٢١)</td></tr>
+      <tr><td><strong>٣. أزل الفوضى</strong></td><td>احذف كل ما لا يخدم الرسالة (Tufte)</td></tr>
+      <tr><td><strong>٤. وجّه الانتباه</strong></td><td>استخدم اللون والحجم لإبراز النقطة الجوهرية (Preattentive)</td></tr>
+      <tr><td><strong>٥. فكّر كمصمّم</strong></td><td>الوضوح والبساطة والاتّساق</td></tr>
+      <tr><td><strong>٦. اروِ قصّة</strong></td><td>بنية سردية: موقف → تعقيد → حلّ</td></tr>
+    </tbody></table>
+    <div class="sec">📖 البنية السردية · القوس</div>
+    <div class="flow">
+      <div class="flow-step"><div class="fs-num">١</div><h5>🎬 الموقف</h5><p>الوضع الحالي المتّفق عليه</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٢</div><h5>⚡ التعقيد</h5><p>المشكلة/الفرصة (لماذا نهتمّ)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٣</div><h5>✅ الحلّ</h5><p>التوصية والفعل المطلوب</p></div>
+    </div>
+    <div class="sec">🎯 العرض للقيادة · BLUF</div>
+    <div class="note"><strong>Bottom Line Up Front:</strong> القيادة وقتها ضيّق — ابدأ بالخلاصة والتوصية · ثمّ ادعمها بالبيانات (لا العكس). لا تبنِ تشويقاً نحو نتيجة في النهاية — قُل النتيجة أولاً. هذا يحترم وقتهم ويُظهر ثقتك.</div>
+    <div class="quote-box"><h3>💡 الفرق الذي يصنع المتخصّص</h3><p>معظم المحلّلين يعرضون <em>بيانات</em> · القلّة يروون <em>قصّة تقود لقرار</em>. هذه المهارة — تحويل لوحة Power BI إلى سرد مُقنِع أمام القيادة — هي ما يميّزك كخبير أداء، ومحور حضورك المهني ٢٠٢٧. البيانات تُعلِم · القصّة تُحرّك.</p></div>
+  
+
+  <div class="sec">🔬 تطبيق كامل · عرض تجاوز التكلفة للقيادة</div>
+  <p class="p">سيناريو: مشروع الفلل يتجاوز الميزانية. كيف تعرض هذا للإدارة بمنهج Knaflic بدل "إغراقهم بالأرقام"؟</p>
+  <table class="tbl"><thead><tr><th>الخطوة</th><th>تطبيقها في عرضك</th></tr></thead><tbody>
+    <tr><td><strong>السياق</strong></td><td>الجمهور = الإدارة العليا · الفعل المطلوب = الموافقة على تسريع التوريد</td></tr>
+    <tr><td><strong>العرض</strong></td><td>خطّ واحد: التكلفة الفعلية مقابل المخطّطة عبر الزمن (لا ١٠ رسوم)</td></tr>
+    <tr><td><strong>إزالة الفوضى</strong></td><td>احذف التفاصيل التشغيلية · اعرض الرسالة فقط</td></tr>
+    <tr><td><strong>توجيه الانتباه</strong></td><td>الفجوة بالأحمر · النقطة الحرجة معلّمة</td></tr>
+    <tr><td><strong>القصّة</strong></td><td>موقف → تعقيد → حلّ (أدناه)</td></tr>
+  </tbody></table>
+  <div class="quote-box"><h3>📖 القوس السردي للعرض</h3><p><strong>الموقف:</strong> "المشروع سار بكفاءة حتّى الربع الثاني." <strong>التعقيد:</strong> "ثمّ تأخّر توريد الحديد رفع CPI إلى 0.83 — ما يعني تجاوزاً متوقّعاً ٢ مليون عند الإنهاء." <strong>الحلّ:</strong> "تقديم طلبات التوريد أسبوعين يعيدنا للمسار — وهذا قراري المقترح للموافقة." قصّة من ٣ جمل تقود لقرار · لا تقرير من ٢٠ صفحة.</p></div>
+  <div class="note"><strong>BLUF للقيادة:</strong> ابدأ بالخلاصة: "نحتاج موافقتكم على تسريع التوريد لتفادي تجاوز ٢ مليون" — ثمّ ادعمها بالرسم. لا تبنِ تشويقاً نحو النتيجة · القيادة تريدها أولاً. <strong>هذا الفرق</strong> — تحويل لوحة Power BI إلى قصّة من ٣ جمل تُحرّك قراراً — هو ما يميّزك كخبير، ومحور حضورك المهني ٢٠٢٧.</div>
+
+  </div>
+
+
+  <!-- ===== MODULE 24 · data-governance ===== -->
+  <div class="module" id="m-data-governance">
+    <h1 class="m-title">حوكمة البيانات · DAMA</h1>
+    <div class="m-sub">إدارة البيانات كأصل مؤسّسي — الأشخاص والسياسات والعمليات</div>
+    <div class="sec">🎯 ما هي حوكمة البيانات</div>
+    <p class="p">حوكمة البيانات هي ممارسة إدارة البيانات كـ <strong>أصل استراتيجي</strong> عبر سياسات وأدوار ومعايير تضمن جودتها وأمنها وتوافرها. ليست تقنية — بل تنظيم بشري حول البيانات.</p>
+    <div class="sec">🎓 إطار DAMA-DMBOK</div>
+    <p class="p">معهد <strong>DAMA International</strong> أصدر "دليل معرفة إدارة البيانات" (DMBOK) — المرجع المعياري عالمياً. يضع <strong>حوكمة البيانات في المركز</strong>، تحيط بها مجالات معرفية (عجلة DAMA):</p>
+    <div class="cards-grid cols-3">
+      <div class="card"><h4>🏛️ الحوكمة</h4><p>المركز — السياسات والمساءلة والإشراف.</p></div>
+      <div class="card"><h4>🗂️ نمذجة البيانات</h4><p>تصميم الهياكل (المستوى ٢).</p></div>
+      <div class="card"><h4>✅ جودة البيانات</h4><p>الأبعاد الستّة (المستوى ٢).</p></div>
+      <div class="card"><h4>🔐 أمن البيانات</h4><p>الحماية والوصول والخصوصية.</p></div>
+      <div class="card"><h4>🗄️ البيانات الرئيسية</h4><p>MDM — مصدر حقيقة واحد.</p></div>
+      <div class="card"><h4>📚 البيانات الوصفية</h4><p>Metadata — "بيانات عن البيانات".</p></div>
+    </div>
+    <div class="sec">👥 الأدوار الجوهرية</div>
+    <table class="tbl"><thead><tr><th>الدور</th><th>المسؤولية</th></tr></thead><tbody>
+      <tr><td><strong>Chief Data Officer (CDO)</strong></td><td>القيادة الإستراتيجية لبيانات المؤسّسة.</td></tr>
+      <tr><td><strong>Data Owner (مالك البيانات)</strong></td><td>مسؤول عن مجال بيانات معيّن (المالية · المشاريع) وقراراته.</td></tr>
+      <tr><td><strong>Data Steward (راعي البيانات)</strong></td><td>ينفّذ المعايير ويراقب الجودة يومياً.</td></tr>
+    </tbody></table>
+    <div class="note"><strong>القيمة الإستراتيجية:</strong> بدون حوكمة · تصبح البيانات فوضى متضاربة لا يثق بها أحد — والتحليلات بلا قيمة مهما كانت متقدّمة. الحوكمة هي الأساس الذي يجعل "القرار القائم على البيانات" ممكناً مؤسّسياً. تتقاطع مع حوكمة تقنية المعلومات (COBIT · منظومة IT).</div>
+  
+
+  <div class="sec">🔬 حالة · مؤسّسة بحوكمة مقابل بلا حوكمة</div>
+  <div class="cmp-2">
+    <div class="cmp-col cmp-b"><h4>❌ بلا حوكمة</h4><ul><li>كل قسم يحسب "نسبة الإنجاز" بطريقته</li><li>المالية والمشاريع بأرقام متناقضة</li><li>القيادة لا تثق بأيّ تقرير</li><li>"أيّ رقم الصحيح؟" — شلل القرار</li></ul></div>
+    <div class="cmp-col cmp-a"><h4>✅ بحوكمة</h4><ul><li>تعريف موحّد معتمد لكل مؤشّر</li><li>مالك بيانات مسؤول عن كل مجال</li><li>مصدر حقيقة واحد موثوق</li><li>قرارات سريعة بثقة</li></ul></div>
+  </div>
+  <div class="sec">👥 الأدوار في سياق مؤسّستك</div>
+  <table class="tbl"><thead><tr><th>الدور</th><th>مثال تطبيقي</th></tr></thead><tbody>
+    <tr><td><strong>مالك بيانات المشاريع</strong></td><td>مدير المشاريع — يعتمد تعريف "نسبة الإنجاز" ومصدرها</td></tr>
+    <tr><td><strong>راعي البيانات</strong></td><td>محلّل — يراقب جودة الإدخال ويبلّغ عن الشذوذ</td></tr>
+    <tr><td><strong>لجنة الحوكمة</strong></td><td>تحلّ التعارضات وتعتمد المعايير عبر الأقسام</td></tr>
+  </tbody></table>
+  <div class="note"><strong>دورك المحوري:</strong> كقائد أداء · أنت غالباً من يقود تأسيس هذه الحوكمة — توحيد التعريفات في الطبقة الدلالية (المستوى ٨) هو حوكمة عملياً. بدونها · أجمل لوحة بلا قيمة لأنّ لا أحد يتّفق على معنى أرقامها.</div>
+
+  </div>
+
+  <!-- ===== MODULE 25 · analytics-maturity ===== -->
+  <div class="module" id="m-analytics-maturity">
+    <h1 class="m-title">نضج التحليلات</h1>
+    <div class="m-sub">أين تقف مؤسّستك في رحلة التحليلات — وكيف تتقدّم</div>
+    <div class="sec">📊 سلّم النضج التحليلي</div>
+    <p class="p">المؤسّسات تتدرّج في قدرتها التحليلية عبر مراحل — من "عاجزة تحليلياً" إلى "منافس تحليلي". أسّس هذا الفكر <strong>Thomas Davenport</strong>:</p>
+    <div class="flow">
+      <div class="flow-step"><div class="fs-num">١</div><h5>عاجزة</h5><p>بيانات مبعثرة · قرارات بالحدس</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٢</div><h5>محلّية</h5><p>تحليلات في جزر معزولة</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٣</div><h5>طموحة</h5><p>رؤية مؤسّسية تتشكّل</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٤</div><h5>منافس</h5><p>التحليلات ميزة تنافسية</p></div>
+    </div>
+    <div class="sec">🎯 نموذج DELTA (Davenport)</div>
+    <p class="p">العوامل الخمسة لبناء قدرة تحليلية مؤسّسية ناضجة:</p>
+    <table class="tbl"><thead><tr><th>العامل</th><th>المعنى</th></tr></thead><tbody>
+      <tr><td><strong>D · Data</strong></td><td>بيانات نظيفة متاحة موحّدة</td></tr>
+      <tr><td><strong>E · Enterprise</strong></td><td>نهج مؤسّسي موحّد (لا جزر)</td></tr>
+      <tr><td><strong>L · Leadership</strong></td><td>قيادة تؤمن بالبيانات وتقودها</td></tr>
+      <tr><td><strong>T · Targets</strong></td><td>تركيز على أهداف عالية القيمة</td></tr>
+      <tr><td><strong>A · Analysts</strong></td><td>كفاءات تحليلية ماهرة</td></tr>
+    </tbody></table>
+    <div class="note"><strong>الربط بدورك:</strong> أنت — كقائد تحوّل رقمي وأداء — أحد محرّكات نقل مؤسّستك من "محلّية" (لوحات معزولة) إلى "مؤسّسية". عامل "Leadership" حاسم: التحليلات تنجح حين تقودها الإدارة العليا، لا حين تُفرض من أسفل. هذا يربط بنظرية إدارة التغيير (Kotter · منظومة Leadership).</div>
+  
+
+  <div class="sec">🔬 أين تقف مؤسّستك؟ تقييم ذاتي</div>
+  <table class="tbl"><thead><tr><th>إن كان واقعك...</th><th>مستواك</th></tr></thead><tbody>
+    <tr><td>تقارير يدوية في Excel · قرارات بالحدس</td><td>عاجزة (١)</td></tr>
+    <tr><td>لوحات في أقسام معزولة · لا توحيد</td><td>محلّية (٢)</td></tr>
+    <tr><td>رؤية مؤسّسية تتشكّل · توحيد يبدأ</td><td>طموحة (٣)</td></tr>
+    <tr><td>القرار بالبيانات راسخ · ميزة تنافسية</td><td>منافس (٤)</td></tr>
+  </tbody></table>
+  <div class="sec">🪜 كيف تصعد درجة</div>
+  <ul class="lst">
+    <li><strong>من عاجزة → محلّية:</strong> ابنِ أوّل لوحات موثوقة لمجال واحد (المشاريع مثلاً).</li>
+    <li><strong>من محلّية → طموحة:</strong> وحّد التعريفات والمصادر عبر الأقسام (حوكمة + طبقة دلالية).</li>
+    <li><strong>من طموحة → منافس:</strong> اربط التحليلات بالقرار التنفيذي · أدخل التنبّؤ · ابنِ كفاءات.</li>
+  </ul>
+  <div class="note"><strong>عامل النجاح الحاسم (DELTA):</strong> "Leadership" — التحوّل ينجح حين تقوده الإدارة العليا، لا حين يُفرض من أسفل. لهذا أهمّ دور لك ليس تقنياً بل <em>إقناع القيادة</em> وكسب رعايتها (ربط بإدارة التغيير · Kotter · منظومة Leadership). التقنية أسهل جزء؛ الثقافة والقيادة هما التحدّي.</div>
+
+  </div>
+
+  <!-- ===== MODULE 26 · kpi-design ===== -->
+  <div class="module" id="m-kpi-design">
+    <h1 class="m-title">تصميم مؤشّرات الأداء</h1>
+    <div class="m-sub">الجانب التقني لبناء KPI سليم في BI — مكمّل لإطار الأداء في CPM</div>
+    <div class="quote-box"><h3>🔗 الحدّ مع منظومة CPM</h3><p>منظومة CPM تغطّي <strong>الإطار الإستراتيجي</strong> — ماذا تقيس ولماذا (بطاقة الأداء المتوازن · خرائط الإستراتيجية · اختيار المؤشّرات). هنا نركّز على <strong>الجانب التقني/البياناتي</strong>: كيف تُعرّف وتُحسب وتُفعّل المؤشّر في BI. تكامل لا تكرار.</p></div>
+    <div class="sec">🆚 مؤشّر (KPI) vs مقياس (Metric)</div>
+    <div class="cmp-2">
+      <div class="cmp-col cmp-a"><h4>🎯 KPI</h4><ul><li>مرتبط بهدف استراتيجي</li><li>له مستهدف (Target)</li><li>قليل ومركّز</li><li>"نسبة الإنجاز مقابل الخطّة"</li></ul></div>
+      <div class="cmp-col cmp-b"><h4>📊 Metric</h4><ul><li>أيّ قياس رقمي</li><li>قد لا يرتبط بهدف مباشر</li><li>كثير وتفصيلي</li><li>"عدد أوامر الشراء"</li></ul></div>
+    </div>
+    <div class="sec">📡 رائد vs متأخّر · Leading vs Lagging</div>
+    <table class="tbl"><thead><tr><th>النوع</th><th>الطبيعة</th><th>مثال</th></tr></thead><tbody>
+      <tr><td><strong>متأخّر · Lagging</strong></td><td>يقيس <em>النتيجة</em> (بعد وقوعها)</td><td>التكلفة النهائية · التأخّر الفعلي</td></tr>
+      <tr><td><strong>رائد · Leading</strong></td><td>يتنبّأ بالنتيجة (يسبقها)</td><td>معدّل إصدار أوامر الشراء · ساعات إعادة العمل</td></tr>
+    </tbody></table>
+    <div class="note"><strong>التوازن الحاسم:</strong> معظم المؤسّسات تقيس المتأخّرات فقط (تقود بالمرآة الخلفية). المؤشّرات الرائدة تتيح التدخّل <em>قبل</em> فوات الأوان — قيمة هائلة في إدارة المشاريع.</div>
+    <div class="sec">⚠️ أخطاء تصميم KPI</div>
+    <ul class="lst">
+      <li><strong>مؤشّرات الغرور (Vanity):</strong> أرقام تبدو جميلة بلا قيمة قرار (إجمالي كبير بلا سياق).</li>
+      <li><strong>التلاعب (Gaming):</strong> "حين يصبح المقياس هدفاً يفسد" (قانون Goodhart · منظومة EMBA) — صمّم مؤشّرات يصعب التلاعب بها.</li>
+      <li><strong>الكثرة:</strong> ٥٠ مؤشّراً = لا تركيز. القليل الجوهري أقوى.</li>
+      <li><strong>تعريف غامض:</strong> "نسبة الإنجاز" تُحسب بطرق مختلفة — وحّد التعريف في الطبقة الدلالية (المستوى ٨).</li>
+    </ul>
+  
+
+  <div class="sec">🔬 مثال · مؤشّر سيّئ مقابل جيّد</div>
+  <table class="tbl"><thead><tr><th>السيّئ</th><th>لماذا سيّئ</th><th>البديل الجيّد</th></tr></thead><tbody>
+    <tr><td>"عدد أوامر الشراء"</td><td>غرور — كثرة ليست أداءً</td><td>"نسبة أوامر الشراء في الوقت المحدّد"</td></tr>
+    <tr><td>"إجمالي الإنفاق"</td><td>بلا سياق — كبير أم صغير؟</td><td>"الإنفاق مقابل الميزانية (CPI)"</td></tr>
+    <tr><td>"ساعات العمل"</td><td>قابل للتلاعب (Goodhart)</td><td>"القيمة المكتسبة لكل ساعة"</td></tr>
+  </tbody></table>
+  <div class="sec">📡 رائد ومتأخّر · على مشروعك</div>
+  <div class="cmp-2">
+    <div class="cmp-col cmp-b"><h4>متأخّر (نتيجة)</h4><ul><li>التكلفة النهائية</li><li>تاريخ التسليم الفعلي</li><li>تُعرَف بعد فوات الأوان</li></ul></div>
+    <div class="cmp-col cmp-a"><h4>رائد (تنبّؤي)</h4><ul><li>معدّل إصدار أوامر الشراء</li><li>ساعات إعادة العمل</li><li>تأخّر توريد LLI</li><li>تتيح التدخّل المبكّر</li></ul></div>
+  </div>
+  <div class="note"><strong>التوازن الذهبي:</strong> معظم اللوحات تقيس المتأخّرات فقط (القيادة بالمرآة الخلفية). أضف مؤشّرات رائدة تُنذر <em>قبل</em> وقوع المشكلة — هذه قيمة هائلة في إدارة المشاريع. وعرّف كل مؤشّر بدقّة في الطبقة الدلالية لتجنّب تعدّد التفسيرات. <strong>للإطار الإستراتيجي (BSC · خرائط الإستراتيجية):</strong> منظومة CPM.</div>
+
+  </div>
+
+  <!-- ===== MODULE 27 · data-ethics ===== -->
+  <div class="module" id="m-data-ethics">
+    <h1 class="m-title">أخلاقيات البيانات والخصوصية</h1>
+    <div class="m-sub">المسؤولية القانونية والأخلاقية — مع نظام حماية البيانات السعودي (PDPL)</div>
+    <div class="sec">🇸🇦 نظام حماية البيانات الشخصية · PDPL</div>
+    <p class="p">السعودية أصدرت <strong>نظام حماية البيانات الشخصية (PDPL)</strong> — الإطار القانوني لحماية خصوصية الأفراد. تشرف عليه <strong>هيئة البيانات والذكاء الاصطناعي (SDAIA)</strong>. الالتزام به ليس خياراً — بل واجب قانوني على كل من يعالج بيانات شخصية.</p>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>✅ الموافقة · Consent</h4><p>جمع البيانات الشخصية يتطلّب موافقة واضحة وغرضاً محدّداً.</p></div>
+      <div class="card"><h4>🎯 تحديد الغرض</h4><p>تُستخدم البيانات للغرض المُعلَن فقط — لا تجاوز.</p></div>
+      <div class="card"><h4>🔒 الأمن</h4><p>حماية البيانات من الوصول غير المصرّح (يتقاطع مع أمن المعلومات · منظومة IT).</p></div>
+      <div class="card"><h4>🕵️ إخفاء الهوية</h4><p>للتحليل · جرّد البيانات من المعرّفات الشخصية حين أمكن.</p></div>
+    </div>
+    <div class="sec">⚖️ التحيّز في البيانات والخوارزميات</div>
+    <div class="quote-box"><h3>⚠️ "البيانات ليست محايدة"</h3><p>البيانات تعكس تحيّزات من جمعها وكيفية جمعها. نموذج مبنيّ على بيانات متحيّزة <em>يضخّم</em> التحيّز ويبدو "موضوعياً" — وهذا أخطر. مثال: نموذج تقييم مبني على بيانات تاريخية منحازة يكرّر الانحياز. <strong>المحلّل المسؤول يسأل دائماً: هل بياناتي تمثّل الواقع بعدل؟</strong></p></div>
+    <div class="sec">🧭 الاستخدام الأخلاقي للتحليلات</div>
+    <ul class="lst">
+      <li><strong>الشفافية:</strong> كن واضحاً في كيفية حساب الأرقام — لا "صناديق سوداء" أمام القيادة.</li>
+      <li><strong>الصدق البصري:</strong> لا تستخدم الرسوم للتضليل (Lie Factor · المستوى ٢٠).</li>
+      <li><strong>الخصوصية أولاً:</strong> اجمع أقلّ بيانات شخصية ممكنة (مبدأ التقليل).</li>
+    </ul>
+    <div class="note"><strong>الربط:</strong> أخلاقيات البيانات تتقاطع مع أخلاقيات الذكاء الاصطناعي (منظومة AI) وحوكمة البيانات (هذا المستوى). في السياق السعودي · الالتزام بـ PDPL وضوابط SDAIA جزء من النضج المؤسّسي — وحماية لك ولمؤسّستك قانونياً.</div>
+  
+
+  <div class="sec">🔬 حالة · تحيّز خفيّ في نموذج تقييم</div>
+  <div class="quote-box"><h3>⚠️ سيناريو</h3><p>نموذج يقيّم "الموردين الموثوقين" بناءً على بيانات تاريخية. لكنّ الموردين الكبار حصلوا تاريخياً على فرص أكثر (فبياناتهم أوفر) · فيصنّفهم النموذج "أفضل" تلقائياً — ويُقصي الموردين الصغار الجدد. <strong>النموذج يبدو موضوعياً لكنّه يكرّس انحيازاً تاريخياً.</strong> المحلّل المسؤول يسأل: هل بياناتي تمثّل الواقع بعدل · أم تعكس تحيّزاً سابقاً؟</p></div>
+  <div class="sec">🇸🇦 الامتثال العملي · PDPL و NDMO</div>
+  <ul class="lst">
+    <li><strong>الموافقة والغرض:</strong> بيانات الموظّفين/الأفراد تُجمع بموافقة ولغرض محدّد (PDPL).</li>
+    <li><strong>إقامة البيانات:</strong> البيانات الشخصية تبقى داخل المملكة (يدعمها وجود مناطق Oracle المحلّية · المستوى ٣٠).</li>
+    <li><strong>معايير NDMO:</strong> الجهات الحكومية وشركاؤها تلتزم بـ١٥ مجال إدارة بيانات — تصنيف البيانات حسب الحساسية إلزامي.</li>
+    <li><strong>إخفاء الهوية:</strong> للتحليل · جرّد المعرّفات الشخصية ما أمكن.</li>
+  </ul>
+  <div class="note"><strong>لماذا يهمّك:</strong> مؤسّستك تتعامل مع جهات حكومية (NHC) — فالامتثال لـ PDPL ومعايير NDMO ليس خياراً. إتقانك لهذا البُعد يميّزك كمحلّل <em>مسؤول ومحترف</em>، ويحمي مؤسّستك قانونياً. الأخلاقيات هنا تتقاطع مع حوكمة البيانات وأخلاقيات الـ AI (منظومة AI).</div>
+
+  </div>
+
+
+  <!-- ===== MODULE 28 · saudi-data ===== -->
+  <div class="module" id="m-saudi-data">
+    <h1 class="m-title">منظومة البيانات السعودية</h1>
+    <div class="m-sub">الإطار الوطني للبيانات — الجهات والسياسات في رؤية ٢٠٣٠</div>
+    <div class="sec">🏛️ الجهات الحاكمة للبيانات وطنياً</div>
+    <table class="tbl"><thead><tr><th>الجهة</th><th>الدور</th></tr></thead><tbody>
+      <tr><td><strong>SDAIA</strong><br>هيئة البيانات والذكاء الاصطناعي</td><td>الجهة الوطنية المرجعية للبيانات والـ AI (تأسّست ٢٠١٩). تقود الإستراتيجية الوطنية للبيانات والذكاء الاصطناعي (NSDAI).</td></tr>
+      <tr><td><strong>NDMO</strong><br>مكتب إدارة البيانات الوطنية</td><td>تحت SDAIA — يضع <em>ضوابط ومعايير إدارة البيانات وحماية البيانات الشخصية</em> الوطنية الإلزامية للجهات الحكومية.</td></tr>
+      <tr><td><strong>DGA</strong><br>هيئة الحكومة الرقمية</td><td>تنظّم التحوّل الرقمي الحكومي والخدمات الرقمية.</td></tr>
+    </tbody></table>
+    <div class="sec">📜 الركائز التنظيمية</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>⚖️ نظام PDPL</h4><p>حماية البيانات الشخصية (المستوى ٢٧) — تشرف عليه SDAIA. إلزامي على القطاعين.</p></div>
+      <div class="card"><h4>📋 معايير NDMO</h4><p>١٥ مجال إدارة بيانات (الحوكمة · الجودة · الميتاداتا...) — إطار وطني متوائم مع DAMA.</p></div>
+      <div class="card"><h4>🌐 البيانات المفتوحة</h4><p>بوابة data.gov.sa — بيانات حكومية مفتوحة للابتكار والشفافية.</p></div>
+      <div class="card"><h4>🎯 رؤية ٢٠٣٠</h4><p>البيانات والـ AI ركيزة الاقتصاد الرقمي وتنويع مصادر الدخل.</p></div>
+    </div>
+    <div class="note"><strong>القيمة لك:</strong> فهم منظومة البيانات الوطنية يميّزك — معايير NDMO تتقاطع مع DAMA (المستوى ٢٤) لكنّها <em>موطّنة وإلزامية</em>. هذا الإطار يضبط كيف تُدار بيانات مؤسّستك، خصوصاً مع تعاملها مع جهات حكومية مثل NHC.</div>
+  
+
+  <div class="sec">📋 معايير NDMO · المجالات الجوهرية</div>
+  <p class="p">معايير إدارة البيانات الوطنية (NDMO) تغطّي مجالات متعدّدة متوائمة مع DAMA — أبرزها عملياً:</p>
+  <div class="cards-grid cols-2">
+    <div class="card"><h4>🏷️ تصنيف البيانات</h4><p>تصنيف حسب الحساسية (عامّة · داخلية · سرّية · سرّية للغاية) — إلزامي قبل المشاركة.</p></div>
+    <div class="card"><h4>🔐 حماية البيانات الشخصية</h4><p>متوائم مع PDPL — الموافقة · الغرض · الحقوق.</p></div>
+    <div class="card"><h4>✅ جودة البيانات</h4><p>معايير دقّة واكتمال واتّساق (كأبعاد DAMA · المستوى ٩).</p></div>
+    <div class="card"><h4>🔄 مشاركة البيانات</h4><p>ضوابط تبادل البيانات بين الجهات بأمان.</p></div>
+  </div>
+  <div class="sec">🎯 الإستراتيجية الوطنية للبيانات والـ AI</div>
+  <p class="p">SDAIA تقود NSDAI — تهدف لجعل المملكة رائدة عالمياً في البيانات والذكاء الاصطناعي بحلول ٢٠٣٠ · عبر اقتصاد قائم على البيانات.</p>
+  <div class="note"><strong>الأثر العملي عليك:</strong> مؤسّستك تتعامل مع <strong>NHC (جهة حكومية)</strong> — فالامتثال لتصنيف NDMO ومعايير مشاركة البيانات ليس اختيارياً عند تبادل بيانات المشاريع. فهمك لهذا الإطار يجعلك جسراً موثوقاً بين مؤسّستك والجهات الحكومية · ويميّزك مهنياً. وهو متوائم مع DAMA الذي أتقنته (المستوى ٢٤) لكنّه موطّن وإلزامي.</div>
+
+  
+
+  <div class="sec">📋 معايير NDMO · ١٥ مجالاً عملياً</div>
+  <p class="p">إطار NDMO الوطني (متوائم مع DAMA لكن إلزاميّ ومحلّيّ) يغطّي مجالات منها:</p>
+  <div class="cards-grid cols-3">
+    <div class="card"><h4>🏛️ حوكمة البيانات</h4><p>السياسات والأدوار والمساءلة</p></div>
+    <div class="card"><h4>🏷️ تصنيف البيانات</h4><p>حسب الحساسية (عامّة · مقيّدة · سرّية)</p></div>
+    <div class="card"><h4>✅ جودة البيانات</h4><p>معايير القياس والتحسين</p></div>
+    <div class="card"><h4>🔐 حماية البيانات</h4><p>متوائمة مع PDPL</p></div>
+    <div class="card"><h4>🗄️ البيانات الرئيسية</h4><p>MDM وطنياً</p></div>
+    <div class="card"><h4>🌐 مشاركة البيانات</h4><p>ضوابط التبادل بين الجهات</p></div>
+  </div>
+  <div class="note"><strong>الإلزام العملي:</strong> تصنيف البيانات حسب الحساسية أوّل خطوة إلزامية — يحدّد من يصل ولأيّ غرض. الجهات الحكومية وشركاؤها (مثل تعاملاتكم مع NHC) ملزمون. <strong>الفرصة:</strong> بوابة data.gov.sa توفّر بيانات مفتوحة (سكّان · اقتصاد · مدن) تُثري تحليلاتك بمصادر خارجية موثوقة.</div>
+
+  </div>
+
+  <!-- ===== MODULE 29 · construction-analytics ===== -->
+  <div class="module" id="m-construction-analytics">
+    <h1 class="m-title">تحليلات الأداء · المقاولات والعقار</h1>
+    <div class="m-sub">تطبيق كل ما سبق على مجالك — لوحات أداء المشاريع الإنشائية</div>
+    <div class="sec">📊 مؤشّرات الأداء الجوهرية (بعدسة البيانات)</div>
+    <p class="p">إدارة قيمة المشروع (EVM) توفّر مؤشّرات قياسية — هنا نركّز على <em>كيف تُبنى وتُحسب في BI</em> (للإطار الإداري راجع منظومة CPM):</p>
+    <table class="tbl"><thead><tr><th>المؤشّر</th><th>المعنى</th><th>الحساب (نموذج DAX)</th></tr></thead><tbody>
+      <tr><td><strong>SPI</strong></td><td>كفاءة الجدول الزمني</td><td>القيمة المكتسبة ÷ المخطّطة</td></tr>
+      <tr><td><strong>CPI</strong></td><td>كفاءة التكلفة</td><td>القيمة المكتسبة ÷ الفعلية</td></tr>
+      <tr><td><strong>% الإنجاز</strong></td><td>التقدّم الفعلي</td><td>المنجز ÷ نطاق العمل الكلّي</td></tr>
+      <tr><td><strong>EAC</strong></td><td>التكلفة المتوقّعة عند الإنهاء</td><td>الميزانية ÷ CPI (تنبّؤي)</td></tr>
+    </tbody></table>
+    <div class="sec">🗂️ نمذجة بيانات مشروع إنشائي (نجمة)</div>
+    <div class="cmp-2">
+      <div class="cmp-col cmp-a"><h4>📊 جداول الحقائق</h4><ul><li>حقائق التكاليف اليومية</li><li>حقائق التقدّم</li><li>حقائق المشتريات/المستخلصات</li></ul></div>
+      <div class="cmp-col cmp-b"><h4>📁 جداول الأبعاد</h4><ul><li>بُعد المشروع/الفيلا</li><li>بُعد الوقت</li><li>بُعد المورّد · بند العمل (WBS)</li></ul></div>
+    </div>
+    <div class="sec">🔌 مصادر البيانات في بيئتك</div>
+    <ul class="lst">
+      <li><strong>Oracle Fusion:</strong> المالية · المشتريات · التكاليف (عبر OTBI/FDI).</li>
+      <li><strong>أنظمة ضبط المشاريع:</strong> الجداول والتقدّم والمستخلصات.</li>
+      <li><strong>Excel/يدوي:</strong> بيانات ميدانية — تُدمج عبر Power Query.</li>
+    </ul>
+    <div class="note"><strong>التطبيق الكامل:</strong> لوحة أداء مشروع NHC نموذجية = نموذج نجمة (تكاليف + تقدّم) → مقاييس DAX (SPI · CPI · EAC) → تصوير وفق المستوى ٥ (بطاقات KPI + اتّجاهات + خرائط حرارية للتأخّر) → سرد للقيادة (BLUF). هذا تجسيد عملي لكل المنظومة — وجوهر خبرتك.</div>
+  
+
+  <div class="sec">🔬 حالة تحليلية كاملة · تشخيص جذر التأخّر</div>
+  <p class="p">سؤال القيادة: "لماذا تأخّرت الفلل · وماذا نفعل؟" — رحلة تحليلية عبر المستويات:</p>
+  <table class="tbl"><thead><tr><th>الخطوة</th><th>التحليل</th><th>الأداة</th></tr></thead><tbody>
+    <tr><td>وصفي</td><td>١٢ فيلا متأخّرة بمتوسّط وسيط ١٥ يوماً</td><td>بطاقة KPI</td></tr>
+    <tr><td>تشخيصي</td><td>تحليل أسباب: ٦٧٪ توريد حديد · ٢٣٪ عمالة · ١٠٪ تصميم</td><td>رسم باريتو</td></tr>
+    <tr><td>تنبّؤي</td><td>بالوتيرة الحالية · ٦ فلل إضافية ستتأخّر</td><td>توقّع اتّجاه</td></tr>
+    <tr><td>إرشادي</td><td>تقديم طلب الحديد أسبوعين يعالج ٦٧٪ من السبب</td><td>محاكاة سيناريو</td></tr>
+  </tbody></table>
+  <div class="note"><strong>تحليل باريتو (80/20):</strong> غالباً ٢٠٪ من الأسباب تنتج ٨٠٪ من التأخّر. ركّز على عنق الزجاجة الأكبر (توريد الحديد هنا) بدل تشتيت الجهد — ربط بنظرية القيود (Goldratt · منظومة SCM).</div>
+  <div class="sec">📈 منحنى S · لوحة تقدّم المشروع</div>
+  <div class="quote-box"><h3>💡 لماذا منحنى S جوهري</h3><p>التقدّم التراكمي للمشروع يتّخذ شكل S (بطيء البداية · سريع الوسط · بطيء النهاية). رسم <strong>المخطّط مقابل الفعلي</strong> كمنحنيي S على لوحة واحدة يكشف فوراً: هل نحن متقدّمون أم متأخّرون؟ بكم؟ هذا أقوى رسم في إدارة المشاريع — يدمج SPI والزمن في صورة واحدة تُفهَم بنظرة. تبنيه بدالة DAX تراكمية (SUM ... OVER · المستوى ١٠) فوق نموذج النجمة.</p></div>
+  <div class="note"><strong>لوحة المشروع المتكاملة:</strong> بطاقات (SPI · CPI · % الإنجاز · EAC) أعلى اليمين · منحنى S في الوسط · رسم باريتو للأسباب · خريطة حرارية للفلل المتأخّرة. هذا تجسيد لكل المنظومة — نموذج نجمة + DAX + تصوير + سرد.</div>
+
+  
+
+  <div class="sec">🔬 حالة كاملة · بناء لوحة أداء مشروع الفلل خطوة بخطوة</div>
+  <p class="p">تطبيق المنظومة كلّها على مشروع NHC نموذجي — من البيانات للقرار:</p>
+  <table class="tbl"><thead><tr><th>الخطوة</th><th>التنفيذ</th><th>المستوى</th></tr></thead><tbody>
+    <tr><td>١. السؤال</td><td>"هل المشروع ضمن الميزانية والجدول؟ وأين الخطر؟"</td><td>١</td></tr>
+    <tr><td>٢. النموذج</td><td>نجمة: حقائق التكاليف + أبعاد (وقت · فيلا · WBS · مورّد)</td><td>٢</td></tr>
+    <tr><td>٣. المصدر</td><td>Oracle Fusion (تكاليف) عبر FDI/OTBI + ميداني عبر Power Query</td><td>٣</td></tr>
+    <tr><td>٤. المقاييس</td><td>SPI · CPI · EAC · % إنجاز (DAX)</td><td>٣</td></tr>
+    <tr><td>٥. التحليل</td><td>أيّ الفلل/البنود تنحرف؟ الاتّجاه؟</td><td>٤</td></tr>
+    <tr><td>٦. اللوحة</td><td>بطاقات KPI + خطّ التكلفة + خريطة حرارية للتأخّر</td><td>٥</td></tr>
+    <tr><td>٧. القرار</td><td>سرد للقيادة → تسريع توريد البنود الحرجة</td><td>٥</td></tr>
+  </tbody></table>
+  <div class="sec">📊 مقياس DAX محوري للوحة</div>
+  <div style="direction:ltr;text-align:left;background:#0f2730;color:#9be3f0;padding:12px 14px;border-radius:8px;font-family:Consolas,Monaco,monospace;font-size:11.5px;line-height:1.65;overflow-x:auto;margin:10px 0;white-space:pre">Cost Variance % =
+VAR Actual = [Total Actual]
+VAR Planned = [Total Planned]
+RETURN
+    DIVIDE( Actual - Planned, Planned )
+
+// تلوين شرطي: أحمر إذا التجاوز &gt; 5%
+Variance Flag =
+IF( [Cost Variance %] &gt; 0.05, "🔴", "🟢" )</div>
+  <div class="note"><strong>الناتج:</strong> لوحة تنفيذية تُظهر بنظرة أيّ فيلا/بند يتجاوز · مع توقّع EAC · وتلوين تلقائي للخطر. هذا <em>بالضبط</em> ما يميّزك — تحويل بيانات Oracle الخام إلى أداة قرار تنفيذية. كل مستوى في المنظومة ساهم في هذه اللوحة الواحدة.</div>
+  <div class="sec">🎯 مؤشّرات العقار (بُعد إضافي)</div>
+  <ul class="lst">
+    <li><strong>تكلفة المتر المربّع:</strong> مقارنة عبر الفلل/المراحل لكشف الانحراف.</li>
+    <li><strong>معدّل الإنجاز الأسبوعي:</strong> مؤشّر رائد لتوقّع التسليم.</li>
+    <li><strong>نسبة إعادة العمل (Rework):</strong> مؤشّر جودة رائد يربط التكلفة بالأداء.</li>
+  </ul>
+
+  </div>
+
+  <!-- ===== MODULE 30 · oracle-saudi ===== -->
+  <div class="module" id="m-oracle-saudi">
+    <h1 class="m-title">Oracle في المؤسّسة السعودية</h1>
+    <div class="m-sub">البنية السحابية وإقامة البيانات — والسياق الوطني</div>
+    <div class="sec">☁️ مناطق Oracle السحابية في المملكة</div>
+    <p class="p">Oracle وسّعت حضورها بقوّة في السعودية — أصبحت أوّل مزوّد سحابي عملاق (Hyperscaler) بمنطقتي سحابة داخل المملكة:</p>
+    <table class="tbl"><thead><tr><th>المنطقة</th><th>الحالة</th></tr></thead><tbody>
+      <tr><td><strong>جدة (me-jeddah-1)</strong></td><td>افتُتحت ٢٠٢٠ — الأولى في المملكة (يجري توسيع سعتها)</td></tr>
+      <tr><td><strong>الرياض</strong></td><td>منطقة ثانية — باستثمار ~١.٥ مليار دولار لمركز بيانات إضافي</td></tr>
+      <tr><td><strong>نيوم</strong></td><td>منطقة مخطّطة ضمن المدينة الجديدة</td></tr>
+    </tbody></table>
+    <div class="sec">🔐 إقامة البيانات · Data Residency</div>
+    <div class="quote-box"><h3>💡 لماذا هذا حاسم مع PDPL</h3><p>وجود مناطق Oracle <em>داخل</em> المملكة يعني أنّ البيانات الحسّاسة تبقى محليّاً — تلبيةً لمتطلّبات <strong>إقامة البيانات</strong> في نظام PDPL وضوابط NDMO. مناطق متعدّدة داخل البلد الواحد تتيح أيضاً <strong>التعافي من الكوارث (DR)</strong> دون إخراج البيانات. هذا عامل قرار رئيسي للمؤسّسات الحكومية وشبه الحكومية.</p></div>
+    <div class="sec">🤝 السياق الوطني</div>
+    <p class="p">توسّع Oracle جزء من تحوّل المملكة الرقمي — بشراكات محلّية (center3 التابعة لـ stc · ووزارة الاتّصالات MCIT) لتسريع تبنّي الحوسبة السحابية دعماً لرؤية ٢٠٣٠.</p>
+    <div class="note"><strong>الربط بعملك:</strong> بيانات Oracle Fusion في مؤسّستك يمكن أن تعمل على بنية سحابية داخل المملكة — ما يجعل FDI (المستوى ١٥) خياراً متوافقاً مع متطلّبات إقامة البيانات الوطنية. ميزة تنافسية وامتثال في آنٍ.</div>
+  
+
+  <div class="sec">🔬 قرار عملي · لماذا FDI داخل المملكة يهمّ مؤسّستك</div>
+  <table class="tbl"><thead><tr><th>المتطلّب</th><th>كيف يلبّيه وجود Oracle محلّياً</th></tr></thead><tbody>
+    <tr><td><strong>إقامة البيانات (PDPL)</strong></td><td>بيانات Fusion والتحليلات تبقى في جدة/الرياض — لا تخرج المملكة</td></tr>
+    <tr><td><strong>التعافي من الكوارث (DR)</strong></td><td>منطقتان داخل البلد تتيحان نسخاً احتياطياً دون إخراج البيانات</td></tr>
+    <tr><td><strong>الأداء (Latency)</strong></td><td>قرب الخوادم = استجابة أسرع للوحاتك</td></tr>
+    <tr><td><strong>الامتثال الحكومي</strong></td><td>متطلّب للتعامل مع جهات مثل NHC</td></tr>
+  </tbody></table>
+  <div class="note"><strong>الخلاصة الإستراتيجية:</strong> تشغيل بيانات Oracle Fusion و FDI على بنية سحابية <em>داخل المملكة</em> يحوّل "الامتثال" من عبء إلى ميزة — تحصل على تحليلات متقدّمة (FDI) <em>مع</em> الالتزام بإقامة البيانات معاً. هذا عامل قرار رئيسي للمؤسّسات السعودية، وفهمك له يضعك في موقع المستشار لا المنفّذ فقط.</div>
+
+  
+
+  <div class="sec">🔬 سيناريو · لماذا تهمّك الإقامة المحلّية عملياً</div>
+  <div class="quote-box"><h3>💡 الموقف</h3><p>مؤسّستك تتعامل مع NHC (جهة حكومية) · وبياناتها تتضمّن معلومات شخصية وعقوداً حسّاسة. <strong>متطلّب PDPL/NDMO:</strong> هذه البيانات يجب أن تبقى داخل المملكة. وجود مناطق Oracle في جدة والرياض يعني أنّ FDI ومستودع ADW يعملان <em>محلّياً</em> — فتمتثل تلقائياً دون نقل بيانات خارج الحدود. لو كان المزوّد بلا منطقة محلّية · لواجهت عائقاً تنظيمياً.</p></div>
+  <div class="sec">🤝 لماذا هذا ميزة تنافسية</div>
+  <ul class="lst">
+    <li><strong>امتثال جاهز:</strong> إقامة البيانات محلّياً تلبّي PDPL دون جهد إضافي.</li>
+    <li><strong>تعافٍ من الكوارث:</strong> منطقتان داخل المملكة (جدة + الرياض) تتيحان نسخاً احتياطياً متوافقاً.</li>
+    <li><strong>أداء:</strong> زمن استجابة أقلّ (البيانات قريبة جغرافياً).</li>
+  </ul>
+  <div class="note"><strong>الربط الاستراتيجي:</strong> هذا يجعل اختيار Oracle FDI (المستوى ١٥) قراراً <em>متوافقاً تنظيمياً وتنافسياً</em> لمؤسّسة سعودية تتعامل مع جهات حكومية — لا مجرّد خيار تقني. فهمك لهذا البُعد (تقني + تنظيمي معاً) يميّزك كمستشار، لا مجرّد محلّل.</div>
+
+  </div>
+
+  <!-- ===== MODULE 31 · capstone ===== -->
+  <div class="module" id="m-capstone">
+    <h1 class="m-title">المشروع التطبيقي الشامل · Capstone</h1>
+    <div class="m-sub">دمج المنظومة كاملةً — بناء حلّ تحليلات أداء من الصفر للقرار</div>
+    <div class="sec">🎯 التحدّي</div>
+    <p class="p">صمّم حلّ تحليلات أداء متكامل لمشروع إنشائي سعودي — يطبّق المستويات السبعة في تسلسل واحد. هذا تمرين يجسّد رحلة البيانات الكاملة من السؤال للقرار.</p>
+    <div class="sec">🔄 الرحلة عبر المستويات السبعة</div>
+    <div class="flow">
+      <div class="flow-step"><div class="fs-num">١</div><h5>السؤال</h5><p>أيّ قرار ندعم؟ (المستوى ١)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٢</div><h5>النمذجة</h5><p>نجمة: حقائق + أبعاد (٢)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٣</div><h5>البناء</h5><p>SQL · DAX · FDI (٣)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٤</div><h5>التحليل</h5><p>إحصاء + تنبّؤ (٤)</p></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <div class="flow-step"><div class="fs-num">٥</div><h5>التصوير</h5><p>لوحة + سرد للقيادة (٥)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٦</div><h5>الحوكمة</h5><p>جودة · KPI · PDPL (٦)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٧</div><h5>السياق</h5><p>NDMO · إقامة البيانات (٧)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step" style="background:linear-gradient(135deg,#0891b2,#0e7490);border-color:#0891b2"><div class="fs-num">✓</div><h5 style="color:#fff">القرار</h5><p style="color:rgba(255,255,255,.9)">رؤية تُحرّك الفعل</p></div>
+    </div>
+    <div class="sec">✅ قائمة التحقّق · حلّ تحليلات ناضج</div>
+    <ul class="lst">
+      <li><strong>هل السؤال واضح؟</strong> أيّ قرار يدعمه الحلّ — لا "بيانات للبيانات".</li>
+      <li><strong>هل النموذج نجمة نظيفة؟</strong> حقائق وأبعاد بحُبيبة صحيحة.</li>
+      <li><strong>هل البيانات نظيفة؟</strong> أبعاد DAMA الستّة مُحقّقة.</li>
+      <li><strong>هل المؤشّرات متوازنة؟</strong> رائدة + متأخّرة · معرّفة بوضوح.</li>
+      <li><strong>هل اللوحة تُفهَم بنظرة؟</strong> تسلسل هرمي · بلا فوضى · سياق.</li>
+      <li><strong>هل تروي قصّة؟</strong> موقف → تعقيد → حلّ · BLUF للقيادة.</li>
+      <li><strong>هل تمتثل؟</strong> PDPL · إقامة البيانات · أخلاقيات.</li>
+    </ul>
+    <div class="quote-box"><h3>🎓 الربط بمسارك (DBA + ٢٠٢٧)</h3><p>هذا المشروع الختامي هو <em>بالضبط</em> جوهر أطروحة الدكتوراه المحتملة: "تحليلات الأداء المدعومة بالـ AI في المقاولات السعودية". المنظومة كلّها — من الأسس إلى Oracle FDI إلى التوطين — تشكّل عمودك المنهجي والمعرفي. وهي محور تموضعك كخبير "أداء + بيانات + AI" في حضورك المهني ٢٠٢٧. أتقنتَ الأدوات؛ الآن تمتلك الإطار الذي يربطها بقصّة متماسكة تميّزك.</p></div>
+  
+
+  <div class="sec">🔬 تطبيق كامل · "لوحة أداء مشروع الفلل" من الصفر</div>
+  <p class="p">لنبنِ الحلّ خطوةً بخطوة — كل مستوى يساهم:</p>
+  <table class="tbl"><thead><tr><th>المستوى</th><th>القرار العملي في هذا المشروع</th></tr></thead><tbody>
+    <tr><td><strong>١ السؤال</strong></td><td>"هل نحن ضمن الميزانية والجدول · وأين الخطر؟" — لدعم قرار القيادة الأسبوعي</td></tr>
+    <tr><td><strong>٢ النمذجة</strong></td><td>نجمة: حقائق التكاليف اليومية + أبعاد (وقت · فيلا · WBS · مورّد) · حُبيبة يومية</td></tr>
+    <tr><td><strong>٣ البناء</strong></td><td>FDI/OTBI يستخرج من Oracle Fusion · Power Query ينظّف · مقاييس DAX (SPI/CPI/EAC)</td></tr>
+    <tr><td><strong>٤ التحليل</strong></td><td>باريتو للأسباب · توقّع EAC · فحص دلالة التحسّن</td></tr>
+    <tr><td><strong>٥ التصوير</strong></td><td>بطاقات KPI أعلى اليمين · منحنى S · أحمر للمتأخّر · شاشة واحدة</td></tr>
+    <tr><td><strong>٦ الحوكمة</strong></td><td>تعريف موحّد لـ"نسبة الإنجاز" · جودة البيانات · امتثال PDPL</td></tr>
+    <tr><td><strong>٧ السياق</strong></td><td>متوائم مع NDMO · على بنية Oracle داخل المملكة</td></tr>
+  </tbody></table>
+  <div class="note"><strong>القرار النهائي:</strong> تعرض للقيادة بـ BLUF: "نتوقّع تجاوزاً ٢ مليون سببه الأساسي توريد الحديد (٦٧٪) — أقترح تقديم الطلبات أسبوعين." قصّة من جملة · مدعومة بلوحة · مبنية على منظومة كاملة. <em>هذا</em> هو الفرق بين عرض بيانات وقيادة قرار.</div>
+  <div class="quote-box"><h3>🎓 من المنظومة إلى الدكتوراه والعلامة</h3><p>هذا المشروع الختامي هو نواة أطروحتك المحتملة: "تحليلات الأداء المدعومة بالـ AI في المقاولات السعودية". المنظومة السبع-مستويات تشكّل <strong>الإطار المنهجي والمعرفي</strong> لبحثك — من نمذجة البيانات إلى الحوكمة إلى التوطين. وهي جوهر تموضعك ٢٠٢٧ كخبير "أداء + بيانات + AI". لم تعد تتقن الأدوات فحسب — بل تملك الإطار الفكري المتكامل الذي يربطها بقصّة تميّزك. وهذا — بصراحة — ما يندر وجوده.</p></div>
+
+  
+
+  <div class="sec">🔬 مواصفة المشروع · ماذا تُسلّم فعلياً</div>
+  <p class="p">لو طبّقت Capstone على مشروع حقيقي · الناتج النهائي يتضمّن:</p>
+  <table class="tbl"><thead><tr><th>المُخرَج</th><th>الوصف</th></tr></thead><tbody>
+    <tr><td><strong>وثيقة السؤال</strong></td><td>القرار المستهدف + المؤشّرات المطلوبة + الجمهور</td></tr>
+    <tr><td><strong>مخطّط النموذج</strong></td><td>نجمة موثّقة (حقائق + أبعاد + الحُبيبة + العلاقات)</td></tr>
+    <tr><td><strong>قاموس البيانات</strong></td><td>تعريف كل مؤشّر وحسابه ومصدره (الطبقة الدلالية)</td></tr>
+    <tr><td><strong>اللوحة</strong></td><td>Power BI/OAC وفق مبادئ المستوى ٥</td></tr>
+    <tr><td><strong>وثيقة السرد</strong></td><td>القوس السردي + BLUF للعرض التنفيذي</td></tr>
+    <tr><td><strong>خطّة الحوكمة</strong></td><td>الأدوار + جودة البيانات + امتثال PDPL</td></tr>
+  </tbody></table>
+  <div class="sec">✅ معيار التميّز · ما يرفعه من "جيّد" إلى "متميّز"</div>
+  <ul class="lst">
+    <li><strong>جيّد:</strong> لوحة تعرض الأرقام بدقّة.</li>
+    <li><strong>متميّز:</strong> لوحة تُجيب عن سؤال قرار محدّد · بمؤشّرات رائدة تُنذر مبكّراً · وسرد يقود القيادة للفعل · ضمن حوكمة وامتثال سعوديّين.</li>
+  </ul>
+  <div class="quote-box"><h3>🎓 من المنظومة إلى الأطروحة</h3><p>هذا Capstone ليس تمريناً أكاديمياً — هو <strong>نموذج مصغّر لأطروحة دكتوراتك</strong>: "تحليلات الأداء المدعومة بالـ AI في المقاولات السعودية". المنهجية نفسها (سؤال → نموذج → بناء → تحليل → سرد → حوكمة → توطين) هي عمودك البحثي. وكل لوحة حقيقية تبنيها في Mukoun تصبح <em>دراسة حالة</em> محتملة لبحثك · وحجّة لحضورك المهني ٢٠٢٧ كخبير "أداء + بيانات + AI". أنت لا تتعلّم أدوات فحسب — تبني منهجاً متكاملاً يميّزك.</p></div>
+
+  </div>
+
+
+  <!-- ===== MODULE 2 · lifecycle ===== -->
+  <div class="module" id="m-lifecycle">
+    <h1 class="m-title">دورة حياة البيانات</h1>
+    <div class="m-sub">رحلة البيانات من الجمع إلى القرار — والعملية المعيارية للتحليل</div>
+    <div class="sec">🔄 مراحل دورة حياة البيانات</div>
+    <div class="flow">
+      <div class="flow-step"><div class="fs-num">١</div><h5>📥 الجمع</h5><p>من المصادر (Oracle · ميداني)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٢</div><h5>🗄️ التخزين</h5><p>مستودع/قاعدة بيانات</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٣</div><h5>⚙️ المعالجة</h5><p>تنظيف وتحويل (ETL)</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٤</div><h5>📊 التحليل</h5><p>استكشاف واستنتاج</p></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <div class="flow-step"><div class="fs-num">٥</div><h5>📈 التصوير</h5><p>لوحات ورسوم</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٦</div><h5>🎯 القرار</h5><p>الفعل المبني على الرؤية</p></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-step"><div class="fs-num">٧</div><h5>🗃️ الأرشفة</h5><p>حفظ أو إتلاف آمن</p></div>
+    </div>
+    <div class="sec">🎓 العملية المعيارية · CRISP-DM</div>
+    <p class="p">المنهجية المعيارية الأشهر عالمياً لمشاريع التحليل وتنقيب البيانات (<strong>Cross-Industry Standard Process for Data Mining</strong> · ١٩٩٦-١٩٩٩) — ٦ مراحل دورية:</p>
+    <table class="tbl"><thead><tr><th>المرحلة</th><th>الجوهر</th></tr></thead><tbody>
+      <tr><td><strong>١. فهم الأعمال</strong></td><td>ما المشكلة/القرار؟ (الأهمّ — يُهمَل غالباً)</td></tr>
+      <tr><td><strong>٢. فهم البيانات</strong></td><td>استكشاف ما لديك من بيانات</td></tr>
+      <tr><td><strong>٣. إعداد البيانات</strong></td><td>التنظيف والتحويل (الأطول · ٦٠-٨٠٪ من الوقت)</td></tr>
+      <tr><td><strong>٤. النمذجة</strong></td><td>بناء النموذج التحليلي</td></tr>
+      <tr><td><strong>٥. التقييم</strong></td><td>هل يحقّق هدف الأعمال؟</td></tr>
+      <tr><td><strong>٦. النشر</strong></td><td>التطبيق الفعلي (لوحة · تقرير · قرار)</td></tr>
+    </tbody></table>
+    <div class="note"><strong>الدرس الجوهري:</strong> CRISP-DM <em>دوري</em> لا خطّي — تعود وتكرّر. والمرحلة الأولى (فهم الأعمال) أهمّ من التقنية: مشروع تحليل بلا سؤال أعمال واضح مصيره الفشل مهما كانت أدواته متقدّمة. هذا يميّز المحلّل الناضج.</div>
+  
+
+  <div class="sec">🔬 تطبيق · الدورة على لوحة أداء مشروعك</div>
+  <table class="tbl"><thead><tr><th>المرحلة</th><th>في سياق Mukoun</th><th>الأداة</th></tr></thead><tbody>
+    <tr><td>الجمع</td><td>تكاليف وتقدّم من Oracle Fusion + ميداني</td><td>OTBI / FDI / Excel</td></tr>
+    <tr><td>التخزين</td><td>مستودع أو نموذج Power BI</td><td>ADW / Dataset</td></tr>
+    <tr><td>المعالجة</td><td>تنظيف وتوحيد التصنيفات</td><td>Power Query</td></tr>
+    <tr><td>التحليل + التصوير</td><td>SPI · CPI · لوحة تنفيذية</td><td>DAX + Power BI</td></tr>
+    <tr><td>القرار</td><td>تسريع توريد · إعادة تخصيص موارد</td><td>اجتماع القيادة</td></tr>
+  </tbody></table>
+
+  <div class="sec">⚠️ أين تموت المشاريع التحليلية</div>
+  <div class="cards-grid cols-2">
+    <div class="card"><h4>🎯 تخطّي "فهم الأعمال"</h4><p>القفز للأدوات قبل تحديد القرار المطلوب — أكثر سبب فشل. CRISP-DM يضعها أولاً لسبب.</p></div>
+    <div class="card"><h4>🧹 الاستهانة بالإعداد</h4><p>٦٠-٨٠٪ من الجهد في التنظيف — من يستعجله يبني على رمال.</p></div>
+    <div class="card"><h4>📊 التوقّف عند اللوحة</h4><p>لوحة لا تقود لقرار = جهد ضائع. "النشر" يعني تغيير فعل، لا عرض رسم.</p></div>
+    <div class="card"><h4>🔄 نسيان الدورية</h4><p>الدورة تتكرّر — البيانات والأسئلة تتغيّر · راجع وحدّث.</p></div>
+  </div>
+  <div class="note"><strong>الربط بالحوكمة:</strong> كل مرحلة تحتاج حوكمة (المستوى ٢٤) — من يملك البيانات؟ كيف تُؤمَّن؟ متى تُؤرشف؟ دورة حياة بلا حوكمة تنتج فوضى بيانات لا يُوثَق بها.</div>
+
+  </div>
+
+  <!-- ===== MODULE 3 · culture ===== -->
+  <div class="module" id="m-culture">
+    <h1 class="m-title">الثقافة القائمة على البيانات</h1>
+    <div class="m-sub">القرار بالدليل لا بالحدس — التحوّل الأصعب (بشري لا تقني)</div>
+    <div class="sec">🆚 القرار بالبيانات vs الحدس</div>
+    <div class="quote-box"><h3>🦛 مشكلة الـ HiPPO</h3><p><strong>HiPPO = Highest Paid Person's Opinion</strong> (رأي الأعلى راتباً). الثقافة غير الناضجة تتّخذ القرار بناءً على رأي الأقدم/الأعلى منصباً — لا الدليل. الثقافة القائمة على البيانات تسأل: "ماذا تقول البيانات؟" قبل "ماذا يرى المدير؟". هذا تحوّل ثقافي عميق · لا مجرّد أدوات.</p></div>
+    <div class="sec">📚 الإدارة القائمة على الأدلّة</div>
+    <p class="p"><strong>Pfeffer & Sutton</strong> (ستانفورد · "Hard Facts" · 2006) أسّسا "الإدارة القائمة على الأدلّة" (Evidence-Based Management): القرارات تُبنى على أفضل دليل متاح — لا على العادة أو التقليد أو الأيديولوجيا.</p>
+    <div class="sec">🧠 محو أمّية البيانات · Data Literacy</div>
+    <div class="cards-grid cols-2">
+      <div class="card"><h4>📖 ما هي</h4><p>قدرة الموظّفين على قراءة البيانات وفهمها والتحدّث بها — لا تقنية متقدّمة، بل طلاقة أساسية.</p></div>
+      <div class="card"><h4>🎯 لماذا تهمّ</h4><p>لوحاتك بلا قيمة إن لم يفهمها متّخذو القرار. نشر محو أمّية البيانات يضاعف أثر عملك.</p></div>
+    </div>
+    <div class="note"><strong>الربط بدورك:</strong> كقائد تحوّل رقمي · أنت لا تبني لوحات فحسب — بل تنشر <em>ثقافة</em>. التحدّي الأكبر ليس تقنياً بل تغيير عادات القرار (ربط بإدارة التغيير · Kotter · منظومة Leadership). النجاح يتطلّب دعم القيادة العليا (عامل Leadership في DELTA · المستوى ٢٥).</div>
+  
+
+  <div class="sec">💰 تكلفة غياب ثقافة البيانات</div>
+  <p class="p">القرار بالحدس ليس مجانياً — له ثمن حقيقي:</p>
+  <ul class="lst">
+    <li><strong>تحيّز التأكيد (Confirmation Bias):</strong> نبحث عن أرقام تؤكّد ما نعتقده · ونتجاهل ما يناقضه.</li>
+    <li><strong>تكلفة الفرصة:</strong> قرار خاطئ بُني على حدس قد يكلّف ملايين في مشروع إنشائي.</li>
+    <li><strong>عدم التعلّم:</strong> بلا قياس · تتكرّر الأخطاء لأنّ لا أحد يعرف ما نجح فعلاً.</li>
+  </ul>
+
+  <div class="sec">🏗️ كيف تبني ثقافة البيانات (عملياً)</div>
+  <div class="flow">
+    <div class="flow-step"><div class="fs-num">١</div><h5>قدوة القيادة</h5><p>القائد يسأل "ماذا تقول البيانات؟"</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٢</div><h5>إتاحة الوصول</h5><p>لوحات سهلة للجميع</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٣</div><h5>محو الأمّية</h5><p>تدريب على القراءة</p></div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-step"><div class="fs-num">٤</div><h5>الاحتفاء</h5><p>مكافأة القرار المبني على دليل</p></div>
+  </div>
+
+  <div class="quote-box"><h3>🇸🇦 السياق السعودي</h3><p>رؤية ٢٠٣٠ تدفع نحو حكومة وقطاع خاصّ قائمين على البيانات — مع SDAIA والاستراتيجية الوطنية للبيانات. المؤسّسات التي تبني هذه الثقافة مبكّراً تتقدّم. دورك كقائد تحوّل يضعك في قلب هذا التحوّل — أنت لا تبني لوحات، بل تنقل مؤسّستك حضارياً نحو القرار بالدليل.</p></div>
+
+  </div>
+
+  <!-- ===== MODULE 4 · data-types ===== -->
+  <div class="module" id="m-data-types">
+    <h1 class="m-title">أنواع البيانات والقياس</h1>
+    <div class="m-sub">فهم طبيعة بياناتك — أساس اختيار التحليل والرسم الصحيحين</div>
+    <div class="sec">🗂️ البنية · ثلاثة أنواع</div>
+    <table class="tbl"><thead><tr><th>النوع</th><th>الوصف</th><th>مثال</th></tr></thead><tbody>
+      <tr><td><strong>مهيكلة · Structured</strong></td><td>جداول منظّمة (صفوف/أعمدة)</td><td>بيانات Oracle Fusion · Excel</td></tr>
+      <tr><td><strong>شبه مهيكلة · Semi</strong></td><td>بنية مرنة بوسوم</td><td>JSON · XML · سجلّات</td></tr>
+      <tr><td><strong>غير مهيكلة · Unstructured</strong></td><td>بلا بنية محدّدة</td><td>مستندات · صور · بريد</td></tr>
+    </tbody></table>
+    <div class="sec">🎓 مقاييس القياس · Stevens (1946)</div>
+    <p class="p">صنّف عالم النفس <strong>Stanley Stevens</strong> مستويات القياس الأربعة — تحدّد أيّ تحليل وأيّ رسم يصحّ:</p>
+    <table class="tbl"><thead><tr><th>المقياس</th><th>الطبيعة</th><th>مثال</th></tr></thead><tbody>
+      <tr><td><strong>اسمي · Nominal</strong></td><td>فئات بلا ترتيب</td><td>نوع المشروع · المنطقة</td></tr>
+      <tr><td><strong>ترتيبي · Ordinal</strong></td><td>فئات مرتّبة</td><td>الأولوية (عالٍ/متوسّط/منخفض)</td></tr>
+      <tr><td><strong>فترة · Interval</strong></td><td>أرقام بفروق ثابتة بلا صفر مطلق</td><td>درجة الحرارة (°م)</td></tr>
+      <tr><td><strong>نسبة · Ratio</strong></td><td>أرقام بصفر مطلق</td><td>التكلفة · المدّة · الكمّية</td></tr>
+    </tbody></table>
+    <div class="note"><strong>لماذا هذا حاسم:</strong> نوع القياس يحدّد ما يجوز. لا معنى لـ "متوسّط نوع المشروع" (اسمي) · بينما "متوسّط التكلفة" (نسبة) صحيح. اختيار الرسم أيضاً يعتمد عليه (المستوى ٢١). الخطأ هنا يفسد التحليل من جذوره.</div>
+    <div class="sec">📦 البيانات الضخمة · الـ 5 Vs</div>
+    <p class="p">حين تتجاوز البيانات القدرات التقليدية (مفهوم صاغه <strong>Doug Laney</strong> بثلاثة أبعاد · 2001 · ثمّ توسّع لخمسة):</p>
+    <div class="cards-grid cols-3">
+      <div class="card"><h4>📊 الحجم · Volume</h4><p>كمّية هائلة</p></div>
+      <div class="card"><h4>⚡ السرعة · Velocity</h4><p>تدفّق لحظي</p></div>
+      <div class="card"><h4>🎨 التنوّع · Variety</h4><p>أشكال متعدّدة</p></div>
+      <div class="card"><h4>✅ الصدق · Veracity</h4><p>موثوقية متفاوتة</p></div>
+      <div class="card"><h4>💎 القيمة · Value</h4><p>الجوهر — استخلاص فائدة</p></div>
+    </div>
+  
+
+  <div class="sec">🔬 لماذا مستوى القياس يحكم تحليلك (مثال)</div>
+  <table class="tbl"><thead><tr><th>العملية</th><th>اسمي</th><th>ترتيبي</th><th>فترة/نسبة</th></tr></thead><tbody>
+    <tr><td>العدّ / التكرار</td><td>✅</td><td>✅</td><td>✅</td></tr>
+    <tr><td>الترتيب</td><td>❌</td><td>✅</td><td>✅</td></tr>
+    <tr><td>المتوسّط</td><td>❌</td><td>⚠️ بحذر</td><td>✅</td></tr>
+    <tr><td>النِسَب (٢×)</td><td>❌</td><td>❌</td><td>✅ (نسبة فقط)</td></tr>
+  </tbody></table>
+  <div class="note"><strong>خطأ شائع خطير:</strong> حساب "متوسّط رضا" على مقياس ترتيبي (١-٥) ومعاملته كرقم حقيقي — الفرق بين "راضٍ" و"محايد" ليس بالضرورة كالفرق بين "محايد" و"غير راضٍ". المحلّل الواعي يعرف حدود بياناته. في DAX و Power BI · تصنيف العمود الصحيح (نصّ/رقم/تاريخ) ينبع من فهم مستوى قياسه.</div>
+
+  <div class="sec">🔢 كمّي vs نوعي · بُعد آخر</div>
+  <div class="cmp-2">
+    <div class="cmp-col cmp-a"><h4>📊 كمّي · Quantitative</h4><ul><li>أرقام قابلة للحساب</li><li>منفصل (عدد الفلل) أو متّصل (التكلفة)</li><li>"كم؟"</li></ul></div>
+    <div class="cmp-col cmp-b"><h4>📝 نوعي · Qualitative</h4><ul><li>فئات وأوصاف</li><li>يحتاج ترميزاً للتحليل الكمّي</li><li>"أيّ نوع؟"</li></ul></div>
+  </div>
+
+  <div class="note"><strong>جذر المفهوم:</strong> تصنيف Stevens (عالم نفس · ١٩٤٦) ثوريّ لأنّه ربط <em>نوع البيانات</em> بـ <em>العمليات الرياضية المسموحة</em> — أساس كل إحصاء سليم. تجاهله يُنتج تحليلات تبدو دقيقة لكنّها بلا معنى. وفهم البُنية (مهيكل/غير مهيكل) يحدّد أين تُخزَّن وكيف تُحلَّل — جسر مباشر للمستوى ٢ (النمذجة).</div>
+
+  </div>
+
+  <!-- ===== shared placeholder for not-yet-built modules ===== -->
+  <div class="module" id="m-placeholder">
+    <div class="ph-box">
+      <div class="ph-icon">🚧</div>
+      <div class="ph-title" id="phTitle">هذه الوحدة قيد البناء</div>
+      <div class="ph-msg">يجري بناؤها بمستوى ٩.٥ دكتوراة في المراحل القادمة — اكتب «اكمل».</div>
+    </div>
+  </div>
+</main>
+
+<script>
+// Module navigation
+var moduleLabels={};
+document.querySelectorAll('.sb-item').forEach(function(item){
+  moduleLabels[item.getAttribute('data-mod')]=item.textContent.replace(/[٠-٩]+$/,'').trim();
+  item.addEventListener('click',function(){
+    var mod=item.getAttribute('data-mod');
+    if(!mod)return;
+    document.querySelectorAll('.sb-item').forEach(function(i){i.classList.remove('active')});
+    document.querySelectorAll('.module').forEach(function(m){m.classList.remove('active')});
+    item.classList.add('active');
+    var target=document.getElementById('m-'+mod);
+    if(target){target.classList.add('active');}
+    else{
+      var ph=document.getElementById('m-placeholder');
+      document.getElementById('phTitle').textContent=moduleLabels[mod]||'هذه الوحدة قيد البناء';
+      ph.classList.add('active');
+    }
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(window.innerWidth<=980)closeSidebar();
+  });
+});
+
+// Sidebar search
+function sbSearch(query){
+  var q=query.trim().toLowerCase();
+  var items=document.querySelectorAll('.sb-item');
+  var sections=document.querySelectorAll('.sb-section');
+  var noResults=document.getElementById('sbNoResults');
+  var visible=0;
+  if(!q){
+    items.forEach(function(i){i.classList.remove('sb-hidden')});
+    sections.forEach(function(s){s.classList.remove('sb-hidden')});
+    if(noResults)noResults.classList.remove('show');
+    return;
+  }
+  items.forEach(function(item){
+    var text=item.textContent.toLowerCase();
+    var mod=(item.getAttribute('data-mod')||'').toLowerCase();
+    if(text.indexOf(q)>-1||mod.indexOf(q)>-1){item.classList.remove('sb-hidden');visible++;}
+    else{item.classList.add('sb-hidden');}
+  });
+  sections.forEach(function(section){
+    var sib=section.nextElementSibling,has=false;
+    while(sib&&!sib.classList.contains('sb-section')){
+      if(sib.classList.contains('sb-item')&&!sib.classList.contains('sb-hidden')){has=true;break;}
+      sib=sib.nextElementSibling;
+    }
+    section.classList.toggle('sb-hidden',!has);
+  });
+  if(noResults)noResults.classList.toggle('show',visible===0);
+}
+
+// Sidebar toggle (mobile)
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open');}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('mobileOverlay').classList.remove('open');}
+
+// Theme
+function applyTheme(t){if(t==='dark')document.body.setAttribute('data-theme','dark');else document.body.removeAttribute('data-theme');}
+function toggleTheme(){var c=document.body.getAttribute('data-theme')==='dark'?'dark':'light';applyTheme(c==='dark'?'light':'dark');}
+</script>
+</body>
+</html>

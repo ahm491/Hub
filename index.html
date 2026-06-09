@@ -6,20 +6,18 @@
 <title>المنظومة المعرفية · ٨ مراكز تخصّصية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@500;700;800;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fafaf9;
-  --bg2:#f5f5f4;
-  --ink:#1c1917;
-  --ink2:#44403c;
-  --muted:#78716c;
-  --line:#e7e5e4;
-  --line2:#d6d3d1;
-  --gold:#a16207;
-  --gold-soft:#fef3c7;
-  --indigo:#3730a3;
-  --indigo-soft:#e0e7ff;
+  --bg:#080b14;
+  --card:rgba(255,255,255,0.025);
+  --card-hover:rgba(255,255,255,0.05);
+  --line:rgba(255,255,255,0.08);
+  --line2:rgba(255,255,255,0.14);
+  --ink:#eceaf2;
+  --ink2:#b9bdcf;
+  --muted:#7d8299;
+  --gold:#e3b34c;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -27,642 +25,654 @@ body{
   font-family:'Cairo',sans-serif;
   background:var(--bg);
   color:var(--ink);
-  line-height:1.7;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  min-height:100vh;
+  height:100vh;
+  height:100dvh;
   display:flex;
   flex-direction:column;
+  overflow:hidden;
+}
+
+/* ═══ Ambient background ═══ */
+.aurora{
+  position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 45% at 80% -10%, rgba(227,179,76,0.10), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 15% 0%, rgba(129,140,248,0.10), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 115%, rgba(45,212,191,0.06), transparent 60%);
+}
+.aurora::after{
+  content:'';position:absolute;inset:0;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(161,98,7,0.04), transparent),
-    radial-gradient(ellipse 80% 50% at 50% 120%, rgba(55,48,163,0.04), transparent);
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 0%, transparent 75%);
+  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 0%, transparent 75%);
+}
+.calligraphy{
+  position:fixed;z-index:-1;pointer-events:none;user-select:none;
+  font-family:'Amiri',serif;font-weight:700;
+  color:rgba(227,179,76,0.03);
+  font-size:clamp(220px,30vw,420px);
+  line-height:1;top:-50px;left:-30px;transform:rotate(-6deg);
 }
 
-/* Header */
-.brand{max-width:1400px;margin:0 auto;padding:22px 32px 10px;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
-.brand-mark{font-family:'Tajawal',sans-serif;font-size:9.5px;font-weight:800;letter-spacing:4px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;position:relative;padding:0 22px}
-.brand-mark::before,
-.brand-mark::after{
-  content:'';
-  position:absolute;
-  top:50%;
-  width:18px;
-  height:1px;
-  background:var(--line2);
+/* ═══ Hero (compact) ═══ */
+.hero{position:relative;width:100%;flex-shrink:0}
+#constellation{
+  position:absolute;inset:0;width:100%;height:100%;z-index:0;
+  opacity:0;transition:opacity 1.6s ease;
 }
-.brand-mark::before{right:0}
-.brand-mark::after{left:0}
-.brand-title{font-family:'Tajawal',sans-serif;font-size:24px;font-weight:900;color:var(--ink);line-height:1.15;margin-bottom:6px;letter-spacing:-0.5px}
-.brand-sub{font-size:12.5px;color:var(--ink2);max-width:680px;line-height:1.55;font-weight:400}
-.brand-sub em{
-  font-style:normal;
-  color:var(--gold);
-  font-weight:700;
+#constellation.on{opacity:1}
+.hero-inner{
+  position:relative;z-index:1;
+  max-width:1500px;margin:0 auto;width:100%;
+  padding:clamp(10px,1.8vh,22px) 32px clamp(6px,1vh,12px);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
 }
-.brand-sub strong{
-  color:var(--indigo);
-  font-weight:700;
+.hero-text{display:flex;flex-direction:column;gap:4px;min-width:0}
+.hero-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand-mark{
+  font-family:'Tajawal',sans-serif;font-size:9px;font-weight:800;
+  letter-spacing:4px;color:var(--gold);text-transform:uppercase;
+  padding:4px 14px;border:1px solid rgba(227,179,76,0.3);border-radius:100px;
+  background:rgba(227,179,76,0.06);white-space:nowrap;
 }
-.brand-stats{display:flex;gap:28px;margin-top:10px;flex-wrap:wrap;justify-content:center}
+.brand-title{
+  font-family:'Tajawal',sans-serif;
+  font-size:clamp(20px,2.6vw,32px);
+  font-weight:900;line-height:1.25;letter-spacing:-0.5px;white-space:nowrap;
+}
+.brand-title .word{display:inline-block;overflow:hidden;vertical-align:bottom}
+.brand-title .word > span{
+  display:inline-block;transform:translateY(110%);
+  animation:wordUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.brand-title .shimmer > span{
+  background:linear-gradient(110deg,#e3b34c 20%,#fff3d6 40%,#e3b34c 60%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:wordUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards, sheen 5s ease-in-out 1.4s infinite;
+}
+@keyframes wordUp{to{transform:translateY(0)}}
+@keyframes sheen{0%,100%{background-position:120% 0}50%{background-position:-20% 0}}
+.brand-sub{
+  font-size:clamp(10.5px,1vw,12.5px);color:var(--ink2);line-height:1.7;font-weight:400;max-width:760px;
+  opacity:0;animation:fadeRise 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+}
+.brand-sub em{font-style:normal;color:var(--gold);font-weight:700}
+.brand-sub strong{color:#a5b4fc;font-weight:700}
+@keyframes fadeRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.brand-stats{
+  display:flex;flex-shrink:0;
+  border:1px solid var(--line);border-radius:12px;
+  background:rgba(255,255,255,0.02);backdrop-filter:blur(8px);
+  opacity:0;animation:fadeRise 0.9s cubic-bezier(0.16,1,0.3,1) 0.65s forwards;
+}
 .brand-stat{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:4px;
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:clamp(8px,1.2vh,12px) clamp(14px,1.6vw,24px);position:relative;
 }
-.brand-stat-num{font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:var(--ink);letter-spacing:-0.5px;line-height:1}
-.brand-stat-label{font-family:'Tajawal',sans-serif;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1.8px;text-transform:uppercase}
+.brand-stat + .brand-stat::before{
+  content:'';position:absolute;right:0;top:24%;height:52%;width:1px;background:var(--line);
+}
+.brand-stat-num{
+  font-family:'Tajawal',sans-serif;font-size:clamp(15px,1.5vw,20px);font-weight:900;
+  color:var(--ink);line-height:1;font-variant-numeric:tabular-nums;
+}
+.brand-stat-label{
+  font-family:'Tajawal',sans-serif;font-size:8px;font-weight:700;
+  color:var(--muted);letter-spacing:1.8px;text-transform:uppercase;
+}
+.hero-divider{
+  width:min(640px,70%);height:1px;margin:0 auto;flex-shrink:0;
+  background:linear-gradient(90deg,transparent,rgba(227,179,76,0.5),transparent);
+  position:relative;
+}
+.hero-divider::after{
+  content:'';position:absolute;top:-2px;width:60px;height:5px;border-radius:5px;
+  background:linear-gradient(90deg,transparent,#e3b34c,transparent);
+  filter:blur(2px);
+  animation:slideGlow 4.5s ease-in-out infinite;
+}
+@keyframes slideGlow{0%,100%{right:0}50%{right:calc(100% - 60px)}}
 
-/* Main content area */
-.main{flex:1;max-width:1400px;margin:0 auto;padding:10px 32px 14px;width:100%}
-.hubs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%}
+/* ═══ Grid: 4×2, fills remaining height ═══ */
+.main{
+  flex:1;min-height:0;
+  max-width:1500px;margin:0 auto;width:100%;
+  padding:clamp(8px,1.4vh,18px) 32px clamp(6px,1vh,12px);
+  display:flex;
+}
+.hubs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(2,1fr);
+  gap:clamp(8px,1.2vw,14px);
+  width:100%;min-height:0;
+}
 
-/* Card base */
-.hub{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px 16px;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:inherit;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+/* ═══ Card (compact) ═══ */
+.hub{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:clamp(10px,1.5vh,16px) clamp(12px,1.2vw,16px);
+  text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;
+  overflow:hidden;isolation:isolate;min-height:0;
+  transform-style:preserve-3d;
+  transition:transform 0.18s ease-out, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+  will-change:transform;
+}
 .hub::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  opacity:0;
-  transition:opacity 0.35s ease;
+  content:'';position:absolute;inset:-1px;z-index:-1;opacity:0;
+  background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%), var(--glow), transparent 65%);
+  transition:opacity 0.4s ease;
+}
+.hub::after{
+  content:'';position:absolute;top:0;right:10%;left:10%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  opacity:0.35;transition:opacity 0.35s ease;
 }
 .hub:hover{
-  transform:translateY(-4px);
-  border-color:var(--accent);
-  box-shadow:0 24px 48px -16px var(--shadow);
+  background:var(--card-hover);
+  border-color:color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow:0 26px 60px -22px var(--shadow);
 }
 .hub:hover::before{opacity:1}
-.hub:hover .hub-cta{
-  background:var(--accent);
-  color:#fff;
-  border-color:var(--accent);
-}
-.hub:hover .hub-cta-arrow{font-size:16px;font-weight:400;transition:transform 0.25s ease;font-family:system-ui,sans-serif}
+.hub:hover::after{opacity:0.9}
+.hub:hover .hub-cta{background:var(--accent);color:#0a0d16;border-color:var(--accent)}
+.hub:hover .hub-cta-arrow{transform:translateX(-5px)}
+.hub:hover .hub-icon{transform:translateY(-2px) scale(1.06);box-shadow:0 8px 22px -8px var(--shadow)}
+.hub:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-/* Card 1: Corporate Performance — warm gold */
-.hub-corp{
-  --accent:#a16207;
-  --accent-dark:#854d0e;
-  --accent-soft:#fef3c7;
-  --shadow:rgba(161,98,7,0.18);
-}
-.hub-corp::before{
-  background:linear-gradient(135deg, rgba(254,243,199,0.4) 0%, transparent 100%);
-}
+.hub-corp{--accent:#e3b34c;--shadow:rgba(227,179,76,0.28);--glow:rgba(227,179,76,0.10)}
+.hub-lead{--accent:#a78bfa;--shadow:rgba(167,139,250,0.28);--glow:rgba(167,139,250,0.10)}
+.hub-scm {--accent:#60a5fa;--shadow:rgba(96,165,250,0.28);--glow:rgba(96,165,250,0.10)}
+.hub-ai  {--accent:#818cf8;--shadow:rgba(129,140,248,0.28);--glow:rgba(129,140,248,0.10)}
+.hub-it  {--accent:#2dd4bf;--shadow:rgba(45,212,191,0.28);--glow:rgba(45,212,191,0.10)}
+.hub-fin {--accent:#34d399;--shadow:rgba(52,211,153,0.28);--glow:rgba(52,211,153,0.10)}
+.hub-data{--accent:#22d3ee;--shadow:rgba(34,211,238,0.28);--glow:rgba(34,211,238,0.10)}
+.hub-emba{--accent:#f87171;--shadow:rgba(248,113,113,0.30);--glow:rgba(248,113,113,0.10)}
 
-/* Card 2: AI — cool indigo */
-.hub-ai{
-  --accent:#3730a3;
-  --accent-dark:#312e81;
-  --accent-soft:#e0e7ff;
-  --shadow:rgba(55,48,163,0.18);
+.hub-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:clamp(5px,0.9vh,10px)}
+.hub-icon{
+  width:clamp(30px,3.4vh,38px);height:clamp(30px,3.4vh,38px);border-radius:10px;
+  background:color-mix(in srgb, var(--accent) 12%, transparent);
+  border:1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  color:var(--accent);
+  display:flex;align-items:center;justify-content:center;font-size:clamp(14px,1.7vh,18px);flex-shrink:0;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
 }
-.hub-ai::before{
-  background:linear-gradient(135deg, rgba(224,231,255,0.5) 0%, transparent 100%);
-}
+.hub-num{text-align:left;direction:ltr;display:flex;align-items:baseline;gap:5px}
+.hub-num-big{font-family:'Tajawal',sans-serif;font-size:clamp(15px,1.9vh,20px);font-weight:900;color:var(--accent);line-height:1;letter-spacing:-0.5px;font-variant-numeric:tabular-nums}
+.hub-num-label{font-family:'Tajawal',sans-serif;font-size:8px;font-weight:700;color:var(--muted);letter-spacing:1.2px;text-transform:uppercase}
 
-/* Card 3: IT Knowledge — deep teal */
-.hub-it{
-  --accent:#0f766e;
-  --accent-dark:#115e59;
-  --accent-soft:#ccfbf1;
-  --shadow:rgba(15,118,110,0.18);
+.hub-chip{
+  align-self:flex-start;
+  font-family:'Tajawal',sans-serif;font-size:8px;font-weight:800;letter-spacing:1.2px;
+  padding:2px 8px;border-radius:4px;text-transform:uppercase;
+  background:color-mix(in srgb, var(--accent) 12%, transparent);
+  color:var(--accent);
+  border:1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  margin-bottom:clamp(4px,0.7vh,7px);white-space:nowrap;
 }
-.hub-it::before{
-  background:linear-gradient(135deg, rgba(204,251,241,0.5) 0%, transparent 100%);
+.hub-title{
+  font-family:'Tajawal',sans-serif;font-size:clamp(12.5px,1.5vh,15.5px);font-weight:900;
+  color:var(--ink);line-height:1.35;margin-bottom:clamp(3px,0.6vh,6px);letter-spacing:-0.2px;
 }
+.hub-desc{
+  font-size:clamp(9.5px,1.1vh,11px);color:var(--ink2);line-height:1.65;
+  margin-bottom:clamp(5px,0.9vh,9px);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.hub-keys{
+  display:flex;flex-wrap:wrap;gap:4px 10px;margin-bottom:clamp(6px,1vh,10px);flex:1;align-content:flex-start;min-height:0;overflow:hidden;
+}
+.hub-key{
+  display:flex;align-items:center;gap:6px;
+  font-size:clamp(9px,1vh,10.5px);color:var(--ink2);line-height:1.4;white-space:nowrap;
+}
+.hub-key::before{
+  content:'';width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;
+  box-shadow:0 0 6px var(--accent);
+}
+.hub-key strong{color:var(--ink);font-weight:700}
 
-/* Card 4: Finance — emerald green */
-.hub-fin{
-  --accent:#047857;
-  --accent-dark:#065f46;
-  --accent-soft:#d1fae5;
-  --shadow:rgba(4,120,87,0.18);
+.hub-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:clamp(5px,0.8vh,8px) 13px;
+  border:1.5px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  color:var(--accent);border-radius:9px;
+  font-family:'Tajawal',sans-serif;font-size:clamp(10px,1.1vh,11.5px);font-weight:800;letter-spacing:0.4px;
+  transition:all 0.3s ease;margin-top:auto;flex-shrink:0;
 }
-.hub-fin::before{
-  background:linear-gradient(135deg, rgba(209,250,229,0.5) 0%, transparent 100%);
-}
+.hub-cta-arrow{font-size:15px;font-weight:400;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);font-family:system-ui,sans-serif}
 
-/* Card 5: Leadership — royal purple */
-.hub-lead{
-  --accent:#7c3aed;
-  --accent-dark:#6d28d9;
-  --accent-soft:#ede9fe;
-  --shadow:rgba(124,58,237,0.18);
+/* EMBA featured: rotating border */
+.hub-emba .border-runner{
+  position:absolute;inset:0;border-radius:14px;pointer-events:none;z-index:1;padding:1px;
+  background:conic-gradient(from var(--ang,0deg), transparent 0 78%, rgba(248,113,113,0.85) 88%, transparent 98%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:spinAng 6s linear infinite;
 }
-.hub-lead::before{
-  background:linear-gradient(135deg, rgba(237,233,254,0.5) 0%, transparent 100%);
-}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spinAng{to{--ang:360deg}}
 
-/* Card 6: SCM — navy steel blue */
-.hub-scm{
-  --accent:#1e3a8a;
-  --accent-dark:#1e40af;
-  --accent-soft:#dbeafe;
-  --shadow:rgba(30,58,138,0.18);
+/* ═══ Footer (slim) ═══ */
+.foot{
+  flex-shrink:0;
+  border-top:1px solid var(--line);
+  padding:clamp(5px,0.9vh,10px) 32px;
+  max-width:1500px;margin:0 auto;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:9.5px;color:var(--muted);letter-spacing:0.3px;
 }
+.foot-divider{display:inline-block;width:3px;height:3px;background:var(--line2);border-radius:50%;margin:0 9px;vertical-align:middle}
 
-.hub-data {
-  --accent:#0891b2;
-  --accent-dark:#0e7490;
-  --accent-soft:#cffafe;
-  --shadow:rgba(8,145,178,0.18);
-}
-  .hub-emba{
-  --accent:#7f1d1d;
-  --accent-dark:#991b1b;
-  --accent-soft:#fee2e2;
-  --shadow:rgba(127,29,29,0.18);
-}
-.hub-scm::before{
-  background:linear-gradient(135deg, rgba(219,234,254,0.5) 0%, transparent 100%);
-}
-
-/* Card header */
-.hub-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.hub-icon{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent-dark);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.hub-num{
-  text-align:left;
-  direction:ltr;
-}
-.hub-num-big{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px}
-.hub-num-label{font-family:'Tajawal',sans-serif;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1.5px;margin-top:3px;text-transform:uppercase}
-
-/* Card body */
-.hub-tag{font-family:'Tajawal',sans-serif;font-size:9.5px;font-weight:800;letter-spacing:2px;color:var(--accent);margin-bottom:4px;text-transform:uppercase}
-.hub-title{font-family:'Tajawal',sans-serif;font-size:16.5px;font-weight:900;color:var(--ink);line-height:1.25;margin-bottom:6px;letter-spacing:-0.3px}
-.hub-desc{font-size:11.5px;color:var(--ink2);line-height:1.6;margin-bottom:10px}
-
-/* Features */
-.hub-feats{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;flex:1}
-.hub-feat{display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--ink2);line-height:1.5}
-.hub-feat-dot{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:6px}
-.hub-feat strong{
-  color:var(--ink);
-  font-weight:700;
+/* ═══ Entrance ═══ */
+.reveal{opacity:0;transform:translateY(20px) scale(0.985)}
+.reveal.in{
+  opacity:1;transform:translateY(0) scale(1);
+  transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  transition-delay:var(--d,0s);
 }
 
-/* CTA */
-.hub-cta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 14px;background:transparent;border:1.5px solid var(--accent);color:var(--accent);border-radius:8px;font-family:'Tajawal',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.4px;transition:all 0.25s ease;margin-top:auto}
-.hub-cta-arrow{
-  font-size:18px;
-  font-weight:400;
-  transition:transform 0.25s ease;
-  font-family:system-ui,sans-serif;
-}
-
-/* Meta chip */
-.hub-meta{display:flex;gap:5px;align-items:center;margin-bottom:6px;flex-wrap:wrap}
-.hub-chip{font-family:'Tajawal',sans-serif;font-size:8.5px;font-weight:800;letter-spacing:1.3px;padding:2px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent-dark);text-transform:uppercase}
-.hub-chip.chip-new{
-  background:#fef3c7;
-  color:#92400e;
-}
-
-/* Footer */
-.foot{border-top:1px solid var(--line);padding:10px 32px;max-width:1400px;margin:0 auto;width:100%;display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--muted);letter-spacing:0.3px}
-.foot-divider{
-  display:inline-block;
-  width:3px;
-  height:3px;
-  background:var(--line2);
-  border-radius:50%;
-  margin:0 10px;
-  vertical-align:middle;
-}
-
-/* Entry animation */
-@keyframes rise{
-  from{opacity:0;transform:translateY(14px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.brand{animation:rise 0.6s cubic-bezier(0.16,1,0.3,1) both}
-.hub-corp{animation:rise 0.7s 0.10s cubic-bezier(0.16,1,0.3,1) both}
-.hub-lead{animation:rise 0.7s 0.20s cubic-bezier(0.16,1,0.3,1) both}
-.hub-scm{animation:rise 0.7s 0.30s cubic-bezier(0.16,1,0.3,1) both}
-.hub-ai{animation:rise 0.7s 0.40s cubic-bezier(0.16,1,0.3,1) both}
-.hub-it{animation:rise 0.7s 0.50s cubic-bezier(0.16,1,0.3,1) both}
-.hub-fin{animation:rise 0.7s 0.60s cubic-bezier(0.16,1,0.3,1) both}
-.foot{animation:rise 0.6s 0.70s cubic-bezier(0.16,1,0.3,1) both}
-
-/* Tablet (large) — 3 → 2 cols */
+/* ═══ Responsive ═══
+   شاشات أضيق / أقصر: نسمح بالتمرير لأن ٨ بطاقات ما تنضغط أكثر */
 @media(max-width:1180px){
-  .hubs{grid-template-columns:repeat(2, 1fr)}
-  .main{max-width:900px}
-  .brand{max-width:900px}
-  .foot{max-width:900px}
+  body{height:auto;overflow:auto}
+  .hero-inner{flex-direction:column;align-items:center;text-align:center;gap:12px;padding-top:24px}
+  .hero-text{align-items:center}
+  .brand-title{white-space:normal}
+  .main{display:block}
+  .hubs{grid-template-columns:repeat(2,1fr);grid-template-rows:none}
+  .hub{min-height:230px}
+}
+@media(max-width:680px){
+  .hubs{grid-template-columns:1fr}
+  .hero-inner{padding:28px 22px 14px}
+  .main{padding:14px 22px 24px}
+  .foot{padding:14px 22px;flex-direction:column;gap:5px;text-align:center}
+  .calligraphy{font-size:280px}
+}
+@media(max-height:620px) and (min-width:1181px){
+  .brand-sub{display:none}
 }
 
-/* Mobile */
-@media(max-width:780px){
-  .brand{padding:36px 22px 16px}
-  .brand-title{font-size:26px}
-  .brand-sub{font-size:13.5px}
-  .brand-stats{gap:20px;margin-top:18px}
-  .brand-stat-num{font-size:20px}
-  .main{padding:18px 22px 36px}
-  .hubs{grid-template-columns:1fr;gap:18px}
-  .hub{padding:26px 22px 22px}
-  .hub-title{font-size:20px}
-  .hub-icon{width:46px;height:46px;font-size:22px}
-  .hub-num-big{font-size:26px}
-  .foot{padding:20px 22px;font-size:10.5px;flex-direction:column;gap:6px;text-align:center}
-}
-
-/* ═══ Featured EMBA Card · Banner spanning all columns ═══ */
-.hub.hub-featured{
-  grid-column: 1 / -1;
-  flex-direction: row;
-  align-items: stretch;
-  padding: 14px 18px;
-  background: linear-gradient(135deg, #fff 0%, #fef2f2 50%, #fff 100%);
-  border-color: #fca5a5;
-}
-.hub.hub-featured::before{
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 5px;
-  background: linear-gradient(180deg, #7f1d1d, #b91c1c);
-}
-.hub.hub-featured .hub-head{
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  margin-left: 18px;
-  padding-left: 18px;
-  border-left: 1px solid var(--line);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  min-width: 100px;
-}
-.hub.hub-featured .hub-icon{
-  width: 48px;
-  height: 48px;
-  font-size: 22px;
-  background: linear-gradient(135deg, #7f1d1d, #b91c1c);
-  color: #fff;
-}
-.hub.hub-featured .hub-num-big{
-  font-size: 26px;
-}
-.hub.hub-featured .featured-body{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 16px;
-}
-.hub.hub-featured .hub-tag{
-  margin-bottom: 3px;
-  font-size: 9.5px;
-}
-.hub.hub-featured .hub-title{
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-.hub.hub-featured .hub-desc{
-  font-size: 11.5px;
-  margin-bottom: 6px;
-  line-height: 1.55;
-}
-.hub.hub-featured .featured-tags{
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.hub.hub-featured .featured-tag{
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 8px;
-  background: rgba(127,29,29,0.08);
-  color: #7f1d1d;
-  border-radius: 4px;
-}
-.hub.hub-featured .hub-cta{
-  margin-top: 0;
-  align-self: center;
-  white-space: nowrap;
-  min-width: 110px;
-}
-@media (max-width: 780px){
-  .hub.hub-featured{flex-direction: column}
-  .hub.hub-featured .hub-head{margin-left: 0;padding-left: 0;border-left: none;border-bottom: 1px solid var(--line);padding-bottom: 8px;margin-bottom: 8px;flex-direction: row}
+/* ═══ Reduced motion ═══ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .brand-title .word > span{transform:none}
+  .brand-sub,.brand-stats{opacity:1}
+  .reveal{opacity:1;transform:none}
+  #constellation{display:none}
 }
 </style>
 </head>
 <body>
 
-<header class="brand">
-  <div class="brand-mark">المنظومة المعرفية</div>
-  <h1 class="brand-title">ثماني مراكز معرفيّة · هدف واحد</h1>
-  <p class="brand-sub">
-    منظومات متكاملة من المعرفة التطبيقية في
-    <em>الأداء المؤسسي</em>،
-    <strong>القيادة والإستراتيجية</strong>،
-    <strong>المشتريات وسلسلة الإمداد</strong>، <strong>تحليل البيانات وذكاء الأعمال</strong>،
-    <em>الذكاء الاصطناعي</em>،
-    <strong>تقنية المعلومات</strong>،
-    و<em>المالية</em> — مُصمَّمة للتعلّم الذاتي والتطبيق الفوري في السياق السعودي.
-  </p>
-  <div class="brand-stats">
-    <div class="brand-stat"><div class="brand-stat-num">٧</div><div class="brand-stat-label">Hubs</div></div>
-    <div class="brand-stat"><div class="brand-stat-num">٣١٣</div><div class="brand-stat-label">Modules</div></div>
-    <div class="brand-stat"><div class="brand-stat-num">~٥.٤MB</div><div class="brand-stat-label">Content</div></div>
-    <div class="brand-stat"><div class="brand-stat-num">٢٠٢٦</div><div class="brand-stat-label">Edition</div></div>
+<div class="aurora"></div>
+<div class="calligraphy" aria-hidden="true">معرفة</div>
+
+<!-- ═══ HERO (سطر واحد مضغوط) ═══ -->
+<header class="hero">
+  <canvas id="constellation" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-top">
+        <div class="brand-mark">المنظومة المعرفية</div>
+        <h1 class="brand-title">
+          <span class="word"><span style="animation-delay:0.05s">ثماني</span></span>
+          <span class="word"><span style="animation-delay:0.13s">مراكز</span></span>
+          <span class="word shimmer"><span style="animation-delay:0.21s">معرفيّة</span></span>
+          <span class="word"><span style="animation-delay:0.29s">·</span></span>
+          <span class="word"><span style="animation-delay:0.37s">هدف</span></span>
+          <span class="word shimmer"><span style="animation-delay:0.45s">واحد</span></span>
+        </h1>
+      </div>
+      <p class="brand-sub">
+        منظومات متكاملة من المعرفة التطبيقية في
+        <em>الأداء المؤسسي</em>، <strong>القيادة</strong>، <strong>المشتريات</strong>، <strong>تحليل البيانات</strong>،
+        <em>الذكاء الاصطناعي</em>، <strong>تقنية المعلومات</strong>، و<em>المالية</em> — للتعلّم الذاتي والتطبيق الفوري في السياق السعودي.
+      </p>
+    </div>
+    <div class="brand-stats">
+      <div class="brand-stat"><div class="brand-stat-num" data-count="8">٠</div><div class="brand-stat-label">Hubs</div></div>
+      <div class="brand-stat"><div class="brand-stat-num" data-count="313">٠</div><div class="brand-stat-label">Modules</div></div>
+      <div class="brand-stat"><div class="brand-stat-num">~٥.٤MB</div><div class="brand-stat-label">Content</div></div>
+      <div class="brand-stat"><div class="brand-stat-num" data-count="2026">٠</div><div class="brand-stat-label">Edition</div></div>
+    </div>
   </div>
+  <div class="hero-divider"></div>
 </header>
 
+<!-- ═══ GRID 4×2 ═══ -->
 <main class="main">
   <div class="hubs">
 
-    <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 1: CORPORATE PERFORMANCE HUB                -->
-    <!-- ════════════════════════════════════════════════ -->
-    <a class="hub hub-corp" href="./cpm.html" target="_self">
+    <!-- 1: CORPORATE PERFORMANCE -->
+    <a class="hub hub-corp reveal" style="--d:0.00s" href="./cpm.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">📊</div>
-        <div class="hub-num">
-          <div class="hub-num-big">٤٠</div>
-          <div class="hub-num-label">Modules</div>
-        </div>
+        <div class="hub-num"><span class="hub-num-big">٤٠</span><span class="hub-num-label">Modules</span></div>
       </div>
-
-      <div class="hub-meta">
-        <span class="hub-chip">CORPORATE PERFORMANCE</span>
-      </div>
-      <div class="hub-tag">UNIT · المنظومة الأولى</div>
+      <span class="hub-chip">CORPORATE PERFORMANCE</span>
       <h2 class="hub-title">مركز الأداء المؤسسي</h2>
-      <p class="hub-desc">
-        الإطار الجامع للأداء المؤسّسي · BSC · OKRs · KPIs · EVM · FP&A · مع وحدات حديثة ٢٠٢٦ في AI · ESG · People Analytics.
-      </p>
-
-      <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٤٠ وحدة</strong> · من الإستراتيجية للتنفيذ</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>أُطر معتمدة: <strong>BSC · OKRs · EFQM · Baldrige · EVM</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>🆕 <strong>AI في الأداء · ESG · People Analytics</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>السياق السعودي · NHC · Vision 2030 · CMA</div></div>
+      <p class="hub-desc">الإطار الجامع للأداء المؤسّسي · BSC · OKRs · KPIs · EVM · FP&amp;A · مع وحدات ٢٠٢٦ في AI · ESG · People Analytics.</p>
+      <div class="hub-keys">
+        <span class="hub-key"><strong>BSC · OKRs · EFQM · EVM</strong></span>
+        <span class="hub-key">NHC · Vision 2030 · CMA</span>
       </div>
-
-      <div class="hub-cta">
-        <span>ادخل للمركز</span>
-        <span class="hub-cta-arrow">←</span>
-      </div>
+      <div class="hub-cta"><span>ادخل للمركز</span><span class="hub-cta-arrow">←</span></div>
     </a>
 
-    <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 2: LEADERSHIP HUB                           -->
-    <!-- ════════════════════════════════════════════════ -->
-    <a class="hub hub-lead" href="./leadership_hub.html" target="_self">
+    <!-- 2: LEADERSHIP -->
+    <a class="hub hub-lead reveal" style="--d:0.06s" href="./leadership_hub.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">👑</div>
-        <div class="hub-num">
-          <div class="hub-num-big">٣٧</div>
-          <div class="hub-num-label">Modules</div>
-        </div>
+        <div class="hub-num"><span class="hub-num-big">٣٧</span><span class="hub-num-label">Modules</span></div>
       </div>
-
-      <div class="hub-meta">
-        <span class="hub-chip">LEADERSHIP & STRATEGY</span>
-      </div>
-      <div class="hub-tag">UNIT · المنظومة الثانية</div>
+      <span class="hub-chip">LEADERSHIP &amp; STRATEGY</span>
       <h2 class="hub-title">مركز القيادة والإستراتيجية</h2>
-      <p class="hub-desc">
-        الإطار الفكري للقائد التنفيذي · من نظريّات القيادة الكلاسيكية إلى Modern Strategy · المفاوضات · M&A · الابتكار · رؤية ٢٠٣٠.
-      </p>
-
-      <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٣٧ وحدة</strong> · للقائد التنفيذي السعودي</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٤ كتاب كلاسيكي</strong> مدمج (Getting to Yes · 7 Habits · Lencioni · Christensen)</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>المفاوضات · M&A · الابتكار · الحضور التنفيذي</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>Vision 2030 module ختامي · مسار EMBA/DBA</div></div>
+      <p class="hub-desc">الإطار الفكري للقائد التنفيذي · من النظريّات الكلاسيكية إلى Modern Strategy · المفاوضات · M&amp;A · الابتكار · رؤية ٢٠٣٠.</p>
+      <div class="hub-keys">
+        <span class="hub-key"><strong>١٤ كتاب كلاسيكي</strong> مدمج</span>
+        <span class="hub-key">المفاوضات · M&amp;A · الحضور التنفيذي</span>
       </div>
-
-      <div class="hub-cta">
-        <span>ادخل للمركز</span>
-        <span class="hub-cta-arrow">←</span>
-      </div>
+      <div class="hub-cta"><span>ادخل للمركز</span><span class="hub-cta-arrow">←</span></div>
     </a>
 
-    <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 3: SCM HUB                                  -->
-    <!-- ════════════════════════════════════════════════ -->
-    <a class="hub hub-scm" href="./scm_hub.html" target="_self">
+    <!-- 3: SCM -->
+    <a class="hub hub-scm reveal" style="--d:0.12s" href="./scm_hub.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">📦</div>
-        <div class="hub-num">
-          <div class="hub-num-big">٢٩</div>
-          <div class="hub-num-label">Modules</div>
-        </div>
+        <div class="hub-num"><span class="hub-num-big">٢٩</span><span class="hub-num-label">Modules</span></div>
       </div>
-
-      <div class="hub-meta">
-        <span class="hub-chip">PROCUREMENT & SCM</span>
-      </div>
-      <div class="hub-tag">UNIT · المنظومة الثالثة</div>
+      <span class="hub-chip">PROCUREMENT &amp; SCM</span>
       <h2 class="hub-title">مركز المشتريات وسلسلة الإمداد</h2>
-      <p class="hub-desc">
-        المرجع التخصّصي السعودي · Procurement · SCM · مشتريات المقاولات · المنظومة السعودية (Etimad · IKTVA · LCGPA · نزاهة) · حوكمة.
-      </p>
-
-      <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٢٩ وحدة</strong> · أعمق سياق سعودي</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>Etimad · IKTVA · LCGPA · نزاهة · CCS · المستخلصات</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>تخصّص المقاولات · LLI · المقاولون الباطن · NHC</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>AI in Procurement · مكافحة الفساد · FCPA</div></div>
+      <p class="hub-desc">المرجع التخصّصي السعودي · Procurement · SCM · مشتريات المقاولات · حوكمة · أعمق سياق سعودي.</p>
+      <div class="hub-keys">
+        <span class="hub-key"><strong>Etimad · IKTVA · LCGPA · نزاهة</strong></span>
+        <span class="hub-key">LLI · المقاولون الباطن · NHC</span>
       </div>
-
-      <div class="hub-cta">
-        <span>ادخل للمركز</span>
-        <span class="hub-cta-arrow">←</span>
-      </div>
+      <div class="hub-cta"><span>ادخل للمركز</span><span class="hub-cta-arrow">←</span></div>
     </a>
 
-    <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 4: AI HUB                                   -->
-    <!-- ════════════════════════════════════════════════ -->
-    <a class="hub hub-ai" href="./ai_hub.html" target="_self">
+    <!-- 4: AI -->
+    <a class="hub hub-ai reveal" style="--d:0.18s" href="./ai_hub.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">🧠</div>
-        <div class="hub-num">
-          <div class="hub-num-big">٢٣</div>
-          <div class="hub-num-label">Modules</div>
-        </div>
+        <div class="hub-num"><span class="hub-num-big">٢٣</span><span class="hub-num-label">Modules</span></div>
       </div>
-
-      <div class="hub-meta">
-        <span class="hub-chip">ARTIFICIAL INTELLIGENCE</span>
-      </div>
-      <div class="hub-tag">UNIT · المنظومة الرابعة</div>
+      <span class="hub-chip">ARTIFICIAL INTELLIGENCE</span>
       <h2 class="hub-title">مركز الذكاء الاصطناعي</h2>
-      <p class="hub-desc">
-        منظومة متكاملة في الـ AI العملي · من LLMs إلى Agents · RAG · MCP · GenAI · مع تركيز على PDPL السعودي و Allam.
-      </p>
-
-      <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٢٣ وحدة</strong> كلّها عميقة (١٢-٥٩ KB)</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>LLMs · Agents · RAG · MCP · Vector DBs · Frameworks</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>🆕 Sora 2 · Veo 3 · ElevenLabs · Voice Agents</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>OWASP LLM · PDPL · NCA ECC · Allam السعودي</div></div>
+      <p class="hub-desc">منظومة متكاملة في الـ AI العملي · من LLMs إلى Agents · RAG · MCP · GenAI · مع تركيز على PDPL السعودي و Allam.</p>
+      <div class="hub-keys">
+        <span class="hub-key"><strong>LLMs · Agents · RAG · MCP</strong></span>
+        <span class="hub-key">🆕 Sora 2 · Veo 3 · Voice Agents</span>
       </div>
-
-      <div class="hub-cta">
-        <span>ادخل للمركز</span>
-        <span class="hub-cta-arrow">←</span>
-      </div>
+      <div class="hub-cta"><span>ادخل للمركز</span><span class="hub-cta-arrow">←</span></div>
     </a>
 
-    <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 5: IT KNOWLEDGE CENTER                      -->
-    <!-- ════════════════════════════════════════════════ -->
-    <a class="hub hub-it" href="./it_hub.html" target="_self">
+    <!-- 5: IT -->
+    <a class="hub hub-it reveal" style="--d:0.10s" href="./it_hub.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">💻</div>
-        <div class="hub-num">
-          <div class="hub-num-big">١٤١</div>
-          <div class="hub-num-label">Topics</div>
-        </div>
+        <div class="hub-num"><span class="hub-num-big">١٤١</span><span class="hub-num-label">Topics</span></div>
       </div>
-
-      <div class="hub-meta">
-        <span class="hub-chip">IT KNOWLEDGE CENTER</span>
-      </div>
-      <div class="hub-tag">UNIT · المنظومة الخامسة</div>
+      <span class="hub-chip">IT KNOWLEDGE CENTER</span>
       <h2 class="hub-title">مركز المعرفة التقنية</h2>
-      <p class="hub-desc">
-        مرجع شامل لمسارات تقنية المعلومات والشهادات الاحترافية · من المبتدئ إلى CTO/CISO · مع أدوات المؤسّسة السعودية.
-      </p>
-
-      <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>١٤١ موضوعاً</strong>: شبكات · أمن · سحابة · DevOps · AI · DBs</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>+٢٠٠ شهادة</strong>: CompTIA · Cisco · AWS · Azure · CISSP</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>🆕 <strong>Power BI · DAX · Oracle Fusion Cloud</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>المقابلات · الرواتب السعودية · قاموس المصطلحات</div></div>
+      <p class="hub-desc">مرجع شامل لمسارات تقنية المعلومات والشهادات الاحترافية · من المبتدئ إلى CTO/CISO · مع أدوات المؤسّسة السعودية.</p>
+      <div class="hub-keys">
+        <span class="hub-key"><strong>+٢٠٠ شهادة</strong>: CompTIA · AWS · CISSP</span>
+        <span class="hub-key">🆕 Power BI · DAX · Oracle Fusion</span>
       </div>
-
-      <div class="hub-cta">
-        <span>ادخل للمركز</span>
-        <span class="hub-cta-arrow">←</span>
-      </div>
+      <div class="hub-cta"><span>ادخل للمركز</span><span class="hub-cta-arrow">←</span></div>
     </a>
 
-    <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 6: FINANCE HUB                              -->
-    <!-- ════════════════════════════════════════════════ -->
-    <a class="hub hub-fin" href="./finance_hub.html" target="_self">
+    <!-- 6: FINANCE -->
+    <a class="hub hub-fin reveal" style="--d:0.16s" href="./finance_hub.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">💰</div>
-        <div class="hub-num">
-          <div class="hub-num-big">٤٣</div>
-          <div class="hub-num-label">Modules</div>
-        </div>
+        <div class="hub-num"><span class="hub-num-big">٤٣</span><span class="hub-num-label">Modules</span></div>
       </div>
-
-      <div class="hub-meta">
-        <span class="hub-chip">FINANCE KNOWLEDGE HUB</span>
-      </div>
-      <div class="hub-tag">UNIT · المنظومة السادسة</div>
+      <span class="hub-chip">FINANCE KNOWLEDGE HUB</span>
       <h2 class="hub-title">مركز المعرفة المالية</h2>
-      <p class="hub-desc">
-        منظومة شاملة في التمويل والاستثمار · من القوائم المالية إلى تقييم الشركات والاستثمار في تداول · مع تركيز على السياق السعودي.
-      </p>
-
-      <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٤٣ وحدة</strong>: أساسيات · شركات · استثمار · أسواق · بنوك</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>التمويل الإسلامي</strong> · المرابحة · الإجارة · الصكوك · التكافل</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>تداول · PIF · SAMA · ZATCA</strong> · رؤية ٢٠٣٠</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>صيغ ومعادلات · حالات دراسية · أمثلة محسوبة</div></div>
+      <p class="hub-desc">منظومة شاملة في التمويل والاستثمار · من القوائم المالية إلى تقييم الشركات والاستثمار في تداول.</p>
+      <div class="hub-keys">
+        <span class="hub-key"><strong>التمويل الإسلامي</strong> · الصكوك · التكافل</span>
+        <span class="hub-key">تداول · PIF · SAMA · ZATCA</span>
       </div>
-
-      <div class="hub-cta">
-        <span>ادخل للمركز</span>
-        <span class="hub-cta-arrow">←</span>
-      </div>
+      <div class="hub-cta"><span>ادخل للمركز</span><span class="hub-cta-arrow">←</span></div>
     </a>
-    <!-- ════════════════════════════════════════════════ -->
-    <!-- CARD 7 · FEATURED: EMBA & DBA COMPANION         -->
-    <!-- ════════════════════════════════════════════════ -->
-    <a class="hub hub-data" href="./data_hub.html" target="_self">
+
+    <!-- 7: DATA -->
+    <a class="hub hub-data reveal" style="--d:0.22s" href="./data_hub.html" target="_self">
       <div class="hub-head">
         <div class="hub-icon">📈</div>
-        <div class="hub-num">
-          <div class="hub-num-big">٣١</div>
-          <div class="hub-num-label">Modules</div>
-        </div>
+        <div class="hub-num"><span class="hub-num-big">٣١</span><span class="hub-num-label">Modules</span></div>
       </div>
-
-      <div class="hub-meta">
-        <span class="hub-chip">DATA ANALYTICS & BI</span>
-      </div>
-      <div class="hub-tag">UNIT · المنظومة الثامنة · 🆕 جديد</div>
+      <span class="hub-chip">DATA ANALYTICS &amp; BI · 🆕</span>
       <h2 class="hub-title">مركز تحليل البيانات وذكاء الأعمال</h2>
-      <p class="hub-desc">
-        من الأسس إلى Oracle FDI · النمذجة البُعدية · SQL · DAX · الإحصاء التطبيقي · التصوير وسرد البيانات · بعمق دكتوراة وتوطين سعودي.
-      </p>
-
-      <div class="hub-feats">
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٣١ وحدة</strong> · ٧ مستويات من الأسس للتطبيق</div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>أدواتك: <strong>Power BI · DAX · SQL · Oracle FDI</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>مراجع: <strong>Codd · Kimball · Tufte · DAMA</strong></div></div>
-        <div class="hub-feat"><div class="hub-feat-dot"></div><div>السياق السعودي · SDAIA · NDMO · PDPL</div></div>
+      <p class="hub-desc">من الأسس إلى Oracle FDI · النمذجة البُعدية · SQL · DAX · الإحصاء التطبيقي · سرد البيانات · بعمق دكتوراة.</p>
+      <div class="hub-keys">
+        <span class="hub-key"><strong>Power BI · DAX · SQL · Oracle FDI</strong></span>
+        <span class="hub-key">SDAIA · NDMO · PDPL</span>
       </div>
-
-      <div class="hub-cta">
-        <span>ادخل للمركز</span>
-        <span class="hub-cta-arrow">←</span>
-      </div>
+      <div class="hub-cta"><span>ادخل للمركز</span><span class="hub-cta-arrow">←</span></div>
     </a>
 
-    <a class="hub hub-emba hub-featured" href="./emba_hub.html" target="_self">
+    <!-- 8: EMBA (featured) -->
+    <a class="hub hub-emba reveal" style="--d:0.28s" href="./emba_hub.html" target="_self">
+      <span class="border-runner" aria-hidden="true"></span>
       <div class="hub-head">
         <div class="hub-icon">🎓</div>
-        <div class="hub-num">
-          <div class="hub-num-big">٣٩</div>
-          <div class="hub-num-label">Modules</div>
-        </div>
+        <div class="hub-num"><span class="hub-num-big">٣٩</span><span class="hub-num-label">Modules</span></div>
       </div>
-      <div class="featured-body">
-        <div class="hub-tag">FEATURED · المنظومة السابعة · رفيقك المهني</div>
-        <h2 class="hub-title">EMBA & DBA Companion · رفيق التعلّم التنفيذي</h2>
-        <p class="hub-desc">
-          مرافقك في رحلة EMBA و DBA · من اختيار البرنامج للسعوديّ (KAU · MBSC · KFUPM) إلى الـ Marketing · Economics · Statistics · Innovation التي تنقص باقي المنظومات · ووصولاً لمسار DBA و النشر الأكاديمي.
-        </p>
-        <div class="featured-tags">
-          <span class="featured-tag">🇸🇦 برامج EMBA السعودية</span>
-          <span class="featured-tag">📝 Application Process</span>
-          <span class="featured-tag">📊 Marketing · Econ · Stats</span>
-          <span class="featured-tag">🔬 DBA Pathway</span>
-        </div>
+      <span class="hub-chip">FEATURED · EMBA &amp; DBA</span>
+      <h2 class="hub-title">EMBA &amp; DBA Companion</h2>
+      <p class="hub-desc">رفيقك في رحلة EMBA و DBA · من اختيار البرنامج السعودي (KAU · MBSC · KFUPM) إلى Marketing · Econ · Stats · ومسار DBA والنشر الأكاديمي.</p>
+      <div class="hub-keys">
+        <span class="hub-key">🇸🇦 <strong>برامج EMBA السعودية</strong></span>
+        <span class="hub-key">🔬 DBA Pathway · النشر الأكاديمي</span>
       </div>
-      <div class="hub-cta">
-        <span>ابدأ الرحلة</span>
-        <span class="hub-cta-arrow">←</span>
-      </div>
+      <div class="hub-cta"><span>ابدأ الرحلة</span><span class="hub-cta-arrow">←</span></div>
     </a>
-
 
   </div>
 </main>
 
-<footer class="foot">
+<footer class="foot reveal" style="--d:0.30s">
   <div>
     <span>المنظومة المعرفية</span>
     <span class="foot-divider"></span>
     <span>محتوى أصلي للتعلّم الذاتي والتطبيق</span>
   </div>
   <div>
-    <span>v2.0</span>
+    <span>v3.1</span>
     <span class="foot-divider"></span>
     <span>2026 Edition</span>
     <span class="foot-divider"></span>
     <span>~٥.٤MB · ٣١٣ وحدة</span>
   </div>
 </footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = window.matchMedia('(hover: none)').matches;
+  var arDigits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  function toAr(n){ return String(n).replace(/\d/g, function(d){ return arDigits[+d]; }); }
+
+  /* ═══ Constellation canvas ═══ */
+  var canvas = document.getElementById('constellation');
+  if (canvas && !reduced){
+    var ctx = canvas.getContext('2d');
+    var W, H, cx, cy, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var mouseX = 0, mouseY = 0, px = 0, py = 0;
+    var hubColors = ['#e3b34c','#a78bfa','#60a5fa','#818cf8','#2dd4bf','#34d399','#22d3ee','#f87171'];
+    var nodes = hubColors.map(function(c, i){
+      return {
+        color: c,
+        a: (Math.PI * 2 / 8) * i + Math.random() * 0.4,
+        speed: 0.0014 + Math.random() * 0.0012,
+        rx: 0, ry: 0,
+        rxF: 0.30 + (i % 4) * 0.06,
+        ryF: 0.20 + ((i + 2) % 4) * 0.06,
+        size: 2.0 + Math.random() * 1.4,
+        pulse: Math.random() * Math.PI * 2
+      };
+    });
+    var dust = [];
+    for (var i = 0; i < 50; i++){
+      dust.push({ x: Math.random(), y: Math.random(), s: Math.random() * 1.2 + 0.3, v: Math.random() * 0.00012 + 0.00004, o: Math.random() * 0.3 + 0.08 });
+    }
+    function resize(){
+      var hero = canvas.parentElement;
+      W = hero.offsetWidth; H = Math.max(hero.offsetHeight, 90);
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cx = W / 2; cy = H * 0.55;
+      var m = Math.min(W, 600);
+      nodes.forEach(function(n){ n.rx = m * n.rxF * 1.3; n.ry = H * n.ryF * 1.6; });
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    if (!isTouch){
+      window.addEventListener('mousemove', function(e){
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+      });
+    }
+    function hexA(hex, a){
+      var r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+      return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+    }
+    var visible = true;
+    document.addEventListener('visibilitychange', function(){ visible = !document.hidden; });
+    function frame(t){
+      requestAnimationFrame(frame);
+      if (!visible) return;
+      px += (mouseX - px) * 0.04;
+      py += (mouseY - py) * 0.04;
+      ctx.clearRect(0, 0, W, H);
+
+      dust.forEach(function(d){
+        d.y -= d.v; if (d.y < -0.02) { d.y = 1.02; d.x = Math.random(); }
+        ctx.beginPath();
+        ctx.arc(d.x * W + px * 8, d.y * H + py * 8, d.s, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(200,205,230,' + d.o + ')';
+        ctx.fill();
+      });
+
+      var ox = cx + px * 22, oy = cy + py * 12;
+      var pts = nodes.map(function(n){
+        n.a += n.speed; n.pulse += 0.02;
+        return { x: ox + Math.cos(n.a) * n.rx, y: oy + Math.sin(n.a) * n.ry, n: n };
+      });
+
+      for (var i = 0; i < pts.length; i++){
+        for (var j = i + 1; j < pts.length; j++){
+          var dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          var max = Math.min(W, 900) * 0.30;
+          if (dist < max){
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = 'rgba(180,190,230,' + (0.09 * (1 - dist / max)) + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+        ctx.beginPath();
+        ctx.moveTo(ox, oy);
+        ctx.lineTo(pts[i].x, pts[i].y);
+        ctx.strokeStyle = hexA(pts[i].n.color, 0.05);
+        ctx.stroke();
+      }
+
+      var coreR = 2.5 + Math.sin(t * 0.0015) * 0.7;
+      var g = ctx.createRadialGradient(ox, oy, 0, ox, oy, 20);
+      g.addColorStop(0, 'rgba(227,179,76,0.45)');
+      g.addColorStop(1, 'rgba(227,179,76,0)');
+      ctx.beginPath(); ctx.arc(ox, oy, 20, 0, Math.PI*2); ctx.fillStyle = g; ctx.fill();
+      ctx.beginPath(); ctx.arc(ox, oy, coreR, 0, Math.PI*2); ctx.fillStyle = '#f5d488'; ctx.fill();
+
+      pts.forEach(function(p){
+        var s = p.n.size + Math.sin(p.n.pulse) * 0.5;
+        var gg = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, s * 4.5);
+        gg.addColorStop(0, hexA(p.n.color, 0.4));
+        gg.addColorStop(1, hexA(p.n.color, 0));
+        ctx.beginPath(); ctx.arc(p.x, p.y, s * 4.5, 0, Math.PI*2); ctx.fillStyle = gg; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, s, 0, Math.PI*2); ctx.fillStyle = p.n.color; ctx.fill();
+      });
+    }
+    requestAnimationFrame(frame);
+    canvas.classList.add('on');
+  }
+
+  /* ═══ Counters ═══ */
+  document.querySelectorAll('.brand-stat-num[data-count]').forEach(function(el){
+    var target = +el.getAttribute('data-count');
+    if (reduced){ el.textContent = toAr(target); return; }
+    var dur = 1400, t0 = null;
+    function step(ts){
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = toAr(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    setTimeout(function(){ requestAnimationFrame(step); }, 750);
+  });
+
+  /* ═══ Entrance reveal (كلها ظاهرة، فنشغّلها مباشرة بتدرّج) ═══ */
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduced){
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        revealEls.forEach(function(el){ el.classList.add('in'); });
+      });
+    });
+  }
+
+  /* ═══ 3D tilt + spotlight ═══ */
+  if (!reduced && !isTouch){
+    document.querySelectorAll('.hub').forEach(function(card){
+      var raf = null;
+      card.addEventListener('mousemove', function(e){
+        var r = card.getBoundingClientRect();
+        var x = e.clientX - r.left, y = e.clientY - r.top;
+        card.style.setProperty('--mx', x + 'px');
+        card.style.setProperty('--my', y + 'px');
+        var rx = ((y / r.height) - 0.5) * -6;
+        var ry = ((x / r.width) - 0.5) * 6;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function(){
+          card.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-3px)';
+        });
+      });
+      card.addEventListener('mouseleave', function(){
+        if (raf) cancelAnimationFrame(raf);
+        card.style.transform = '';
+      });
+    });
+  }
+})();
+</script>
 
 </body>
 </html>

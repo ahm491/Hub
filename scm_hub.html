@@ -43,7 +43,7 @@
 body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direction:rtl;text-align:right;min-height:100vh;line-height:1.7}
 
 /* Back-home */
-.back-home{position:fixed;top:14px;right:14px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;background:var(--surface);border:1px solid var(--border);border-radius:99px;color:var(--ink);text-decoration:none;font-family:'Tajawal',sans-serif;font-size:12.5px;font-weight:600;transition:all .2s ease}
+.back-home{position:fixed;top:14px;left:14px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;background:var(--surface);border:1px solid var(--border);border-radius:99px;color:var(--ink);text-decoration:none;font-family:'Tajawal',sans-serif;font-size:12.5px;font-weight:600;transition:all .2s ease}
 .back-home:hover{background:var(--navy-bg);border-color:var(--navy)}
 .back-home-text{display:inline-block}
 @media(max-width:600px){.back-home{top:10px;right:auto;left:10px;padding:7px 12px;font-size:11px}}
@@ -81,7 +81,9 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direct
 .hero p{font-size:14px;color:#d6d3d1;max-width:780px;line-height:1.8}
 
 /* Theme toggle */
-.theme-toggle{position:absolute;top:14px;left:14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s ease;z-index:2}
+.theme-toggle-wrap{display:flex;align-items:center;justify-content:flex-end;padding:12px 16px 0}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;cursor:pointer;font-size:16px;transition:all 0.2s ease}
+.theme-toggle:hover{background:rgba(255,255,255,0.2)}
 .theme-toggle:hover{background:rgba(255,255,255,0.2)}
 
 /* Content */
@@ -170,9 +172,9 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direct
 [data-theme="dark"] .cb-body{color:#e7e5e4}
 
 /* Codebox */
-.codebox{background:#0c0a09;border-radius:10px;padding:0;margin:12px 0;overflow:hidden;border:1px solid #292524}
-.codebox-lbl{background:#1c1917;color:#60a5fa;font-size:10.5px;font-weight:700;padding:6px 14px;letter-spacing:0.5px;font-family:'Tajawal',sans-serif;border-bottom:1px solid #292524}
-.codebox-code{padding:14px 16px;font-family:'Courier New',monospace;font-size:12px;line-height:1.75;color:#e7e5e4;overflow-x:auto;direction:ltr;text-align:left;white-space:pre-wrap;word-break:break-word}
+.codebox{background:#fafaf9;border-radius:10px;padding:0;margin:14px 0;overflow:hidden;border:1px solid #e7e5e4;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.codebox-lbl{background:#fff;color:var(--navy, #1e3a8a);font-size:10.5px;font-weight:700;padding:8px 14px;letter-spacing:0.5px;font-family:'Tajawal',sans-serif;border-bottom:1px solid #e7e5e4}
+.codebox-code{padding:14px 16px;font-family:'Courier New',monospace;font-size:12px;line-height:1.75;color:#1c1917;overflow-x:auto;direction:ltr;text-align:left;white-space:pre-wrap;word-break:break-word;background:#fff}
 .c-com{color:#78716c;font-style:italic}
 .c-num{color:#fbbf24;font-weight:700}
 
@@ -193,6 +195,247 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direct
   .hero h1{font-size:20px}
   .sec{font-size:16px}
 }
+
+/* ════ VISUAL COMPONENTS · Navy theme for SCM ════ */
+.v-tl{position:relative;padding-right:30px;margin:14px 0 18px}
+.v-tl::before{content:'';position:absolute;right:13px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--navy) 0%,var(--navy3) 100%);border-radius:2px}
+.v-tl-item{position:relative;margin-bottom:18px;padding-right:8px}
+.v-tl-item:last-child{margin-bottom:0}
+.v-tl-dot{position:absolute;right:-22px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--navy);border:3px solid #fff;box-shadow:0 0 0 2px var(--navy);z-index:2}
+.v-tl-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.v-tl-date{font-family:'Courier New',monospace;color:var(--navy);font-size:11.5px;font-weight:700;letter-spacing:0.5px;direction:ltr;text-align:left;display:inline-block;background:var(--navy-bg);padding:2px 10px;border-radius:4px;margin-bottom:6px}
+.v-tl-title{font-weight:700;color:var(--ink);font-size:14px;margin-bottom:4px;font-family:'Tajawal',sans-serif}
+.v-tl-quote{color:var(--ink2);font-size:13px;line-height:1.6;font-style:italic;padding-right:10px;border-right:2px solid var(--navy3)}
+
+.lc-grid{display:grid;gap:10px;margin:14px 0 18px}
+.lc-grid.cols-1{grid-template-columns:1fr}
+.lc-grid.cols-2{grid-template-columns:1fr 1fr}
+.lc-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.lc-grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.lc-card{display:flex;gap:12px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.lc-letter{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900}
+.lc-body{flex:1;min-width:0}
+.lc-title{font-weight:700;color:var(--ink);font-size:13px;margin-bottom:4px;font-family:'Tajawal',sans-serif}
+.lc-desc{color:var(--ink2);font-size:12.5px;line-height:1.6}
+.lc-desc em{color:var(--navy);font-style:normal;font-weight:600}
+
+.m22{display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:8px;margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.m22-corner{grid-row:1;grid-column:1}
+.m22-x-axis{grid-row:1;grid-column:2/4;text-align:center;font-size:11.5px;font-weight:700;color:var(--muted);padding:6px;text-transform:uppercase;letter-spacing:1px}
+.m22-y-axis{grid-row:2/4;grid-column:1;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;padding:4px}
+.m22-q{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px;box-shadow:0 1px 2px rgba(0,0,0,0.03);min-height:110px}
+.m22-q-tl{grid-row:2;grid-column:2}.m22-q-tr{grid-row:2;grid-column:3}
+.m22-q-bl{grid-row:3;grid-column:2}.m22-q-br{grid-row:3;grid-column:3}
+.m22-q-name{font-weight:800;color:var(--ink);font-size:13px}
+.m22-q-ar{color:var(--navy);font-size:12px;font-weight:600}
+.m22-q-desc{color:var(--ink2);font-size:12px;line-height:1.55;margin-top:auto}
+.m22-q.good{border-color:var(--s2);background:linear-gradient(135deg,#f0fdf4,#fff)}
+.m22-q.bad{border-color:var(--red);background:linear-gradient(135deg,#fef2f2,#fff)}
+.m22-q.warn{border-color:var(--gold);background:linear-gradient(135deg,#fffbeb,#fff)}
+.m22-q.neutral{border-color:#cbd5e1;background:linear-gradient(135deg,#f8fafc,#fff)}
+
+.org-chart{margin:14px 0 18px;text-align:center;font-family:'Tajawal',sans-serif}
+.org-row{display:flex;justify-content:center;gap:14px;margin-bottom:14px;flex-wrap:wrap;position:relative}
+.org-node{background:#fff;border:1.5px solid var(--navy);border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:700;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,0.05);min-width:90px}
+.org-node.exec{background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff}
+.org-node.dept{background:var(--navy-bg);border-color:var(--navy3)}
+.org-node-sub{font-size:10.5px;color:var(--muted);font-weight:500;display:block;margin-top:2px}
+
+.pyramid-5{margin:14px 0 18px;display:flex;flex-direction:column;align-items:center;gap:3px;font-family:'Tajawal',sans-serif}
+.pyr-row{display:flex;align-items:center;gap:14px;width:100%;justify-content:center}
+.pyr-block{background:#fff;border:1.5px solid;border-radius:8px;padding:10px 18px;text-align:center;font-weight:700;font-size:13px;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.pyr-block.l1{width:35%;border-color:#dc2626;background:linear-gradient(135deg,#fef2f2,#fff)}
+.pyr-block.l2{width:50%;border-color:#ea580c;background:linear-gradient(135deg,#fff7ed,#fff)}
+.pyr-block.l3{width:65%;border-color:#ca8a04;background:linear-gradient(135deg,#fefce8,#fff)}
+.pyr-block.l4{width:80%;border-color:#16a34a;background:linear-gradient(135deg,#f0fdf4,#fff)}
+.pyr-block.l5{width:95%;border-color:#0891b2;background:linear-gradient(135deg,#ecfeff,#fff)}
+.pyr-block-num{display:inline-block;background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:700;line-height:22px;text-align:center;margin-left:8px;vertical-align:middle}
+.pyr-block-desc{font-size:11.5px;color:var(--ink2);font-weight:500;margin-top:3px}
+
+.tier-list{margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.tier-row{display:grid;grid-template-columns:120px 1fr;gap:12px;margin-bottom:10px;align-items:stretch}
+.tier-label{background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;border-radius:10px;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:13px}
+.tier-label-num{font-size:28px;line-height:1;margin-bottom:4px;font-weight:900}
+.tier-label-en{font-size:11px;opacity:0.95;letter-spacing:0.5px}
+.tier-content{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.tier-title{font-weight:700;color:var(--ink);font-size:14px;margin-bottom:6px}
+.tier-desc{color:var(--ink2);font-size:12.5px;line-height:1.65}
+
+.step-flow{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px;align-items:stretch;font-family:'Tajawal',sans-serif}
+.step-card{flex:1;min-width:140px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,0.03);position:relative}
+.step-num{position:absolute;top:-10px;right:50%;transform:translateX(50%);background:var(--navy);color:#fff;width:24px;height:24px;border-radius:50%;font-weight:700;font-size:12px;line-height:24px;text-align:center}
+.step-title{font-weight:700;color:var(--ink);font-size:12.5px;margin-top:8px;margin-bottom:4px}
+.step-desc{color:var(--ink2);font-size:11.5px;line-height:1.5}
+.step-arrow{align-self:center;color:var(--navy);font-size:18px;font-weight:700}
+
+.ph-cards{display:grid;gap:10px;margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.ph-cards.cols-3{grid-template-columns:repeat(3,1fr)}
+.ph-cards.cols-4{grid-template-columns:repeat(4,1fr)}
+.ph-cards.cols-5{grid-template-columns:repeat(5,1fr)}
+.ph-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.ph-card::before{content:'';position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--navy),var(--navy3))}
+.ph-card.p2::before{background:linear-gradient(90deg,#0ea5e9,#38bdf8)}
+.ph-card.p3::before{background:linear-gradient(90deg,#10b981,#34d399)}
+.ph-card.p4::before{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.ph-card.p5::before{background:linear-gradient(90deg,#ef4444,#f87171)}
+.ph-num{font-family:'Courier New',monospace;font-size:11px;color:var(--navy);font-weight:700;letter-spacing:1px;margin-bottom:4px}
+.ph-card.p2 .ph-num{color:#0ea5e9}.ph-card.p3 .ph-num{color:#10b981}
+.ph-card.p4 .ph-num{color:#f59e0b}.ph-card.p5 .ph-num{color:#ef4444}
+.ph-title{font-weight:800;color:var(--ink);font-size:13.5px;margin-bottom:6px}
+.ph-body{color:var(--ink2);font-size:12px;line-height:1.65}
+.ph-body ul{margin:6px 0 0;padding-right:18px}
+.ph-body li{margin:2px 0}
+
+.h-bar{margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.hb-row{display:grid;grid-template-columns:130px 1fr auto;gap:10px;align-items:center;margin-bottom:8px}
+.hb-label{font-size:12.5px;font-weight:700;color:var(--ink)}
+.hb-track{background:#f5f5f4;border-radius:6px;height:24px;overflow:hidden;position:relative}
+.hb-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--navy3));border-radius:6px;display:flex;align-items:center;padding:0 8px;color:#fff;font-size:11px;font-weight:700;font-family:'Courier New',monospace}
+.hb-note{font-size:11.5px;color:var(--ink2);font-weight:600}
+
+.formula-box{margin:14px 0 18px;background:linear-gradient(135deg,var(--navy-bg),#fff);border:2px solid var(--navy3);border-radius:12px;padding:18px;text-align:center;font-family:'Cairo',sans-serif;box-shadow:0 2px 8px rgba(30,64,175,0.06)}
+.fb-formula{font-size:18px;color:var(--ink);font-weight:700;line-height:1.8;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.fb-formula em{color:var(--navy);font-style:normal;font-weight:800;padding:0 6px}
+.fb-formula .fb-op{color:var(--gold);font-weight:900;padding:0 8px}
+.fb-frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 8px}
+.fb-frac-top{border-bottom:2px solid var(--ink);padding:0 12px 4px;font-size:14px}
+.fb-frac-bot{padding:4px 12px 0;font-size:14px}
+.fb-terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:14px;text-align:right}
+.fb-term{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.fb-term-name{font-weight:700;color:var(--navy);font-size:12.5px;margin-bottom:3px}
+.fb-term-desc{font-size:11.5px;color:var(--ink2);line-height:1.55}
+
+.doc-mock{margin:14px 0 18px;background:#fff;border:1px solid var(--border2);border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);font-family:'Tajawal',sans-serif}
+.doc-header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:14px 18px;font-weight:800;font-size:14px;letter-spacing:0.3px;display:flex;justify-content:space-between;align-items:center}
+.doc-header-sub{font-size:11px;font-weight:500;opacity:0.85;background:rgba(255,255,255,0.2);padding:3px 10px;border-radius:4px}
+.doc-body{padding:14px 18px}
+.doc-sec{margin-bottom:14px}
+.doc-sec:last-child{margin-bottom:0}
+.doc-sec-title{font-size:11.5px;font-weight:800;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;padding-bottom:4px;border-bottom:2px solid var(--navy-bg)}
+.doc-sec-body{color:var(--ink2);font-size:12.5px;line-height:1.7}
+.doc-sec-body ul{margin:4px 0;padding-right:20px}
+
+.cmp-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.cmp-col{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.cmp-col.bad{border-color:#fca5a5;background:linear-gradient(135deg,#fef2f2,#fff)}
+.cmp-col.good{border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#fff)}
+.cmp-col.info{border-color:var(--navy3);background:linear-gradient(135deg,var(--navy-bg),#fff)}
+.cmp-head{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.cmp-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;font-weight:900}
+.cmp-col.bad .cmp-icon{background:#dc2626}
+.cmp-col.good .cmp-icon{background:#16a34a}
+.cmp-col.info .cmp-icon{background:var(--navy)}
+.cmp-body{color:var(--ink2);font-size:12px;line-height:1.65}
+
+.scn-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:14px 0 18px;font-family:'Tajawal',sans-serif;box-shadow:0 1px 3px rgba(0,0,0,0.04);border-right:4px solid var(--navy)}
+.scn-label{font-size:11px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.scn-text{color:var(--ink);font-size:13px;line-height:1.75}
+.scn-text strong{color:var(--navy)}
+.scn-quote{background:var(--navy-bg);border-right:3px solid var(--navy);padding:8px 12px;margin:8px 0;border-radius:6px;font-style:italic;font-size:12.5px;color:var(--ink2)}
+
+.cascade{margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.csc-level{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:8px;position:relative;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.csc-level::after{content:'▼';position:absolute;right:50%;bottom:-14px;color:var(--navy);font-size:14px;background:#fff;padding:0 6px;z-index:2}
+.csc-level:last-child::after{display:none}
+.csc-level-num{display:inline-block;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;width:24px;height:24px;border-radius:50%;font-weight:700;font-size:12px;line-height:24px;text-align:center;margin-left:8px}
+.csc-level-title{display:inline;font-weight:800;color:var(--ink);font-size:13.5px}
+.csc-level-body{color:var(--ink2);font-size:12.5px;line-height:1.65;margin-top:6px;padding-right:36px}
+
+.funnel{margin:14px 0 18px;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:'Tajawal',sans-serif}
+.fnl-stage{padding:12px 18px;color:#fff;font-weight:700;border-radius:8px;text-align:center;display:flex;justify-content:center;align-items:center;gap:12px}
+.fnl-stage:nth-child(1){width:95%;background:linear-gradient(135deg,var(--navy),var(--navy3))}
+.fnl-stage:nth-child(2){width:75%;background:linear-gradient(135deg,#3b82f6,#60a5fa)}
+.fnl-stage:nth-child(3){width:55%;background:linear-gradient(135deg,#10b981,#34d399)}
+.fnl-stage:nth-child(4){width:35%;background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+.fnl-stage:nth-child(5){width:18%;background:linear-gradient(135deg,#dc2626,#f87171);font-size:14px}
+.fnl-num{font-family:'Courier New',monospace;font-size:14px;font-weight:800;background:rgba(255,255,255,0.25);padding:2px 8px;border-radius:4px;min-width:50px}
+.fnl-label{font-size:13px}
+
+.flow-diagram{margin:14px 0 18px;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;font-family:'Tajawal',sans-serif}
+.flow-side{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
+.flow-side-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;color:var(--navy)}
+.flow-side.inflow .flow-side-label{color:#16a34a}
+.flow-side.outflow .flow-side-label{color:#dc2626}
+.flow-side-arrow{font-size:24px;color:var(--navy);margin-bottom:4px}
+.flow-side.inflow .flow-side-arrow{color:#16a34a}
+.flow-side.outflow .flow-side-arrow{color:#dc2626}
+.flow-side-items{font-size:12px;color:var(--ink2);line-height:1.7}
+.flow-stock{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:12px;padding:18px 14px;text-align:center;font-weight:800;font-size:14px;min-width:120px}
+.flow-stock-label{font-size:10.5px;opacity:0.85;letter-spacing:0.5px;margin-bottom:4px}
+
+.qa-card{margin:14px 0 18px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;font-family:'Tajawal',sans-serif;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.qa-q{font-weight:800;color:var(--navy);font-size:13.5px;margin-bottom:6px;display:flex;align-items:start;gap:8px}
+.qa-q::before{content:'؟';background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.qa-a{color:var(--ink2);font-size:13px;line-height:1.7;margin-bottom:10px;padding-right:30px}
+
+/* Value Chain (special for Porter) */
+.val-chain{margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.vc-support{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:4px}
+.vc-row{background:linear-gradient(135deg,var(--navy-bg),#fff);border:1px solid var(--navy3);padding:8px;border-radius:6px;font-size:11.5px;font-weight:700;color:var(--navy);text-align:center}
+.vc-primary{display:grid;grid-template-columns:repeat(5,1fr) auto;gap:0;margin-top:8px;border-radius:8px;overflow:hidden}
+.vc-primary-cell{background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;padding:14px 8px;text-align:center;font-weight:700;font-size:12px;border-right:2px solid #fff;position:relative}
+.vc-primary-cell:last-child{background:linear-gradient(135deg,#f59e0b,#fbbf24);min-width:80px;border-right:none}
+.vc-primary-cell-sub{font-size:10px;font-weight:500;opacity:0.95;margin-top:2px}
+
+/* Mobile */
+@media (max-width:780px){
+  .ph-cards.cols-3,.ph-cards.cols-4,.ph-cards.cols-5{grid-template-columns:1fr}
+  .lc-grid.cols-3,.lc-grid.cols-4{grid-template-columns:1fr}
+  .cmp-2{grid-template-columns:1fr}
+  .tier-row{grid-template-columns:1fr;gap:6px}
+  .flow-diagram{grid-template-columns:1fr}
+  .vc-support{grid-template-columns:1fr 1fr}
+  .vc-primary{grid-template-columns:1fr}
+}
+
+/* ═══ Sidebar Search ═══ */
+.sb-search{width:100%;padding:9px 12px;margin-top:10px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.1);color:#fff;font-family:'Tajawal',sans-serif;font-size:12.5px;outline:none;transition:all 0.2s}
+.sb-search::placeholder{color:rgba(255,255,255,0.55)}
+.sb-search:focus{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.35)}
+.sb-item.sb-hidden,.sb-section.sb-hidden{display:none !important}
+.sb-no-results{padding:16px 18px;color:var(--muted);font-size:12.5px;text-align:center;display:none}
+.sb-no-results.show{display:block}
+
+/* ═══ Interactive Calculators · Navy theme ═══ */
+.calc-box{margin:16px 0 20px;background:linear-gradient(135deg,#eff6ff,#fff);border:2px solid #93c5fd;border-radius:14px;padding:18px;font-family:'Tajawal',sans-serif;box-shadow:0 2px 12px rgba(30,64,175,0.08)}
+.calc-title{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.calc-sub{font-size:11.5px;color:var(--ink2);margin-bottom:14px}
+.calc-inputs{display:grid;gap:12px;margin-bottom:14px}
+.calc-inputs.cols-2{grid-template-columns:1fr 1fr}
+.calc-inputs.cols-3{grid-template-columns:1fr 1fr 1fr}
+.calc-field{display:flex;flex-direction:column;gap:4px}
+.calc-field label{font-size:11.5px;font-weight:700;color:var(--ink);}
+.calc-field input{padding:9px 12px;border:1px solid var(--border2);border-radius:8px;font-family:'Tajawal',sans-serif;font-size:13px;outline:none;transition:border 0.2s;background:#fff}
+.calc-field input:focus{border-color:var(--navy3)}
+.calc-result{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:10px;padding:14px 18px;text-align:center;margin-top:8px}
+.calc-result-label{font-size:11px;opacity:0.85;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.calc-result-value{font-size:26px;font-weight:900;line-height:1.1}
+.calc-result-unit{font-size:12px;opacity:0.8;margin-top:4px}
+.calc-note{font-size:11px;color:var(--ink2);margin-top:10px;padding:8px 12px;background:#fff;border-right:3px solid var(--navy);border-radius:6px;line-height:1.55}
+.calc-breakdown{display:grid;gap:6px;margin-top:10px}
+.calc-bd-row{display:flex;justify-content:space-between;padding:6px 10px;background:#fff;border-radius:6px;font-size:12px}
+.calc-bd-row span:last-child{font-weight:700;color:var(--navy)}
+
+/* Kraljic interactive */
+.kraljic{margin:16px 0 20px;font-family:'Tajawal',sans-serif}
+.kraljic-grid{display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:8px}
+.kr-ylabel{grid-row:2/4;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.kr-xlabel{grid-column:2/4;text-align:center;font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;padding:6px}
+.kr-corner{grid-row:1;grid-column:1}
+.kr-quad{border-radius:10px;padding:14px;min-height:120px;cursor:default;transition:all 0.2s;border:2px solid}
+.kr-leverage{background:linear-gradient(135deg,#dbeafe,#fff);border-color:#3b82f6}
+.kr-strategic{background:linear-gradient(135deg,#fef3c7,#fff);border-color:#f59e0b}
+.kr-routine{background:linear-gradient(135deg,#f0fdf4,#fff);border-color:#10b981}
+.kr-bottleneck{background:linear-gradient(135deg,#fef2f2,#fff);border-color:#ef4444}
+.kr-quad h4{font-size:13px;font-weight:800;margin-bottom:6px}
+.kr-quad p{font-size:11.5px;color:var(--ink2);line-height:1.5}
+.kr-quad .kr-tactic{font-size:11px;margin-top:6px;font-weight:600;color:var(--navy)}
+
+@media (max-width:780px){
+  .calc-inputs.cols-2,.calc-inputs.cols-3{grid-template-columns:1fr}
+  .kraljic-grid{grid-template-columns:1fr}
+  .kr-ylabel,.kr-xlabel,.kr-corner{display:none}
+}
 </style>
 </head>
 <body>
@@ -204,9 +447,13 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direct
 <button class="sb-tog-float" onclick="toggleSidebar()" aria-label="فتح القائمة" title="القائمة">☰</button>
 
 <nav class="sidebar">
+    <div class="theme-toggle-wrap">
+      <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">🌓</button>
+    </div>
 <div class="sb-head">
     <div class="sb-brand">📦 مركز المشتريات والـ SCM</div>
     <div class="sb-tagline">30 وحدة · أساسيات · سعودة · مقاولات · رقمنة · حوكمة</div>
+    <input type="text" class="sb-search" id="sbSearch" placeholder="🔍 ابحث في الوحدات..." oninput="sbSearch(this.value)" autocomplete="off">
   </div>
   <div class="sb-section">▸ ابدأ هنا</div>
   <div class="sb-item" data-mod="welcome"><div class="sb-dot" style="background:var(--navy)"></div>نظرة عامة · فلسفة المرجع<span class="sb-num">٠</span></div>
@@ -248,12 +495,13 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direct
   <div class="sb-item" data-mod="procurement-ethics"><div class="sb-dot" style="background:var(--gold)"></div>أخلاقيات المشتريات · النزاهة<span class="sb-num">٢٨</span></div>
   <div class="sb-item" data-mod="anti-corruption"><div class="sb-dot" style="background:var(--red)"></div>مكافحة الفساد · FCPA · السياق السعودي<span class="sb-num">٢٩</span></div>
   <div class="sb-foot">30 وحدة معرفية · 29 مبنية<br>v1.0 · 2026</div>
-</nav>
+    <div class="sb-no-results" id="sbNoResults">لا توجد نتائج مطابقة</div>
+  </nav>
 
 <main class="main">
 
 <div class="hero">
-  <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع">🌓</button>
+  
   <div class="hero-inner">
     <div class="hero-brand">
       <div class="hero-mark">📦</div>
@@ -341,28 +589,27 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direct
   <div class="card">
     <p>Michael Porter (Harvard · ١٩٨٥) قسّم أنشطة الشركة لقسمين:</p>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">PORTER'S VALUE CHAIN</div>
-<pre class="codebox-code">                  SUPPORT ACTIVITIES
-                  ──────────────────
-                  
-   Firm Infrastructure (Management · Finance · Legal)
-   ─────────────────────────────────────────────────
-   Human Resource Management
-   ─────────────────────────────────────────────────
-   Technology Development (R&D · IT)
-   ─────────────────────────────────────────────────
-   <span class="c-num">PROCUREMENT ★</span>  ← هنا
-   ═════════════════════════════════════════════════
-   Inbound    Operations    Outbound    Marketing    Service
-   Logistics                Logistics   & Sales
-   ─────────────────────────────────────────────────────
-                  PRIMARY ACTIVITIES
-                  ──────────────────
-   
-   SCM يغطّي: Inbound Logistics + Operations + Outbound Logistics
-   + Procurement (Support Activity)</pre>
-    </div>
+    <div class="val-chain">
+  <div class="vc-support">
+    <div class="vc-row">🏗️ FIRM INFRASTRUCTURE</div>
+    <div class="vc-row">👥 HR MANAGEMENT</div>
+    <div class="vc-row">💻 TECHNOLOGY DEVELOPMENT</div>
+    <div class="vc-row">🛒 PROCUREMENT ⭐</div>
+  </div>
+  <div style="text-align:center;font-size:10.5px;color:var(--muted);font-weight:700;letter-spacing:1.5px;margin:8px 0">↑ SUPPORT ACTIVITIES · الأنشطة المُسانِدة</div>
+  <div class="vc-primary">
+    <div class="vc-primary-cell">INBOUND<br>LOGISTICS<div class="vc-primary-cell-sub">اللوجستيات الداخلة</div></div>
+    <div class="vc-primary-cell">OPERATIONS<div class="vc-primary-cell-sub">العمليات</div></div>
+    <div class="vc-primary-cell">OUTBOUND<br>LOGISTICS<div class="vc-primary-cell-sub">اللوجستيات الخارجة</div></div>
+    <div class="vc-primary-cell">MARKETING<br>& SALES<div class="vc-primary-cell-sub">التسويق والمبيعات</div></div>
+    <div class="vc-primary-cell">SERVICE<div class="vc-primary-cell-sub">الخدمة</div></div>
+    <div class="vc-primary-cell">MARGIN<br>💰<div class="vc-primary-cell-sub">الهامش</div></div>
+  </div>
+  <div style="text-align:center;font-size:10.5px;color:var(--muted);font-weight:700;letter-spacing:1.5px;margin-top:8px">↑ PRIMARY ACTIVITIES · الأنشطة الرئيسية</div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);line-height:1.7">
+<strong style="color:var(--navy)">Porter (HBS · ١٩٨٥):</strong> الـ Procurement من <em>الأنشطة المُسانِدة</em> · لكنّه يؤثّر على <em>كلّ الأنشطة الرئيسية</em>. تحسينه = هامش أكبر مباشرةً.
+</div>
 
     <p style="margin-top:14px"><strong>الفهم العميق:</strong> الـ Procurement عند Porter كانت Support Activity. لكن في القرن ٢١ · أصبحت <em>Strategic Function</em> تؤثّر مباشرة على الـ Margin والـ Competitive Advantage.</p>
   </div>
@@ -393,28 +640,33 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direct
   <div class="card">
     <p>هذا أهمّ مفهوم تقنعه به الإدارة العليا. تأثير ١٪ توفير في المشتريات vs البدائل:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">PROCUREMENT IMPACT ON PROFIT</div>
-<pre class="codebox-code">شركة بإيرادات 100M ريال · هامش ربح 5%
-
-السيناريو 1: زيادة المبيعات 10%
-- إيرادات: 110M
-- تكاليف: 95M × 1.1 = 104.5M
-- الربح: 5.5M
-- زيادة الربح: +0.5M (10% فقط)
-- يحتاج جهد تسويقي/مبيعات هائل
-
-السيناريو 2: تقليل تكلفة المشتريات 1%
-- المشتريات ~60% من التكاليف = 57M
-- التوفير: 0.57M
-- الربح الجديد: 5.57M  
-- زيادة الربح: +11.4%
-- يحتاج جهد تفاوضي تركيزي
-
-النتيجة: 
-1% توفير في المشتريات = ~10% زيادة مبيعات
-في تأثيره على الأرباح!</pre>
+    <div class="cmp-2">
+  <div class="cmp-col info">
+    <div class="cmp-head"><div class="cmp-icon">📊</div>زيادة المبيعات ١٪</div>
+    <div class="cmp-body">
+      <div style="font-family:monospace;font-size:13px;line-height:1.8">
+      الإيرادات: 100M → <strong>101M</strong> SAR<br>
+      التكاليف: 90M (ثابتة)<br>
+      <strong style="color:var(--navy)">الربح: 10M → 11M</strong><br>
+      <strong>+١٠٪</strong> في الربح
+      </div>
     </div>
+  </div>
+  <div class="cmp-col good">
+    <div class="cmp-head"><div class="cmp-icon">💰</div>توفير المشتريات ١٪</div>
+    <div class="cmp-body">
+      <div style="font-family:monospace;font-size:13px;line-height:1.8">
+      الإيرادات: 100M SAR<br>
+      التكاليف: 90M → <strong>89.1M</strong><br>
+      <strong style="color:#15803d">الربح: 10M → 10.9M</strong><br>
+      <strong>+٩٪</strong> في الربح
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:#78350f;text-align:center">
+<strong>الـ Insight:</strong> توفير ١٪ في المشتريات ≈ زيادة ١٪ في المبيعات · لكن <strong>أسهل بكثير</strong>!
+</div>
   </div>
 
   <div class="sec">▸ Total Cost of Ownership · TCO</div>
@@ -422,35 +674,24 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);direct
     <p>الـ TCO مفهوم محوري للـ Strategic Procurement. سعر الشراء ليس الكلفة الحقيقية.</p>
 
     <p style="margin-top:10px"><strong>صيغة الـ TCO:</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">TCO FORMULA</div>
-<pre class="codebox-code">TCO = Purchase Price + 
-      Acquisition Costs +
-      Operating Costs +
-      Maintenance Costs +
-      End-of-life Costs
-
-PURCHASE PRICE (10-30% of TCO):
-- ما تدفعه للمورد
-
-ACQUISITION COSTS (5-15%):
-- الشحن · الجمارك · التخزين الأوّلي
-- التركيب · التشغيل الأوّلي
-- التدريب
-
-OPERATING COSTS (40-60%):
-- الطاقة · الصيانة الدورية
-- قطع غيار · مواد استهلاكية
-- العمالة المرتبطة
-
-MAINTENANCE COSTS (10-20%):
-- الإصلاحات · القطع الكبرى
-- الـ Downtime · فقدان الإنتاجية
-
-END-OF-LIFE COSTS (5-15%):
-- الـ Disposal · إعادة التدوير
-- الإحلال</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>TCO</em> <span class="fb-op">=</span>
+    <strong>PRICE</strong> <span class="fb-op">+</span>
+    <strong>ACQUISITION COSTS</strong> <span class="fb-op">+</span>
+    <strong>USE COSTS</strong> <span class="fb-op">+</span>
+    <strong>END-OF-LIFE COSTS</strong>
+  </div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">💰 PRICE · السعر الأوّلي</div><div class="fb-term-desc">الـ Purchase price · ٢٠-٤٠٪ من TCO فقط</div></div>
+    <div class="fb-term"><div class="fb-term-name">📦 ACQUISITION</div><div class="fb-term-desc">Shipping · Customs · Installation · Training</div></div>
+    <div class="fb-term"><div class="fb-term-name">⚡ USE</div><div class="fb-term-desc">Energy · Maintenance · Spare parts · Downtime</div></div>
+    <div class="fb-term"><div class="fb-term-name">♻️ END-OF-LIFE</div><div class="fb-term-desc">Disposal · Recycling · Replacement</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--navy);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>القاعدة:</strong> السعر هو <em>قمّة الجبل الجليدي فقط</em>. TCO يكشف ٦٠-٨٠٪ المخفيّ تحت السطح.
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>مثال محسوس:</strong> طابعة بـ ٥٬٠٠٠ ريال vs بـ ٨٬٠٠٠ ريال. الفرق الـ ٣٬٠٠٠. لكن الأرخص يستهلك حبراً بـ ٢٠٠ ريال/شهر · والأغلى ٨٠ ريال/شهر. على ٥ سنوات · الأرخص يكلّف فعلاً ١٧٬٠٠٠ · الأغلى ١٢٬٨٠٠. الـ TCO يقلب القرار.</p>
   </div>
@@ -459,34 +700,34 @@ END-OF-LIFE COSTS (5-15%):
   <div class="card">
     <p>Peter Kraljic (McKinsey · ١٩٨٣) طوّر الإطار الذي يصنّف المشتريات إستراتيجياً. حتّى اليوم الأكثر استخداماً.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">KRALJIC MATRIX</div>
-<pre class="codebox-code">             SUPPLY RISK
-                  ▲
-                  │
-                  │   LEVERAGE         STRATEGIC ★
-              HIGH│  ┌──────────────┬──────────────┐
-                  │  │ موردون متعدّدون│ موردون قلائل │
-                  │  │ تأثير مالي عالٍ│ تأثير عالٍ   │
-   PROFIT         │  │              │ مخاطر عالية  │
-   IMPACT         │  │ • فاوض بقوّة  │ • شراكة طويلة│
-                  │  │ • Auction    │ • Joint dev. │
-                  │  │ • Bulk       │ • Risk share │
-                  │  ├──────────────┼──────────────┤
-                  │  │              │              │
-                  │  │ ROUTINE      │ BOTTLENECK   │
-              LOW │  │ تأثير منخفض  │ تأثير منخفض  │
-                  │  │ موردون كثير  │ موردون قلائل │
-                  │  │              │              │
-                  │  │ • تبسيط      │ • تأمين     │
-                  │  │ • أتمتة      │ • بدائل     │
-                  │  │ • E-Catalog  │ • Stock     │
-                  │  └──────────────┴──────────────┘
-                  │     LOW         HIGH
-                  ▼
-                  
-4 إستراتيجيّات مختلفة لـ 4 فئات</pre>
-    </div>
+    <div class="m22">
+  <div class="m22-corner"></div>
+  <div class="m22-x-axis">→ SUPPLY RISK (مخاطر التوريد)</div>
+  <div class="m22-y-axis">→ PROFIT IMPACT (أثر الربح)</div>
+  <div class="m22-q m22-q-tl warn">
+    <div class="m22-q-name">🔧 LEVERAGE · مواد ذات نفوذ</div>
+    <div class="m22-q-ar">أثر عالٍ · مخاطر منخفضة</div>
+    <div class="m22-q-desc">موردون كثر · أسواق تنافسية. <strong>الإستراتيجية: التفاوض القاسي · المناقصات.</strong></div>
+  </div>
+  <div class="m22-q m22-q-tr bad">
+    <div class="m22-q-name">⭐ STRATEGIC · إستراتيجية</div>
+    <div class="m22-q-ar">أثر عالٍ · مخاطر عالية</div>
+    <div class="m22-q-desc">موردون قلائل · حرجة للأعمال. <strong>الإستراتيجية: شراكات طويلة الأمد · تعاون عميق.</strong></div>
+  </div>
+  <div class="m22-q m22-q-bl good">
+    <div class="m22-q-name">🛒 ROUTINE · روتينية</div>
+    <div class="m22-q-ar">أثر منخفض · مخاطر منخفضة</div>
+    <div class="m22-q-desc">سلع عاديّة · أسواق ناضجة. <strong>الإستراتيجية: الأتمتة · Catalogs · P-Cards.</strong></div>
+  </div>
+  <div class="m22-q m22-q-br warn">
+    <div class="m22-q-name">🚧 BOTTLENECK · اختناق</div>
+    <div class="m22-q-ar">أثر منخفض · مخاطر عالية</div>
+    <div class="m22-q-desc">موردون قلائل · لكن أقلّ أهمّية. <strong>الإستراتيجية: ضمان الإمداد · بدائل · مخزون.</strong></div>
+  </div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong style="color:var(--navy)">Peter Kraljic (HBR · ١٩٨٣):</strong> أهمّ مصفوفة في المشتريات. تحدّد <em>استراتيجية مختلفة</em> لكلّ نوع من المواد.
+</div>
   </div>
 
   <div class="sec">▸ تطوّر المشتريات في السعودية</div>
@@ -528,7 +769,20 @@ END-OF-LIFE COSTS (5-15%):
     <li><strong>التوحيد القياسي (Standardization):</strong> ٥-١٠ تصاميم بدل ١٠٠ تخفّض كلفة الفيلا ٣٠٪</li>
   </ol>
 
-</div>
+
+
+  <div class="sec">▸ الأصول الفكرية · مدارس التميّز التشغيلي</div>
+  <table class="tbl">
+    <thead><tr><th>المدرسة</th><th>الرائد · السنة</th><th>الجوهر</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Lean / TPS</strong></td><td>Taiichi Ohno (Toyota) · ١٩٥٠s<br>Womack & Jones "Lean Thinking" ١٩٩٦</td><td>إزالة الهدر (Muda) بأنواعه السبعة · التدفّق المستمرّ · السحب (Pull). خمسة مبادئ: القيمة · التدفّق · السحب · الكمال.</td></tr>
+      <tr><td><strong>نظرية القيود (TOC)</strong></td><td>Eliyahu Goldratt "The Goal" · ١٩٨٤</td><td>أداء النظام تحدّده أضعف حلقة (Bottleneck). ركّز على القيد · لا تحسّن كل شيء عشوائياً. خمس خطوات تركيز.</td></tr>
+      <tr><td><strong>Six Sigma</strong></td><td>Motorola · ١٩٨٦ · شاعتها GE (Welch)</td><td>تقليل التباين لـ ٣.٤ عيب/مليون. منهج DMAIC المنظّم.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>التكامل لعملك:</strong> الـ Lean يزيل الهدر في عمليات المشتريات (الموافقات الزائدة) · والـ TOC يحدّد عنق الزجاجة في سلسلة توريد المشروع (غالباً الـ LLI). معظم تأخّرات المشاريع سببها قيد واحد — حدّده وركّز عليه (Goldratt) بدل تشتيت الجهد.</p>
+
+  </div>
 
 <div class="module" id="m-strategic-sourcing">
   <div class="mod-head"><div class="mod-icon" style="background:#dbeafe;color:var(--s1)">🎯</div><div class="mod-meta"><div class="mod-tag" style="color:var(--s1)">UNIT 02 — STRATEGIC SOURCING</div><div class="mod-title">Strategic Sourcing · المنهج المنظّم</div><div class="mod-desc">٧ خطوات منهجية · Spend Analysis · Sourcing Strategy · Supplier Selection</div></div></div>
@@ -558,64 +812,38 @@ END-OF-LIFE COSTS (5-15%):
   </table>
 
   <div class="sec">▸ منهج الـ ٧ خطوات · The 7-Step Process</div>
+<div class="calc-box">
+  <div class="calc-title">💰 حاسبة التكلفة الإجمالية للملكية · TCO Calculator</div>
+  <div class="calc-sub">السعر ليس كل شيء — احسب التكلفة الحقيقية على عمر الأصل/العقد</div>
+  <div class="calc-inputs cols-2">
+    <div class="calc-field"><label>سعر الشراء (ر.س)</label><input type="number" id="tco-price" value="100000" oninput="calcTCO()"></div>
+    <div class="calc-field"><label>الشحن والتركيب (ر.س)</label><input type="number" id="tco-ship" value="8000" oninput="calcTCO()"></div>
+    <div class="calc-field"><label>التشغيل/سنة (ر.س)</label><input type="number" id="tco-ops" value="12000" oninput="calcTCO()"></div>
+    <div class="calc-field"><label>الصيانة/سنة (ر.س)</label><input type="number" id="tco-maint" value="6000" oninput="calcTCO()"></div>
+    <div class="calc-field"><label>عدد سنوات العمر</label><input type="number" id="tco-years" value="5" oninput="calcTCO()"></div>
+    <div class="calc-field"><label>قيمة الإنقاذ النهائية (ر.س)</label><input type="number" id="tco-salvage" value="10000" oninput="calcTCO()"></div>
+  </div>
+  <div class="calc-result">
+    <div class="calc-result-label">التكلفة الإجمالية للملكية · TCO</div>
+    <div class="calc-result-value" id="tco-result">188,000</div>
+    <div class="calc-result-unit">ريال على كامل العمر</div>
+  </div>
+  <div class="calc-breakdown" id="tco-breakdown"></div>
+  <div class="calc-note"><strong>الدرس:</strong> منتج بسعر شراء أقلّ قد يكون TCO أعلى بسبب التشغيل/الصيانة. قارن دائماً الـ TCO وليس السعر فقط.</div>
+</div>
 
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">STRATEGIC SOURCING METHODOLOGY</div>
-<pre class="codebox-code">STEP 1 · SPEND ANALYSIS (Profile)
-         تحليل الإنفاق
-         ─────────────────────────
-         - ما الذي ننفقه على هذه الفئة?
-         - كم مورد? مَن الكبار?
-         - الاتّجاهات (السنة الأخيرة)
-         - Tail spend (الموردون الصغار)
-         
-STEP 2 · SUPPLY MARKET RESEARCH
-         دراسة السوق
-         ─────────────────────────
-         - من اللاعبون العالميون? المحلّيون?
-         - القدرات · الأسعار · الجودة
-         - الاتّجاهات في الصناعة
-         - التقنيات الجديدة
-         
-STEP 3 · DEVELOP SOURCING STRATEGY
-         بناء الإستراتيجية
-         ─────────────────────────
-         - مورد واحد vs متعدّد?
-         - عقد طويل vs قصير?
-         - محلّي vs عالمي?
-         - Make vs Buy?
-         
-STEP 4 · IDENTIFY POTENTIAL SUPPLIERS
-         تحديد الموردين المحتملين
-         ─────────────────────────
-         - Long List (15-25)
-         - Pre-qualification criteria
-         - Site visits لو لزم
-         - Short List (5-8)
-         
-STEP 5 · SOLICITATION (RFx)
-         طلب العروض
-         ─────────────────────────
-         - RFI · RFQ · RFP
-         - Reverse Auctions
-         - Evaluation criteria واضحة
-         
-STEP 6 · NEGOTIATION & CONTRACT
-         التفاوض والتعاقد
-         ─────────────────────────
-         - Best & Final Offer (BAFO)
-         - Negotiation strategy
-         - Contract terms
-         
-STEP 7 · IMPLEMENT & MEASURE
-         التنفيذ والقياس
-         ─────────────────────────
-         - Transition plan
-         - Performance KPIs
-         - Continuous monitoring
-         - Lessons learned</pre>
-    </div>
+    <div class="step-flow">
+  <div class="step-card"><div class="step-num">١</div><div class="step-title">PROFILE CATEGORY</div><div class="step-desc">تحليل الفئة · الإنفاق · الحاجات الداخلية</div></div>
+  <div class="step-card"><div class="step-num">٢</div><div class="step-title">MARKET ANALYSIS</div><div class="step-desc">الموردون · القدرات · الاتّجاهات</div></div>
+  <div class="step-card"><div class="step-num">٣</div><div class="step-title">DEVELOP STRATEGY</div><div class="step-desc">Kraljic positioning · النموذج المناسب</div></div>
+  <div class="step-card"><div class="step-num">٤</div><div class="step-title">SOURCE</div><div class="step-desc">RFI · RFQ · RFP · المفاوضات</div></div>
+</div>
+<div class="step-flow" style="margin-top:8px">
+  <div class="step-card"><div class="step-num">٥</div><div class="step-title">NEGOTIATE & CONTRACT</div><div class="step-desc">التفاوض النهائي · توقيع العقد</div></div>
+  <div class="step-card"><div class="step-num">٦</div><div class="step-title">IMPLEMENT</div><div class="step-desc">التنفيذ · الـ Onboarding</div></div>
+  <div class="step-card"><div class="step-num">٧</div><div class="step-title">MANAGE & IMPROVE</div><div class="step-desc">SLA · KPIs · QBRs · تحسين مستمرّ</div></div>
+</div>
   </div>
 
   <div class="sec">▸ Step 1 · Spend Analysis · الأهمّ</div>
@@ -647,28 +875,21 @@ STEP 7 · IMPLEMENT & MEASURE
   <div class="card">
     <p>قبل أن تشتري · احسب: <em>كم <strong>يجب</strong> أن يكلّف هذا الشيء?</em>. الـ Should Cost = First Principles Thinking للمشتريات.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">SHOULD COST EXAMPLE · مكوّن سيارة</div>
-<pre class="codebox-code">المنتج: قطعة معدنية للسيارة
-المورد يعرض: 100 ريال/قطعة
-
-Should Cost Build-up:
-- المواد الخام (Steel · 2kg): 8 ريال
-- الإنتاج (Labor 30 min): 12 ريال
-- الـ Overhead (Power · Maintenance): 5 ريال
-- الـ Quality (Testing · Rejection): 3 ريال
-- النقل والتعبئة: 4 ريال
-- الـ SG&A (Selling · General · Admin): 6 ريال
-- ربح عادل (10%): 4 ريال
-─────────────────────────────────────
-Should Cost: 42 ريال
-
-الفجوة: 100 - 42 = 58 ريال = 138% فوق الـ Fair Cost
-السبب: المورد يستفيد من معلوماتي المحدودة
-
-الإجراء: إمّا أفاوض على ~ 50-60 ريال
-         أو أبحث عن مورد أفضل</pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">💰 السيناريو · مكوّن سيارة (مَكبَح)</div>
+  <div class="scn-text">عرض المورد: <strong>١٢٠ ريال</strong>. تحليل Should Cost:</div>
+</div>
+<div class="h-bar">
+  <div class="hb-row"><div class="hb-label">المواد الخام (Steel)</div><div class="hb-track"><div class="hb-fill" style="width:35%">٤٥ ر.س</div></div><div class="hb-note">٣٧.٥٪</div></div>
+  <div class="hb-row"><div class="hb-label">العمل (Labor)</div><div class="hb-track"><div class="hb-fill" style="width:20%;background:linear-gradient(90deg,#10b981,#34d399)">٢٤ ر.س</div></div><div class="hb-note">٢٠٪</div></div>
+  <div class="hb-row"><div class="hb-label">الـ Overhead</div><div class="hb-track"><div class="hb-fill" style="width:15%;background:linear-gradient(90deg,#f59e0b,#fbbf24)">١٨ ر.س</div></div><div class="hb-note">١٥٪</div></div>
+  <div class="hb-row"><div class="hb-label">SG&A · مبيعات وإدارة</div><div class="hb-track"><div class="hb-fill" style="width:10%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)">١٢ ر.س</div></div><div class="hb-note">١٠٪</div></div>
+  <div class="hb-row"><div class="hb-label">هامش المورد</div><div class="hb-track"><div class="hb-fill" style="width:13%;background:linear-gradient(90deg,#ec4899,#f472b6)">١٥ ر.س</div></div><div class="hb-note">١٢.٥٪</div></div>
+  <div class="hb-row"><div class="hb-label" style="font-weight:900">SHOULD COST</div><div class="hb-track" style="background:#dcfce7"><div class="hb-fill" style="width:100%;background:linear-gradient(90deg,#16a34a,#15803d)">١١٤ ريال</div></div><div class="hb-note" style="color:#15803d;font-weight:800">المُستهدف</div></div>
+</div>
+<div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#78350f;text-align:center">
+<strong>الفرق:</strong> ١٢٠ - ١١٤ = <strong>٦ ر.س فرصة تفاوض</strong> (٥٪). على ١ مليون قطعة سنوياً = <strong>٦ مليون ريال توفير</strong>.
+</div>
 
     <p style="margin-top:14px"><strong>كيف تبني Should Cost:</strong></p>
     <ul style="margin-top:6px;line-height:1.85;padding-right:20px;color:var(--ink2)">
@@ -800,7 +1021,19 @@ Should Cost: 42 ريال
     </tbody>
   </table>
 
-</div>
+
+
+  <div class="sec">▸ الأساس الأكاديمي · ورقة Kraljic الأصلية</div>
+  <table class="tbl">
+    <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Peter Kraljic</strong><br>"Purchasing Must Become Supply Management" · HBR</td><td>١٩٨٣</td><td>الورقة المؤسِّسة للمشتريات الإستراتيجية. حوّلت الشراء من وظيفة تشغيلية إلى إستراتيجية. مصفوفته (تأثير الربح × مخاطر التوريد) أساس Category Management حتّى اليوم.</td></tr>
+      <tr><td><strong>Robert Monczka et al.</strong><br>"Purchasing & Supply Chain Management"</td><td>١٩٩٨+</td><td>المرجع الأكاديمي الأشمل · منهج الـ 7-Step Strategic Sourcing.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>تطوّر فكر Kraljic:</strong> صنّف المشتريات أربع فئات (Leverage · Strategic · Routine · Bottleneck) لكل منها إستراتيجية مختلفة — لا يُعامَل كل مورد بنفس الطريقة. <strong>النقد الحديث:</strong> النموذج ثنائي البُعد قد يبسّط الواقع المعقّد (Gelderman & Van Weele أضافا أبعاد القوّة والاعتماد المتبادل). لكنّه يبقى نقطة البداية لأيّ إستراتيجية فئة في Etimad.</p>
+
+  </div>
 
 <div class="module" id="m-category-management">
   <div class="mod-head"><div class="mod-icon" style="background:#dcfce7;color:var(--s2)">📂</div><div class="mod-meta"><div class="mod-tag" style="color:var(--s2)">UNIT 03 — CATEGORY MANAGEMENT</div><div class="mod-title">Category Management · إدارة الفئات</div><div class="mod-desc">تنظيم المشتريات حسب الفئة · Strategy per Category · Category Manager role</div></div></div>
@@ -817,6 +1050,34 @@ Should Cost: 42 ريال
   </div>
 
   <div class="sec">▸ ما هي الـ Category؟</div>
+<div class="kraljic">
+  <div class="kraljic-grid">
+    <div class="kr-corner"></div>
+    <div class="kr-xlabel">← مخاطر التوريد (Supply Risk) →</div>
+    <div class="kr-ylabel">← تأثير الربح (Profit Impact) →</div>
+    <div class="kr-quad kr-leverage">
+      <h4>💪 Leverage · النفوذ</h4>
+      <p>تأثير ربح عالٍ · مخاطر توريد منخفضة. موردون كثر · سلع قياسية.</p>
+      <div class="kr-tactic">الإستراتيجية: استغلّ قوّتك الشرائية · مناقصات تنافسية</div>
+    </div>
+    <div class="kr-quad kr-strategic">
+      <h4>⭐ Strategic · الإستراتيجية</h4>
+      <p>تأثير ربح عالٍ · مخاطر توريد عالية. حرجة وحسّاسة.</p>
+      <div class="kr-tactic">الإستراتيجية: شراكات طويلة الأمد · SRM عميق</div>
+    </div>
+    <div class="kr-quad kr-routine">
+      <h4>🔁 Routine · الروتينية</h4>
+      <p>تأثير ربح منخفض · مخاطر منخفضة. مكتبية ومستهلكات.</p>
+      <div class="kr-tactic">الإستراتيجية: أتمتة · كتالوجات · تبسيط الإجراءات</div>
+    </div>
+    <div class="kr-quad kr-bottleneck">
+      <h4>⚠️ Bottleneck · الاختناق</h4>
+      <p>تأثير ربح منخفض · مخاطر توريد عالية. مورد وحيد غالباً.</p>
+      <div class="kr-tactic">الإستراتيجية: ضمان الاستمرارية · مخزون أمان · بدائل</div>
+    </div>
+  </div>
+  <div class="calc-note"><strong>مصفوفة Kraljic:</strong> صنّف كل فئة مشتريات حسب البُعدين · ثمّ طبّق الإستراتيجية المناسبة. أساس Category Management الحديث.</div>
+</div>
   <div class="card">
     <p><strong>Category</strong> = مجموعة من المنتجات/الخدمات تشترك في:</p>
 
@@ -1064,55 +1325,15 @@ Should Cost: 42 ريال
   <div class="sec">▸ الدورة الكاملة · ٧ خطوات</div>
 
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">P2P CYCLE</div>
-<pre class="codebox-code">                  ┌──────────────────────┐
-                  │  1. REQUISITION (PR) │
-                  │  Need identification │
-                  │  Requester           │
-                  └──────────┬───────────┘
-                             │
-                  ┌──────────▼───────────┐
-                  │  2. APPROVAL         │
-                  │  Manager(s)          │
-                  │  Workflow chain      │
-                  └──────────┬───────────┘
-                             │
-                  ┌──────────▼───────────┐
-                  │  3. SOURCING / RFx   │
-                  │  (لو needed)         │
-                  │  Buyer               │
-                  └──────────┬───────────┘
-                             │
-                  ┌──────────▼───────────┐
-                  │  4. PURCHASE ORDER   │
-                  │  PO issued to vendor │
-                  │  Buyer               │
-                  └──────────┬───────────┘
-                             │
-                  ┌──────────▼───────────┐
-                  │  5. RECEIPT (GR)     │
-                  │  Goods/Service rec'd │
-                  │  Receiver/Inspector  │
-                  └──────────┬───────────┘
-                             │
-                  ┌──────────▼───────────┐
-                  │  6. INVOICE          │
-                  │  Vendor sends bill   │
-                  │  3-Way Matching      │
-                  └──────────┬───────────┘
-                             │
-                  ┌──────────▼───────────┐
-                  │  7. PAYMENT          │
-                  │  AP releases payment │
-                  │  Treasury            │
-                  └──────────────────────┘
-
-Avg cycle time:
-- World-class: 2-5 days
-- Industry avg: 10-15 days
-- Manual systems: 30-60 days</pre>
-    </div>
+    <div class="ph-cards cols-4">
+  <div class="ph-card"><div class="ph-num">PHASE 1 · PLAN</div><div class="ph-title">PROCURE · الشراء</div><div class="ph-body"><ul><li>Need identification</li><li>Purchase Requisition (PR)</li><li>Budget check</li><li>Approval workflow</li></ul></div></div>
+  <div class="ph-card p2"><div class="ph-num">PHASE 2 · SOURCE</div><div class="ph-title">SOURCE & PO</div><div class="ph-body"><ul><li>RFx / Catalog selection</li><li>Negotiation</li><li>Purchase Order (PO)</li><li>PO acknowledgment</li></ul></div></div>
+  <div class="ph-card p3"><div class="ph-num">PHASE 3 · RECEIVE</div><div class="ph-title">RECEIVE · الاستلام</div><div class="ph-body"><ul><li>Goods Receipt (GR)</li><li>Quality check</li><li>Service Entry Sheet</li><li>Discrepancy resolution</li></ul></div></div>
+  <div class="ph-card p4"><div class="ph-num">PHASE 4 · PAY</div><div class="ph-title">PAY · الدفع</div><div class="ph-body"><ul><li>Invoice receipt</li><li>3-Way Matching</li><li>Approval</li><li>Payment execution</li></ul></div></div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong style="color:var(--navy)">P2P (Procure-to-Pay):</strong> الدورة الكاملة من <em>الحاجة → الدفع</em>. هدف Cycle Time: ٧-١٠ أيّام. الأتمتة (Oracle/SAP) ٦٠-٨٠٪ ممكنة.
+</div>
   </div>
 
   <div class="sec">▸ Step 1 · Purchase Requisition (PR)</div>
@@ -1232,35 +1453,24 @@ Avg cycle time:
   <div class="card">
     <p>الـ 3-Way Matching = أهمّ ضابط رقابي في الـ P2P. يضمن أنّك تدفع <em>ما طلبت · لما استلمت · بالسعر المتّفق</em>.</p>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">3-WAY MATCHING</div>
-<pre class="codebox-code">           PO                  GR              INVOICE
-       ─────────          ─────────         ─────────
-       100 units          98 units          100 units ❌
-       $10/unit           $10/unit          $11/unit  ❌
-       Total: $1,000      Total: $980       Total: $1,100
-
-3 checks:
-1. Quantity Match:    PO 100 ↔ GR 98 ↔ Inv 100
-                      ⚠️ Mismatch! Inv > GR
-
-2. Price Match:       PO $10 ↔ Inv $11
-                      ⚠️ Mismatch! Inv higher
-
-3. Total Match:       Calculated vs Invoice
-                      ⚠️ Mismatch!
-
-ACTIONS:
-- Block invoice
-- Return to Vendor for correction
-- Or: Accept GR quantity ($980) only
-- DO NOT pay until reconciled
-
-EXCEPTIONS:
-- Within Tolerance: ±2% acceptable (auto-pay)
-- Need Approval: 2-5% (manager approval)
-- Reject: >5% (return to vendor)</pre>
-    </div>
+    <div class="lc-grid cols-3">
+  <div class="lc-card"><div class="lc-letter">PO</div><div class="lc-body"><div class="lc-title">Purchase Order</div><div class="lc-desc"><em>ما طلبناه:</em><br>الكمّية المطلوبة<br>السعر المتّفق<br>المواصفات</div></div></div>
+  <div class="lc-card"><div class="lc-letter">GR</div><div class="lc-body"><div class="lc-title">Goods Receipt</div><div class="lc-desc"><em>ما استلمناه:</em><br>الكمّية الفعلية<br>الجودة المطابقة<br>تاريخ التسليم</div></div></div>
+  <div class="lc-card"><div class="lc-letter">INV</div><div class="lc-body"><div class="lc-title">Invoice</div><div class="lc-desc"><em>ما يطالب به المورد:</em><br>المبلغ المطلوب<br>الكمّيات المفوترة<br>الضريبة (VAT)</div></div></div>
+</div>
+<div class="cmp-2" style="margin-top:14px">
+  <div class="cmp-col good">
+    <div class="cmp-head"><div class="cmp-icon">✓</div>MATCH (كل الثلاثة متّسقون)</div>
+    <div class="cmp-body">PO = GR = INV → <strong>Auto-approve · ادفع</strong></div>
+  </div>
+  <div class="cmp-col bad">
+    <div class="cmp-head"><div class="cmp-icon">✗</div>MISMATCH (اختلاف)</div>
+    <div class="cmp-body">حدّد السبب · تواصل مع المورد · صحّح قبل الدفع</div>
+  </div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--ink2);text-align:center;margin-top:10px">
+<strong style="color:var(--navy)">3-Way Matching:</strong> الـ Internal Control الأساسي ضدّ <em>الفساد · الخطأ · الغشّ</em>. SAP و Oracle يفعلونه أوتوماتيكياً.
+</div>
 
     <p style="margin-top:14px"><strong>أنواع الـ Matching:</strong></p>
     <ul style="margin-top:6px;line-height:1.85;padding-right:20px;color:var(--ink2)">
@@ -1416,34 +1626,19 @@ EXCEPTIONS:
     </ul>
 
     <p style="margin-top:12px"><strong>هيكل الـ RFI:</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">RFI STRUCTURE</div>
-<pre class="codebox-code">SECTION 1: COMPANY INTRODUCTION
-- من نحن? Brief about our company
-- ما السوق الذي نعمل فيه?
-- الـ Context للـ RFI
-
-SECTION 2: WHAT WE'RE EXPLORING
-- نطاق المعلومات المطلوبة
-- التحدّيات التي نواجهها
-- ما يمكن أن يفعله الموردون
-
-SECTION 3: SUPPLIER QUESTIONS
-- Background: حجم الشركة · المواقع · سنوات الخبرة
-- Capabilities: المنتجات · الخدمات · القدرة
-- Customers: من خدمتم في السعودية/المنطقة?
-- Innovation: ما هو الجديد لديكم?
-- Sustainability: ESG · Environmental
-- Local Content: نسبتكم?
-- References: 3 عملاء يمكن التواصل معهم
-
-SECTION 4: SUBMISSION
-- Format · Deadline
-- Contact person
-- Confidentiality
-
-NO PRICING REQUIRED في الـ RFI</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📋 REQUEST FOR INFORMATION (RFI) <span class="doc-header-sub">للاستكشاف الأوّلي</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 1 · المعلومات الشركية</div><div class="doc-sec-body">السجلّ التجاري · العنوان · سنوات الخبرة · المراجع · الشركاء</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 2 · القدرات</div><div class="doc-sec-body">المنتجات/الخدمات · الطاقة الإنتاجية · المنشآت · الشهادات (ISO 9001 · ١٤٠٠١)</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 3 · الخبرات السابقة</div><div class="doc-sec-body">المشاريع المماثلة · العملاء الكبار · حالات نجاح</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 4 · المؤشّرات المالية</div><div class="doc-sec-body">الإيرادات السنوية · القوائم المالية · Credit rating</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 5 · التوافق السعودي</div><div class="doc-sec-body">السعودة · IKTVA · LCGPA · Etimad pre-qualification</div></div>
+  </div>
+</div>
+<div style="background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:12px;color:var(--ink2);margin-top:10px">
+<strong style="color:var(--navy)">الهدف:</strong> فهم السوق · بناء Long List · بدون أسعار · بدون التزام. أوّل خطوة في Strategic Sourcing.
+</div>
   </div>
 
   <div class="sec">▸ Request for Quotation (RFQ)</div>
@@ -1458,43 +1653,19 @@ NO PRICING REQUIRED في الـ RFI</pre>
     </ul>
 
     <p style="margin-top:12px"><strong>هيكل الـ RFQ:</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">RFQ STRUCTURE</div>
-<pre class="codebox-code">SECTION 1: SCOPE & SPECIFICATIONS
-- وصف المنتج/الخدمة بدقّة
-- Material codes · Technical specs
-- Drawings · Standards (ISO · ASTM · etc.)
-- الـ Quality requirements
-
-SECTION 2: COMMERCIAL TERMS
-- Quantity (Min · Max · Expected)
-- Delivery Schedule
-- Delivery Location (Incoterms · EXW · DDP)
-- Payment Terms expected
-- Currency
-- Validity of quote
-
-SECTION 3: PRICING TEMPLATE
-| Item | Description | Qty | Unit Price | Total |
-| ---- | ----------- | --- | ---------- | ----- |
-| ...  | ...         | ... | ...        | ...   |
-
-Subtotal · Discount · Total · VAT
-
-SECTION 4: COMMERCIAL CONDITIONS
-- Terms & Conditions (Reference Document)
-- Confidentiality
-- IP rights
-- Liability · Warranty
-- Compliance requirements
-
-SECTION 5: SUBMISSION DETAILS
-- Bid format
-- Sealed bid procedures
-- Submission date · time · location
-- Contact person
-- Bid validity period</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">💰 REQUEST FOR QUOTATION (RFQ) <span class="doc-header-sub">للسلع المعيارية</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 1 · المتطلّبات</div><div class="doc-sec-body">المواصفات الدقيقة · الكمّيات · جدول التسليم · المعايير الفنّية</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 2 · شروط الأسعار</div><div class="doc-sec-body">السعر الإجمالي · سعر الوحدة · الـ Currency · الـ Incoterms (CIF/FOB/DDP)</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 3 · الشروط التجارية</div><div class="doc-sec-body">شروط الدفع · فترة الضمان · شروط التسليم · الـ Penalties</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 4 · التقييم</div><div class="doc-sec-body">معايير الترسية · Lowest price vs Best value · جدول التقييم</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 5 · المتطلّبات السعودية</div><div class="doc-sec-body">ZATCA · LCGPA · IKTVA · شهادات السعودة</div></div>
+  </div>
+</div>
+<div style="background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:12px;color:var(--ink2);margin-top:10px">
+<strong style="color:var(--navy)">الهدف:</strong> الحصول على أسعار للسلع المعرّفة بدقّة. <em>السعر هو المعيار الرئيسي</em>. مناسب لـ Kraljic Leverage & Routine.
+</div>
 
     <p style="margin-top:14px"><strong>القرار:</strong> Lowest qualified bidder. بشرط أن يجتاز Pre-qualification (Quality · Delivery · Compliance).</p>
   </div>
@@ -1513,59 +1684,17 @@ SECTION 5: SUBMISSION DETAILS
 
     <p style="margin-top:12px"><strong>هيكل الـ RFP (المنهجي · ٧ أقسام):</strong></p>
 
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">RFP STRUCTURE</div>
-<pre class="codebox-code">SECTION 1: EXECUTIVE SUMMARY
-- About the company
-- The opportunity
-- Why this RFP
-
-SECTION 2: SCOPE OF WORK (SOW)
-- المشكلة التي نريد حلّها
-- الأهداف · النتائج المطلوبة
-- النطاق الكامل (Inclusion · Exclusion)
-- المتطلّبات الفنّية
-- الـ Timeline expected
-
-SECTION 3: SUPPLIER REQUIREMENTS
-- الـ Qualification (سنوات · حجم · شهادات)
-- Experience في صناعتك
-- References · Case studies
-- الـ Team proposed (CVs)
-- Financial stability proof
-
-SECTION 4: PROPOSAL REQUIREMENTS
-- التقني (Technical Proposal):
-  * منهجية الحلّ
-  * الـ Approach التفصيلي
-  * الـ Timeline · Milestones
-  * الـ Risk Management
-  
-- المالي (Financial Proposal):
-  * الـ Pricing model (Fixed · T&M · etc.)
-  * Itemized costs
-  * Payment schedule
-  * Variations · Change order rates
-
-SECTION 5: EVALUATION CRITERIA
-- Technical (60-70% weight)
-- Financial (20-30%)
-- Compliance & Other (10-15%)
-- معايير محدّدة لكل واحد
-
-SECTION 6: TERMS & CONDITIONS
-- Contract structure (will be issued)
-- Liability · Insurance · Indemnity
-- IP · Confidentiality
-- Termination clauses
-- Saudi law (jurisdiction)
-
-SECTION 7: SUBMISSION PROCESS
-- Timeline (Q&A · site visits · submission · evaluation · negotiation · award)
-- Format requirements
-- Single point of contact
-- Confidentiality</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📑 REQUEST FOR PROPOSAL (RFP) <span class="doc-header-sub">للحلول المعقّدة</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 1 · Executive Summary</div><div class="doc-sec-body">الـ Context · الـ Vision · المشكلة المطلوب حلّها · المخرجات المتوقّعة</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 2 · Scope of Work (SOW)</div><div class="doc-sec-body">المخرجات التفصيلية · المراحل · الـ Deliverables · الـ Acceptance criteria</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 3 · Technical Requirements</div><div class="doc-sec-body">التكنولوجيا · الـ Architecture · Performance · Security · Integration</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 4 · Commercial Proposal</div><div class="doc-sec-body">Pricing model · Payment milestones · Optional services · Total Cost</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 5 · Evaluation Criteria</div><div class="doc-sec-body">Technical 60% · Commercial 30% · Saudi Content 10% (مثال)</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 6 · Implementation Plan</div><div class="doc-sec-body">Timeline · Team structure · Risk mitigation · Change management</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ Evaluation Methodology · معايير التقييم الموزونة</div>
@@ -1587,33 +1716,23 @@ SECTION 7: SUBMISSION PROCESS
       </tbody>
     </table>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">SCORING EXAMPLE</div>
-<pre class="codebox-code">Supplier A:
-- Technical:      18/20 (95%)
-- Experience:     12/15 (80%)
-- Methodology:    13/15 (87%)
-- Price:          24/30 (80%)
-- Local Content:  9/10  (90%)
-- Saudization:    4/5   (80%)
-- HSE:            5/5   (100%)
-─────────────────────────
-TOTAL:            85/100
-
-Supplier B:
-- Technical:      16/20 (80%)
-- Experience:     14/15 (93%)
-- Methodology:    11/15 (73%)
-- Price:          27/30 (90%)
-- Local Content:  7/10  (70%)
-- Saudization:    3/5   (60%)
-- HSE:            5/5   (100%)
-─────────────────────────
-TOTAL:            83/100
-
-Decision: Supplier A wins by 2 points
-رغم أنّ B أرخص بـ 10% — A الأفضل قيمةً</pre>
-    </div>
+    <div class="h-bar">
+  <div class="hb-row"><div class="hb-label">المورد A</div><div class="hb-track"><div class="hb-fill" style="width:88%">٨٨ من ١٠٠</div></div><div class="hb-note">⭐ الترسية</div></div>
+  <div class="hb-row"><div class="hb-label">المورد B</div><div class="hb-track"><div class="hb-fill" style="width:82%;background:linear-gradient(90deg,#3b82f6,#60a5fa)">٨٢ من ١٠٠</div></div><div class="hb-note">٢nd</div></div>
+  <div class="hb-row"><div class="hb-label">المورد C</div><div class="hb-track"><div class="hb-fill" style="width:75%;background:linear-gradient(90deg,#10b981,#34d399)">٧٥ من ١٠٠</div></div><div class="hb-note">٣rd</div></div>
+  <div class="hb-row"><div class="hb-label">المورد D</div><div class="hb-track"><div class="hb-fill" style="width:68%;background:linear-gradient(90deg,#f59e0b,#fbbf24)">٦٨</div></div><div class="hb-note">٤th</div></div>
+  <div class="hb-row"><div class="hb-label">المورد E</div><div class="hb-track"><div class="hb-fill" style="width:55%;background:linear-gradient(90deg,#ef4444,#f87171)">٥٥</div></div><div class="hb-note">رفض</div></div>
+</div>
+<div class="cmp-2" style="margin-top:14px">
+  <div class="cmp-col info">
+    <div class="cmp-head"><div class="cmp-icon">🎯</div>Weight Distribution</div>
+    <div class="cmp-body">Technical: 40%<br>Commercial: 35%<br>Delivery: 15%<br>Saudi Content: 10%</div>
+  </div>
+  <div class="cmp-col good">
+    <div class="cmp-head"><div class="cmp-icon">📊</div>Award Criteria</div>
+    <div class="cmp-body">Lowest qualifying technical + best commercial<br><strong>≥ ٧٥</strong> للتأهّل · المورد A يفوز</div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ Reverse Auctions · المزادات العكسية</div>
@@ -1718,30 +1837,14 @@ Decision: Supplier A wins by 2 points
   <div class="card">
     <p>الـ Procurement الناجح لا يتفاوض على <em>السعر</em> فقط. بل على <em>Total Cost of Ownership</em>.</p>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">TCO NEGOTIATION LEVERS</div>
-<pre class="codebox-code">السعر فقط (التفاوض البدائي):
-─────────────────────
-"السعر 100 ريال · أريد 90"
-نتيجة: تخفيض 10% فقط
-
-TCO Negotiation (المهني):
-─────────────────────────
-Item Unit Price:        100 → 95 (-5%)
-+ Volume Discount:      → -3% للـ Bulk
-+ Extended Warranty:    Free 2 years (worth $50)
-+ Training:             Free for staff
-+ Spare Parts pricing:  -15% locked for 3 years
-+ Maintenance:          Annual contract -20%
-+ Delivery:             Free (was $5)
-+ Payment Terms:        Net 60 (was Net 30)
-+ Volume rebate:        2% at year end
-+ Performance Bonus:    Savings shared if KPIs met
-+ Co-marketing:         $10K in joint marketing
-
-النتيجة الفعلية: 25-40% توفير في TCO
-بدل 10% في السعر فقط</pre>
-    </div>
+    <div class="lc-grid cols-3">
+  <div class="lc-card"><div class="lc-letter">P</div><div class="lc-body"><div class="lc-title">PRICE LEVERS · السعر</div><div class="lc-desc">Volume discounts · Long-term commitment · Spot buy · Index pricing</div></div></div>
+  <div class="lc-card"><div class="lc-letter">T</div><div class="lc-body"><div class="lc-title">PAYMENT TERMS · الشروط</div><div class="lc-desc">Net 30/60/90 · Early payment discounts · Milestones · Letters of credit</div></div></div>
+  <div class="lc-card"><div class="lc-letter">L</div><div class="lc-body"><div class="lc-title">LOGISTICS · اللوجستيات</div><div class="lc-desc">Incoterms · Warehouse · Consignment · VMI (Vendor-Managed Inventory)</div></div></div>
+  <div class="lc-card"><div class="lc-letter">Q</div><div class="lc-body"><div class="lc-title">QUALITY · الجودة</div><div class="lc-desc">SLAs · Quality penalties · Return policy · Warranty extension</div></div></div>
+  <div class="lc-card"><div class="lc-letter">S</div><div class="lc-body"><div class="lc-title">SERVICE · الخدمة</div><div class="lc-desc">Training · Installation · Maintenance · Spare parts · 24/7 support</div></div></div>
+  <div class="lc-card"><div class="lc-letter">R</div><div class="lc-body"><div class="lc-title">RISK SHARING · المخاطر</div><div class="lc-desc">Performance bonds · Liquidated damages · Force majeure · IP rights</div></div></div>
+</div>
 
     <p style="margin-top:14px"><strong>المبدأ:</strong> هناك ١٠+ "Levers" للتفاوض. السعر واحد منها فقط. القائد الذكي يفاوض على كلّها.</p>
   </div>
@@ -2058,60 +2161,16 @@ Item Unit Price:        100 → 95 (-5%)
   <div class="card">
     <p>إدارة العقد ليست لحظة التوقيع. هي دورة كاملة:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">CLM LIFECYCLE</div>
-<pre class="codebox-code">PHASE 1 · REQUEST & DRAFTING
-        طلب الـ Contract وصياغته
-        ─────────────────────────────
-        - Contract Request (من المشتري)
-        - Template selection
-        - Initial drafting (Legal)
-
-PHASE 2 · NEGOTIATION & APPROVAL
-        التفاوض والموافقة
-        ─────────────────────────────
-        - Redlining (تعديلات متبادلة)
-        - Internal stakeholder review
-        - Approval workflow
-        - Final terms
-
-PHASE 3 · EXECUTION (SIGNATURE)
-        التوقيع
-        ─────────────────────────────
-        - E-signature (DocuSign · Adobe)
-        - Hard copy لو لزم
-        - Distribution للأطراف
-
-PHASE 4 · OBLIGATIONS MANAGEMENT
-        إدارة الالتزامات
-        ─────────────────────────────
-        - تتبّع الـ Milestones والـ KPIs
-        - Performance monitoring
-        - تطبيق Penalties/Bonuses
-        - الـ Change Orders إن لزم
-
-PHASE 5 · COMPLIANCE & AUDIT
-        الامتثال والتدقيق
-        ─────────────────────────────
-        - الـ Regulatory compliance
-        - Internal audits
-        - SLA reporting
-
-PHASE 6 · RENEWAL OR TERMINATION
-        التجديد أو الإنهاء
-        ─────────────────────────────
-        - تنبيهات قبل ٩٠-١٢٠ يوم
-        - Performance review
-        - Negotiation للتجديد
-        - أو Termination procedure
-
-PHASE 7 · POST-CONTRACT REVIEW
-        مراجعة ما بعد العقد
-        ─────────────────────────────
-        - Lessons learned
-        - Archive في CLM System
-        - Insights للعقود القادمة</pre>
-    </div>
+    <div class="ph-cards cols-5">
+  <div class="ph-card"><div class="ph-num">1 · CREATE</div><div class="ph-title">إنشاء العقد</div><div class="ph-body">Templates · Clauses library · Drafting</div></div>
+  <div class="ph-card p2"><div class="ph-num">2 · NEGOTIATE</div><div class="ph-title">التفاوض</div><div class="ph-body">Redlines · Approvals · Risk review</div></div>
+  <div class="ph-card p3"><div class="ph-num">3 · EXECUTE</div><div class="ph-title">التوقيع</div><div class="ph-body">e-Signature · Distribution · Activation</div></div>
+  <div class="ph-card p4"><div class="ph-num">4 · MANAGE</div><div class="ph-title">الإدارة</div><div class="ph-body">Obligations · Milestones · Compliance</div></div>
+  <div class="ph-card p5"><div class="ph-num">5 · RENEW</div><div class="ph-title">التجديد</div><div class="ph-body">Alerts · Re-negotiate · Terminate · Archive</div></div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong style="color:var(--navy)">CLM (Contract Lifecycle Management):</strong> منصّات شائعة · Icertis · DocuSign CLM · SirionLabs · Conga · Oracle CLM.
+</div>
 
     <p style="margin-top:14px"><strong>أدوات CLM في السوق:</strong></p>
     <ul style="margin-top:6px;line-height:1.85;padding-right:20px;color:var(--ink2)">
@@ -2220,7 +2279,20 @@ PHASE 7 · POST-CONTRACT REVIEW
     <li><strong>Lessons Learned:</strong> Post-contract review لكل عقد كبير</li>
   </ol>
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · اقتصاديات تكاليف المعاملات</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">قرار "العقد مقابل التصنيع الداخلي" (Make vs Buy) وتصميم العقود مؤصّل في نظرية نوبلية:</p>
+  <table class="tbl">
+    <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ronald Coase</strong><br>"The Nature of the Firm"</td><td>١٩٣٧</td><td>السؤال الجوهري: لماذا توجد الشركات أصلاً؟ لأنّ استخدام السوق له تكلفة (تكاليف المعاملات). نوبل ١٩٩١.</td></tr>
+      <tr><td><strong>Oliver Williamson</strong><br>"Markets and Hierarchies"</td><td>١٩٧٥/١٩٨٥</td><td>طوّر اقتصاديات تكاليف المعاملات (TCE): متى تشتري من السوق ومتى تصنّع داخلياً؟ يعتمد على <strong>خصوصية الأصل · عدم اليقين · تكرار المعاملة</strong>. نوبل ٢٠٠٩.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>تطبيق على عقود المقاولات:</strong> كلّما زادت <strong>خصوصية الأصل (Asset Specificity)</strong> — مثل مورّد يصنّع جزءاً مخصّصاً لمشروعك فقط — زاد خطر "الاحتجاز (Hold-Up)" وحاجتك لعقد محكم أو علاقة طويلة. هذا يفسّر لماذا الـ LLI (المواد طويلة التوريد) تتطلّب عقوداً أكثر تفصيلاً من المواد القياسية. <strong>العقد أداة لإدارة تكاليف المعاملات وعدم تماثل المعلومات (Akerlof).</strong></p>
+
+  </div>
 
 <div class="module" id="m-supplier-qualification">
   <div class="mod-head"><div class="mod-icon" style="background:#dcfce7;color:var(--s2)">✅</div><div class="mod-meta"><div class="mod-tag" style="color:var(--s2)">UNIT 08 — SUPPLIER QUALIFICATION</div><div class="mod-title">تأهيل الموردين · Prequalification</div><div class="mod-desc">٥ أبعاد للتأهيل · العملية · المتطلّبات · Etimad · CCS · الـ Red Flags</div></div></div>
@@ -2337,58 +2409,17 @@ PHASE 7 · POST-CONTRACT REVIEW
 
   <div class="sec">▸ عملية التأهيل · ٧ خطوات</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">SUPPLIER QUALIFICATION PROCESS</div>
-<pre class="codebox-code">STEP 1 · APPLICATION
-        المورد يقدّم طلباً
-        - Online portal / Email
-        - Self-declaration form
-        - Initial documents
-
-STEP 2 · INITIAL SCREENING (2-5 days)
-        فلترة أوّلية
-        - Document completeness
-        - Basic criteria (Registration · Tax)
-        - Negative list check (Anti-corruption · Sanctions)
-        - Result: Pass / Fail / More info needed
-
-STEP 3 · DETAILED ASSESSMENT (1-2 weeks)
-        تقييم تفصيلي
-        - Financial analysis (3 years statements)
-        - Technical capability review
-        - Reference checks (5-7 customers)
-        - HR/Saudization check
-        - Certifications verification
-
-STEP 4 · SITE VISIT (Optional/Required)
-        زيارة ميدانية
-        - For Strategic suppliers
-        - Or High-risk categories
-        - Or للموردين الجدد بقيمة >$1M
-        - Audit team: Procurement · Quality · HSE
-
-STEP 5 · CATEGORIZATION
-        التصنيف
-        - Approved (Full)
-        - Approved with Conditions
-        - Provisional (6-12 months trial)
-        - Rejected
-
-STEP 6 · APPROVAL & ADDITION
-        الموافقة والإضافة
-        - Approval workflow (Procurement → Quality → Risk → Approval Committee)
-        - Add to AVL (Approved Vendor List)
-        - Categories assigned
-        - Risk rating assigned
-
-STEP 7 · ONGOING MONITORING
-        المراقبة المستمرّة
-        - Annual re-qualification
-        - Performance monitoring (KPIs)
-        - Financial health updates (quarterly)
-        - Compliance re-checks
-        - Updates للـ Certifications</pre>
-    </div>
+    <div class="step-flow">
+  <div class="step-card"><div class="step-num">١</div><div class="step-title">SELF-ASSESSMENT</div><div class="step-desc">الـ Supplier يملأ استبيان أوّلي شامل</div></div>
+  <div class="step-card"><div class="step-num">٢</div><div class="step-title">DOCUMENTATION</div><div class="step-desc">السجلّ · الشهادات · القوائم المالية · References</div></div>
+  <div class="step-card"><div class="step-num">٣</div><div class="step-title">FINANCIAL CHECK</div><div class="step-desc">D&B · Credit rating · Bankruptcy check · Insurance</div></div>
+  <div class="step-card"><div class="step-num">٤</div><div class="step-title">SITE VISIT</div><div class="step-desc">معاينة فعلية للمنشآت · Capacity assessment</div></div>
+</div>
+<div class="step-flow" style="margin-top:8px">
+  <div class="step-card"><div class="step-num">٥</div><div class="step-title">SAUDI COMPLIANCE</div><div class="step-desc">IKTVA · LCGPA · Etimad · Saudization · Nazaha</div></div>
+  <div class="step-card"><div class="step-num">٦</div><div class="step-title">PILOT ORDER</div><div class="step-desc">طلب صغير لاختبار الجودة والالتزام</div></div>
+  <div class="step-card"><div class="step-num">٧</div><div class="step-title">FINAL APPROVAL</div><div class="step-desc">إضافة لـ Approved Vendor List (AVL)</div></div>
+</div>
   </div>
 
   <div class="sec">▸ المتطلّبات السعودية</div>
@@ -2623,20 +2654,19 @@ STEP 7 · ONGOING MONITORING
     </ol>
 
     <p style="margin-top:14px"><strong>الـ IKTVA Score formula (مبسّطة):</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">IKTVA SCORE</div>
-<pre class="codebox-code">IKTVA = (Local Goods + Local Services + 
-         Local R&D + Local Training + 
-         Local Saudi Talent) / Total Revenue
-
-أمثلة:
-- Saudi local supplier: IKTVA = 90%
-- International with Saudi operations: 30-60%
-- Pure international: 5-10%
-
-Aramco target: 70% by 2021 (achieved 65%)
-2030 target: 75%+</pre>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>IKTVA Score</em> <span class="fb-op">=</span>
+    <div class="fb-frac">
+      <div class="fb-frac-top">Local Goods + Local Services + Local Workforce + Local Training + Local Supplier Development</div>
+      <div class="fb-frac-bot">Total Procurement Spend</div>
     </div>
+    <span class="fb-op">×</span> <strong>100%</strong>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--navy);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>IKTVA</strong> = In-Kingdom Total Value Add · مبادرة Aramco لتعزيز المحتوى المحلّي. الهدف: <strong>٧٠٪</strong> بحلول ٢٠٢١ (تحقّق).
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ النموذج السعودي · Nusaned (SABIC)</div>
@@ -2774,31 +2804,16 @@ Aramco target: 70% by 2021 (achieved 65%)
   <div class="card">
     <p>قبل SRM · يجب تقسيم الموردين لفئات. لا يمكن (ولا يجب) معاملة الكلّ بنفس الطريقة.</p>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">SUPPLIER SEGMENTATION PYRAMID</div>
-<pre class="codebox-code">                       ▲
-                       │
-                  ┌────┴────┐
-                  │ STRATEGIC│  <span class="c-com"># 5-15 موردين</span>
-                  │  10-20%  │      Joint Innovation
-                  │ of spend │      Long-term contracts
-                  │          │      Executive sponsorship
-                  └─────┬────┘
-                       │
-                ┌──────┴──────┐
-                │  PREFERRED   │  <span class="c-com"># 50-200 موردين</span>
-                │   30-40%     │      Strong partnerships
-                │  of spend    │      Annual reviews
-                │              │      Volume commitments
-                └──────┬───────┘
-                       │
-              ┌────────┴────────┐
-              │  TRANSACTIONAL  │  <span class="c-com"># 500-2000 موردين</span>
-              │     40-60%      │      Spot transactions
-              │    of spend     │      Catalogs / e-Procurement
-              │                 │      Minimal interaction
-              └─────────────────┘</pre>
-    </div>
+    <div class="pyramid-5">
+  <div class="pyr-row"><div class="pyr-block l1"><span class="pyr-block-num">١</span>STRATEGIC PARTNERS<br><span class="pyr-block-desc">شركاء إستراتيجيّون · ٥-١٠ موردين · ٦٠٪+ من الإنفاق</span></div></div>
+  <div class="pyr-row"><div class="pyr-block l2"><span class="pyr-block-num">٢</span>PREFERRED SUPPLIERS<br><span class="pyr-block-desc">موردون مفضّلون · ٢٠-٥٠ مورد · ٢٥٪</span></div></div>
+  <div class="pyr-row"><div class="pyr-block l3"><span class="pyr-block-num">٣</span>APPROVED SUPPLIERS<br><span class="pyr-block-desc">موردون معتمدون · ١٠٠-٣٠٠ · ١٠٪</span></div></div>
+  <div class="pyr-row"><div class="pyr-block l4"><span class="pyr-block-num">٤</span>SPOT BUYERS<br><span class="pyr-block-desc">موردون متفرّقون · حسب الحاجة · ٤٪</span></div></div>
+  <div class="pyr-row"><div class="pyr-block l5"><span class="pyr-block-num">٥</span>TAIL SPEND<br><span class="pyr-block-desc">صغار · ١٠٠٠+ · ١٪</span></div></div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong>القاعدة (٨٠/٢٠):</strong> ٢٠٪ من الموردين = ٨٠٪ من القيمة. ركّز الجهد القيادي عليهم.
+</div>
   </div>
 
   <div class="sec">▸ معايير التقسيم</div>
@@ -2899,44 +2914,16 @@ Aramco target: 70% by 2021 (achieved 65%)
     <p>الاجتماع الأهمّ مع الموردين الإستراتيجيّين. ٣-٤ ساعات. ربعياً.</p>
 
     <p style="margin-top:10px"><strong>الـ Agenda القياسية:</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">QBR AGENDA</div>
-<pre class="codebox-code">SECTION 1 · Performance Review (٤٥ دقيقة)
-- KPIs vs Targets
-- Quality · Delivery · Cost
-- Issues · Resolutions
-- Customer satisfaction
-
-SECTION 2 · Business Environment (٣٠ دقيقة)
-- Market trends
-- Industry challenges
-- Geopolitical factors
-- Regulatory changes
-
-SECTION 3 · Joint Innovation (٤٥ دقيقة)
-- Active projects status
-- New ideas
-- Pilot programs
-- R&D pipeline
-
-SECTION 4 · Forward Planning (٤٥ دقيقة)
-- Volume forecasts
-- New requirements
-- Capacity planning
-- Strategic initiatives
-
-SECTION 5 · Action Items & Follow-up (١٥ دقيقة)
-- Specific actions
-- Owners and dates
-- Next QBR scheduling
-
-PARTICIPANTS:
-الشركة: Procurement Director · Engineering Lead · 
-        Operations · Finance · CEO sponsor (sometimes)
-
-المورد: VP Sales · Engineering · Quality · 
-        Operations · CEO (for Strategic)</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📅 QUARTERLY BUSINESS REVIEW (QBR) <span class="doc-header-sub">٩٠-١٢٠ دقيقة</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">٠-١٥ دقيقة · OPENING & CONTEXT</div><div class="doc-sec-body">Welcome · Agenda review · Last QBR action items follow-up</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">١٥-٤٥ دقيقة · PERFORMANCE REVIEW</div><div class="doc-sec-body">SLA scorecard · Quality KPIs · Delivery performance · Cost · Innovation</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">٤٥-٧٥ دقيقة · STRATEGIC DISCUSSION</div><div class="doc-sec-body">Market trends · Joint roadmap · Innovation pipeline · Vision 2030 alignment</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">٧٥-١٠٥ دقيقة · ISSUES & OPPORTUNITIES</div><div class="doc-sec-body">Open issues · Risk register · New opportunities · Cost reduction ideas</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">١٠٥-١٢٠ دقيقة · ACTION ITEMS & CLOSE</div><div class="doc-sec-body">Action items · Owners · Deadlines · Next QBR date</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ Supplier Performance Management</div>
@@ -3144,63 +3131,50 @@ PARTICIPANTS:
     </ol>
 
     <p style="margin-top:14px"><strong>Risk Scoring:</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">RISK SCORING</div>
-<pre class="codebox-code">RISK SCORE = Probability × Impact
-
-PROBABILITY (1-5):
-1 = Very Low (< 5%)
-2 = Low (5-20%)
-3 = Medium (20-50%)
-4 = High (50-80%)
-5 = Very High (> 80%)
-
-IMPACT (1-5):
-1 = Negligible (<$10K)
-2 = Minor ($10-100K)
-3 = Moderate ($100K-1M)
-4 = Major ($1-10M)
-5 = Severe (>$10M أو operational shutdown)
-
-RISK CATEGORIES:
-- 1-4:  Low (Accept · Monitor)
-- 5-9:  Medium (Mitigate · Plan)
-- 10-15: High (Active mitigation · Backup plans)
-- 16-25: Critical (Immediate action · Consider replacement)</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>RISK SCORE</em> <span class="fb-op">=</span>
+    <strong>PROBABILITY (١-٥)</strong> <span class="fb-op">×</span>
+    <strong>IMPACT (١-٥)</strong>
+  </div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">١-٤ · LOW</div><div class="fb-term-desc">قبول المخاطرة · مراقبة دورية</div></div>
+    <div class="fb-term"><div class="fb-term-name">٥-٩ · MEDIUM</div><div class="fb-term-desc">Mitigation plan · مراقبة شهرية</div></div>
+    <div class="fb-term"><div class="fb-term-name">١٠-١٥ · HIGH</div><div class="fb-term-desc">Mitigation فوري · Owner محدّد</div></div>
+    <div class="fb-term" style="border-color:#dc2626"><div class="fb-term-name" style="color:#dc2626">١٦-٢٥ · CRITICAL</div><div class="fb-term-desc">Board attention · Action immediate</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ Supply Chain Risk Heat Map</div>
   <div class="card">
     <p>أداة بصرية لإدارة مخاطر الموردين الكثيرين:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">RISK HEAT MAP</div>
-<pre class="codebox-code">                IMPACT
-                  ▲
-                  │
-            ┌─────┼─────┐
-        5   │ M   │  H  │ ★ Critical Risks
-            │     │     │
-        4   │ M   │  H  │ ★ Active Management
-            │     │     │
-   PROB.    ├─────┼─────┤
-        3   │ L   │  M  │
-            │     │     │
-        2   │ L   │  L  │ Routine Monitor
-            │     │     │
-        1   │ L   │  L  │
-            └─────┴─────┴────► 
-                1-2   3-4-5
-
-Each Supplier plotted as a dot
-Color-coded:
-🟢 Green = Low risk · safe
-🟡 Yellow = Medium · monitor
-🔴 Red = High · action needed
-
-Updated quarterly</pre>
-    </div>
+    <div class="m22">
+  <div class="m22-corner"></div>
+  <div class="m22-x-axis">→ IMPACT (الأثر)</div>
+  <div class="m22-y-axis">→ PROBABILITY (الاحتمالية)</div>
+  <div class="m22-q m22-q-tl warn">
+    <div class="m22-q-name">⚠️ MEDIUM-HIGH</div>
+    <div class="m22-q-ar">احتمال عالٍ · أثر منخفض</div>
+    <div class="m22-q-desc">Issues متكرّرة بأثر محدود. Mitigation systematic.</div>
+  </div>
+  <div class="m22-q m22-q-tr bad">
+    <div class="m22-q-name">🚨 CRITICAL</div>
+    <div class="m22-q-ar">احتمال عالٍ · أثر عالٍ</div>
+    <div class="m22-q-desc">أعلى أولوية. Mitigation فوري · Board attention.</div>
+  </div>
+  <div class="m22-q m22-q-bl good">
+    <div class="m22-q-name">✓ LOW</div>
+    <div class="m22-q-ar">احتمال منخفض · أثر منخفض</div>
+    <div class="m22-q-desc">قبول المخاطر · مراقبة دورية فقط.</div>
+  </div>
+  <div class="m22-q m22-q-br warn">
+    <div class="m22-q-name">⚠️ MEDIUM-HIGH</div>
+    <div class="m22-q-ar">احتمال منخفض · أثر عالٍ</div>
+    <div class="m22-q-desc">Black Swans. Contingency plans · Insurance.</div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ Black Swan Events · دروس COVID</div>
@@ -3352,23 +3326,14 @@ Updated quarterly</pre>
     <p><strong>Supply Chain Management (SCM)</strong> = إدارة التدفّق الكامل للمواد · المعلومات · الأموال من المنبع (المورّد الأوّل) للمصبّ (العميل النهائي).</p>
 
     <p style="margin-top:10px"><strong>٣ تدفّقات موازية:</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">3 FLOWS IN SCM</div>
-<pre class="codebox-code">           Tier 3      Tier 2      Tier 1     SHIP      DC      CUSTOMER
-           Raw Materials   →   Manufacturer   →   You   →   Distribute  →  End-user
-           
-       ←══════════════════════════════════════════════════════════════════
-       │   PRODUCT FLOW (المواد ←)                                        │
-       ═══════════════════════════════════════════════════════════════════
-       
-       ═══════════════════════════════════════════════════════════════════
-       │   INFORMATION FLOW (المعلومات في الاتّجاهين)                       │
-       ←══════════════════════════════════════════════════════════════════
-       
-       ←══════════════════════════════════════════════════════════════════
-       │   MONEY FLOW (الأموال ←)                                          │
-       ═══════════════════════════════════════════════════════════════════</pre>
-    </div>
+    <div class="lc-grid cols-3">
+  <div class="lc-card"><div class="lc-letter">📦</div><div class="lc-body"><div class="lc-title">PHYSICAL FLOW · التدفّق المادّي</div><div class="lc-desc">Materials · Components · Finished goods. <em>من المورّد → المستهلك</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">💰</div><div class="lc-body"><div class="lc-title">FINANCIAL FLOW · التدفّق المالي</div><div class="lc-desc">Payments · Invoices · Letters of credit. <em>من المستهلك → المورّد</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">📊</div><div class="lc-body"><div class="lc-title">INFORMATION FLOW · المعلومات</div><div class="lc-desc">Orders · Forecasts · Status · Quality. <em>في كل الاتّجاهات · أهمّ تدفّق</em></div></div></div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong style="color:var(--navy)">القاعدة:</strong> الـ Supply Chain ليست عن السلع فقط · بل عن <em>تنسيق الـ ٣ تدفّقات</em>. المعلومات أهمّها.
+</div>
   </div>
 
   <div class="sec">▸ ٥ مكوّنات لـ SCM (Five Pillars)</div>
@@ -3448,47 +3413,17 @@ Updated quarterly</pre>
   <div class="card">
     <p>اكتشفها MIT في الـ ١٩٦٠s. <strong>تذبذبات صغيرة في طلب العميل النهائي تتضخّم بشكل هائل كلّما صعدنا في سلسلة الإمداد</strong>.</p>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">BULLWHIP EFFECT</div>
-<pre class="codebox-code">                                                  ARRIVAL
-                                                  ─────────
-                                                  Customer:
-                                                  10 units
-                                                  Volatility: 5%
-                                                  
-                                                  Retailer:
-                                                  15 units order
-                                                  Volatility: 15%
-                                                  
-                                                  Distributor:
-                                                  25 units
-                                                  Volatility: 35%
-                                                  
-                                                  Manufacturer:
-                                                  50 units
-                                                  Volatility: 70%
-                                                  
-                                                  Supplier:
-                                                  100 units
-                                                  Volatility: 150%
-
-النتيجة: المورد في الأعلى يرى تذبذب 150% رغم
-        أنّ العميل في الأسفل طلبه ثابت تقريباً
-
-الأسباب:
-1. Demand forecast updates (كل طبقة تضيف buffer)
-2. Order batching (طلبات شهرية بدل يومية)
-3. Price fluctuations (الـ promotions تخلق ذروات)
-4. Rationing (في النقص · المشترون يبالغون)
-
-الحلّ:
-- معلومات مشتركة (Demand visibility)
-- POS data sharing (Wal-Mart's pioneer move)
-- Vendor Managed Inventory (VMI)
-- Collaborative Planning (CPFR)
-- Smaller, more frequent orders
-- Stable pricing</pre>
-    </div>
+    <div class="h-bar">
+  <div class="hb-row"><div class="hb-label">العميل النهائي</div><div class="hb-track"><div class="hb-fill" style="width:20%;background:linear-gradient(90deg,#10b981,#34d399)">+١٠٠</div></div><div class="hb-note">طلب فعلي</div></div>
+  <div class="hb-row"><div class="hb-label">تاجر التجزئة</div><div class="hb-track"><div class="hb-fill" style="width:35%">+١٥٠</div></div><div class="hb-note">+٥٠٪</div></div>
+  <div class="hb-row"><div class="hb-label">الموزّع</div><div class="hb-track"><div class="hb-fill" style="width:55%;background:linear-gradient(90deg,#3b82f6,#60a5fa)">+٢٢٠</div></div><div class="hb-note">+١٢٠٪</div></div>
+  <div class="hb-row"><div class="hb-label">الـ Wholesaler</div><div class="hb-track"><div class="hb-fill" style="width:75%;background:linear-gradient(90deg,#f59e0b,#fbbf24)">+٣٥٠</div></div><div class="hb-note">+٢٥٠٪</div></div>
+  <div class="hb-row"><div class="hb-label">المُصنِّع</div><div class="hb-track"><div class="hb-fill" style="width:95%;background:linear-gradient(90deg,#dc2626,#f87171)">+٥٠٠</div></div><div class="hb-note">+٤٠٠٪</div></div>
+</div>
+<div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:#78350f">
+<strong>الـ Bullwhip Effect:</strong> طلب صغير من العميل (+١٠٠ وحدة) يتضخّم عبر السلسلة. السبب: <em>كل طرف يضيف Safety Stock + Lead time + Misforecasting</em>. الـ MIT اكتشفه عبر "Beer Game".<br><br>
+<strong>الحلّ:</strong> Information sharing · CPFR · VMI · Reduce lead times.
+</div>
   </div>
 
   <div class="sec">▸ ٤ إستراتيجيّات لسلسلة الإمداد</div>
@@ -3588,7 +3523,20 @@ Updated quarterly</pre>
     <li><strong>الـ Autonomous Logistics:</strong> Driverless trucks · Drones · Robots in warehouses</li>
   </ol>
 
-</div>
+
+
+  <div class="sec">▸ الأساس الأكاديمي · رواد فكر سلاسل الإمداد</div>
+  <table class="tbl">
+    <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Jay Forrester (MIT)</strong><br>"Industrial Dynamics"</td><td>١٩٦١</td><td>اكتشف "تأثير Forrester" (أصل Bullwhip): تذبذبات صغيرة في طلب التجزئة تتضخّم كلّما صعدنا في السلسلة. أساس ديناميكا النظم (System Dynamics).</td></tr>
+      <tr><td><strong>Martin Christopher</strong><br>"Logistics & Supply Chain Management"</td><td>١٩٩٢</td><td>"المنافسة لم تعد بين الشركات بل بين سلاسل الإمداد." المرجع الأوروبي الأشمل.</td></tr>
+      <tr><td><strong>Hau Lee (Stanford)</strong><br>"The Bullwhip Effect"</td><td>١٩٩٧</td><td>حدّد أسباب Bullwhip الأربعة كمّياً: تحديث التوقّعات · تجميع الطلبات · تقلّب الأسعار · ألعاب التقنين.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>لماذا Bullwhip حاسم لك:</strong> في مشاريع NHC · تأخّر معلومة طلب بسيطة من الموقع قد تتضخّم إلى فائض/نقص ضخم في المواد عند المورّد. <strong>الحلّ (Lee):</strong> مشاركة بيانات الطلب الحقيقية (Information Sharing) عبر السلسلة — جوهر تكامل P6/Unifier/OIC الذي تعمل عليه.</p>
+
+  </div>
 
 <div class="module" id="m-logistics">
   <div class="mod-head"><div class="mod-icon" style="background:#fef3c7;color:var(--gold)">📦</div><div class="mod-meta"><div class="mod-tag" style="color:var(--gold)">UNIT 13 — LOGISTICS</div><div class="mod-title">اللوجستيات · النقل والتخزين والتوزيع</div><div class="mod-desc">وسائل النقل · المستودعات · 3PL/4PL · Incoterms · Last Mile · المراكز السعودية</div></div></div>
@@ -3608,28 +3556,16 @@ Updated quarterly</pre>
 
   <div class="sec">▸ مكوّنات الـ Logistics</div>
   <div class="card">
-    <div class="codebox" style="margin-top:8px">
-      <div class="codebox-lbl">LOGISTICS COMPONENTS</div>
-<pre class="codebox-code">              ┌────────────────────────────────────┐
-              │           LOGISTICS                 │
-              └────────────────────────────────────┘
-                              │
-        ┌─────────────────┬───┴───┬─────────────────┐
-        ▼                 ▼       ▼                 ▼
-   TRANSPORTATION    WAREHOUSING  ORDER     PACKAGING &
-   النقل             التخزين     PROCESSING  HANDLING
-   
-   • Land            • Storage   • OMS      • Materials
-   • Sea             • Inventory • EDI      • Labeling
-   • Air             • Pick/Pack            • Hazmat
-   • Rail            • Cross-dock           • Cold chain
-   • Pipeline        
-                              │
-                              ▼
-                       INFORMATION
-                       SYSTEMS
-                       • WMS · TMS · OMS</pre>
-    </div>
+    <div class="lc-grid cols-4">
+  <div class="lc-card"><div class="lc-letter">🚛</div><div class="lc-body"><div class="lc-title">TRANSPORTATION</div><div class="lc-desc">Road · Rail · Air · Sea · Pipeline. ٥٠-٦٠٪ من logistics cost.</div></div></div>
+  <div class="lc-card"><div class="lc-letter">🏭</div><div class="lc-body"><div class="lc-title">WAREHOUSING</div><div class="lc-desc">Storage · Picking · Packing. Owned vs 3PL.</div></div></div>
+  <div class="lc-card"><div class="lc-letter">📦</div><div class="lc-body"><div class="lc-title">INVENTORY</div><div class="lc-desc">Carrying cost ١٥-٢٥٪ سنوياً. Working capital impact.</div></div></div>
+  <div class="lc-card"><div class="lc-letter">📋</div><div class="lc-body"><div class="lc-title">ORDER MGMT</div><div class="lc-desc">EDI · ERP · TMS · WMS · OMS integration.</div></div></div>
+  <div class="lc-card"><div class="lc-letter">🛃</div><div class="lc-body"><div class="lc-title">CUSTOMS</div><div class="lc-desc">FASAH · ZATCA · Customs broker · Documentation.</div></div></div>
+  <div class="lc-card"><div class="lc-letter">🛡️</div><div class="lc-body"><div class="lc-title">INSURANCE</div><div class="lc-desc">Cargo · Liability · Marine · Inland transit.</div></div></div>
+  <div class="lc-card"><div class="lc-letter">↩️</div><div class="lc-body"><div class="lc-title">REVERSE LOGISTICS</div><div class="lc-desc">Returns · Recycling · Refurbishment.</div></div></div>
+  <div class="lc-card"><div class="lc-letter">💻</div><div class="lc-body"><div class="lc-title">VISIBILITY</div><div class="lc-desc">GPS · IoT · Real-time tracking · Control tower.</div></div></div>
+</div>
   </div>
 
   <div class="sec">▸ وسائل النقل · مقارنة</div>
@@ -3650,29 +3586,19 @@ Updated quarterly</pre>
   <div class="card">
     <p>استخدام أكثر من وسيلة في رحلة واحدة. الـ Container هو الـ Game changer (Malcolm McLean · ١٩٥٦).</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">INTERMODAL EXAMPLE</div>
-<pre class="codebox-code">رحلة شحنة Steel من Hadeed لمصنع في الرياض:
-
-LOC 1: مصنع Hadeed (الجبيل)
-       │
-       ▼ Truck (٢ ساعات)
-       │
-LOC 2: ميناء جبيل التجاري
-       │
-       ▼ Ship (٧ أيّام · لو تصدير)
-       │  أو
-       ▼ Rail (٤ ساعات للرياض - SAR)
-       │
-LOC 3: مستودع SAR في الرياض
-       │
-       ▼ Truck (٣٠ دقيقة)
-       │
-LOC 4: مصنع العميل
-
-كل وسيلة لها مزاياها · والـ Container = الـ Connector
-ينتقل بنفس الـ Container بدون فتح · توفير ضخم</pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">🌍 السيناريو · شحنة معدّات من ألمانيا للسعودية</div>
+  <div class="scn-text">١٠ حاويات · مشروع NHC · Jadaya · ٤ أسابيع.</div>
+</div>
+<div class="step-flow">
+  <div class="step-card"><div class="step-num">١</div><div class="step-title">🚚 TRUCK</div><div class="step-desc">المصنع (هامبورغ) → ميناء<br><strong>٢ يوم</strong></div></div>
+  <div class="step-card"><div class="step-num">٢</div><div class="step-title">🚢 OCEAN</div><div class="step-desc">هامبورغ → جدّة<br>عبر السويس<br><strong>١٨ يوم</strong></div></div>
+  <div class="step-card"><div class="step-num">٣</div><div class="step-title">🛃 CUSTOMS</div><div class="step-desc">FASAH · ZATCA · فحص<br><strong>٢-٣ أيام</strong></div></div>
+  <div class="step-card"><div class="step-num">٤</div><div class="step-title">🚛 TRUCK</div><div class="step-desc">جدّة → المشروع<br><strong>١ يوم</strong></div></div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong>Intermodal:</strong> أكثر من وسيلة نقل بدون فكّ الحاوية. <em>تكلفة أقلّ · سرعة أبطأ · موثوقية أعلى</em>.
+</div>
   </div>
 
   <div class="sec">▸ Warehousing · المستودعات</div>
@@ -3840,7 +3766,14 @@ LOC 4: مصنع العميل
     </tbody>
   </table>
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · شبكات اللوجستيات</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">تصميم شبكة اللوجستيات مشكلة تحسين رياضية كلاسيكية:</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>مشكلة موقع المنشأة (Facility Location):</strong> أين تضع المستودعات لتقليل تكلفة النقل + التخزين؟ مسألة بحوث عمليات (Operations Research) تُحلّ بالبرمجة الخطّية. <strong>مفاضلة جوهرية (Lambert):</strong> مركزية أقلّ (مستودعات قليلة) = تكلفة تخزين أقلّ لكن نقل أعلى وخدمة أبطأ. اللامركزية عكسها. <strong>قانون الجذر التربيعي (Square Root Law):</strong> المخزون الكلّي يتناسب مع جذر عدد المستودعات — مضاعفة المواقع ترفع المخزون ١.٤× لا ٢×.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>Incoterms 2020 (غرفة التجارة الدولية ICC):</strong> ١١ مصطلحاً موحّداً يحدّد من يتحمّل تكلفة/مخاطر الشحن في أيّ نقطة (EXW · FOB · CIF · DDP). حاسمة في عقود استيراد مواد المشاريع — تحدّد مسؤوليتك بدقّة قانونية.</p>
+
+  </div>
 
 <div class="module" id="m-inventory">
   <div class="mod-head"><div class="mod-icon" style="background:#dcfce7;color:var(--s2)">🏪</div><div class="mod-meta"><div class="mod-tag" style="color:var(--s2)">UNIT 14 — INVENTORY</div><div class="mod-title">إدارة المخزون · EOQ · JIT · ABC</div><div class="mod-desc">أنواع المخزون · EOQ · Just-In-Time · Kanban · Safety Stock · ABC · Inventory Turns</div></div></div>
@@ -3884,6 +3817,31 @@ LOC 4: مصنع العميل
   </div>
 
   <div class="sec">▸ ٥ أنواع للمخزون</div>
+<div class="calc-box">
+  <div class="calc-title">🧮 حاسبة الكمّية الاقتصادية للطلب · EOQ Calculator</div>
+  <div class="calc-sub">احسب الكمّية المثلى للطلب التي تقلّل إجمالي تكاليف الطلب والتخزين</div>
+  <div class="calc-inputs cols-3">
+    <div class="calc-field">
+      <label>الطلب السنوي · D (وحدة)</label>
+      <input type="number" id="eoq-d" value="10000" oninput="calcEOQ()">
+    </div>
+    <div class="calc-field">
+      <label>تكلفة الطلب الواحد · S (ر.س)</label>
+      <input type="number" id="eoq-s" value="500" oninput="calcEOQ()">
+    </div>
+    <div class="calc-field">
+      <label>تكلفة تخزين الوحدة/سنة · H (ر.س)</label>
+      <input type="number" id="eoq-h" value="25" oninput="calcEOQ()">
+    </div>
+  </div>
+  <div class="calc-result">
+    <div class="calc-result-label">الكمّية الاقتصادية · EOQ</div>
+    <div class="calc-result-value" id="eoq-result">632</div>
+    <div class="calc-result-unit">وحدة لكل طلبية</div>
+  </div>
+  <div class="calc-breakdown" id="eoq-breakdown"></div>
+  <div class="calc-note"><strong>الصيغة:</strong> EOQ = √(2 × D × S / H) · النقطة التي تتساوى فيها تكلفة الطلب مع تكلفة التخزين.</div>
+</div>
 
   <div class="g2">
     <div class="cb accent-blue">
@@ -3944,39 +3902,25 @@ LOC 4: مصنع العميل
   <div class="card">
     <p>أهمّ صيغة في إدارة المخزون. أُوّجدها <strong>Ford Whitman Harris</strong> (١٩١٣). تجيب على: "كم كميّة الطلب الأمثل لتقليل التكاليف?"</p>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">EOQ FORMULA</div>
-<pre class="codebox-code">                    ┌──────────────┐
-                    │   2 × D × S   │
-        EOQ = √     │ ─────────────  │
-                    │       H        │
-                    └──────────────┘
-
-Where:
-D = Annual Demand (الطلب السنوي)
-S = Ordering Cost per order (تكلفة الطلب الواحد)
-H = Holding Cost per unit per year (تكلفة الاحتفاظ)
-
-EXAMPLE:
-شركة تستهلك 10,000 طن إسمنت سنوياً (D)
-تكلفة كل طلب: 500 ريال (S)
-تكلفة الاحتفاظ: 20 ريال/طن/سنة (H)
-
-EOQ = √(2 × 10,000 × 500 / 20)
-    = √500,000
-    = 707 طن لكل طلب
-
-عدد الطلبات في السنة = 10,000 / 707 = 14 طلب
-الـ Time between orders = 365 / 14 = 26 يوم
-
-NOTE: EOQ يفترض:
-- Demand ثابت
-- Lead time ثابت
-- لا Volume discounts
-- لا Stockouts
-
-في الواقع · هذه الافتراضات تخلّ. لكن EOQ كنقطة بداية مفيدة جدّاً.</pre>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>EOQ</em> <span class="fb-op">=</span>
+    <div class="fb-frac">
+      <div class="fb-frac-top">√ (2 × D × S)</div>
+      <div class="fb-frac-bot">H</div>
     </div>
+  </div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">D · Demand</div><div class="fb-term-desc">الطلب السنوي (وحدات)</div></div>
+    <div class="fb-term"><div class="fb-term-name">S · Ordering Cost</div><div class="fb-term-desc">تكلفة الطلب الواحد (إداريّة · شحن)</div></div>
+    <div class="fb-term"><div class="fb-term-name">H · Holding Cost</div><div class="fb-term-desc">تكلفة تخزين الوحدة الواحدة سنوياً</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--navy);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>مثال:</strong> D = 10,000 unit/year · S = 500 ريال · H = 25 ريال<br>
+    EOQ = √(2 × 10,000 × 500 / 25) = √400,000 = <strong>٦٣٢ وحدة</strong> لكل طلب<br>
+    عدد الطلبات السنوية = 10,000 ÷ 632 ≈ <strong>١٦ طلب</strong>
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>الفهم:</strong> EOQ يوازن بين:</p>
     <ul style="margin-top:6px;line-height:1.85;padding-right:20px;color:var(--ink2)">
@@ -4023,70 +3967,54 @@ NOTE: EOQ يفترض:
   <div class="card">
     <p><strong>Kanban</strong> (يابانية: "بطاقة مرئية") · الأداة العملية لتطبيق JIT.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">KANBAN BASIC</div>
-<pre class="codebox-code">حاوية تحتوي على Kanban Card مكتوب فيها:
-- اسم الصنف
-- الكميّة
-- المورّد
-- مكان التخزين
-
-عندما تفرغ الحاوية:
-1. الـ Worker يأخذ الـ Kanban
-2. يضعه في Mailbox للمورد
-3. المورد يرى الـ Kanban → يحضّر الكميّة
-4. يسلّم حاوية جديدة (مع Kanban جديد)
-
-النتيجة: Pull System أوتوماتيكي
-- لا حساب معقّد
-- لا Forecasting
-- الموارد تتدفّق بحاجة فعلية
-
-أنواع:
-1. Production Kanban (داخلي)
-2. Withdrawal Kanban (من مرحلة لأخرى)
-3. Supplier Kanban (للموردين الخارجيّين)
-4. Digital Kanban (Trello · Jira · Asana)</pre>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 18px;font-family:'Tajawal',sans-serif">
+  <div style="background:#fff;border:1px solid #ef4444;border-radius:10px;overflow:hidden">
+    <div style="background:linear-gradient(135deg,#dc2626,#ef4444);color:#fff;padding:10px 14px;font-weight:800;font-size:13px;text-align:center">📥 TO DO · للعمل</div>
+    <div style="padding:10px;display:flex;flex-direction:column;gap:6px">
+      <div style="background:#fef2f2;border-right:3px solid #dc2626;padding:8px 12px;border-radius:6px;font-size:12px">Material A · 100 units</div>
+      <div style="background:#fef2f2;border-right:3px solid #dc2626;padding:8px 12px;border-radius:6px;font-size:12px">Material B · 50 units</div>
+      <div style="background:#fef2f2;border-right:3px solid #dc2626;padding:8px 12px;border-radius:6px;font-size:12px">Component C</div>
     </div>
+  </div>
+  <div style="background:#fff;border:1px solid #f59e0b;border-radius:10px;overflow:hidden">
+    <div style="background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff;padding:10px 14px;font-weight:800;font-size:13px;text-align:center">⚙️ IN PROGRESS · قيد العمل</div>
+    <div style="padding:10px;display:flex;flex-direction:column;gap:6px">
+      <div style="background:#fffbeb;border-right:3px solid #f59e0b;padding:8px 12px;border-radius:6px;font-size:12px">Assembly Line 1</div>
+      <div style="background:#fffbeb;border-right:3px solid #f59e0b;padding:8px 12px;border-radius:6px;font-size:12px">Quality Check</div>
+    </div>
+  </div>
+  <div style="background:#fff;border:1px solid #16a34a;border-radius:10px;overflow:hidden">
+    <div style="background:linear-gradient(135deg,#15803d,#16a34a);color:#fff;padding:10px 14px;font-weight:800;font-size:13px;text-align:center">✅ DONE · مكتمل</div>
+    <div style="padding:10px;display:flex;flex-direction:column;gap:6px">
+      <div style="background:#f0fdf4;border-right:3px solid #16a34a;padding:8px 12px;border-radius:6px;font-size:12px">Shipped to Customer</div>
+      <div style="background:#f0fdf4;border-right:3px solid #16a34a;padding:8px 12px;border-radius:6px;font-size:12px">Invoice paid</div>
+    </div>
+  </div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong style="color:var(--navy)">KANBAN (からびs · يابانياً):</strong> "إشارة بصرية" · من Toyota. <em>Pull system · Visual workflow · WIP limits</em>. أساس Lean و Agile.
+</div>
   </div>
 
   <div class="sec">▸ Safety Stock · حساب علمي</div>
   <div class="card">
     <p>الـ Safety Stock = Buffer لحماية من التذبذبات. كيف تحسبه علمياً:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">SAFETY STOCK FORMULA</div>
-<pre class="codebox-code">Safety Stock = Z × σ × √LT
-
-Where:
-Z = Service Level factor (e.g., 1.65 for 95% service level)
-σ = Standard deviation of demand
-LT = Lead Time (in days)
-
-Service Level Z-scores:
-- 90%: 1.28
-- 95%: 1.65
-- 98%: 2.05
-- 99%: 2.33
-- 99.5%: 2.58
-- 99.9%: 3.09
-
-EXAMPLE:
-Daily demand mean: 100 units
-Daily demand std dev: 25 units
-Lead Time: 7 days
-Target Service Level: 95%
-
-Safety Stock = 1.65 × 25 × √7
-            = 1.65 × 25 × 2.65
-            = 109 units
-
-Reorder Point = (Avg Demand × LT) + Safety Stock
-             = (100 × 7) + 109
-             = 809 units
-
-عندما يصل المخزون لـ 809 · اطلب EOQ جديد.</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>SAFETY STOCK</em> <span class="fb-op">=</span>
+    <strong>Z</strong> <span class="fb-op">×</span> <strong>σ</strong> <span class="fb-op">×</span> <strong>√LT</strong>
+  </div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">Z · Service Level</div><div class="fb-term-desc">95% → Z=1.65 · 99% → Z=2.33 · 99.9% → Z=3.09</div></div>
+    <div class="fb-term"><div class="fb-term-name">σ · Demand Variability</div><div class="fb-term-desc">الانحراف المعياري للطلب اليومي</div></div>
+    <div class="fb-term"><div class="fb-term-name">LT · Lead Time</div><div class="fb-term-desc">زمن التوريد بالأيّام</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--navy);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>مثال:</strong> Service 95% (Z=1.65) · σ=50 unit · LT=9 days<br>
+    SS = 1.65 × 50 × √9 = 1.65 × 50 × 3 = <strong>247 وحدة</strong> stock أمان
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>الـ Trade-off:</strong> أعلى Service Level = أعلى Safety Stock = تكلفة أعلى. كل ١٪ في الخدمة تحتاج تضحية متزايدة في الـ Stock.</p>
   </div>
@@ -4095,29 +4023,25 @@ Reorder Point = (Avg Demand × LT) + Safety Stock
   <div class="card">
     <p>الـ Inventory Turnover Ratio = كم مرّة تتجدّد المخزون في السنة:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">INVENTORY TURNS</div>
-<pre class="codebox-code">             COGS (Cost of Goods Sold)
-Turns = ─────────────────────────────────
-           Average Inventory Value
-
-Days of Inventory = 365 / Inventory Turns
-
-EXAMPLES:
-- Walmart: 8-10 turns (40-45 days)
-- Apple: 40-50 turns (8 days) ← أفضل عالمياً
-- Amazon: 12-15 turns (24-30 days)
-- Toyota: 9-11 turns (33-40 days)
-- متوسّط مقاولات: 4-6 turns (60-90 days)
-
-TARGETS by Industry:
-- Retail: 5-15 turns
-- Manufacturing: 6-12 turns
-- Automotive: 8-12 turns
-- Pharma: 3-5 turns (long shelf life)
-- Construction: 4-6 turns
-- Tech: 10-20 turns</pre>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>INVENTORY TURNS</em> <span class="fb-op">=</span>
+    <div class="fb-frac">
+      <div class="fb-frac-top">COGS (Cost of Goods Sold)</div>
+      <div class="fb-frac-bot">Average Inventory Value</div>
     </div>
+  </div>
+  <div class="cmp-2" style="margin-top:14px">
+    <div class="cmp-col bad">
+      <div class="cmp-head"><div class="cmp-icon">↓</div>Low Turns · سيّء</div>
+      <div class="cmp-body">< 4 turns/year · مخزون راكد · رأس مال مجمّد · مخاطر تقادم</div>
+    </div>
+    <div class="cmp-col good">
+      <div class="cmp-head"><div class="cmp-icon">↑</div>High Turns · ممتاز</div>
+      <div class="cmp-body">> 12 turns/year · كفاءة عالية · cash flow أقوى<br><em>Toyota: 30+ · Amazon: 14</em></div>
+    </div>
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>كيف ترفع الـ Turns:</strong></p>
     <ul style="margin-top:6px;line-height:1.85;padding-right:20px;color:var(--ink2)">
@@ -4181,7 +4105,27 @@ TARGETS by Industry:
     <li><strong>Continuous Improvement:</strong> راجع شهرياً · حسّن سنوياً</li>
   </ol>
 
-</div>
+
+
+  <div class="sec">▸ الأساس التاريخي · أصل معادلة EOQ</div>
+  <table class="tbl">
+    <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ford W. Harris</strong></td><td>١٩١٣</td><td>اشتقّ معادلة الكمّية الاقتصادية للطلب (EOQ) — أوّل نموذج رياضي لإدارة المخزون. مهندس في Westinghouse، نشرها في مجلّة صناعية.</td></tr>
+      <tr><td><strong>R.H. Wilson</strong></td><td>١٩٣٤</td><td>عمّمها تجارياً (تُسمّى أحياناً Wilson Formula). جعلها أداة إدارية عملية.</td></tr>
+    </tbody>
+  </table>
+  <div class="formula-box">
+    <div class="fb-formula"><em>EOQ</em> <span class="fb-op">=</span> √(2<em>DS</em> / <em>H</em>)</div>
+    <div class="fb-terms">
+      <div class="fb-term"><div class="fb-term-name">D</div><div class="fb-term-desc">الطلب السنوي</div></div>
+      <div class="fb-term"><div class="fb-term-name">S</div><div class="fb-term-desc">تكلفة الطلب الواحد</div></div>
+      <div class="fb-term"><div class="fb-term-name">H</div><div class="fb-term-desc">تكلفة تخزين الوحدة سنوياً</div></div>
+    </div>
+  </div>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>مخزون الأمان (Safety Stock):</strong> EOQ يفترض طلباً ثابتاً — الواقع متقلّب. مخزون الأمان = Z × σ<sub>الطلب</sub> × √(زمن التوريد) · حيث Z مستوى الخدمة المطلوب (٩٥٪ = ١.٦٥). <strong>قيود EOQ:</strong> يتجاهل الخصومات الكمّية والتقلّبات — لهذا الأنظمة الحديثة (Oracle) تستخدم نماذج أعقد، لكنّ EOQ يبقى الأساس المفاهيمي.</p>
+
+  </div>
 
 <div class="module" id="m-demand-planning">
   <div class="mod-head"><div class="mod-icon" style="background:#ede9fe;color:var(--purple)">📈</div><div class="mod-meta"><div class="mod-tag" style="color:var(--purple)">UNIT 15 — DEMAND PLANNING</div><div class="mod-title">تخطيط الطلب · S&OP</div><div class="mod-desc">Forecasting · MAPE · S&OP cross-functional · CPFR · Demand Sensing · سعودي</div></div></div>
@@ -4251,35 +4195,25 @@ TARGETS by Industry:
   <div class="card">
     <p>الـ MAPE (Mean Absolute Percentage Error) = المقياس الأشهر:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">MAPE CALCULATION</div>
-<pre class="codebox-code">         1   n   |Actual_i - Forecast_i|
-MAPE = ─── × Σ   ───────────────────────
-         n  i=1         Actual_i
-
-EXAMPLE:
-Month  Forecast  Actual  Error%
-Jan    100       110     9.1%
-Feb    120       100     20.0%
-Mar    110       115     4.3%
-Apr    105       100     5.0%
-─────────────────────────────
-MAPE = (9.1 + 20.0 + 4.3 + 5.0) / 4 = 9.6%
-
-BENCHMARKS:
-- World-class (Apple · Zara):  5-10% MAPE
-- Industry average:           15-25%
-- Poor:                       >40%
-
-INTERPRETATION:
-- MAPE < 10%: Excellent
-- 10-20%: Good
-- 20-30%: Acceptable
-- > 30%: يحتاج عمل جدّي
-
-NOTE: MAPE له ضعف · صعب مع low volumes
-بدائل: WMAPE · MAD · RMSE · Bias</pre>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>MAPE</em> <span class="fb-op">=</span>
+    <div class="fb-frac">
+      <div class="fb-frac-top">Σ | Actual − Forecast | / Actual</div>
+      <div class="fb-frac-bot">n</div>
     </div>
+    <span class="fb-op">×</span> <strong>100%</strong>
+  </div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">< 10%</div><div class="fb-term-desc">Excellent · توقّع ممتاز</div></div>
+    <div class="fb-term"><div class="fb-term-name">10-20%</div><div class="fb-term-desc">Good · مقبول</div></div>
+    <div class="fb-term"><div class="fb-term-name">20-50%</div><div class="fb-term-desc">Reasonable · يحتاج تحسين</div></div>
+    <div class="fb-term" style="border-color:#dc2626"><div class="fb-term-name" style="color:#dc2626">> 50%</div><div class="fb-term-desc">Inaccurate · المنهجية خطأ</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--navy);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>MAPE</strong> = Mean Absolute Percentage Error · أهمّ KPI للـ Demand Forecasting. الـ Best-in-class شركات < 15%.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ S&OP · Sales & Operations Planning</div>
@@ -4289,39 +4223,16 @@ NOTE: MAPE له ضعف · صعب مع low volumes
     <p style="margin-top:10px"><strong>تطوّرها:</strong> Oliver Wight (١٩٨٠s) أبو الـ S&OP. اليوم · الـ IBP (Integrated Business Planning) الـ Evolution الحديث.</p>
 
     <p style="margin-top:12px"><strong>دورة الـ S&OP الشهرية · ٥ خطوات:</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">S&OP CYCLE</div>
-<pre class="codebox-code">WEEK 1: DATA GATHERING
-        - Sales: actual + forecast
-        - Operations: capacity · constraints
-        - Inventory: levels · ageing
-        - Finance: budget · margin
-
-WEEK 2: DEMAND REVIEW
-        - Demand Planner يعرض الـ Forecast
-        - Sales يعدّل بناءً على الـ Pipeline
-        - Marketing يضيف Campaigns
-        - الموافقة على الـ Unconstrained Demand
-
-WEEK 3: SUPPLY REVIEW
-        - Operations يقيّم القدرة
-        - Procurement يؤكّد الموردين
-        - Identify Constraints
-        - Identify Gaps (Demand vs Supply)
-
-WEEK 4: PRE-S&OP MEETING (Management)
-        - Cross-functional team
-        - مناقشة Gaps · Resolution options
-        - Trade-offs (Cost vs Service)
-        - Recommendations للـ Exec
-
-WEEK 5: EXECUTIVE S&OP
-        - Top Management
-        - القرارات الإستراتيجية
-        - Budget implications
-        - Approve final plan
-        - تنفيذ للشهر القادم</pre>
-    </div>
+    <div class="ph-cards cols-5">
+  <div class="ph-card"><div class="ph-num">WEEK 1</div><div class="ph-title">Product Review</div><div class="ph-body">New products · Discontinuations · Phase-in/out · Innovation pipeline</div></div>
+  <div class="ph-card p2"><div class="ph-num">WEEK 2</div><div class="ph-title">Demand Review</div><div class="ph-body">Statistical forecast · Sales input · Marketing plans · MAPE analysis</div></div>
+  <div class="ph-card p3"><div class="ph-num">WEEK 3</div><div class="ph-title">Supply Review</div><div class="ph-body">Production capacity · Inventory · Constraints · Supplier capacity</div></div>
+  <div class="ph-card p4"><div class="ph-num">WEEK 4</div><div class="ph-title">Pre-S&OP</div><div class="ph-body">Cross-functional alignment · Scenarios · Recommendations · Trade-offs</div></div>
+  <div class="ph-card p5"><div class="ph-num">MONTH END</div><div class="ph-title">Executive S&OP</div><div class="ph-body">CEO + leadership · Final decisions · 18-24 month plan</div></div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong style="color:var(--navy)">S&OP (Sales & Operations Planning):</strong> دورة شهرية تربط الـ Strategy بالـ Execution. يُسمّى أيضاً IBP (Integrated Business Planning).
+</div>
   </div>
 
   <div class="sec">▸ S&OP Maturity Model · ٥ مستويات</div>
@@ -4426,7 +4337,20 @@ WEEK 5: EXECUTIVE S&OP
     <li><strong>ادمج AI:</strong> عندما الـ Foundation قويّة</li>
   </ol>
 
-</div>
+
+
+  <div class="sec">▸ الأساس الإحصائي · نظرية التنبّؤ</div>
+  <table class="tbl">
+    <thead><tr><th>الطريقة</th><th>المرجع</th><th>الاستخدام</th></tr></thead>
+    <tbody>
+      <tr><td><strong>التنعيم الأسّي</strong></td><td>Holt-Winters · ١٩٦٠</td><td>يلتقط الاتجاه (Trend) والموسمية (Seasonality). الأشهر عملياً.</td></tr>
+      <tr><td><strong>ARIMA / Box-Jenkins</strong></td><td>Box & Jenkins · ١٩٧٠</td><td>منهج إحصائي صارم للسلاسل الزمنية. للبيانات المعقّدة.</td></tr>
+      <tr><td><strong>التنبّؤ بالـ ML</strong></td><td>حديث · ٢٠٢٠s</td><td>نماذج تعلّم آلي (XGBoost · Prophet) لأنماط غير خطّية.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>مفاضلة الدقّة-البساطة:</strong> النماذج المعقّدة ليست دائماً أدقّ — مسابقات M-Competitions (Makridakis) أثبتت أنّ نماذج بسيطة كثيراً ما تتفوّق. <strong>قياس الدقّة:</strong> MAPE (متوسّط نسبة الخطأ المطلق) الأشهر · لكنّه يضخّم الأخطاء عند القيم الصغيرة. <strong>تحذير جوهري:</strong> دقّة التنبّؤ تنهار مع طول الأفق — لهذا S&OP يجمع التنبّؤ الكمّي مع حكم الخبراء (Sales & Operations Planning).</p>
+
+  </div>
 
 <div class="module" id="m-construction-procurement">
   <div class="mod-head"><div class="mod-icon" style="background:#dbeafe;color:var(--s1)">🏗️</div><div class="mod-meta"><div class="mod-tag" style="color:var(--s1)">UNIT 16 — CONSTRUCTION PROCUREMENT</div><div class="mod-title">مشتريات المقاولات · خصوصيّات</div><div class="mod-desc">الفرق عن Procurement التقليدي · BOQ · 4D Schedule · Saudi sector · NHC</div></div></div>
@@ -4512,34 +4436,17 @@ WEEK 5: EXECUTIVE S&OP
       <li>الـ Total (Qty × Rate)</li>
     </ul>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">BOQ EXAMPLE · NHC VILLA</div>
-<pre class="codebox-code">رقم   البند                          الوحدة   الكمّية  السعر/وحدة  الإجمالي
-═════════════════════════════════════════════════════════════════════════
-SECTION 1: EARTHWORKS
-1.1   حفر الأساسات وردم               م³        450      45         20,250
-1.2   إزالة المواد الزائدة             م³        200      30          6,000
-
-SECTION 2: CONCRETE
-2.1   خرسانة الأساسات C30              م³        180      350        63,000
-2.2   حديد التسليح                    طن        12       3,200      38,400
-2.3   خرسانة الأعمدة والسقف C35        م³        220      400        88,000
-
-SECTION 3: BLOCKWORK
-3.1   بلوك الجدران الخارجية 20 سم       م²       320      45         14,400
-
-SECTION 4: FINISHES
-4.1   بلاط أرضيات Porcelain 60x60       م²       380      120        45,600
-4.2   دهان داخلي أكريليك               م²       720      35         25,200
-
-SECTION 5: MEP
-5.1   كهرباء توصيلات (3-bedroom)        L.S      1        85,000     85,000
-5.2   سباكة كاملة                      L.S      1        45,000     45,000
-
-... 
-
-TOTAL VILLA COST:                                         ~ 550,000 ريال</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📋 BILL OF QUANTITIES (BOQ) <span class="doc-header-sub">NHC VILLA · TYPE A · 250 m²</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 1 · CIVIL WORKS · 35%</div><div class="doc-sec-body"><strong>Concrete:</strong> 120 m³ × 350 ر.س = 42,000 · <strong>Steel:</strong> 8 ton × 4,500 ر.س = 36,000 · <strong>Blocks:</strong> 1,500 m² × 45 ر.س = 67,500</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 2 · MEP · 25%</div><div class="doc-sec-body"><strong>Electrical:</strong> 85,000 ر.س · <strong>HVAC:</strong> 110,000 ر.س · <strong>Plumbing:</strong> 45,000 ر.س</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 3 · FINISHES · 25%</div><div class="doc-sec-body">Tiles · Paint · Doors · Windows · Kitchen · Bathrooms · 240,000 ر.س</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 4 · EXTERNAL · 10%</div><div class="doc-sec-body">Landscaping · Fence · Driveway · 95,000 ر.س</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SECTION 5 · CONTINGENCY · 5%</div><div class="doc-sec-body">احتياطي لتغيّرات أسعار · فروق كمّيات · 47,500 ر.س</div></div>
+    <div class="doc-sec" style="background:var(--navy-bg);border-radius:8px"><div class="doc-sec-title">💰 TOTAL: ~950,000 ر.س / villa</div><div class="doc-sec-body">للمشروع كاملاً · 620 vilas × 950K = <strong>~٥٩٠ مليون ريال</strong></div></div>
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>أنواع الـ BOQ:</strong></p>
     <ul style="margin-top:6px;line-height:1.85;padding-right:20px;color:var(--ink2)">
@@ -4568,33 +4475,15 @@ TOTAL VILLA COST:                                         ~ 550,000 ريال</pr
       <li><strong>Status:</strong> Planning · PO Issued · Manufacturing · In Transit · Delivered</li>
     </ol>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">PROCUREMENT-SCHEDULE LINK</div>
-<pre class="codebox-code">المشروع: NHC Villa Type A
-الـ Schedule: 18 شهر
-
-اليوم 0:  Project Start
-─────────────────────────────────────────
-اليوم 30: Foundation works start
-         Required: Steel rebar (Lead 4 weeks)
-         → Order by: Day 2!
-         
-اليوم 90: Structure complete
-         Required: MEP equipment (Lead 16 weeks)
-         → Order by: Day -16 (قبل البدء أصلاً!)
-         
-اليوم 270: Finishes start
-          Required: Tiles · Doors · Sanitary
-          Lead times: 6-12 weeks
-          → Order by: Day 180-210
-          
-اليوم 365: Substantial Completion
-          Required: Elevators (Lead 24 weeks)
-          → Order by: Day 200!
-
-الحساب الصحيح للـ Order Dates 
-يحدّد نجاح المشروع</pre>
-    </div>
+    <div class="cascade">
+  <div class="csc-level"><span class="csc-level-num">1</span><span class="csc-level-title">Project Schedule (Primavera P6)</span><div class="csc-level-body">Critical path · Lead times · Float · Resource leveling</div></div>
+  <div class="csc-level"><span class="csc-level-num">2</span><span class="csc-level-title">Procurement Plan</span><div class="csc-level-body">حساب Lead Times للمواد · تحديد التواريخ المستهدفة للطلب</div></div>
+  <div class="csc-level"><span class="csc-level-num">3</span><span class="csc-level-title">LLI Tracking</span><div class="csc-level-body">Long Lead Items · Critical materials · Early ordering</div></div>
+  <div class="csc-level"><span class="csc-level-num">4</span><span class="csc-level-title">Site Delivery</span><div class="csc-level-body">JIT delivery · Material readiness · Site coordination</div></div>
+</div>
+<div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#78350f">
+<strong>القاعدة الذهبية:</strong> Procurement late = Schedule slip. ربط الـ P6 بـ Procurement plan = ضرورة.
+</div>
   </div>
 
   <div class="sec">▸ 4D Schedule · ربط BIM بالـ Time والـ Procurement</div>
@@ -4623,52 +4512,12 @@ TOTAL VILLA COST:                                         ~ 550,000 ريال</pr
 
   <div class="sec">▸ Construction Procurement Cycle · مختلف</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">CONSTRUCTION PROCUREMENT CYCLE</div>
-<pre class="codebox-code">PHASE 1 · PRE-CONSTRUCTION (Bid stage)
-        ─────────────────────────────────
-        - Take-off from Drawings → Quantities
-        - Material Pricing Survey
-        - Subcontractor Pre-qualification
-        - Bid preparation
-        - Submission to Owner
-
-PHASE 2 · POST-AWARD (After winning bid)
-        ─────────────────────────────────
-        - Final BOQ confirmation
-        - Procurement Plan creation
-        - Subcontractor Final selection
-        - LLI Identification & Early Order
-
-PHASE 3 · MOBILIZATION
-        ─────────────────────────────────
-        - Site Setup procurement
-        - Equipment Mobilization
-        - Initial Materials orders
-        - Site Storage setup
-
-PHASE 4 · CONSTRUCTION PHASE
-        ─────────────────────────────────
-        - Continuous Procurement per Schedule
-        - Material Approvals (Shop Drawings)
-        - Site Deliveries Coordination
-        - Subcontractor Management
-        - Change Orders impact
-
-PHASE 5 · TESTING & COMMISSIONING
-        ─────────────────────────────────
-        - Final Testing materials
-        - Snag list materials
-        - Touch-ups · Spare parts
-        - As-built documentation
-
-PHASE 6 · CLOSEOUT
-        ─────────────────────────────────
-        - Final Payment to Subs
-        - Retention Release planning
-        - Warranties documentation
-        - Lessons Learned</pre>
-    </div>
+    <div class="ph-cards cols-4">
+  <div class="ph-card"><div class="ph-num">PHASE 1 · DESIGN</div><div class="ph-title">Design & BOQ</div><div class="ph-body"><ul><li>Drawings finalization</li><li>BOQ preparation</li><li>Specifications</li><li>Material list</li></ul></div></div>
+  <div class="ph-card p2"><div class="ph-num">PHASE 2 · TENDER</div><div class="ph-title">Tender & Award</div><div class="ph-body"><ul><li>Pre-qualification</li><li>RFP/RFQ issuance</li><li>Evaluation</li><li>Award & contract</li></ul></div></div>
+  <div class="ph-card p3"><div class="ph-num">PHASE 3 · DELIVERY</div><div class="ph-title">Delivery & QA</div><div class="ph-body"><ul><li>Material approvals</li><li>Inspection at source</li><li>Delivery to site</li><li>Quality acceptance</li></ul></div></div>
+  <div class="ph-card p4"><div class="ph-num">PHASE 4 · CLOSE</div><div class="ph-title">Payment & Closeout</div><div class="ph-body"><ul><li>Interim payments</li><li>Mustakhlas approvals</li><li>Final account</li><li>Lessons learned</li></ul></div></div>
+</div>
   </div>
 
   <div class="sec">▸ Material Approval Process · المعتمد قبل الطلب</div>
@@ -4784,7 +4633,20 @@ PHASE 6 · CLOSEOUT
     </tbody>
   </table>
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · أنظمة عقود المقاولات الدولية</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">مشتريات المقاولات تُحكَم بأطر تعاقدية معيارية عالمية:</p>
+  <table class="tbl">
+    <thead><tr><th>الإطار</th><th>الجهة</th><th>الاستخدام</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FIDIC</strong> (الكتب الملوّنة)</td><td>الاتّحاد الدولي للمهندسين الاستشاريّين</td><td>الأحمر (Build) · الأصفر (Design-Build) · الفضّي (EPC/Turnkey). المعيار العالمي لعقود الإنشاء.</td></tr>
+      <tr><td><strong>NEC</strong></td><td>بريطاني</td><td>عقود تعاونية مرنة · إدارة استباقية للمخاطر.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>نظرية تخصيص المخاطر (Risk Allocation):</strong> المبدأ الذهبي — تُسنَد كل مخاطرة للطرف الأقدر على إدارتها بأقلّ تكلفة. هذا أساس اختيار نوع العقد (Lump Sum vs Remeasurement vs Cost-Plus). <strong>ربط نظري:</strong> العقد يعالج عدم اليقين وخصوصية الأصل (Williamson · المرحلة ١١) — مشاريع NHC ذات المواصفات الخاصّة تميل لعقود أكثر تفصيلاً.</p>
+
+  </div>
 
 <div class="module" id="m-lli">
   <div class="mod-head"><div class="mod-icon" style="background:#fee2e2;color:var(--red)">⏳</div><div class="mod-meta"><div class="mod-tag" style="color:var(--red)">UNIT 17 — LONG LEAD ITEMS</div><div class="mod-title">LLI · إدارة المواد طويلة التوريد</div><div class="mod-desc">تعريف · فئات نموذجية · Early Procurement · Tracking · Risk · أمثلة NHC</div></div></div>
@@ -4926,44 +4788,29 @@ PHASE 6 · CLOSEOUT
   <div class="card">
     <p>لكل بند LLI · ملف متابعة منفصل · يحدّث أسبوعياً:</p>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">LLI TRACKING SHEET</div>
-<pre class="codebox-code">════════════════════════════════════════════════
-PROJECT: NHC Jadaya Phase 1
-ITEM: Elevator (Otis · 8 passenger · 6 stops)
-PO Number: PO-2026-0145
-PO Date: 15-Feb-2026
-Supplier: Otis Saudi Arabia
-Total Cost: 285,000 SAR
-════════════════════════════════════════════════
-
-PHASE                           PLAN          ACTUAL       STATUS
-─────────────────────────────────────────────────────────────────
-1. Engineering / Submittals     20-Feb-2026   25-Feb-2026  ✓ Done
-2. Owner Approval               05-Mar-2026   12-Mar-2026  ✓ Done
-3. Manufacturing Start          20-Mar-2026   22-Mar-2026  ✓ Done
-4. Manufacturing 50%            15-May-2026   ____________  In progress
-5. Factory Acceptance Test      30-Jun-2026   ____________  Pending
-6. Ex-Works                     15-Jul-2026   ____________  Pending
-7. Shipping (Sea)               12-Aug-2026   ____________  Pending
-8. Customs Clearance            20-Aug-2026   ____________  Pending
-9. Site Delivery                25-Aug-2026   ____________  Pending
-10. Installation Start          01-Sep-2026   ____________  Pending
-11. Testing & Commissioning     15-Sep-2026   ____________  Pending
-12. Handover                    30-Sep-2026   ____________  Pending
-
-CRITICAL DATE: Required for Site (1-Sep-2026)
-CURRENT FORECAST: 25-Aug-2026 → ON TRACK ✓
-SLACK: 7 days
-
-ISSUES/RISKS:
-- Sea freight delays risk (monitor weekly)
-- Customs documentation in progress
-
-EXPEDITING ACTIONS:
-- Weekly call with Otis project manager
-- Monthly factory visit (if critical)</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📊 LONG LEAD ITEMS (LLI) TRACKING <span class="doc-header-sub">NHC JADAYA · Q4 2026</span></div>
+  <div class="doc-body" style="padding:0">
+    <table style="width:100%;border-collapse:collapse;font-size:12px;font-family:'Tajawal',sans-serif">
+      <thead style="background:var(--navy);color:#fff">
+        <tr>
+          <th style="padding:10px;text-align:right;font-size:11px">ITEM</th>
+          <th style="padding:10px;text-align:center;font-size:11px">LT (weeks)</th>
+          <th style="padding:10px;text-align:center;font-size:11px">PO DATE</th>
+          <th style="padding:10px;text-align:center;font-size:11px">DELIVERY</th>
+          <th style="padding:10px;text-align:center;font-size:11px">STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fef2f2"><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Elevators (Otis)</td><td style="text-align:center">32</td><td style="text-align:center;direction:ltr">Jan-26</td><td style="text-align:center;direction:ltr">Sep-26</td><td style="text-align:center;color:#dc2626;font-weight:700">⚠ DELAY</td></tr>
+        <tr style="background:#fff7ed"><td style="padding:8px 10px;border-bottom:1px solid var(--border)">HVAC chillers</td><td style="text-align:center">28</td><td style="text-align:center;direction:ltr">Feb-26</td><td style="text-align:center;direction:ltr">Sep-26</td><td style="text-align:center;color:#d97706;font-weight:700">⏳ WATCH</td></tr>
+        <tr style="background:#f0fdf4"><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Generators (Cummins)</td><td style="text-align:center">20</td><td style="text-align:center;direction:ltr">Mar-26</td><td style="text-align:center;direction:ltr">Aug-26</td><td style="text-align:center;color:#16a34a;font-weight:700">✓ ON TRACK</td></tr>
+        <tr style="background:#f0fdf4"><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Switchgear (ABB)</td><td style="text-align:center">24</td><td style="text-align:center;direction:ltr">Feb-26</td><td style="text-align:center;direction:ltr">Aug-26</td><td style="text-align:center;color:#16a34a;font-weight:700">✓ ON TRACK</td></tr>
+        <tr style="background:#f0fdf4"><td style="padding:8px 10px">Custom doors</td><td style="text-align:center">16</td><td style="text-align:center;direction:ltr">May-26</td><td style="text-align:center;direction:ltr">Sep-26</td><td style="text-align:center;color:#16a34a;font-weight:700">✓ ON TRACK</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ Expediting · الحثّ والمتابعة</div>
@@ -5157,43 +5004,25 @@ EXPEDITING ACTIONS:
   <div class="card">
     <p>المقاول الرئيسي يقاول من الباطن لمقاول · الذي يقاول من الباطن لمقاول آخر · إلخ.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">MULTI-TIER STRUCTURE</div>
-<pre class="codebox-code">              OWNER (NHC · ROSHN · etc.)
-                       │
-                       ▼
-            MAIN CONTRACTOR (Tier 0)
-            (e.g. Bin Laden · المهيدب)
-                       │
-        ┌──────────────┼──────────────┐
-        ▼              ▼              ▼
-   MEP SUB        FINISHES SUB    STEEL SUB
-   (Tier 1)       (Tier 1)        (Tier 1)
-        │              │
-        ▼              ▼
-   ELECTRICAL    TILES Sub-sub
-   Sub-sub       (Tier 2)
-   (Tier 2)
-        │
-        ▼
-   WIRING Sub
-   (Tier 3)
-
-المخاطر في الـ Multi-Tier:
-1. Payment delays cascade (الفلوس تتأخّر لكل Tier)
-2. Quality control يضعف
-3. Safety standards تنخفض
-4. Saudization تختفي في Tiers السفلى
-5. Disputes معقّدة (من المسؤول?)
-6. Documentation تضيع
-7. Hidden risks (لا تعرف من يعمل فعلاً)
-
-التحكّم الحديث:
-- Visibility إلى ٣ Tiers (Aramco · NEOM يفرضون)
-- Approval للـ Sub-subs (لا يمكن تغييرهم بدون موافقة)
-- Compliance audits على كل Tier
-- Direct payment للـ Sub-subs أحياناً</pre>
-    </div>
+    <div class="org-chart">
+  <div class="org-row"><div class="org-node exec">Main Contractor</div></div>
+  <div class="org-row" style="margin-top:10px">
+    <div class="org-node dept">Tier 1 Sub A<span class="org-node-sub">Civil</span></div>
+    <div class="org-node dept">Tier 1 Sub B<span class="org-node-sub">MEP</span></div>
+    <div class="org-node dept">Tier 1 Sub C<span class="org-node-sub">Finishes</span></div>
+  </div>
+  <div class="org-row" style="margin-top:10px">
+    <div class="org-node" style="background:#f5f5f4">Tier 2<span class="org-node-sub">Suppliers</span></div>
+    <div class="org-node" style="background:#f5f5f4">Tier 2<span class="org-node-sub">Specialists</span></div>
+    <div class="org-node" style="background:#f5f5f4">Tier 2<span class="org-node-sub">Material</span></div>
+  </div>
+  <div class="org-row" style="margin-top:10px">
+    <div class="org-node" style="background:#fafaf9;font-weight:500">Tier 3 · Manufacturers · Quarries · Raw materials</div>
+  </div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2)">
+<strong style="color:var(--navy)">Multi-Tier Visibility · حرج:</strong> أكبر مخاطر السلسلة في Tier 3+. NHC تطالب بـ Tier 2 disclosure. Aramco تتطلّب Tier 3 visibility.
+</div>
   </div>
 
   <div class="sec">▸ تأهيل المقاولين الباطن</div>
@@ -5270,49 +5099,13 @@ EXPEDITING ACTIONS:
   <div class="card">
     <p>(الوحدة القادمة عن المستخلصات تفصّل · هنا الـ Overview):</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">SUB PAYMENT PROCESS</div>
-<pre class="codebox-code">شهر العمل ينتهي
-       │
-       ▼
-Sub يقدّم Interim Payment Application
-(مستخلص داخلي للـ Main)
-       │
-       ▼
-Site Engineer / QS يراجع · يقيس · يصادق
-(Joint measurement)
-       │
-       ▼
-Main Engineer يوافق
-       │
-       ▼
-QS Department final calculation
-       │
-       ▼
-Approval Internal
-       │
-       ▼
-المحاسبة تجهّز الـ Payment
-       │
-       ▼
-Payment Released لـ Sub
-(عادة 30-60 يوم من Submission)
-
-DEDUCTIONS من المستخلص:
-- Retention 5-10%
-- Advance Payment recovery
-- Material supplied by Main
-- LD if delays
-- VAT (15%)
-- Bank Guarantees fees
-
-DOCUMENTATION:
-- IPC (Interim Payment Certificate)
-- Joint Measurement Sheets
-- Photos
-- Quality reports
-- HSE compliance</pre>
-    </div>
+    <div class="step-flow">
+  <div class="step-card"><div class="step-num">١</div><div class="step-title">Sub Submits Invoice</div><div class="step-desc">المقاول الفرعي يرفع المستخلص</div></div>
+  <div class="step-card"><div class="step-num">٢</div><div class="step-title">Site Engineer Verifies</div><div class="step-desc">معاينة العمل المنجز · Quantity surveying</div></div>
+  <div class="step-card"><div class="step-num">٣</div><div class="step-title">PMC Approval</div><div class="step-desc">Project Management Consultant يوقّع</div></div>
+  <div class="step-card"><div class="step-num">٤</div><div class="step-title">Finance Processing</div><div class="step-desc">3-way matching · Retention deduction · VAT</div></div>
+  <div class="step-card"><div class="step-num">٥</div><div class="step-title">Payment Released</div><div class="step-desc">Net 30/45/60 days · حسب العقد</div></div>
+</div>
   </div>
 
   <div class="sec">▸ المشاكل الشائعة مع Subs</div>
@@ -5378,38 +5171,25 @@ DOCUMENTATION:
   <div class="card">
     <p>قَيِّم كل Sub شهرياً بـ Scorecard موحّد:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">SUBCONTRACTOR SCORECARD</div>
-<pre class="codebox-code">SUBCONTRACTOR: ABC Electrical Co.
-PROJECT: NHC Jadaya Phase 1
-PERIOD: شهر مارس 2026
-═══════════════════════════════════════════════
-
-CATEGORY            WEIGHT   SCORE/10   WEIGHTED
-─────────────────────────────────────────────────
-Schedule adherence    25%      8         2.0
-Quality of work       25%      9         2.25
-HSE Performance       20%      10        2.0
-Safety incidents      —        0 events  bonus
-Cost management       10%      7         0.7
-Documentation         5%       7         0.35
-Coordination          5%       8         0.4
-Saudization %         5%       9         0.45
-Innovation            5%       6         0.3
-─────────────────────────────────────────────────
-TOTAL                 100%               8.45/10
-
-PERFORMANCE LEVEL:
-8.5-10  = Excellent (Preferred · More work)
-7-8.4   = Good (Continue)
-5-6.9   = Improvement needed (Plan)
-< 5     = Poor (Replace/Terminate)
-
-ACTION ITEMS:
-- Discuss cost management slip
-- Continue HSE excellence
-- Bonus for safety record</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">⭐ SUBCONTRACTOR SCORECARD <span class="doc-header-sub">QUARTERLY · OUT OF 100</span></div>
+  <div class="doc-body" style="padding:0">
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px;font-family:'Tajawal',sans-serif">
+      <thead style="background:var(--navy);color:#fff">
+        <tr><th style="padding:10px;text-align:right">CATEGORY</th><th style="padding:10px;text-align:center">WEIGHT</th><th style="padding:10px;text-align:center">SCORE</th><th style="padding:10px;text-align:right">NOTES</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Schedule Adherence</td><td style="text-align:center">25%</td><td style="text-align:center;color:#16a34a;font-weight:700">22/25</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-size:11.5px;color:var(--muted)">Minor delays in Phase 2</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Quality of Work</td><td style="text-align:center">25%</td><td style="text-align:center;color:#16a34a;font-weight:700">23/25</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-size:11.5px;color:var(--muted)">2 rework items</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">HSE Compliance</td><td style="text-align:center">20%</td><td style="text-align:center;color:#d97706;font-weight:700">15/20</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-size:11.5px;color:var(--muted)">1 LTI incident</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Cost Variance</td><td style="text-align:center">15%</td><td style="text-align:center;color:#16a34a;font-weight:700">14/15</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-size:11.5px;color:var(--muted)">Under budget</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Communication</td><td style="text-align:center">10%</td><td style="text-align:center;color:#16a34a;font-weight:700">9/10</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-size:11.5px;color:var(--muted)">Responsive</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Saudization</td><td style="text-align:center">5%</td><td style="text-align:center;color:#dc2626;font-weight:700">3/5</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-size:11.5px;color:var(--muted)">Below 40% target</td></tr>
+        <tr style="background:var(--navy-bg);font-weight:800"><td style="padding:10px">TOTAL</td><td style="text-align:center">100%</td><td style="text-align:center;color:var(--navy);font-size:14px">86/100</td><td style="padding:10px;color:var(--navy)">⭐ Preferred Status</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
   </div>
 
 </div>
@@ -5449,64 +5229,16 @@ ACTION ITEMS:
   <div class="sec">▸ مكوّنات المستخلص النموذجي</div>
 
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">INTERIM PAYMENT CERTIFICATE</div>
-<pre class="codebox-code">═══════════════════════════════════════════════════
-المشروع: NHC Jadaya Phase 1 · Villas Block A
-المقاول: شركة ABC للمقاولات
-رقم المستخلص: 8 (شهر أغسطس 2026)
-الفترة: 1-31 أغسطس 2026
-═══════════════════════════════════════════════════
-
-PART 1: WORK EXECUTED VALUATION
-─────────────────────────────────────────────────
-                                            القيمة
-1. الأعمال المنجزة هذا الشهر          15,500,000
-2. الأعمال المنجزة في الفترات السابقة 85,000,000
-3. إجمالي الأعمال المنجزة            100,500,000
-                                     ──────────
-
-PART 2: ADJUSTMENTS
-─────────────────────────────────────────────────
-4. Variations المعتمدة                +2,500,000
-5. Provisional Sums adjusted             -500,000
-6. Materials on Site                  +3,200,000
-   (70% من قيمة المواد المخزّنة)
-7. Materials Off Site (المعتمدة)      +1,800,000
-                                     ──────────
-8. Gross Value                        107,500,000
-
-PART 3: DEDUCTIONS
-─────────────────────────────────────────────────
-9. Retention (10%)                    -10,750,000
-10. Advance Payment Recovery (proportional)
-    Original Advance: 8,000,000 · Recovered to date 4,800,000
-    This month deduction              -800,000
-11. Liquidated Damages (if applicable)     0
-12. Other Deductions (Materials supplied · etc.) -250,000
-                                     ──────────
-13. Net Value before VAT              95,700,000
-
-PART 4: TAX & FINAL
-─────────────────────────────────────────────────
-14. VAT (15%)                         +14,355,000
-                                     ──────────
-15. Total Net (this certificate)     110,055,000
-
-16. Less: Total paid in previous certs -85,500,000
-                                     ──────────
-17. AMOUNT DUE THIS CERTIFICATE       24,555,000
-
-═══════════════════════════════════════════════════
-SIGNATURES:
-- Contractor's QS:    _____________ Date: __/__/__
-- Site Engineer:      _____________ Date: __/__/__
-- Project Manager:    _____________ Date: __/__/__
-- Engineer (Consultant): _________ Date: __/__/__
-- Owner's QS:         _____________ Date: __/__/__
-- Owner's PM:         _____________ Date: __/__/__
-═══════════════════════════════════════════════════</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📄 INTERIM PAYMENT CERTIFICATE (IPC) #07 <span class="doc-header-sub">JANUARY 2026</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">CONTRACT INFORMATION</div><div class="doc-sec-body">Project: NHC Jadaya Phase 1 · Contract Value: 590M SAR · Period: Jan 2026 · Cumulative: 35%</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">VALUE OF WORK COMPLETED THIS PERIOD</div><div class="doc-sec-body" style="font-family:monospace;font-size:13px;line-height:2"><strong>Civil works:</strong> &nbsp;&nbsp;&nbsp;&nbsp; 18,500,000 ر.س<br><strong>MEP works:</strong> &nbsp;&nbsp;&nbsp;&nbsp; 12,300,000 ر.س<br><strong>Finishes:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8,200,000 ر.س<br><strong>Total Period:</strong> 39,000,000 ر.س</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">DEDUCTIONS</div><div class="doc-sec-body" style="font-family:monospace;font-size:13px;line-height:2"><strong style="color:#dc2626">(−) Retention 10%:</strong> &nbsp;&nbsp; 3,900,000 ر.س<br><strong style="color:#dc2626">(−) Advance recovery:</strong> 1,950,000 ر.س<br><strong style="color:#dc2626">(−) Variations:</strong> &nbsp;&nbsp;&nbsp;&nbsp; (500,000) ر.س</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">VAT & TAXES</div><div class="doc-sec-body" style="font-family:monospace;font-size:13px"><strong>+ VAT 15%:</strong> 4,732,500 ر.س</div></div>
+    <div class="doc-sec" style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px"><div class="doc-sec-title" style="color:#15803d">NET PAYABLE</div><div class="doc-sec-body" style="font-family:monospace;font-size:18px;font-weight:900;color:#15803d;text-align:center">37,382,500 ر.س</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ القياس · Measurement Process</div>
@@ -5550,41 +5282,13 @@ SIGNATURES:
 
   <div class="sec">▸ Approval Workflow · سلسلة الموافقات</div>
   <div class="card">
-    <div class="codebox" style="margin-top:8px">
-      <div class="codebox-lbl">MUSTAKHLAS APPROVAL CHAIN</div>
-<pre class="codebox-code">المقاول يجهّز المستخلص (Day 1)
-       │
-       ▼ (Day 1-3)
-QS المقاول يراجع
-       │
-       ▼ (Day 3-5)
-Project Manager المقاول يوقّع
-       │
-       ▼ (Day 5-7)
-يقدّم للمالك/الاستشاريّ
-       │
-       ▼ (Day 7-14)
-Site Engineer (Consultant) يقيس ويراجع
-       │
-       ▼ (Day 14-18)
-QS Consultant يراجع الحسابات
-       │
-       ▼ (Day 18-21)
-Engineer (Consultant Lead) يوافق
-       │
-       ▼ (Day 21-25)
-Project Manager (Owner) يوافق
-       │
-       ▼ (Day 25-30)
-Finance/Procurement (Owner) يعالج
-       │
-       ▼ (Day 30-60)
-الدفع للمقاول
-
-TOTAL: 30-60 يوم من Submission to Payment
-
-أيّ خطأ يرجع المستخلص لبدايته!</pre>
-    </div>
+    <div class="cascade">
+  <div class="csc-level"><span class="csc-level-num">1</span><span class="csc-level-title">Site Engineer · مهندس الموقع</span><div class="csc-level-body">القياسات الفعلية · التحقّق من العمل المنجز · Quantity Survey</div></div>
+  <div class="csc-level"><span class="csc-level-num">2</span><span class="csc-level-title">QS / Cost Controller</span><div class="csc-level-body">مراجعة الأسعار · Variation orders · Compliance with BOQ</div></div>
+  <div class="csc-level"><span class="csc-level-num">3</span><span class="csc-level-title">Project Manager</span><div class="csc-level-body">الموافقة الفنّية · توقيع المستخلص · رفع للـ Client</div></div>
+  <div class="csc-level"><span class="csc-level-num">4</span><span class="csc-level-title">PMC / Consultant</span><div class="csc-level-body">مراجعة مستقلّة · توقيع Independent verification</div></div>
+  <div class="csc-level"><span class="csc-level-num">5</span><span class="csc-level-title">Client (NHC) · Approval</span><div class="csc-level-body">Final approval · Payment release · Bank transfer</div></div>
+</div>
   </div>
 
   <div class="sec">▸ الـ Retention · ضمان الجودة</div>
@@ -5823,50 +5527,15 @@ TOTAL: 30-60 يوم من Submission to Payment
 
   <div class="sec">▸ سير العطاء على Etimad · ٧ مراحل</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">ETIMAD TENDER WORKFLOW</div>
-<pre class="codebox-code">PHASE 1: ANNOUNCEMENT (الإعلان)
-        - الجهة الحكومية تنشر العطاء
-        - تحديد القيمة التقديرية (في بعض الحالات)
-        - وثائق العطاء (Tender Documents) متاحة للتنزيل
-        - الفترة: ٣٠ يوم على الأقلّ للعطاءات الكبيرة
-
-PHASE 2: BID PREPARATION (إعداد العرض)
-        - الموردون يدرسون · يزورون الموقع لو لزم
-        - Q&A معلنة (الأسئلة + الإجابات للجميع)
-        - إعداد الـ Technical + Financial Proposals
-        - تجهيز الـ Bid Bond (١-٢٪)
-
-PHASE 3: BID SUBMISSION (تقديم العرض)
-        - الإيداع الإلكتروني عبر Etimad
-        - الـ Two-Envelope System:
-            • Envelope 1: Technical + Bid Bond
-            • Envelope 2: Financial (Sealed)
-        - الـ Deadline صارم · لا تمديد عادةً
-
-PHASE 4: TECHNICAL EVALUATION (التقييم التقني)
-        - فتح الـ Envelope 1 فقط
-        - لجنة فحص العروض الفنّية
-        - معايير الـ Weighted Scoring
-        - الموردون غير المؤهّلين فنّياً يُستَبعَدون
-
-PHASE 5: FINANCIAL OPENING (فتح المظاريف المالية)
-        - علناً · بحضور الموردين المؤهّلين فنّياً
-        - الأسعار معلنة للجميع
-        - حسابات الـ Total Cost
-
-PHASE 6: AWARD DECISION (قرار الترسية)
-        - الـ Weighted Score النهائي
-        - Local Content preference applied
-        - Right to Match (في بعض الحالات)
-        - الـ Award معلن على Etimad
-
-PHASE 7: CONTRACT EXECUTION (التعاقد)
-        - الـ Performance Bond (٥٪ من القيمة)
-        - توقيع العقد إلكترونياً
-        - بدء التنفيذ
-        - الـ Payment via Etimad</pre>
-    </div>
+    <div class="ph-cards cols-4">
+  <div class="ph-card"><div class="ph-num">STAGE 1</div><div class="ph-title">Registration</div><div class="ph-body"><ul><li>تسجيل في Etimad</li><li>SAGIA license</li><li>ZATCA · GOSI</li><li>Saudization certificate</li></ul></div></div>
+  <div class="ph-card p2"><div class="ph-num">STAGE 2</div><div class="ph-title">Tender Search</div><div class="ph-body"><ul><li>تصفّح المناقصات</li><li>Subscription notifications</li><li>Tender documents fee</li><li>Site visit (لو مطلوب)</li></ul></div></div>
+  <div class="ph-card p3"><div class="ph-num">STAGE 3</div><div class="ph-title">Bid Submission</div><div class="ph-body"><ul><li>Technical envelope</li><li>Financial envelope</li><li>Bid bond (2-5%)</li><li>Electronic submission</li></ul></div></div>
+  <div class="ph-card p4"><div class="ph-num">STAGE 4</div><div class="ph-title">Evaluation & Award</div><div class="ph-body"><ul><li>Technical evaluation</li><li>Financial opening</li><li>LCGPA + IKTVA scoring</li><li>Award letter</li></ul></div></div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong style="color:var(--navy)">Etimad (اعتماد):</strong> منصّة المشتريات الحكومية الموحّدة. ٧٠٬٠٠٠+ شركة مسجّلة · ٢٠٠+ مليار ريال مناقصات سنوياً.
+</div>
   </div>
 
   <div class="sec">▸ النظام الجديد ٢٠٢٣ · تحديثات مهمّة</div>
@@ -5890,31 +5559,23 @@ PHASE 7: CONTRACT EXECUTION (التعاقد)
   <div class="card">
     <p>أحد أهمّ ميكانيكيّات الـ Localization:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">RIGHT TO MATCH EXAMPLE</div>
-<pre class="codebox-code">منافسة على توريد معدّات بقيمة 10 مليون ريال:
-
-العروض:
-- مورّد أجنبي A: 9.0 مليون · Local Content 30%
-- مورّد محلّي B:  9.5 مليون · Local Content 80%
-- مورّد محلّي C: 10.0 مليون · Local Content 90%
-
-التطبيق (السيناريو الكلاسيكي):
-- الفرق: 9.5M - 9.0M = 0.5M (5.5%)
-- الحدّ المقبول للمطابقة: 10%
-- المورد B يحقّ له مطابقة 9.0M
-
-النتيجة:
-- المورد B يفوز بـ 9.0M (وعّت بمطابقة العرض الأجنبي)
-- الـ Local Content أعلى
-- التوفير = 0
-- الـ Value الإستراتيجي = توطين
-
-شروط:
-- المورد المحلّي يجب أن يكون مؤهّلاً تقنياً
-- المورد المحلّي يقبل المطابقة طوعاً
-- الفرق < 10% (يختلف بحسب الفئة)</pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">⚖️ السيناريو · Right to Match</div>
+  <div class="scn-text">مناقصة Etimad حكومية · ٣ شركات تقدّمت · مورد سعودي مفضّل بحقّ التطابق:</div>
+</div>
+<div class="cmp-2" style="margin-top:10px">
+  <div class="cmp-col bad">
+    <div class="cmp-head"><div class="cmp-icon">A</div>الشركة الأجنبية (الأرخص)</div>
+    <div class="cmp-body"><strong>السعر:</strong> ٨٠٠٬٠٠٠ ريال<br>الجودة: ممتازة<br>التسليم: ٤ أشهر<br><em style="color:#dc2626">السعر الأدنى لكن أجنبي</em></div>
+  </div>
+  <div class="cmp-col good">
+    <div class="cmp-head"><div class="cmp-icon">B</div>الشركة السعودية (تطابق)</div>
+    <div class="cmp-body"><strong>السعر الأصلي:</strong> ٨٤٠٬٠٠٠<br><strong>سعر التطابق:</strong> <span style="color:#15803d">٨٠٠٬٠٠٠ ⭐</span><br>IKTVA: 65% · LCGPA: high<br><em style="color:#15803d">Wins by Right to Match</em></div>
+  </div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--ink2);margin-top:10px">
+<strong style="color:var(--navy)">Right to Match:</strong> الشركة السعودية المؤهّلة (LCGPA ≥ threshold) لديها حقّ مطابقة السعر الأدنى الأجنبي. أداة قوّية لتعزيز الـ Local Content.
+</div>
   </div>
 
   <div class="sec">▸ Bid Bonds والـ Performance Bonds</div>
@@ -5986,7 +5647,13 @@ PHASE 7: CONTRACT EXECUTION (التعاقد)
     <p style="margin-top:14px"><strong>الفائدة:</strong> الـ One-Stop verification. المعلومات تتدفّق بين الأنظمة · لا داعي للمورد لتقديم نفس الوثائق مرّتين.</p>
   </div>
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · المشتريات الإلكترونية الحكومية</div>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>نظرية المشتريات العامّة (Public Procurement Theory):</strong> تختلف عن الخاصّة في أهدافها — ليست الكفاءة فقط بل <strong>النزاهة · الشفافية · العدالة · القيمة مقابل المال (Value for Money) · تحقيق سياسات وطنية</strong> (مثل المحتوى المحلّي IKTVA). منصّة Etimad تجسّد هذا: توحيد · شفافية · أثر رقمي كامل (Audit Trail).</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>تبنّي التقنية (Technology Acceptance):</strong> نجاح المشتريات الإلكترونية يُفسَّر بنموذج <strong>TAM (Davis 1989)</strong> — التبنّي يعتمد على "المنفعة المُدرَكة" و"سهولة الاستخدام المُدرَكة". <strong>قيمة e-Procurement أكاديمياً:</strong> يقلّل تكاليف المعاملات (Williamson) وعدم تماثل المعلومات (Akerlof) عبر الشفافية — فيحدّ من الفساد والمحاباة هيكلياً، لا فقط رقابياً.</p>
+
+  </div>
 
 <div class="module" id="m-masnad-furas">
   <div class="mod-head"><div class="mod-icon" style="background:#dcfce7;color:var(--s2)">🇸🇦</div><div class="mod-meta"><div class="mod-tag" style="color:var(--s2)">UNIT 21 — MASNAD & FURAS</div><div class="mod-title">مسند · فرص · منصّات GAC</div><div class="mod-desc">الهيئة العامّة للمنافسة · التأهيل · القدرات · Local Content registration · Vendor categories</div></div></div>
@@ -6107,53 +5774,17 @@ PHASE 7: CONTRACT EXECUTION (التعاقد)
 
   <div class="sec">▸ النظام المتكامل · How They Connect</div>
   <div class="card">
-    <div class="codebox" style="margin-top:8px">
-      <div class="codebox-lbl">SAUDI PROCUREMENT ECOSYSTEM</div>
-<pre class="codebox-code">                       MINISTRY OF FINANCE
-                              │
-                              ▼
-                  ┌──────────────────────┐
-                  │   GAC (الهيئة)         │
-                  │   ─────────────       │
-                  │   Strategy · Rules    │
-                  │   Compliance · Audit  │
-                  └──────────┬───────────┘
-                              │
-              ┌──────────────┼──────────────┐
-              ▼              ▼              ▼
-        ┌─────────┐   ┌──────────┐   ┌──────────┐
-        │ مسند     │   │  فرص     │   │  LCGPA   │
-        │ Masnad   │   │  Furas   │   │  Local   │
-        │          │   │          │   │  Content │
-        │ تأهيل    │   │ فرص      │   │          │
-        │ Vendors  │   │ PPPs     │   │ Certify  │
-        └─────┬───┘   └──────────┘   └─────┬────┘
-              │                              │
-              │       ┌──────────────┐      │
-              └──────▶│   Etimad     │◀─────┘
-                      │ ─────────    │
-                      │ Operational  │
-                      │ Platform     │
-                      │              │
-                      │ Tenders      │
-                      │ Contracts    │
-                      │ Payments     │
-                      │ Performance  │
-                      └──────────────┘
-                              │
-                              ▼
-                  ┌──────────────────────┐
-                  │  Government Entities  │
-                  │  (5,000+ agencies)    │
-                  └──────────────────────┘
-
-التكامل:
-- المورد يتأهّل في مسند مرّة واحدة
-- LCGPA يحسب Local Content score
-- Furas للفرص الإستراتيجية
-- Etimad تنفّذ المنافسات اليومية
-- GAC تشرف على الكلّ</pre>
-    </div>
+    <div class="lc-grid cols-3">
+  <div class="lc-card"><div class="lc-letter">🏛️</div><div class="lc-body"><div class="lc-title">Etimad · اعتماد</div><div class="lc-desc">منصّة المشتريات الحكومية · ٧٠K+ شركة · ٢٠٠B ر.س سنوياً</div></div></div>
+  <div class="lc-card"><div class="lc-letter">📋</div><div class="lc-body"><div class="lc-title">LCGPA · المحتوى المحلّي</div><div class="lc-desc">هيئة المحتوى المحلّي والمشتريات الحكومية · Scoring system للمحتوى</div></div></div>
+  <div class="lc-card"><div class="lc-letter">🛢️</div><div class="lc-body"><div class="lc-title">IKTVA · Aramco</div><div class="lc-desc">In-Kingdom Total Value Add · Aramco's localization program</div></div></div>
+  <div class="lc-card"><div class="lc-letter">🛡️</div><div class="lc-body"><div class="lc-title">Nazaha · نزاهة</div><div class="lc-desc">هيئة مكافحة الفساد · Anti-corruption oversight</div></div></div>
+  <div class="lc-card"><div class="lc-letter">💼</div><div class="lc-body"><div class="lc-title">SAGIA · MISA</div><div class="lc-desc">وزارة الاستثمار · رخص الاستثمار للأجانب</div></div></div>
+  <div class="lc-card"><div class="lc-letter">💰</div><div class="lc-body"><div class="lc-title">ZATCA · زاتكا</div><div class="lc-desc">الزكاة والضريبة والجمارك · VAT 15% · WHT · Customs</div></div></div>
+  <div class="lc-card"><div class="lc-letter">👥</div><div class="lc-body"><div class="lc-title">HRSD · Nitaqat</div><div class="lc-desc">السعودة · نطاقات platinum/green/yellow/red</div></div></div>
+  <div class="lc-card"><div class="lc-letter">🏗️</div><div class="lc-body"><div class="lc-title">NHC · National Housing</div><div class="lc-desc">شركة الإسكان الوطنية · أكبر developer سعودي</div></div></div>
+  <div class="lc-card"><div class="lc-letter">🏦</div><div class="lc-body"><div class="lc-title">PIF · Public Investment</div><div class="lc-desc">صندوق الاستثمارات العامّة · ١ تريليون أصول</div></div></div>
+</div>
   </div>
 
   <div class="sec">▸ التسجيل في مسند · خطوة بخطوة</div>
@@ -6268,58 +5899,24 @@ PHASE 7: CONTRACT EXECUTION (التعاقد)
 
   <div class="sec">▸ صيغة حساب المحتوى المحلّي</div>
   <div class="card">
-    <div class="codebox" style="margin-top:8px">
-      <div class="codebox-lbl">LCGPA FORMULA</div>
-<pre class="codebox-code">                    Local Components Value
-LC % =  ─────────────────────────────────────  × 100
-                  Total Revenue/Sales
-
-LOCAL COMPONENTS = SUM of:
-
-1. LOCAL GOODS (المواد المحلّية)
-   - مواد خام منتجة محلّياً
-   - منتجات وسيطة من مصانع سعودية
-   - قطع غيار محلّية
-
-2. LOCAL SERVICES (الخدمات المحلّية)
-   - خدمات من شركات سعودية مسجّلة
-   - استشارات هندسية محلّية
-   - النقل · التأمين · التمويل المحلّي
-
-3. SAUDI LABOR (العمالة السعودية)
-   - الرواتب الكاملة للسعوديّين
-   - الـ Benefits · GOSI · Training
-   - نسبة من رواتب الـ Mixed teams
-
-4. CAPEX IN-COUNTRY
-   - استثمارات في مصانع/منشآت محلّية
-   - Machinery purchased locally
-   - Real estate investments
-
-5. R&D IN-COUNTRY
-   - الأبحاث المُجراة في السعودية
-   - الـ IP المطوّر محلّياً
-   - Joint ventures مع جامعات سعودية
-
-6. TRAINING SAUDI TALENT
-   - تدريب الموظّفين السعوديّين
-   - HRDF participation
-   - Scholarships · Universities sponsorship
-
-EXAMPLE:
-Company X · Saudi assembly of imported parts
-Revenue: 100M
-- Imported parts: 60M (LC = 0)
-- Saudi labor: 15M (LC = 100%)
-- Local services: 8M (LC = 100%)
-- Local materials: 5M (LC = 100%)
-- Saudi capex: 7M (LC = 100%)
-- R&D & Training: 3M (LC = 100%)
-- Foreign management: 2M (LC = 0)
-────────────────────────────────────
-Local value = 38M
-LC % = 38M / 100M = 38%</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>LCGPA Score</em> <span class="fb-op">=</span>
+    <strong>Goods (40%)</strong> <span class="fb-op">+</span>
+    <strong>Services (30%)</strong> <span class="fb-op">+</span>
+    <strong>Workforce (20%)</strong> <span class="fb-op">+</span>
+    <strong>R&D (10%)</strong>
+  </div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">📦 Goods · المنتجات (٤٠٪)</div><div class="fb-term-desc">المواد · المنتجات · القطع المُصنّعة محلّياً</div></div>
+    <div class="fb-term"><div class="fb-term-name">🛠️ Services · الخدمات (٣٠٪)</div><div class="fb-term-desc">الاستشارات · التركيب · الصيانة · IT services</div></div>
+    <div class="fb-term"><div class="fb-term-name">👥 Workforce · العمالة (٢٠٪)</div><div class="fb-term-desc">السعوديّون · المدرّبون · Skills development</div></div>
+    <div class="fb-term"><div class="fb-term-name">🔬 R&D · البحث (١٠٪)</div><div class="fb-term-desc">Innovation · IP · براءات اختراع محلّية</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--navy);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>LCGPA</strong> = Local Content & Government Procurement Authority · هيئة المحتوى المحلّي. الـ Saudi-Made products تحصل على Bid preference.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ شهادة الـ LCGPA · الـ Certification</div>
@@ -6370,37 +5967,30 @@ LC % = 38M / 100M = 38%</pre>
   <div class="card">
     <p>أهمّ آلية في الـ LCGPA: <em>المورد المحلّي يحصل على ميزة سعرية في التقييم</em>.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">BID PREFERENCE EXAMPLE</div>
-<pre class="codebox-code">عطاء لتوريد كابلات بقيمة 50 مليون ريال:
-
-العروض:
-- شركة أجنبية:        45 مليون · LC = 0%
-- شركة سعودية A:      48 مليون · LC = 60%
-- شركة سعودية B:      52 مليون · LC = 90%
-
-تطبيق Bid Preference (10% للموردين الذين LC > 50%):
-
-Effective Price للتقييم:
-- شركة أجنبية:        45 (no adjustment)
-- شركة سعودية A:      48 × (1 - 0.06) = 45.12 (LC 60% × 10% adj)
-- شركة سعودية B:      52 × (1 - 0.09) = 47.32 (LC 90% × 10% adj)
-
-النتيجة:
-- شركة أجنبية تبقى الأرخص ظاهرياً
-- شركة سعودية A الأقرب لها (45.12)
-- شركة سعودية B أعلى لكنّها أعلى LC
-
-Right to Match:
-- شركة سعودية A تحقّ لها مطابقة الأجنبي
-- لو قبلت 45 مليون · تفوز
-
-النتيجة النهائية: شركة سعودية A بـ 45M
-- التوفير = صفر
-- لكن: استمرّت الأموال في الاقتصاد المحلّي
-- وظائف سعودية محفوظة
-- Vision 2030 تتقدّم</pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">🎯 السيناريو · LCGPA Bid Preference</div>
+  <div class="scn-text">مناقصة حكومية · ٢ موردين تقدّموا · LCGPA Bid preference 10%:</div>
+</div>
+<div class="h-bar" style="margin-top:10px">
+  <div class="hb-row">
+    <div class="hb-label">المورد A (Local)</div>
+    <div class="hb-track"><div class="hb-fill" style="width:55%">١٬١٠٠٬٠٠٠ ر.س</div></div>
+    <div class="hb-note">السعر الفعلي</div>
+  </div>
+  <div class="hb-row">
+    <div class="hb-label" style="color:#15803d">A بعد LCGPA 10%</div>
+    <div class="hb-track"><div class="hb-fill" style="width:49.5%;background:linear-gradient(90deg,#16a34a,#15803d)">٩٩٠٬٠٠٠ ر.س ⭐</div></div>
+    <div class="hb-note" style="color:#15803d;font-weight:700">للتقييم</div>
+  </div>
+  <div class="hb-row">
+    <div class="hb-label">المورد B (Foreign)</div>
+    <div class="hb-track"><div class="hb-fill" style="width:50%;background:linear-gradient(90deg,#ef4444,#f87171)">١٬٠٠٠٬٠٠٠ ر.س</div></div>
+    <div class="hb-note">السعر الفعلي</div>
+  </div>
+</div>
+<div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:#15803d;text-align:center">
+<strong>النتيجة:</strong> رغم أنّ A أعلى بـ ١٠٠K · LCGPA 10% يخفّض سعره التقييمي لـ ٩٩٠K. <strong>A يفوز بـ ١٠K أقلّ.</strong>
+</div>
   </div>
 
   <div class="sec">▸ كيف ترفع الـ LC Score?</div>
@@ -6526,85 +6116,26 @@ Right to Match:
 
   <div class="sec">▸ صيغة IKTVA · الحساب التفصيلي</div>
   <div class="card">
-    <div class="codebox" style="margin-top:8px">
-      <div class="codebox-lbl">IKTVA FORMULA</div>
-<pre class="codebox-code">                Local Goods + Local Services + 
-IKTVA % =  ────────────────────────────────────  × 100
-                  Total Revenue from Aramco
-
-PLUS BONUS COMPONENTS:
-+ Saudi Workforce Development
-+ R&D In-Country
-+ Local Supplier Development
-+ Training & Education investments
-
-═══════════════════════════════════════════
-DETAILED CATEGORIES:
-═══════════════════════════════════════════
-
-1. LOCAL GOODS (السلع المحلّية)
-   - Materials produced في السعودية
-   - Components من مصانع سعودية
-   - Equipment أصلية محلّية أو Made-in-KSA
-   
-   ★ المنتج يجب أن يكون "Substantially Transformed in KSA"
-   ★ Distribution فقط ≠ Local Goods
-
-2. LOCAL SERVICES (الخدمات المحلّية)
-   - Engineering من شركات سعودية
-   - Consulting · IT · Financial services محلّية
-   - Maintenance · Transport · Logistics محلّية
-
-3. SAUDI WORKFORCE
-   - Total compensation للسعوديّين
-   - Including: Salary · Benefits · GOSI · Training
-   - Saudization rate × Total workforce cost
-
-4. CAPEX IN-COUNTRY
-   - Investments في مرافق · مصانع
-   - Equipment purchased locally
-   - Real estate within KSA
-
-5. R&D AND TECHNOLOGY
-   - R&D expenditure في السعودية
-   - Joint ventures مع جامعات سعودية
-   - Innovation labs · Patents
-
-6. TRAINING & DEVELOPMENT
-   - الـ HRDF participation
-   - Scholarships
-   - Vocational training programs
-   - University partnerships
-
-═══════════════════════════════════════════
-EXAMPLE:
-═══════════════════════════════════════════
-
-Saudi Supplier to Aramco:
-- Total Revenue from Aramco: 100M SAR
-
-Local components:
-- Materials manufactured in KSA: 35M
-- Saudi workforce compensation: 25M
-- Local services purchased: 10M
-- KSA capex (allocated): 5M
-- R&D in-country: 3M
-- Training (Saudi talent): 2M
-- TOTAL LOCAL: 80M
-
-Foreign components:
-- Imported materials: 15M
-- Foreign management: 3M
-- Foreign services: 2M
-- TOTAL FOREIGN: 20M
-
-IKTVA = 80M / 100M = 80%
-
-Categories:
-- Saudi Supplier: 80%+ = "Strategic"
-- International with KSA ops: 30-60%
-- Pure Foreign: 5-15%</pre>
+    <div class="formula-box">
+  <div class="fb-formula">
+    <em>IKTVA</em> <span class="fb-op">=</span>
+    <div class="fb-frac">
+      <div class="fb-frac-top">Local Goods + Local Services + Saudi Workforce + Training Investment + Local Supplier Dev</div>
+      <div class="fb-frac-bot">Total Annual Revenue</div>
     </div>
+    <span class="fb-op">×</span> <strong>100%</strong>
+  </div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">📦 Goods (Local)</div><div class="fb-term-desc">المنتجات المُصنّعة محلّياً · القطع من السوق السعودي</div></div>
+    <div class="fb-term"><div class="fb-term-name">🛠️ Services (Local)</div><div class="fb-term-desc">الاستشارات السعودية · الـ Engineering · IT</div></div>
+    <div class="fb-term"><div class="fb-term-name">👥 Workforce (Saudi)</div><div class="fb-term-desc">رواتب السعوديّين كنسبة من إجمالي الرواتب</div></div>
+    <div class="fb-term"><div class="fb-term-name">🎓 Training</div><div class="fb-term-desc">استثمار التدريب · HRDF · مع شركاء محلّيّين</div></div>
+    <div class="fb-term"><div class="fb-term-name">🤝 Supplier Dev</div><div class="fb-term-desc">برامج تطوير الموردين المحلّيّين</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--navy);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>الهدف Aramco:</strong> ٧٠٪ IKTVA. شركات Aramco الموردة تنشر تقاريرها سنوياً · Audited.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ IKTVA Categories · تصنيف الموردين</div>
@@ -6633,38 +6164,24 @@ Categories:
   <div class="card">
     <p>أرامكو تطبّق تفضيلاً سعرياً للموردين ذوي IKTVA المرتفع:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">IKTVA BID PREFERENCE</div>
-<pre class="codebox-code">معادلة Bid Preference عند أرامكو:
-
-Adjusted Price = Bid Price × (1 - IKTVA% × Factor)
-
-Factor varies by category:
-- Mandatory Local items: Factor = 0.10 (max 10% adjustment)
-- Strategic items: Factor = 0.05-0.08
-- Routine items: Factor = 0.02-0.05
-
-EXAMPLE - Pump Procurement (Mandatory Local):
-
-Bids:
-- US Supplier: $1,000,000 · IKTVA = 5%
-- KSA Supplier A: $1,070,000 · IKTVA = 65%
-- KSA Supplier B: $1,100,000 · IKTVA = 85%
-
-Adjusted (using Factor 0.10):
-- US Supplier: 1,000,000 × (1 - 0.05 × 0.10) = 995,000
-- KSA A: 1,070,000 × (1 - 0.65 × 0.10) = 1,000,450
-- KSA B: 1,100,000 × (1 - 0.85 × 0.10) = 1,006,500
-
-Result:
-- US Supplier wins by 5,450 over KSA A
-- But: Right to Match rule applies for KSA A
-- KSA A can match US price at 1,000,000
-- WINNER: KSA A (higher IKTVA · matched price)
-
-The 85% IKTVA KSA B is the long-term winner
-in Aramco's strategic view, even if not THIS bid</pre>
-    </div>
+    <div class="cmp-2">
+  <div class="cmp-col info">
+    <div class="cmp-head"><div class="cmp-icon">⭐</div>Tier 1 IKTVA</div>
+    <div class="cmp-body"><strong>IKTVA ≥ 70%:</strong> Bid preference 30%<br>أعلى أولوية في الترسية<br>عقود طويلة الأمد</div>
+  </div>
+  <div class="cmp-col good">
+    <div class="cmp-head"><div class="cmp-icon">2</div>Tier 2 IKTVA</div>
+    <div class="cmp-body"><strong>IKTVA 50-70%:</strong> Bid preference 15%<br>أولوية متوسّطة<br>مناقصات مفتوحة</div>
+  </div>
+  <div class="cmp-col">
+    <div class="cmp-head"><div class="cmp-icon">3</div>Tier 3 IKTVA</div>
+    <div class="cmp-body"><strong>IKTVA 30-50%:</strong> Bid preference 5%<br>أولوية محدودة<br>SME programs</div>
+  </div>
+  <div class="cmp-col bad">
+    <div class="cmp-head"><div class="cmp-icon">×</div>Below 30%</div>
+    <div class="cmp-body"><strong>IKTVA < 30%:</strong> لا preference<br>قد يُستبعد من بعض المناقصات<br>خطر فقدان العقود</div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ IKTVA Forum · الحدث السنوي</div>
@@ -6983,43 +6500,13 @@ in Aramco's strategic view, even if not THIS bid</pre>
 
   <div class="sec">▸ تطوّر الـ E-Procurement · من الورق للسحابة</div>
   <div class="card">
-    <div class="codebox" style="margin-top:8px">
-      <div class="codebox-lbl">EVOLUTION TIMELINE</div>
-<pre class="codebox-code">1960s-1980s · PAPER ERA
-- Hand-written POs · Manual ledgers
-- Telex · Fax · Mail
-- Cycle time: weeks
-
-1980s-1990s · EDI (Electronic Data Interchange)
-- Computer-to-computer transactions
-- Standards (X12 · EDIFACT)
-- Expensive · Complex
-- Used by large corporations only
-
-2000s · WEB-BASED E-PROCUREMENT
-- Internet-based portals
-- Ariba (founded 1996) · Commerce One
-- E-catalogs · Online RFPs
-- Cycle time: days
-
-2010s · CLOUD ERA
-- SaaS platforms (Coupa · Oracle Cloud · SAP Cloud)
-- Mobile · Real-time
-- Integrated Source-to-Pay
-- Cycle time: hours
-
-2020s · AI-ENHANCED
-- ML for forecasting · classification
-- Chatbots · Automation (RPA)
-- Predictive analytics
-- Cycle time: minutes (for routine)
-
-2025+ · GENERATIVE AI
-- AI drafts contracts · RFPs
-- LLM-based negotiations
-- Autonomous procurement (limited)
-- Real-time market intelligence</pre>
-    </div>
+    <div class="v-tl">
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">قبل ٢٠٠٠</div><div class="v-tl-title">Purchasing التقليدي</div><div class="v-tl-quote">"ادفع · واستلم" · لا استراتيجية · تكتيكي بحت</div></div></div>
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">٢٠٠٠-٢٠١٠</div><div class="v-tl-title">Strategic Sourcing</div><div class="v-tl-quote">Kraljic Matrix · TCO · Category Management يصبح Mainstream</div></div></div>
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">٢٠١٠-٢٠٢٠</div><div class="v-tl-title">Digital Procurement</div><div class="v-tl-quote">eProcurement platforms · Ariba · Coupa · Spend analytics</div></div></div>
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">٢٠٢٠-٢٠٢٣</div><div class="v-tl-title">Resilience Focus</div><div class="v-tl-quote">COVID + Ukraine · Risk management · Multi-sourcing · Reshoring</div></div></div>
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">٢٠٢٤+</div><div class="v-tl-title">AI-Powered Procurement</div><div class="v-tl-quote">GenAI · Autonomous procurement · Predictive · Cognitive supplier management</div></div></div>
+</div>
   </div>
 
   <div class="sec">▸ Source-to-Pay vs Procure-to-Pay</div>
@@ -7137,50 +6624,13 @@ in Aramco's strategic view, even if not THIS bid</pre>
     <p>تنفيذ منصّة Procurement مشروع كبير. ١٢-١٨ شهراً عادة.</p>
 
     <p style="margin-top:10px"><strong>المراحل النموذجية:</strong></p>
-    <div class="codebox" style="margin-top:6px">
-      <div class="codebox-lbl">IMPLEMENTATION TIMELINE</div>
-<pre class="codebox-code">PHASE 1 · STRATEGY (1-2 months)
-- Business case · ROI
-- Vendor selection (RFP · demos)
-- Contract negotiation
-
-PHASE 2 · DESIGN (2-4 months)
-- Process redesign
-- Approval workflows
-- Categorization (Spend taxonomy)
-- Integration architecture
-
-PHASE 3 · BUILD (3-6 months)
-- Configuration
-- Integrations (ERP · Banking · ZATCA · Etimad)
-- Data migration
-- Customizations (minimal preferred)
-
-PHASE 4 · TEST (2-3 months)
-- UAT (User Acceptance Testing)
-- Performance testing
-- Security testing
-- Training prep
-
-PHASE 5 · TRAIN & DEPLOY (1-2 months)
-- Train trainers
-- End-user training
-- Phased rollout (Pilot → Full)
-- Hyper-care (post-go-live support)
-
-PHASE 6 · OPTIMIZE (Ongoing)
-- Quarterly reviews
-- New features
-- Process improvements
-- ROI measurement
-
-TYPICAL COSTS (Large Enterprise):
-- License: $500K-2M/year
-- Implementation: $2-10M one-time
-- Internal resources: $1-3M
-- Total Year 1: $4-15M
-- ROI: 200-500% over 3 years (typical)</pre>
-    </div>
+    <div class="v-tl">
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">الشهر ١-٢</div><div class="v-tl-title">Discovery & Assessment</div><div class="v-tl-quote">Spend analysis · Process mapping · Pain points · Quick wins</div></div></div>
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">الشهر ٣-٤</div><div class="v-tl-title">Strategy & Design</div><div class="v-tl-quote">Target operating model · Tool selection · Governance design</div></div></div>
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">الشهر ٥-٨</div><div class="v-tl-title">Build & Configure</div><div class="v-tl-quote">Oracle/SAP/Ariba implementation · Master data · Integration</div></div></div>
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">الشهر ٩-١٠</div><div class="v-tl-title">Pilot & Test</div><div class="v-tl-quote">Pilot category · UAT · Refinements · Training key users</div></div></div>
+  <div class="v-tl-item"><div class="v-tl-dot"></div><div class="v-tl-card"><div class="v-tl-date">الشهر ١١-١٢</div><div class="v-tl-title">Rollout & Stabilize</div><div class="v-tl-quote">Full deployment · Change management · Continuous improvement</div></div></div>
+</div>
   </div>
 
   <div class="sec">▸ أخطاء قاتلة في الـ Implementation</div>
@@ -7270,43 +6720,12 @@ TYPICAL COSTS (Large Enterprise):
   <div class="card">
     <p>قبل أيّ تحليل · يجب تصنيف الإنفاق. الـ Spend Taxonomy = هيكل هرمي للفئات.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">SPEND TAXONOMY EXAMPLE</div>
-<pre class="codebox-code">LEVEL 1: SUPER-CATEGORY (10-15 categories)
-├── Direct Materials
-├── Indirect Materials
-├── Services
-├── Capex
-└── IT
-
-LEVEL 2: CATEGORY (50-100)
-Direct Materials:
-├── Concrete & Cement
-├── Steel & Rebar
-├── MEP Equipment
-└── Finishes
-
-LEVEL 3: SUB-CATEGORY (200-500)
-Steel & Rebar:
-├── Reinforcement Bars
-├── Structural Steel
-└── Steel Plates
-
-LEVEL 4: COMMODITY (1,000+)
-Reinforcement Bars:
-├── Grade 60 (12mm)
-├── Grade 60 (16mm)
-├── Grade 40 (Various)
-└── ...
-
-LEVEL 5: SKU (Specific items)
-
-UNSPSC STANDARD:
-United Nations Standard Products and Services Code
-- 8-digit hierarchy
-- Used globally
-- Free to adopt</pre>
-    </div>
+    <div class="cascade">
+  <div class="csc-level"><span class="csc-level-num">L1</span><span class="csc-level-title">DIRECT SPEND (إنفاق مباشر · ٦٠٪)</span><div class="csc-level-body">مواد البناء · الأسمنت · الحديد · BOQ items</div></div>
+  <div class="csc-level"><span class="csc-level-num">L2</span><span class="csc-level-title">INDIRECT SPEND (إنفاق غير مباشر · ٢٥٪)</span><div class="csc-level-body">IT · Office supplies · Travel · Facilities · Marketing</div></div>
+  <div class="csc-level"><span class="csc-level-num">L3</span><span class="csc-level-title">CAPEX (استثمارات رأسمالية · ١٠٪)</span><div class="csc-level-body">Equipment · Vehicles · Land · IT infrastructure</div></div>
+  <div class="csc-level"><span class="csc-level-num">L4</span><span class="csc-level-title">SERVICES (خدمات · ٥٪)</span><div class="csc-level-body">Consulting · Legal · Audit · Subcontractors</div></div>
+</div>
   </div>
 
   <div class="sec">▸ Spend Analytics · ٦ Views أساسية</div>
@@ -7502,7 +6921,22 @@ United Nations Standard Products and Services Code
     <li><strong>الـ Ongoing:</strong> Monthly reviews · Quarterly improvements · Annual strategy refresh</li>
   </ol>
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · نضج تحليلات الأعمال</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">"مستويات التحليلات الأربعة" مبنية على إطار <strong>Davenport & Harris</strong> ("Competing on Analytics" · 2007) — المرجع المؤسّس لتحليلات الأعمال:</p>
+  <table class="tbl">
+    <thead><tr><th>المستوى</th><th>السؤال</th><th>المثال في المشتريات</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Descriptive (وصفي)</strong></td><td>ماذا حدث؟</td><td>كم أنفقنا على كل فئة؟</td></tr>
+      <tr><td><strong>Diagnostic (تشخيصي)</strong></td><td>لماذا حدث؟</td><td>لماذا ارتفعت تكلفة الحديد؟</td></tr>
+      <tr><td><strong>Predictive (تنبّؤي)</strong></td><td>ماذا سيحدث؟</td><td>توقّع أسعار المواد القادمة</td></tr>
+      <tr><td><strong>Prescriptive (إرشادي)</strong></td><td>ماذا نفعل؟</td><td>متى وكم نطلب لتقليل التكلفة؟</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--navy-bg,#eff6ff);border-right:3px solid var(--navy,#1e40af);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>تصنيف الإنفاق (Spend Taxonomy):</strong> أساس كل تحليل — تصنيف موحّد للإنفاق (مثل UNSPSC العالمي). بدون تصنيف نظيف · التحليلات بلا قيمة (مبدأ "Garbage In, Garbage Out"). <strong>ربط بعملك:</strong> لوحات Power BI التي تبنيها تنقل مؤسّستك من الوصفي نحو التنبّؤي — وهذا جوهر التحوّل الرقمي في المشتريات.</p>
+
+  </div>
 
 <div class="module" id="m-ai-procurement">
   <div class="mod-head"><div class="mod-icon" style="background:#ede9fe;color:var(--purple)">🤖</div><div class="mod-meta"><div class="mod-tag" style="color:var(--purple)">UNIT 27 — AI IN PROCUREMENT</div><div class="mod-title">الذكاء الاصطناعي في المشتريات</div><div class="mod-desc">أنواع AI · ١٠ Use Cases · GenAI · أمثلة عالمية · المخاطر · Vision 2030</div></div></div>
@@ -7746,45 +7180,15 @@ United Nations Standard Products and Services Code
   <div class="card">
     <p>كيف تبدأ مع AI في Procurement?</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">AI ADOPTION ROADMAP</div>
-<pre class="codebox-code">PHASE 1 · QUICK WINS (Months 1-3)
-- ابدأ بـ GenAI للـ Productivity
-  • ChatGPT/Claude لكتابة الـ Emails · Reports · RFPs drafts
-  • تكلفة منخفضة · ROI سريع
-- Train the team · Build comfort
-
-PHASE 2 · PROCESS AUTOMATION (Months 4-9)
-- Invoice OCR + auto-matching
-- Spend classification AI
-- Basic supplier risk monitoring
-- Power BI + AI insights
-
-PHASE 3 · ANALYTICAL AI (Months 10-18)
-- ML for Demand Forecasting
-- Should-Cost models
-- Supplier Risk prediction
-- Contract review AI
-
-PHASE 4 · STRATEGIC AI (18+ months)
-- Negotiation assistance
-- Autonomous procurement (limited categories)
-- End-to-end agentic workflows
-- Innovation through AI
-
-CRITICAL SUCCESS FACTORS:
-1. Executive sponsorship
-2. Quality data (Foundation)
-3. Change management
-4. Pilot → Scale (not big bang)
-5. Measure ROI continuously
-6. Cross-functional teams (IT · Procurement · Data)
-
-BUDGET (typical):
-- Year 1: $200K-1M (tools + setup)
-- Year 2: $500K-2M (expansion)
-- Year 3+: integrated cost</pre>
-    </div>
+    <div class="ph-cards cols-4">
+  <div class="ph-card"><div class="ph-num">YEAR 1 · FOUNDATIONS</div><div class="ph-title">Data & Basics</div><div class="ph-body"><ul><li>Spend taxonomy clean-up</li><li>Master data management</li><li>Power BI dashboards</li><li>Simple spend analytics</li></ul></div></div>
+  <div class="ph-card p2"><div class="ph-num">YEAR 2 · AUTOMATION</div><div class="ph-title">Automate Routine</div><div class="ph-body"><ul><li>RPA for PO processing</li><li>3-way matching AI</li><li>Catalog auto-routing</li><li>Tail spend automation</li></ul></div></div>
+  <div class="ph-card p3"><div class="ph-num">YEAR 3 · INTELLIGENT</div><div class="ph-title">Predictive AI</div><div class="ph-body"><ul><li>Demand forecasting AI</li><li>Supplier risk prediction</li><li>Should-cost models</li><li>Contract intelligence</li></ul></div></div>
+  <div class="ph-card p4"><div class="ph-num">YEAR 4+ · AUTONOMOUS</div><div class="ph-title">Self-Driving</div><div class="ph-body"><ul><li>Autonomous procurement</li><li>GenAI negotiation</li><li>Self-healing supply chains</li><li>Cognitive supplier mgmt</li></ul></div></div>
+</div>
+<div style="background:var(--navy-bg);border:1px solid var(--navy3);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong style="color:var(--navy)">McKinsey 2025:</strong> ٤٠٪ من مهام procurement قابلة للأتمتة الكاملة بـ AI بحلول ٢٠٢٨.
+</div>
   </div>
 
   <div class="sec">▸ مستقبل المشتريات مع AI · ٢٠٢٦-٢٠٣٠</div>
@@ -8448,6 +7852,79 @@ function toggleTheme(){
 }
 const savedTheme = localStorage.getItem('theme');
 if(savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+// Sidebar search
+function sbSearch(query){
+  const q = query.trim().toLowerCase();
+  const items = document.querySelectorAll('.sb-item');
+  const sections = document.querySelectorAll('.sb-section');
+  const noResults = document.getElementById('sbNoResults');
+  let visibleCount = 0;
+  if(!q){
+    items.forEach(i => i.classList.remove('sb-hidden'));
+    sections.forEach(s => s.classList.remove('sb-hidden'));
+    if(noResults) noResults.classList.remove('show');
+    return;
+  }
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    const mod = (item.getAttribute('data-mod') || '').toLowerCase();
+    if(text.includes(q) || mod.includes(q)){ item.classList.remove('sb-hidden'); visibleCount++; }
+    else { item.classList.add('sb-hidden'); }
+  });
+  sections.forEach(section => {
+    let sib = section.nextElementSibling, hasVisible = false;
+    while(sib && !sib.classList.contains('sb-section')){
+      if(sib.classList.contains('sb-item') && !sib.classList.contains('sb-hidden')){ hasVisible = true; break; }
+      sib = sib.nextElementSibling;
+    }
+    section.classList.toggle('sb-hidden', !hasVisible);
+  });
+  if(noResults) noResults.classList.toggle('show', visibleCount === 0);
+}
+
+// EOQ Calculator
+function calcEOQ(){
+  const D = parseFloat(document.getElementById('eoq-d').value) || 0;
+  const S = parseFloat(document.getElementById('eoq-s').value) || 0;
+  const H = parseFloat(document.getElementById('eoq-h').value) || 1;
+  if(H <= 0) return;
+  const eoq = Math.sqrt((2 * D * S) / H);
+  document.getElementById('eoq-result').textContent = Math.round(eoq).toLocaleString();
+  const ordersPerYear = D / eoq;
+  const orderCost = ordersPerYear * S;
+  const holdingCost = (eoq / 2) * H;
+  const totalCost = orderCost + holdingCost;
+  document.getElementById('eoq-breakdown').innerHTML =
+    '<div class="calc-bd-row"><span>عدد الطلبيات/سنة</span><span>' + ordersPerYear.toFixed(1) + '</span></div>' +
+    '<div class="calc-bd-row"><span>تكلفة الطلب السنوية</span><span>' + Math.round(orderCost).toLocaleString() + ' ر.س</span></div>' +
+    '<div class="calc-bd-row"><span>تكلفة التخزين السنوية</span><span>' + Math.round(holdingCost).toLocaleString() + ' ر.س</span></div>' +
+    '<div class="calc-bd-row"><span>إجمالي التكلفة السنوية</span><span>' + Math.round(totalCost).toLocaleString() + ' ر.س</span></div>';
+}
+
+// TCO Calculator
+function calcTCO(){
+  const price = parseFloat(document.getElementById('tco-price').value) || 0;
+  const ship = parseFloat(document.getElementById('tco-ship').value) || 0;
+  const ops = parseFloat(document.getElementById('tco-ops').value) || 0;
+  const maint = parseFloat(document.getElementById('tco-maint').value) || 0;
+  const years = parseFloat(document.getElementById('tco-years').value) || 0;
+  const salvage = parseFloat(document.getElementById('tco-salvage').value) || 0;
+  const recurring = (ops + maint) * years;
+  const tco = price + ship + recurring - salvage;
+  document.getElementById('tco-result').textContent = Math.round(tco).toLocaleString();
+  document.getElementById('tco-breakdown').innerHTML =
+    '<div class="calc-bd-row"><span>التكلفة الأوّلية (شراء + شحن)</span><span>' + (price+ship).toLocaleString() + ' ر.س</span></div>' +
+    '<div class="calc-bd-row"><span>التشغيل + الصيانة (' + years + ' سنوات)</span><span>' + recurring.toLocaleString() + ' ر.س</span></div>' +
+    '<div class="calc-bd-row"><span>(−) قيمة الإنقاذ</span><span>' + salvage.toLocaleString() + ' ر.س</span></div>' +
+    '<div class="calc-bd-row"><span>متوسّط التكلفة السنوية</span><span>' + Math.round(tco/Math.max(years,1)).toLocaleString() + ' ر.س</span></div>';
+}
+
+// Initialize calculators on load
+window.addEventListener('DOMContentLoaded', function(){
+  if(document.getElementById('eoq-d')) calcEOQ();
+  if(document.getElementById('tco-price')) calcTCO();
+});
 </script>
 
 </body>

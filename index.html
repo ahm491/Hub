@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>المنظومة المعرفية · ٦ مراكز تخصّصية</title>
+<title>المنظومة المعرفية · ٨ مراكز تخصّصية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -39,27 +39,8 @@ body{
 }
 
 /* Header */
-.brand{
-  max-width:1400px;
-  margin:0 auto;
-  padding:48px 32px 24px;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-}
-.brand-mark{
-  font-family:'Tajawal',sans-serif;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:5px;
-  color:var(--muted);
-  margin-bottom:18px;
-  text-transform:uppercase;
-  position:relative;
-  padding:0 24px;
-}
+.brand{max-width:1400px;margin:0 auto;padding:22px 32px 10px;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+.brand-mark{font-family:'Tajawal',sans-serif;font-size:9.5px;font-weight:800;letter-spacing:4px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;position:relative;padding:0 22px}
 .brand-mark::before,
 .brand-mark::after{
   content:'';
@@ -71,22 +52,8 @@ body{
 }
 .brand-mark::before{right:0}
 .brand-mark::after{left:0}
-.brand-title{
-  font-family:'Tajawal',sans-serif;
-  font-size:34px;
-  font-weight:900;
-  color:var(--ink);
-  line-height:1.2;
-  margin-bottom:14px;
-  letter-spacing:-0.5px;
-}
-.brand-sub{
-  font-size:15px;
-  color:var(--ink2);
-  max-width:700px;
-  line-height:1.85;
-  font-weight:400;
-}
+.brand-title{font-family:'Tajawal',sans-serif;font-size:24px;font-weight:900;color:var(--ink);line-height:1.15;margin-bottom:6px;letter-spacing:-0.5px}
+.brand-sub{font-size:12.5px;color:var(--ink2);max-width:680px;line-height:1.55;font-weight:400}
 .brand-sub em{
   font-style:normal;
   color:var(--gold);
@@ -96,66 +63,22 @@ body{
   color:var(--indigo);
   font-weight:700;
 }
-.brand-stats{
-  display:flex;
-  gap:32px;
-  margin-top:22px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
+.brand-stats{display:flex;gap:28px;margin-top:10px;flex-wrap:wrap;justify-content:center}
 .brand-stat{
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:4px;
 }
-.brand-stat-num{
-  font-family:'Tajawal',sans-serif;
-  font-size:24px;
-  font-weight:900;
-  color:var(--ink);
-  letter-spacing:-0.5px;
-  line-height:1;
-}
-.brand-stat-label{
-  font-family:'Tajawal',sans-serif;
-  font-size:10px;
-  font-weight:700;
-  color:var(--muted);
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
+.brand-stat-num{font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:var(--ink);letter-spacing:-0.5px;line-height:1}
+.brand-stat-label{font-family:'Tajawal',sans-serif;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1.8px;text-transform:uppercase}
 
 /* Main content area */
-.main{
-  flex:1;
-  max-width:1400px;
-  margin:0 auto;
-  padding:24px 32px 48px;
-  width:100%;
-}
-.hubs{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:20px;
-  width:100%;
-}
+.main{flex:1;max-width:1400px;margin:0 auto;padding:10px 32px 14px;width:100%}
+.hubs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%}
 
 /* Card base */
-.hub{
-  position:relative;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:32px 28px 28px;
-  transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
-  text-decoration:none;
-  color:inherit;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  isolation:isolate;
-}
+.hub{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px 16px;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:inherit;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
 .hub::before{
   content:'';
   position:absolute;
@@ -175,7 +98,7 @@ body{
   color:#fff;
   border-color:var(--accent);
 }
-.hub:hover .hub-cta-arrow{transform:translateX(-6px)}
+.hub:hover .hub-cta-arrow{font-size:16px;font-weight:400;transition:transform 0.25s ease;font-family:system-ui,sans-serif}
 
 /* Card 1: Corporate Performance — warm gold */
 .hub-corp{
@@ -239,127 +162,49 @@ body{
   --accent-soft:#dbeafe;
   --shadow:rgba(30,58,138,0.18);
 }
+
+.hub-data {
+  --accent:#0891b2;
+  --accent-dark:#0e7490;
+  --accent-soft:#cffafe;
+  --shadow:rgba(8,145,178,0.18);
+}
+  .hub-emba{
+  --accent:#7f1d1d;
+  --accent-dark:#991b1b;
+  --accent-soft:#fee2e2;
+  --shadow:rgba(127,29,29,0.18);
+}
 .hub-scm::before{
   background:linear-gradient(135deg, rgba(219,234,254,0.5) 0%, transparent 100%);
 }
 
 /* Card header */
-.hub-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:16px;
-  margin-bottom:20px;
-  padding-bottom:20px;
-  border-bottom:1px solid var(--line);
-}
-.hub-icon{
-  width:52px;
-  height:52px;
-  border-radius:14px;
-  background:var(--accent-soft);
-  color:var(--accent-dark);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
-  flex-shrink:0;
-}
+.hub-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hub-icon{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent-dark);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .hub-num{
   text-align:left;
   direction:ltr;
 }
-.hub-num-big{
-  font-family:'Tajawal',sans-serif;
-  font-size:30px;
-  font-weight:900;
-  color:var(--accent);
-  line-height:1;
-  letter-spacing:-1px;
-}
-.hub-num-label{
-  font-family:'Tajawal',sans-serif;
-  font-size:10px;
-  font-weight:700;
-  color:var(--muted);
-  letter-spacing:2px;
-  margin-top:4px;
-  text-transform:uppercase;
-}
+.hub-num-big{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px}
+.hub-num-label{font-family:'Tajawal',sans-serif;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1.5px;margin-top:3px;text-transform:uppercase}
 
 /* Card body */
-.hub-tag{
-  font-family:'Tajawal',sans-serif;
-  font-size:10.5px;
-  font-weight:800;
-  letter-spacing:2.5px;
-  color:var(--accent);
-  margin-bottom:10px;
-  text-transform:uppercase;
-}
-.hub-title{
-  font-family:'Tajawal',sans-serif;
-  font-size:22px;
-  font-weight:900;
-  color:var(--ink);
-  line-height:1.25;
-  margin-bottom:10px;
-  letter-spacing:-0.3px;
-}
-.hub-desc{
-  font-size:13px;
-  color:var(--ink2);
-  line-height:1.85;
-  margin-bottom:20px;
-}
+.hub-tag{font-family:'Tajawal',sans-serif;font-size:9.5px;font-weight:800;letter-spacing:2px;color:var(--accent);margin-bottom:4px;text-transform:uppercase}
+.hub-title{font-family:'Tajawal',sans-serif;font-size:16.5px;font-weight:900;color:var(--ink);line-height:1.25;margin-bottom:6px;letter-spacing:-0.3px}
+.hub-desc{font-size:11.5px;color:var(--ink2);line-height:1.6;margin-bottom:10px}
 
 /* Features */
-.hub-feats{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  margin-bottom:24px;
-  flex:1;
-}
-.hub-feat{
-  display:flex;
-  align-items:flex-start;
-  gap:11px;
-  font-size:12px;
-  color:var(--ink2);
-  line-height:1.6;
-}
-.hub-feat-dot{
-  width:5px;
-  height:5px;
-  background:var(--accent);
-  border-radius:50%;
-  flex-shrink:0;
-  margin-top:7px;
-}
+.hub-feats{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;flex:1}
+.hub-feat{display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--ink2);line-height:1.5}
+.hub-feat-dot{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:6px}
 .hub-feat strong{
   color:var(--ink);
   font-weight:700;
 }
 
 /* CTA */
-.hub-cta{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  padding:13px 18px;
-  background:transparent;
-  border:1.5px solid var(--accent);
-  color:var(--accent);
-  border-radius:10px;
-  font-family:'Tajawal',sans-serif;
-  font-size:13.5px;
-  font-weight:800;
-  letter-spacing:0.5px;
-  transition:all 0.25s ease;
-  margin-top:auto;
-}
+.hub-cta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 14px;background:transparent;border:1.5px solid var(--accent);color:var(--accent);border-radius:8px;font-family:'Tajawal',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.4px;transition:all 0.25s ease;margin-top:auto}
 .hub-cta-arrow{
   font-size:18px;
   font-weight:400;
@@ -368,43 +213,15 @@ body{
 }
 
 /* Meta chip */
-.hub-meta{
-  display:flex;
-  gap:6px;
-  align-items:center;
-  margin-bottom:14px;
-  flex-wrap:wrap;
-}
-.hub-chip{
-  font-family:'Tajawal',sans-serif;
-  font-size:9.5px;
-  font-weight:800;
-  letter-spacing:1.5px;
-  padding:3px 10px;
-  border-radius:5px;
-  background:var(--accent-soft);
-  color:var(--accent-dark);
-  text-transform:uppercase;
-}
+.hub-meta{display:flex;gap:5px;align-items:center;margin-bottom:6px;flex-wrap:wrap}
+.hub-chip{font-family:'Tajawal',sans-serif;font-size:8.5px;font-weight:800;letter-spacing:1.3px;padding:2px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent-dark);text-transform:uppercase}
 .hub-chip.chip-new{
   background:#fef3c7;
   color:#92400e;
 }
 
 /* Footer */
-.foot{
-  border-top:1px solid var(--line);
-  padding:24px 32px;
-  max-width:1400px;
-  margin:0 auto;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:11.5px;
-  color:var(--muted);
-  letter-spacing:0.3px;
-}
+.foot{border-top:1px solid var(--line);padding:10px 32px;max-width:1400px;margin:0 auto;width:100%;display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--muted);letter-spacing:0.3px}
 .foot-divider{
   display:inline-block;
   width:3px;
@@ -452,24 +269,109 @@ body{
   .hub-num-big{font-size:26px}
   .foot{padding:20px 22px;font-size:10.5px;flex-direction:column;gap:6px;text-align:center}
 }
+
+/* ═══ Featured EMBA Card · Banner spanning all columns ═══ */
+.hub.hub-featured{
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #fff 0%, #fef2f2 50%, #fff 100%);
+  border-color: #fca5a5;
+}
+.hub.hub-featured::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, #7f1d1d, #b91c1c);
+}
+.hub.hub-featured .hub-head{
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 100px;
+}
+.hub.hub-featured .hub-icon{
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+  color: #fff;
+}
+.hub.hub-featured .hub-num-big{
+  font-size: 26px;
+}
+.hub.hub-featured .featured-body{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 16px;
+}
+.hub.hub-featured .hub-tag{
+  margin-bottom: 3px;
+  font-size: 9.5px;
+}
+.hub.hub-featured .hub-title{
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.hub.hub-featured .hub-desc{
+  font-size: 11.5px;
+  margin-bottom: 6px;
+  line-height: 1.55;
+}
+.hub.hub-featured .featured-tags{
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.hub.hub-featured .featured-tag{
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  background: rgba(127,29,29,0.08);
+  color: #7f1d1d;
+  border-radius: 4px;
+}
+.hub.hub-featured .hub-cta{
+  margin-top: 0;
+  align-self: center;
+  white-space: nowrap;
+  min-width: 110px;
+}
+@media (max-width: 780px){
+  .hub.hub-featured{flex-direction: column}
+  .hub.hub-featured .hub-head{margin-left: 0;padding-left: 0;border-left: none;border-bottom: 1px solid var(--line);padding-bottom: 8px;margin-bottom: 8px;flex-direction: row}
+}
 </style>
 </head>
 <body>
 
 <header class="brand">
   <div class="brand-mark">المنظومة المعرفية</div>
-  <h1 class="brand-title">ستّة مراكز معرفيّة · هدف واحد</h1>
+  <h1 class="brand-title">ثماني مراكز معرفيّة · هدف واحد</h1>
   <p class="brand-sub">
     منظومات متكاملة من المعرفة التطبيقية في
     <em>الأداء المؤسسي</em>،
     <strong>القيادة والإستراتيجية</strong>،
-    <strong>المشتريات وسلسلة الإمداد</strong>،
+    <strong>المشتريات وسلسلة الإمداد</strong>، <strong>تحليل البيانات وذكاء الأعمال</strong>،
     <em>الذكاء الاصطناعي</em>،
     <strong>تقنية المعلومات</strong>،
     و<em>المالية</em> — مُصمَّمة للتعلّم الذاتي والتطبيق الفوري في السياق السعودي.
   </p>
   <div class="brand-stats">
-    <div class="brand-stat"><div class="brand-stat-num">٦</div><div class="brand-stat-label">Hubs</div></div>
+    <div class="brand-stat"><div class="brand-stat-num">٧</div><div class="brand-stat-label">Hubs</div></div>
     <div class="brand-stat"><div class="brand-stat-num">٣١٣</div><div class="brand-stat-label">Modules</div></div>
     <div class="brand-stat"><div class="brand-stat-num">~٥.٤MB</div><div class="brand-stat-label">Content</div></div>
     <div class="brand-stat"><div class="brand-stat-num">٢٠٢٦</div><div class="brand-stat-label">Edition</div></div>
@@ -682,6 +584,67 @@ body{
         <span class="hub-cta-arrow">←</span>
       </div>
     </a>
+    <!-- ════════════════════════════════════════════════ -->
+    <!-- CARD 7 · FEATURED: EMBA & DBA COMPANION         -->
+    <!-- ════════════════════════════════════════════════ -->
+    <a class="hub hub-data" href="./data_hub.html" target="_self">
+      <div class="hub-head">
+        <div class="hub-icon">📈</div>
+        <div class="hub-num">
+          <div class="hub-num-big">٣١</div>
+          <div class="hub-num-label">Modules</div>
+        </div>
+      </div>
+
+      <div class="hub-meta">
+        <span class="hub-chip">DATA ANALYTICS & BI</span>
+      </div>
+      <div class="hub-tag">UNIT · المنظومة الثامنة · 🆕 جديد</div>
+      <h2 class="hub-title">مركز تحليل البيانات وذكاء الأعمال</h2>
+      <p class="hub-desc">
+        من الأسس إلى Oracle FDI · النمذجة البُعدية · SQL · DAX · الإحصاء التطبيقي · التصوير وسرد البيانات · بعمق دكتوراة وتوطين سعودي.
+      </p>
+
+      <div class="hub-feats">
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div><strong>٣١ وحدة</strong> · ٧ مستويات من الأسس للتطبيق</div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>أدواتك: <strong>Power BI · DAX · SQL · Oracle FDI</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>مراجع: <strong>Codd · Kimball · Tufte · DAMA</strong></div></div>
+        <div class="hub-feat"><div class="hub-feat-dot"></div><div>السياق السعودي · SDAIA · NDMO · PDPL</div></div>
+      </div>
+
+      <div class="hub-cta">
+        <span>ادخل للمركز</span>
+        <span class="hub-cta-arrow">←</span>
+      </div>
+    </a>
+
+    <a class="hub hub-emba hub-featured" href="./emba_hub.html" target="_self">
+      <div class="hub-head">
+        <div class="hub-icon">🎓</div>
+        <div class="hub-num">
+          <div class="hub-num-big">٣٩</div>
+          <div class="hub-num-label">Modules</div>
+        </div>
+      </div>
+      <div class="featured-body">
+        <div class="hub-tag">FEATURED · المنظومة السابعة · رفيقك المهني</div>
+        <h2 class="hub-title">EMBA & DBA Companion · رفيق التعلّم التنفيذي</h2>
+        <p class="hub-desc">
+          مرافقك في رحلة EMBA و DBA · من اختيار البرنامج للسعوديّ (KAU · MBSC · KFUPM) إلى الـ Marketing · Economics · Statistics · Innovation التي تنقص باقي المنظومات · ووصولاً لمسار DBA و النشر الأكاديمي.
+        </p>
+        <div class="featured-tags">
+          <span class="featured-tag">🇸🇦 برامج EMBA السعودية</span>
+          <span class="featured-tag">📝 Application Process</span>
+          <span class="featured-tag">📊 Marketing · Econ · Stats</span>
+          <span class="featured-tag">🔬 DBA Pathway</span>
+        </div>
+      </div>
+      <div class="hub-cta">
+        <span>ابدأ الرحلة</span>
+        <span class="hub-cta-arrow">←</span>
+      </div>
+    </a>
+
 
   </div>
 </main>

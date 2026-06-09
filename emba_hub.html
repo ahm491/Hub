@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>🎓 EMBA & DBA Companion · رفيق التعلّم التنفيذي</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
 <style>
 
 :root{
@@ -272,6 +272,283 @@ html,body{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;background:var(--bg
 .sb-item.sb-hidden,.sb-section.sb-hidden,.sb-tier.sb-hidden{display:none !important}
 .sb-no-results{padding:16px 18px;color:var(--muted,#78716c);font-size:12.5px;text-align:center;display:none}
 .sb-no-results.show{display:block}
+
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  UPGRADE LAYER v1 · نظام موحّد لكل المنظومات الثمانية          ║
+   ║  لتغيير هوية المنظومة: عدّل HUB COLOR TOKENS فقط               ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+/* ── HUB COLOR TOKENS · EMBA = أحمر/عنّابي ───────────────────── */
+body.dark{
+  --accent:#f87171;            /* لون النص/الإبراز الفاتح على الداكن */
+  --accent-2:#fca5a5;          /* أفتح درجة */
+  --accent-deep:#7f1d1d;       /* للخلفيات والتدرجات */
+  --accent-deep-2:#b91c1c;
+  --accent-glow:rgba(248,113,113,0.10);
+  /* أساس داكن موحّد (نفس الصفحة الرئيسية) — لا يتغيّر بين المنظومات */
+  --bg:#080b14; --surface:#10141f; --surface2:#161b29;
+  --ink:#eceaf2; --ink2:#b9bdcf; --muted:#7d8299;
+  --border:rgba(255,255,255,0.09); --border2:rgba(255,255,255,0.16);
+  --burgundy-bg:rgba(248,113,113,0.08); --burgundy-soft:rgba(248,113,113,0.16);
+  --gold:#e3b34c; --gold-bg:rgba(227,179,76,0.12);
+}
+
+/* ── الوضع الداكن: تغطية كل المكونات ذات الخلفيات المثبتة ───── */
+body.dark .sec,
+body.dark .card,
+body.dark .v-tl-card,
+body.dark .ph-card,
+body.dark .lc-card,
+body.dark .step-card,
+body.dark .scn-card,
+body.dark .cmp-col,
+body.dark .doc-mock{background:var(--surface);border-color:var(--border);box-shadow:none}
+body.dark .sb-sec-hd{background:var(--surface2)}
+body.dark .sb-sec-hd:hover{background:var(--burgundy-bg)}
+body.dark .sb-num{background:var(--surface);color:var(--muted)}
+body.dark .back-home{background:var(--surface);border-color:var(--border);color:var(--accent)}
+body.dark .back-home:hover{background:var(--accent-deep);color:#fff}
+body.dark .tbl tr:nth-child(even){background:var(--surface2)}
+body.dark .v-tl-dot{border-color:var(--bg)}
+body.dark .formula-box{background:linear-gradient(135deg,var(--burgundy-bg),var(--surface));border-color:var(--burgundy-soft)}
+body.dark .quote-box{background:linear-gradient(135deg,var(--burgundy-bg),var(--surface))}
+body.dark .card-pro-con .pro{background:rgba(34,197,94,0.07);border-color:rgba(34,197,94,0.3)}
+body.dark .card-pro-con .con{background:rgba(239,68,68,0.07);border-color:rgba(239,68,68,0.3)}
+body.dark .card-pro-con .pro h3{color:#4ade80}
+body.dark .card-pro-con .con h3{color:#f87171}
+body.dark .cmp-col.bad{background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.3)}
+body.dark .cmp-col.good{background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.3)}
+body.dark .cmp-col.info{background:rgba(59,130,246,0.06);border-color:rgba(59,130,246,0.3)}
+body.dark .cal.tip{background:rgba(34,197,94,0.08);color:#86efac}
+body.dark .cal.warn{background:rgba(227,179,76,0.08);color:#fcd34d}
+body.dark .cal.info{background:rgba(59,130,246,0.08);color:#93c5fd}
+body.dark .cal.danger{background:rgba(239,68,68,0.08);color:#fca5a5}
+body.dark .card-mini{background:var(--surface2)}
+body.dark .scn-quote{background:var(--burgundy-bg);color:var(--ink2)}
+body.dark .fb-formula{color:var(--ink)}
+
+/* نصوص الإبراز بلون المنظومة الفاتح */
+body.dark .sec h2, body.dark .sec strong, body.dark .tbl strong,
+body.dark .card h3, body.dark .card-mini strong, body.dark .quote-box h3,
+body.dark .doc-sec-title, body.dark .scn-label, body.dark .scn-text strong,
+body.dark .sb-tier-count, body.dark .v-tl-date, body.dark .ph-num,
+body.dark .lst li::before, body.dark .fb-formula em,
+body.dark .v-tl-quote, body.dark .sb-item:hover{color:var(--accent)}
+body.dark .v-tl-quote{color:var(--ink2);border-right-color:var(--accent-deep-2)}
+body.dark .sb-item:hover{background:var(--burgundy-bg)}
+body.dark .sb-item.active{background:var(--accent-deep);color:#fff}
+body.dark .sb-tier-count{background:var(--burgundy-soft)}
+body.dark .v-tl-date{background:var(--burgundy-bg)}
+body.dark .sec h2{border-bottom-color:var(--burgundy-soft)}
+body.dark .lst li strong, body.dark .lst-num>li strong{color:var(--ink)}
+body.dark .v-tl::before{background:linear-gradient(180deg,var(--accent-deep),var(--accent))}
+
+/* ── تحسين التسلسل الهرمي للخط والمسافات ─────────────────────── */
+.main{padding:34px 48px 70px}
+.pg-hero{padding:28px 32px;margin-bottom:28px}
+.pg-hero h1{font-size:28px;letter-spacing:-0.4px}
+.pg-hero p{font-size:14px}
+.sec{padding:22px 26px;margin-bottom:20px;border-radius:14px}
+.sec h2{font-size:18.5px;margin-bottom:14px}
+.sec h3{font-size:15.5px;margin:18px 0 9px}
+.sec p{font-size:13.5px;line-height:1.85}
+@media(max-width:980px){.main{padding:64px 16px 44px}.pg-hero h1{font-size:22px}.sec{padding:16px 18px}}
+
+/* شارات الـ hero المحقونة (وقت القراءة · رقم الوحدة) */
+.pg-hero-extras{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.pg-hero-extras span{background:rgba(255,255,255,0.14);padding:3px 11px;border-radius:99px;font-size:11px;font-weight:600}
+
+/* ── تنقّل السابق/التالي أسفل كل وحدة ────────────────────────── */
+.kpg-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.kpg-nav button{
+  flex:1;max-width:48%;display:flex;flex-direction:column;gap:4px;
+  padding:13px 17px;border:1px solid var(--border);border-radius:13px;
+  background:var(--surface,#fff);cursor:pointer;font-family:inherit;
+  transition:transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+.kpg-nav button.nav-prev{text-align:right;align-items:flex-start}
+.kpg-nav button.nav-next{text-align:left;align-items:flex-end;margin-right:auto}
+.kpg-nav button:hover{transform:translateY(-2px);border-color:var(--accent,var(--burgundy));box-shadow:0 8px 22px -10px rgba(127,29,29,0.35)}
+.kpg-nav .nav-dir{font-size:10.5px;font-weight:800;color:var(--muted);letter-spacing:0.5px}
+.kpg-nav .nav-ttl{font-size:13px;font-weight:800;color:var(--burgundy)}
+body.dark .kpg-nav .nav-ttl{color:var(--accent)}
+@media(max-width:780px){.kpg-nav{flex-direction:column}.kpg-nav button{max-width:100%}}
+
+/* ── تتبّع القراءة في الشريط الجانبي ─────────────────────────── */
+.sb-item.read .sb-dot{background:#22c55e;opacity:1;box-shadow:0 0 6px rgba(34,197,94,0.6)}
+.sb-item .sb-check{display:none;margin-right:auto;color:#22c55e;font-size:10px;font-weight:900}
+.sb-item.read .sb-check{display:inline}
+.sb-tier-count.done{background:rgba(34,197,94,0.15)!important;color:#22c55e!important}
+
+/* ── أكورديون ناعم للشريط الجانبي (يعتمد على غلاف يضيفه JS) ──── */
+.sb-items{display:grid!important;grid-template-rows:0fr;overflow:hidden;padding:0 4px 0 12px;transition:grid-template-rows 0.32s cubic-bezier(0.16,1,0.3,1),padding 0.32s ease}
+.sb-sec.open .sb-items{grid-template-rows:1fr;padding:6px 4px 6px 12px}
+.sb-items-in{min-height:0;overflow:hidden}
+
+/* ── جداول قابلة للتمرير أفقيًا على الجوال ───────────────────── */
+.tbl-wrap{overflow-x:auto;margin:12px 0;border-radius:8px;-webkit-overflow-scrolling:touch}
+.tbl-wrap .tbl{margin:0;min-width:560px}
+
+/* ── كشف الأقسام عند التمرير ─────────────────────────────────── */
+.rv{opacity:0;transform:translateY(16px)}
+.rv.in{opacity:1;transform:none;transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+
+/* ── لمسات حركة خفيفة ────────────────────────────────────────── */
+.card,.v-tl-card,.lc-card,.ph-card{transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease}
+.card:hover,.v-tl-card:hover,.lc-card:hover,.ph-card:hover{transform:translateY(-2px)}
+body.dark .card:hover,body.dark .v-tl-card:hover,body.dark .lc-card:hover,body.dark .ph-card:hover{border-color:color-mix(in srgb,var(--accent) 40%,transparent);box-shadow:0 14px 34px -16px var(--accent-glow)}
+.sb-item,.sb-sec-hd{outline:none}
+.sb-item:focus-visible,.sb-sec-hd:focus-visible{box-shadow:0 0 0 2px var(--accent,var(--burgundy)) inset}
+
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+
+
+/* ── أشرطة تمرير داكنة + عناصر النظام ───────────────────────── */
+body.dark{color-scheme:dark}
+body:not(.dark){color-scheme:light}
+body.dark ::-webkit-scrollbar{width:11px;height:11px}
+body.dark ::-webkit-scrollbar-track{background:var(--bg)}
+body.dark ::-webkit-scrollbar-thumb{background:#262c3d;border-radius:8px;border:2px solid var(--bg)}
+body.dark ::-webkit-scrollbar-thumb:hover{background:#39415a}
+body.dark .sb::-webkit-scrollbar-track{background:var(--surface)}
+body.dark{scrollbar-color:#262c3d var(--bg)}
+body.dark .sb{scrollbar-width:thin;scrollbar-color:#262c3d var(--surface)}
+
+/* تخفيف آخر البقع البيضاء الصغيرة في الداكن */
+body.dark .pg-hero{box-shadow:0 4px 24px rgba(0,0,0,0.4)}
+body.dark .sb-search{border-color:rgba(255,255,255,0.14)}
+
+
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  EDITORIAL THEME v2 · ورق أكاديمي دافئ · الفاتح هو الافتراضي  ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+/* ── لوحة الورق الدافئ ───────────────────────────────────────── */
+:root{
+  --bg:#f7f1e6;
+  --surface:#fffdf8;
+  --surface2:#f1e9d9;
+  --ink:#26211a;
+  --ink2:#4d463c;
+  --muted:#8b8172;
+  --border:#e6dcc8;
+  --border2:#d4c7ab;
+  --burgundy-bg:#f6e7e0;
+  --burgundy-soft:#efd6cc;
+  --gold-bg:#f3e7c8;
+}
+
+/* ── الطباعة: أميري للعناوين · IBM Plex للقراءة ──────────────── */
+body{font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;letter-spacing:0}
+.pg-hero h1, .sec h2, .quote-box h3, .card h3, .doc-title,
+.sb-hdr-title, .cmp-col h4, .scn-card h3{font-family:'Amiri','Tajawal',serif}
+
+/* قياس قراءة مريح + تنفّس */
+.kpg{max-width:880px;margin:0 auto}
+.sec{padding:30px 36px;margin-bottom:26px;border-radius:4px;border:1px solid var(--border);box-shadow:0 1px 0 var(--border2), 0 14px 34px -28px rgba(80,60,30,0.25)}
+.sec p{font-size:15px;line-height:2.05;color:var(--ink2)}
+.sec h2{font-size:26px;font-weight:700;color:var(--burgundy);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border2);position:relative}
+.sec h2::after{content:'';position:absolute;bottom:-1px;right:0;width:64px;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
+.sec h3{font-size:17px;color:var(--ink);margin:22px 0 10px}
+.lst li, .lst-num>li{font-size:14px;line-height:1.95}
+.muted{font-size:12.5px}
+
+/* ── الهيرو: ترويسة تحريرية بدل اللوح العنّابي ───────────────── */
+body:not(.dark) .pg-hero{
+  background:transparent;color:var(--ink);
+  border:none;border-radius:0;box-shadow:none;
+  padding:14px 4px 26px;margin-bottom:34px;
+  border-bottom:4px double var(--burgundy);
+  position:relative;
+}
+body:not(.dark) .pg-hero::before{
+  content:'❖';position:absolute;bottom:-13px;right:50%;transform:translateX(50%);
+  background:var(--bg);padding:0 14px;color:var(--gold);font-size:15px;
+}
+body:not(.dark) .pg-hero h1{color:var(--burgundy);font-size:42px;line-height:1.35;font-weight:700;text-shadow:none}
+body:not(.dark) .pg-hero p{color:var(--ink2);font-size:15.5px;opacity:1;max-width:680px}
+body:not(.dark) .pg-hero .meta span,
+body:not(.dark) .pg-hero-extras span{
+  background:transparent;color:#78350f;border:1px solid var(--border2);
+  font-weight:700;
+}
+
+/* ── الشريط الجانبي: مكتبة هادئة ─────────────────────────────── */
+body:not(.dark) .sb{background:var(--surface);border-left:1px solid var(--border2)}
+body:not(.dark) .sb-hdr{
+  background:var(--surface);color:var(--burgundy);
+  border-bottom:4px double var(--burgundy);
+}
+body:not(.dark) .sb-hdr *{color:var(--burgundy)}
+body:not(.dark) .sb-hdr .sb-hdr-sub{color:var(--muted)}
+body:not(.dark) .sb-search{background:var(--surface2);border:1px solid var(--border2);color:var(--ink)}
+body:not(.dark) .sb-search::placeholder{color:var(--muted)}
+body:not(.dark) .sb-sec-hd{background:transparent;border:1px solid transparent}
+body:not(.dark) .sb-sec-hd:hover{background:var(--burgundy-bg)}
+body:not(.dark) .sb-num{background:var(--surface2)}
+body:not(.dark) .sb-tier{color:var(--gold);}
+body:not(.dark) .sb-item.active{background:var(--burgundy);color:#fffdf8}
+
+/* ── الجداول: حواف رفيعة بدل الترويسة الثقيلة ────────────────── */
+body:not(.dark) .tbl{box-shadow:none;border:1px solid var(--border2);border-radius:2px}
+body:not(.dark) .tbl th{
+  background:var(--surface2);color:var(--burgundy);
+  font-family:'Amiri',serif;font-size:14px;
+  border-bottom:2px solid var(--burgundy);
+}
+body:not(.dark) .tbl tr:nth-child(even){background:#faf5ea}
+body:not(.dark) .tbl td{border-bottom:1px solid var(--border)}
+
+/* ── الاقتباس: pull-quote تحريري ─────────────────────────────── */
+body:not(.dark) .quote-box{
+  background:transparent;border:none;border-right:3px solid var(--gold);
+  border-radius:0;padding:6px 24px 6px 8px;margin:26px 0;
+  position:relative;box-shadow:none;
+}
+body:not(.dark) .quote-box::before{
+  content:'❝';position:absolute;top:-18px;right:-9px;font-size:44px;color:var(--gold);opacity:0.55;
+}
+body:not(.dark) .quote-box h3{font-size:19px}
+body:not(.dark) .quote-box p{font-size:14.5px;line-height:2;font-style:normal}
+
+/* ── بقية المكونات على الورق ─────────────────────────────────── */
+body:not(.dark) .card, body:not(.dark) .v-tl-card, body:not(.dark) .ph-card,
+body:not(.dark) .lc-card, body:not(.dark) .step-card, body:not(.dark) .scn-card,
+body:not(.dark) .cmp-col, body:not(.dark) .doc-mock{
+  background:var(--surface);border-color:var(--border2);box-shadow:0 10px 26px -22px rgba(80,60,30,0.3);
+  border-radius:3px;
+}
+body:not(.dark) .card-mini{background:var(--surface2);border-color:var(--border2);border-radius:3px}
+body:not(.dark) .cal{border-radius:2px}
+body:not(.dark) .cal.tip{background:#eaf3e4;color:#2f5224}
+body:not(.dark) .cal.warn{background:var(--gold-bg);color:#6d4a10}
+body:not(.dark) .cal.info{background:#e6eef5;color:#27496b}
+body:not(.dark) .cal.danger{background:var(--burgundy-bg);color:var(--burgundy)}
+body:not(.dark) .formula-box{background:var(--surface);border:1px dashed var(--border2)}
+body:not(.dark) .kpg-nav button{background:var(--surface);border-color:var(--border2);border-radius:3px}
+body:not(.dark) .back-home{background:var(--surface);border-color:var(--border2);border-radius:3px}
+body:not(.dark) .theme-toggle{border-radius:3px}
+body:not(.dark) .sb-tog-float{border-radius:3px}
+
+/* ── شريط تقدم القراءة الذهبي أعلى الصفحة ────────────────────── */
+.read-progress{
+  position:fixed;top:0;right:0;height:3px;width:0%;z-index:200;
+  background:linear-gradient(90deg,var(--gold),var(--burgundy));
+  transition:width 0.12s linear;
+}
+body.dark .read-progress{background:linear-gradient(90deg,var(--gold),var(--accent))}
+
+/* تنعيم عام */
+body:not(.dark) ::selection{background:var(--gold-bg);color:var(--ink)}
+@media(max-width:980px){
+  body:not(.dark) .pg-hero h1{font-size:30px}
+  .sec{padding:20px 20px}
+  .sec p{font-size:14px}
+}
+
 </style>
 </head>
 <body>
@@ -1661,7 +1938,7 @@ html,body{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;background:var(--bg
     <li><strong>الشبكة:</strong> دفعات من قادة وروّاد — قيمة شبكية عالية.</li>
   </ul>
   <div class="quote-box"><h3>💡 الموازنة لك (أحمد)</h3><p>MBSC تميل للعلامة الدولية والريادة · بينما KAU (هدفك) تجمع الاعتماد (AACSB/AMBA) مع القرب والتكلفة المعقولة. القرار يعود لأولوياتك: علامة عالمية وريادة · أم اعتماد وقرب وكفاءة تكلفة؟ استخدم تحليل المعايير الموزّعة (وحدة المقارنة) بدل الانطباع.</p></div>
-  <div style="margin:10px 0;padding:10px 14px;background:#fffbeb;border-right:3px solid #d97706;border-radius:6px;font-size:12px;line-height:1.65;color:#44403c"><strong>⚠️ تحقّق رسمياً:</strong> الشراكات الحالية · الاعتماد · الصيغة · التكلفة · القبول — من الموقع الرسمي مباشرةً قبل أيّ التزام.</div>
+  <div style="margin:10px 0;padding:10px 14px;background:var(--gold-bg);border-right:3px solid var(--gold);border-radius:6px;font-size:12px;line-height:1.65;color:var(--ink2)"><strong>⚠️ تحقّق رسمياً:</strong> الشراكات الحالية · الاعتماد · الصيغة · التكلفة · القبول — من الموقع الرسمي مباشرةً قبل أيّ التزام.</div>
 
 </div>
 
@@ -1760,7 +2037,7 @@ html,body{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;background:var(--bg
     <li><strong>الموقع واللغة والصيغة:</strong> هل تناسب جدولك (الظهران)؟</li>
   </ul>
   <div class="note"><strong>المقارنة الذكية:</strong> لا تقارن البرامج بالاسم بل بالمعايير الموزّعة (اعتماد · موقع · تكلفة · شبكة · صيغة) — راجع وحدة "الجدول المقارن" لإطار القرار. ما يناسب غيرك قد لا يناسبك.</div>
-  <div style="margin:10px 0;padding:10px 14px;background:#fffbeb;border-right:3px solid #d97706;border-radius:6px;font-size:12px;line-height:1.65;color:#44403c"><strong>⚠️ تحقّق:</strong> تفاصيل البرنامج (الصيغة · التكلفة · القبول · الاعتماد الحالي) من الموقع الرسمي مباشرةً.</div>
+  <div style="margin:10px 0;padding:10px 14px;background:var(--gold-bg);border-right:3px solid var(--gold);border-radius:6px;font-size:12px;line-height:1.65;color:var(--ink2)"><strong>⚠️ تحقّق:</strong> تفاصيل البرنامج (الصيغة · التكلفة · القبول · الاعتماد الحالي) من الموقع الرسمي مباشرةً.</div>
 
 </div>
 
@@ -4963,7 +5240,7 @@ html,body{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;background:var(--bg
     <li><strong>السياق:</strong> بحث في بيئة سعودية مع مشرفين يفهمون السياق المحلّي.</li>
   </ul>
   <div class="note"><strong>الموازنة:</strong> الـ DBA المحلّي يقدّم قرباً واعترافاً واضحاً · والدولي عن بُعد قد يقدّم علامة تجارية وشبكة عالمية. القرار يعتمد على أولوياتك (محلّي مهني؟ أم عالمي بحثي؟) — استخدم تحليل القرار متعدّد المعايير (راجع وحدة المقارنة).</div>
-  <div style="margin:10px 0;padding:10px 14px;background:#fffbeb;border-right:3px solid #d97706;border-radius:6px;font-size:12px;line-height:1.65;color:#44403c"><strong>⚠️ تحقّق:</strong> توفّر برامج DBA · اعتمادها · ولغتها · ومتطلّباتها في الجامعات السعودية تتغيّر — أكّد التفاصيل الحالية من الجهة مباشرةً.</div>
+  <div style="margin:10px 0;padding:10px 14px;background:var(--gold-bg);border-right:3px solid var(--gold);border-radius:6px;font-size:12px;line-height:1.65;color:var(--ink2)"><strong>⚠️ تحقّق:</strong> توفّر برامج DBA · اعتمادها · ولغتها · ومتطلّباتها في الجامعات السعودية تتغيّر — أكّد التفاصيل الحالية من الجهة مباشرةً.</div>
 
 </div>
 
@@ -5079,7 +5356,7 @@ html,body{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;background:var(--bg
     <tr><td><strong>الشبكة والسمعة</strong></td><td>قيمة مهنية وأكاديمية</td></tr>
   </tbody></table>
   <div class="note"><strong>القاعدة الذهبية للـ DBA:</strong> اختر بناءً على <em>المشرف والملاءمة البحثية</em> أولاً — لا العلامة وحدها. مشرف متحمّس لموضوعك في برنامج متوسّط أفضل من مشرف غير مهتمّ في برنامج شهير. راجع وحدة منهجية البحث لفهم ما ستعيشه.</div>
-  <div style="margin:10px 0;padding:10px 14px;background:#fffbeb;border-right:3px solid #d97706;border-radius:6px;font-size:12px;line-height:1.65;color:#44403c"><strong>⚠️ تحقّق:</strong> توفّر البرامج · اعتمادها · لغتها · ومتطلّباتها تتغيّر — أكّد التفاصيل الحالية من كل جهة مباشرةً، ومن وزارة التعليم للاعتراف.</div>
+  <div style="margin:10px 0;padding:10px 14px;background:var(--gold-bg);border-right:3px solid var(--gold);border-radius:6px;font-size:12px;line-height:1.65;color:var(--ink2)"><strong>⚠️ تحقّق:</strong> توفّر البرامج · اعتمادها · لغتها · ومتطلّباتها تتغيّر — أكّد التفاصيل الحالية من كل جهة مباشرةً، ومن وزارة التعليم للاعتراف.</div>
 
 </div>
 
@@ -5198,7 +5475,7 @@ html,body{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;background:var(--bg
     <tr><td><strong>المناقشة (Viva)</strong></td><td>الدفاع عن البحث أمام لجنة</td></tr>
   </tbody></table>
   <div class="note"><strong>اختيار البرنامج:</strong> الأهمّ — جودة الإشراف (Supervision) ومواءمة اهتمام مشرفك مع موضوعك · والاعتماد · والاعتراف المحلّي. الـ DBA رحلة سنوات مع مشرف — اختر بناءً على المشرف والملاءمة، لا الاسم فقط.</div>
-  <div style="margin:10px 0;padding:10px 14px;background:#fffbeb;border-right:3px solid #d97706;border-radius:6px;font-size:12px;line-height:1.65;color:#44403c"><strong>⚠️ تحقّق رسمياً قبل القرار:</strong> تفاصيل أيّ برنامج (Aston أو غيره) — الاعتماد الحالي · الصيغة · مدّة الدراسة · التكلفة · متطلّبات القبول · الاعتراف في السعودية — <strong>تتغيّر</strong>. أكّدها من الموقع الرسمي ومن وزارة التعليم قبل أيّ التزام. لا تعتمد على معلومة قديمة في قرار بهذا الحجم.</div>
+  <div style="margin:10px 0;padding:10px 14px;background:var(--gold-bg);border-right:3px solid var(--gold);border-radius:6px;font-size:12px;line-height:1.65;color:var(--ink2)"><strong>⚠️ تحقّق رسمياً قبل القرار:</strong> تفاصيل أيّ برنامج (Aston أو غيره) — الاعتماد الحالي · الصيغة · مدّة الدراسة · التكلفة · متطلّبات القبول · الاعتراف في السعودية — <strong>تتغيّر</strong>. أكّدها من الموقع الرسمي ومن وزارة التعليم قبل أيّ التزام. لا تعتمد على معلومة قديمة في قرار بهذا الحجم.</div>
 
 </div>
 
@@ -5727,60 +6004,255 @@ html,body{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;background:var(--bg
   </main>
 
 <script>
-function showK(id) {
-  document.querySelectorAll('.kpg').forEach(p => p.classList.remove('active'));
-  const target = document.getElementById('k-' + id);
-  if(target) target.classList.add('active');
-  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
-  document.querySelectorAll('.sb-item').forEach(i => {
-    const oc = i.getAttribute('onclick') || '';
-    if(oc.includes("'" + id + "'")) i.classList.add('active');
+/* ╔════════════════════════════════════════════════════════════╗
+   ║  UPGRADE JS v1 · لتكرارها في منظومة أخرى غيّر HUB فقط        ║
+   ╚════════════════════════════════════════════════════════════╝ */
+var HUB = 'emba';                      /* مفتاح التخزين لهذه المنظومة */
+var KEY_THEME = HUB + '-theme-v3', KEY_READ = HUB + '-read', KEY_LAST = HUB + '-last';
+
+/* ── الثيم: الداكن افتراضي ───────────────────────────────────── */
+function applyThemeIcon(){
+  var b = document.querySelector('.theme-toggle');
+  if(b) b.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+}
+function toggleTheme(){
+  document.body.classList.toggle('dark');
+  try{ localStorage.setItem(KEY_THEME, document.body.classList.contains('dark') ? 'dark' : 'light'); }catch(e){}
+  applyThemeIcon();
+}
+try{ if(localStorage.getItem(KEY_THEME) === 'dark') document.body.classList.add('dark'); }catch(e){}
+applyThemeIcon();
+
+/* ── تتبع القراءة ────────────────────────────────────────────── */
+function getRead(){ try{ return JSON.parse(localStorage.getItem(KEY_READ)) || []; }catch(e){ return []; } }
+function markRead(id){
+  var r = getRead();
+  if(r.indexOf(id) === -1){ r.push(id); try{ localStorage.setItem(KEY_READ, JSON.stringify(r)); }catch(e){} }
+  paintRead();
+}
+function itemId(el){
+  var m = (el.getAttribute('onclick')||'').match(/showK\('([^']+)'/);
+  return m ? m[1] : null;
+}
+function paintRead(){
+  var read = getRead();
+  document.querySelectorAll('.sb-item').forEach(function(it){
+    var id = itemId(it);
+    it.classList.toggle('read', !!id && read.indexOf(id) !== -1);
   });
+  /* عدّادات التقدم لكل Tier */
+  var tiers = document.querySelectorAll('.sb-tier');
+  tiers.forEach(function(tier){
+    var total = 0, done = 0, sib = tier.nextElementSibling;
+    while(sib && !sib.classList.contains('sb-tier')){
+      if(sib.classList.contains('sb-sec')){
+        sib.querySelectorAll('.sb-item').forEach(function(it){
+          total++; var id = itemId(it);
+          if(id && read.indexOf(id) !== -1) done++;
+        });
+      }
+      sib = sib.nextElementSibling;
+    }
+    var c = tier.querySelector('.sb-tier-count');
+    if(c && total){
+      c.textContent = toAr(done) + '/' + toAr(total);
+      c.classList.toggle('done', done === total);
+    }
+  });
+}
+var AR = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+function toAr(n){ return String(n).replace(/\d/g, function(d){ return AR[+d]; }); }
+
+/* ── التنقل بين الوحدات (hash + سجل المتصفح) ─────────────────── */
+var ORDER = [], TITLES = {};
+function buildOrder(){
+  document.querySelectorAll('#sbNav .sb-item').forEach(function(it){
+    var id = itemId(it);
+    if(id && ORDER.indexOf(id) === -1){
+      ORDER.push(id);
+      TITLES[id] = it.textContent.replace(/✓/g,'').trim();
+    }
+  });
+}
+function showK(id, silent){
+  var target = document.getElementById('k-' + id);
+  if(!target) return;
+  document.querySelectorAll('.kpg').forEach(function(p){ p.classList.remove('active'); });
+  target.classList.add('active');
+  document.querySelectorAll('.sb-item').forEach(function(i){
+    i.classList.toggle('active', itemId(i) === id);
+  });
+  /* افتح قسم الشريط الجانبي الحاوي */
+  var activeItem = document.querySelector('.sb-item.active');
+  if(activeItem){
+    var sec = activeItem.closest('.sb-sec');
+    if(sec && !sec.classList.contains('open')) sec.classList.add('open');
+  }
+  if(!silent){ try{ history.pushState(null, '', '#' + id); }catch(e){} }
+  try{ localStorage.setItem(KEY_LAST, id); }catch(e){}
+  markRead(id);
   if(window.innerWidth < 980) document.getElementById('sb').classList.remove('open');
   window.scrollTo({top:0, behavior:'smooth'});
 }
-function toggleSS(id) {
-  document.getElementById(id).classList.toggle('open');
-}
-function openSb() {
-  document.getElementById('sb').classList.toggle('open');
-}
-function toggleTheme() {
-  document.body.classList.toggle('dark');
-  try { localStorage.setItem('emba-theme', document.body.classList.contains('dark') ? 'dark' : 'light'); } catch(e){}
-}
-try { if (localStorage.getItem('emba-theme') === 'dark') document.body.classList.add('dark'); } catch(e){}
+window.addEventListener('popstate', function(){
+  var id = location.hash.replace('#','');
+  if(id && document.getElementById('k-' + id)) showK(id, true);
+});
 
-// Sidebar search (EMBA · showK navigation)
+function toggleSS(id){ document.getElementById(id).classList.toggle('open'); }
+function openSb(){ document.getElementById('sb').classList.toggle('open'); }
+
+/* ── البحث في الشريط الجانبي (مُصلَّح: .sb-sec بدل .sb-section) ── */
 function sbSearch(query){
-  const q = query.trim().toLowerCase();
-  const items = document.querySelectorAll('.sb-item');
-  const sections = document.querySelectorAll('.sb-section, .sb-tier');
-  const noResults = document.getElementById('sbNoResults');
-  let visibleCount = 0;
+  var q = query.trim().toLowerCase();
+  var items = document.querySelectorAll('.sb-item');
+  var secs = document.querySelectorAll('.sb-sec');
+  var tiers = document.querySelectorAll('.sb-tier');
+  var noResults = document.getElementById('sbNoResults');
+  var visibleCount = 0;
   if(!q){
-    items.forEach(i => i.classList.remove('sb-hidden'));
-    sections.forEach(s => s.classList.remove('sb-hidden'));
+    items.forEach(function(i){ i.classList.remove('sb-hidden'); });
+    secs.forEach(function(s){ s.classList.remove('sb-hidden'); });
+    tiers.forEach(function(t){ t.classList.remove('sb-hidden'); });
     if(noResults) noResults.classList.remove('show');
     return;
   }
-  items.forEach(item => {
-    const text = item.textContent.toLowerCase();
-    const oc = (item.getAttribute('onclick') || '').toLowerCase();
-    if(text.includes(q) || oc.includes(q)){ item.classList.remove('sb-hidden'); visibleCount++; }
-    else { item.classList.add('sb-hidden'); }
+  items.forEach(function(item){
+    var hit = item.textContent.toLowerCase().includes(q) || (item.getAttribute('onclick')||'').toLowerCase().includes(q);
+    item.classList.toggle('sb-hidden', !hit);
+    if(hit) visibleCount++;
   });
-  sections.forEach(section => {
-    let sib = section.nextElementSibling, hasVisible = false;
-    while(sib && !sib.classList.contains('sb-section') && !sib.classList.contains('sb-tier')){
-      if(sib.classList.contains('sb-item') && !sib.classList.contains('sb-hidden')){ hasVisible = true; break; }
+  secs.forEach(function(sec){
+    var has = sec.querySelector('.sb-item:not(.sb-hidden)');
+    sec.classList.toggle('sb-hidden', !has);
+    if(has) sec.classList.add('open');
+  });
+  tiers.forEach(function(tier){
+    var has = false, sib = tier.nextElementSibling;
+    while(sib && !sib.classList.contains('sb-tier')){
+      if(sib.classList.contains('sb-sec') && !sib.classList.contains('sb-hidden')){ has = true; break; }
       sib = sib.nextElementSibling;
     }
-    section.classList.toggle('sb-hidden', !hasVisible);
+    tier.classList.toggle('sb-hidden', !has);
   });
   if(noResults) noResults.classList.toggle('show', visibleCount === 0);
 }
+
+/* ── تهيئة الصفحة ────────────────────────────────────────────── */
+(function init(){
+  buildOrder();
+
+  /* ✓ علامة القراءة داخل كل عنصر */
+  document.querySelectorAll('.sb-item').forEach(function(it){
+    var c = document.createElement('span');
+    c.className = 'sb-check'; c.textContent = '✓';
+    it.appendChild(c);
+    /* وصولية: كيبورد */
+    it.setAttribute('tabindex','0'); it.setAttribute('role','button');
+  });
+  document.querySelectorAll('.sb-sec-hd').forEach(function(hd){
+    hd.setAttribute('tabindex','0'); hd.setAttribute('role','button');
+  });
+  document.addEventListener('keydown', function(e){
+    if((e.key === 'Enter' || e.key === ' ') && e.target && (e.target.classList.contains('sb-item') || e.target.classList.contains('sb-sec-hd'))){
+      e.preventDefault(); e.target.click();
+    }
+  });
+
+  /* غلاف الأكورديون الناعم */
+  document.querySelectorAll('.sb-items').forEach(function(box){
+    var inner = document.createElement('div');
+    inner.className = 'sb-items-in';
+    while(box.firstChild) inner.appendChild(box.firstChild);
+    box.appendChild(inner);
+  });
+
+  /* لفّ الجداول لتمرير أفقي على الجوال */
+  document.querySelectorAll('.tbl').forEach(function(t){
+    if(t.parentElement.classList.contains('tbl-wrap')) return;
+    var w = document.createElement('div');
+    w.className = 'tbl-wrap';
+    t.parentNode.insertBefore(w, t);
+    w.appendChild(t);
+  });
+
+  /* حقن شارات الـ hero + تنقّل سابق/تالي لكل وحدة */
+  document.querySelectorAll('.kpg').forEach(function(pg){
+    var id = pg.id.replace(/^k-/,'');
+    var idx = ORDER.indexOf(id);
+    var hero = pg.querySelector('.pg-hero');
+    if(hero && !hero.querySelector('.pg-hero-extras')){
+      var words = (pg.textContent || '').trim().split(/\s+/).length;
+      var mins = Math.max(1, Math.round(words / 180));
+      var ex = document.createElement('div');
+      ex.className = 'pg-hero-extras';
+      ex.innerHTML = '<span>⏱ ~' + toAr(mins) + ' دقيقة قراءة</span>' +
+        (idx > -1 ? '<span>📍 وحدة ' + toAr(idx + 1) + ' من ' + toAr(ORDER.length) + '</span>' : '');
+      hero.appendChild(ex);
+    }
+    if(idx > -1 && !pg.querySelector('.kpg-nav')){
+      var nav = document.createElement('div');
+      nav.className = 'kpg-nav';
+      var prev = ORDER[idx - 1], next = ORDER[idx + 1];
+      if(prev){
+        var bp = document.createElement('button');
+        bp.className = 'nav-prev';
+        bp.innerHTML = '<span class="nav-dir">→ الوحدة السابقة</span><span class="nav-ttl">' + TITLES[prev] + '</span>';
+        bp.onclick = function(){ showK(prev); };
+        nav.appendChild(bp);
+      }
+      if(next){
+        var bn = document.createElement('button');
+        bn.className = 'nav-next';
+        bn.innerHTML = '<span class="nav-dir">الوحدة التالية ←</span><span class="nav-ttl">' + TITLES[next] + '</span>';
+        bn.onclick = function(){ showK(next); };
+        nav.appendChild(bn);
+      }
+      if(nav.children.length) pg.appendChild(nav);
+    }
+  });
+
+  /* كشف الأقسام عند التمرير */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.06, rootMargin:'0px 0px -4% 0px'});
+    document.querySelectorAll('.kpg > .sec, .kpg > .quote-box').forEach(function(s){
+      s.classList.add('rv'); io.observe(s);
+    });
+  }
+
+  paintRead();
+
+  /* الفتح: hash إن وُجد، وإلا آخر وحدة مزارة، وإلا الرئيسية */
+  var start = location.hash.replace('#','');
+  if(!(start && document.getElementById('k-' + start))){
+    try{ start = localStorage.getItem(KEY_LAST) || ''; }catch(e){ start = ''; }
+  }
+  if(start && document.getElementById('k-' + start)) showK(start, true);
+})();
 </script>
 
+<script>
+(function(){
+  var bar = document.createElement('div');
+  bar.className = 'read-progress';
+  document.body.appendChild(bar);
+  var ticking = false;
+  function update(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(update); }
+  }, {passive:true});
+  update();
+})();
+</script>
 </body>
 </html>

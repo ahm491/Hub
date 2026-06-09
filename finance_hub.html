@@ -99,11 +99,11 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .tip{display:flex;gap:10px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:9px;padding:11px 14px;margin:10px 0;font-size:12px;color:#1e3a8a;line-height:1.7}
 .tip-ic{font-size:18px;line-height:1;flex-shrink:0}
 
-.codebox{background:#0c0a09;border-radius:10px;padding:14px 18px;margin:10px 0;overflow-x:auto;border:1px solid #292524}
-.codebox-lbl{font-size:9.5px;font-weight:900;letter-spacing:2.5px;color:rgba(251,191,36,.75);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.codebox{background:#fafaf9;border-radius:10px;padding:0;margin:14px 0;overflow:hidden;border:1px solid #e7e5e4;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.codebox-lbl{background:#fff;color:var(--s2, #10b981);font-size:10.5px;font-weight:700;padding:8px 14px;letter-spacing:0.5px;font-family:'Tajawal',sans-serif;border-bottom:1px solid #e7e5e4}
 .codebox-lbl::before{content:'›';color:var(--gold);font-size:14px}
 .codebox-lang{margin-right:auto;color:rgba(255,255,255,.4);font-size:9px;letter-spacing:1.5px}
-.codebox-code{font-family:'JetBrains Mono','Courier New',monospace;font-size:11.5px;line-height:1.75;color:#e7e5e4;white-space:pre;direction:ltr;text-align:left;margin:0;overflow-x:auto}
+.codebox-code{padding:14px 16px;font-family:'Courier New',monospace;font-size:12px;line-height:1.75;color:#1c1917;overflow-x:auto;direction:ltr;text-align:left;white-space:pre-wrap;word-break:break-word;background:#fff}
 .codebox-code .c-kw{color:#c084fc;font-weight:600}
 .codebox-code .c-str{color:#86efac}
 .codebox-code .c-com{color:#78716c;font-style:italic}
@@ -154,8 +154,120 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
 .back-home-icon{color:#fbbf24;flex-shrink:0;transition:transform 0.2s ease}
 .back-home:hover .back-home-icon{transform:scale(1.08)}
 .back-home-text{line-height:1}
-@media(max-width:640px){.back-home{top:10px;left:10px;padding:6px 12px 6px 10px;font-size:11.5px}}
+@media(max-width:640px){.back-home{top:10px;right:10px;padding:6px 12px 6px 10px;font-size:11.5px}}
 
+
+/* ════ VISUAL COMPONENTS · Emerald theme for Finance ════ */
+.v-tl{position:relative;padding-right:30px;margin:14px 0 18px}
+.v-tl::before{content:'';position:absolute;right:13px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--s2) 0%,#10b981 100%);border-radius:2px}
+.v-tl-item{position:relative;margin-bottom:18px;padding-right:8px}
+.v-tl-item:last-child{margin-bottom:0}
+.v-tl-dot{position:absolute;right:-22px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--s2);border:3px solid #fff;box-shadow:0 0 0 2px var(--s2);z-index:2}
+.v-tl-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.v-tl-date{font-family:'Courier New',monospace;color:var(--s2);font-size:11.5px;font-weight:700;background:#f0fdf4;padding:2px 10px;border-radius:4px;direction:ltr;display:inline-block;margin-bottom:6px}
+.v-tl-title{font-weight:700;color:var(--ink);font-size:14px;margin-bottom:4px;font-family:'Tajawal',sans-serif}
+.v-tl-quote{color:var(--ink2);font-size:13px;line-height:1.6;font-style:italic;padding-right:10px;border-right:2px solid #86efac}
+
+.lc-grid{display:grid;gap:10px;margin:14px 0 18px}
+.lc-grid.cols-1{grid-template-columns:1fr}.lc-grid.cols-2{grid-template-columns:1fr 1fr}
+.lc-grid.cols-3{grid-template-columns:repeat(3,1fr)}.lc-grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.lc-card{display:flex;gap:12px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.lc-letter{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--s2),#10b981);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900}
+.lc-body{flex:1;min-width:0}
+.lc-title{font-weight:700;color:var(--ink);font-size:13px;margin-bottom:4px;font-family:'Tajawal',sans-serif}
+.lc-desc{color:var(--ink2);font-size:12.5px;line-height:1.6}
+.lc-desc em{color:var(--s2);font-style:normal;font-weight:600}
+
+.m22{display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:8px;margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.m22-corner{grid-row:1;grid-column:1}
+.m22-x-axis{grid-row:1;grid-column:2/4;text-align:center;font-size:11.5px;font-weight:700;color:var(--muted);padding:6px;text-transform:uppercase;letter-spacing:1px}
+.m22-y-axis{grid-row:2/4;grid-column:1;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;padding:4px}
+.m22-q{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px;box-shadow:0 1px 2px rgba(0,0,0,0.03);min-height:110px}
+.m22-q-tl{grid-row:2;grid-column:2}.m22-q-tr{grid-row:2;grid-column:3}
+.m22-q-bl{grid-row:3;grid-column:2}.m22-q-br{grid-row:3;grid-column:3}
+.m22-q-name{font-weight:800;color:var(--ink);font-size:13px}
+.m22-q-ar{color:var(--s2);font-size:12px;font-weight:600}
+.m22-q-desc{color:var(--ink2);font-size:12px;line-height:1.55;margin-top:auto}
+.m22-q.good{border-color:var(--s2);background:linear-gradient(135deg,#f0fdf4,#fff)}
+.m22-q.bad{border-color:var(--red);background:linear-gradient(135deg,#fef2f2,#fff)}
+.m22-q.warn{border-color:var(--gold);background:linear-gradient(135deg,#fffbeb,#fff)}
+.m22-q.neutral{border-color:#cbd5e1;background:linear-gradient(135deg,#f8fafc,#fff)}
+
+.step-flow{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px;align-items:stretch;font-family:'Tajawal',sans-serif}
+.step-card{flex:1;min-width:140px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,0.03);position:relative}
+.step-num{position:absolute;top:-10px;right:50%;transform:translateX(50%);background:var(--s2);color:#fff;width:24px;height:24px;border-radius:50%;font-weight:700;font-size:12px;line-height:24px;text-align:center}
+.step-title{font-weight:700;color:var(--ink);font-size:12.5px;margin-top:8px;margin-bottom:4px}
+.step-desc{color:var(--ink2);font-size:11.5px;line-height:1.5}
+
+.ph-cards{display:grid;gap:10px;margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.ph-cards.cols-3{grid-template-columns:repeat(3,1fr)}.ph-cards.cols-4{grid-template-columns:repeat(4,1fr)}
+.ph-cards.cols-5{grid-template-columns:repeat(5,1fr)}
+.ph-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.ph-card::before{content:'';position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--s2),#10b981)}
+.ph-card.p2::before{background:linear-gradient(90deg,#0ea5e9,#38bdf8)}
+.ph-card.p3::before{background:linear-gradient(90deg,var(--purple),#a78bfa)}
+.ph-card.p4::before{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.ph-card.p5::before{background:linear-gradient(90deg,#ef4444,#f87171)}
+.ph-num{font-family:'Courier New',monospace;font-size:11px;color:var(--s2);font-weight:700;letter-spacing:1px;margin-bottom:4px}
+.ph-card.p2 .ph-num{color:#0ea5e9}.ph-card.p3 .ph-num{color:var(--purple)}
+.ph-card.p4 .ph-num{color:#f59e0b}.ph-card.p5 .ph-num{color:#ef4444}
+.ph-title{font-weight:800;color:var(--ink);font-size:13.5px;margin-bottom:6px}
+.ph-body{color:var(--ink2);font-size:12px;line-height:1.65}
+.ph-body ul{margin:6px 0 0;padding-right:18px}
+.ph-body li{margin:2px 0}
+
+.h-bar{margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.hb-row{display:grid;grid-template-columns:130px 1fr auto;gap:10px;align-items:center;margin-bottom:8px}
+.hb-label{font-size:12.5px;font-weight:700;color:var(--ink)}
+.hb-track{background:#f5f5f4;border-radius:6px;height:24px;overflow:hidden;position:relative}
+.hb-fill{height:100%;background:linear-gradient(90deg,var(--s2),#10b981);border-radius:6px;display:flex;align-items:center;padding:0 8px;color:#fff;font-size:11px;font-weight:700;font-family:'Courier New',monospace}
+.hb-note{font-size:11.5px;color:var(--ink2);font-weight:600}
+
+.formula-box{margin:14px 0 18px;background:linear-gradient(135deg,#f0fdf4,#fff);border:2px solid #86efac;border-radius:12px;padding:18px;text-align:center;font-family:'Cairo',sans-serif;box-shadow:0 2px 8px rgba(21,128,61,0.06)}
+.fb-formula{font-size:18px;color:var(--ink);font-weight:700;line-height:1.8;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.fb-formula em{color:var(--s2);font-style:normal;font-weight:800;padding:0 6px}
+.fb-formula .fb-op{color:var(--gold);font-weight:900;padding:0 8px}
+.fb-frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 8px}
+.fb-frac-top{border-bottom:2px solid var(--ink);padding:0 12px 4px;font-size:14px}
+.fb-frac-bot{padding:4px 12px 0;font-size:14px}
+.fb-terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:14px;text-align:right}
+.fb-term{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.fb-term-name{font-weight:700;color:var(--s2);font-size:12.5px;margin-bottom:3px}
+.fb-term-desc{font-size:11.5px;color:var(--ink2);line-height:1.55}
+
+.doc-mock{margin:14px 0 18px;background:#fff;border:1px solid var(--border2);border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);font-family:'Tajawal',sans-serif}
+.doc-header{background:linear-gradient(135deg,var(--s2),#065f46);color:#fff;padding:14px 18px;font-weight:800;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.doc-header-sub{font-size:11px;font-weight:500;opacity:0.85;background:rgba(255,255,255,0.2);padding:3px 10px;border-radius:4px}
+.doc-body{padding:14px 18px}
+.doc-sec{margin-bottom:14px}
+.doc-sec:last-child{margin-bottom:0}
+.doc-sec-title{font-size:11.5px;font-weight:800;color:var(--s2);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;padding-bottom:4px;border-bottom:2px solid #d1fae5}
+.doc-sec-body{color:var(--ink2);font-size:12.5px;line-height:1.7}
+.doc-sec-body ul{margin:4px 0;padding-right:20px}
+
+.cmp-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.cmp-col{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.cmp-col.bad{border-color:#fca5a5;background:linear-gradient(135deg,#fef2f2,#fff)}
+.cmp-col.good{border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#fff)}
+.cmp-col.info{border-color:#93c5fd;background:linear-gradient(135deg,#dbeafe,#fff)}
+.cmp-head{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.cmp-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;font-weight:900}
+.cmp-col.bad .cmp-icon{background:#dc2626}
+.cmp-col.good .cmp-icon{background:#16a34a}
+.cmp-col.info .cmp-icon{background:#1d4ed8}
+.cmp-body{color:var(--ink2);font-size:12px;line-height:1.65}
+
+.scn-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:14px 0 18px;font-family:'Tajawal',sans-serif;box-shadow:0 1px 3px rgba(0,0,0,0.04);border-right:4px solid var(--s2)}
+.scn-label{font-size:11px;font-weight:800;color:var(--s2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.scn-text{color:var(--ink);font-size:13px;line-height:1.75}
+.scn-text strong{color:var(--s2)}
+.scn-quote{background:#f0fdf4;border-right:3px solid var(--s2);padding:8px 12px;margin:8px 0;border-radius:6px;font-style:italic;font-size:12.5px;color:var(--ink2)}
+
+@media (max-width:780px){
+  .ph-cards.cols-3,.ph-cards.cols-4,.ph-cards.cols-5{grid-template-columns:1fr}
+  .lc-grid.cols-3,.lc-grid.cols-4{grid-template-columns:1fr}
+  .cmp-2{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -178,6 +290,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   <div class="sb-head">
     <div class="sb-brand">💰 مركز المعرفة المالية</div>
     <div class="sb-tagline">٣٧ وحدة · أساسيات · أسواق · بنوك · السياق السعودي</div>
+    <input type="text" class="sb-search" id="sbSearch" placeholder="🔍 ابحث في الوحدات..." oninput="sbSearch(this.value)" autocomplete="off">
   </div>
   <div class="sb-section">▸ ابدأ هنا (الأساسيات)</div>
   <div class="sb-item active" data-mod="tvm"><div class="sb-dot" style="background:var(--gold)"></div>القيمة الزمنية للنقود<span class="sb-num">٠١</span></div>
@@ -231,7 +344,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   <div class="sb-item" data-mod="calc-loan"><div class="sb-dot" style="background:var(--s3)"></div>حاسبة القرض/التمويل العقاري<span class="sb-num">C٤</span></div>
   <div class="sb-item" data-mod="calc-zakat"><div class="sb-dot" style="background:var(--red)"></div>حاسبة الزكاة<span class="sb-num">C٥</span></div>
   <div class="sb-item" data-mod="calc-ratios"><div class="sb-dot" style="background:var(--purple)"></div>حاسبة النسب المالية<span class="sb-num">C٦</span></div>
-</nav>
+    <div class="sb-no-results" id="sbNoResults">لا توجد نتائج مطابقة</div>
+  </nav>
 
 <div class="main">
 
@@ -316,33 +430,30 @@ body{background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;min-he
   <div class="card">
     <p>الفهم الصحيح لـ TVM يبدأ من التمييز بين نوعَي الفائدة:</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">SIMPLE INTEREST · الفائدة البسيطة</div>
-<pre class="codebox-code"><span class="c-com"># الفائدة تُحسب على المبلغ الأصلي فقط</span>
-FV = PV × (1 + r × n)
+    <div class="formula-box">
+  <div class="fb-formula"><em>SI</em> <span class="fb-op">=</span> <strong>P</strong> <span class="fb-op">×</span> <strong>r</strong> <span class="fb-op">×</span> <strong>t</strong></div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">P · Principal</div><div class="fb-term-desc">المبلغ الأصلي</div></div>
+    <div class="fb-term"><div class="fb-term-name">r · Rate</div><div class="fb-term-desc">معدّل الفائدة السنوي</div></div>
+    <div class="fb-term"><div class="fb-term-name">t · Time</div><div class="fb-term-desc">الفترة بالسنوات</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>مثال:</strong> ١٠٬٠٠٠ ر.س · ٥٪ سنوياً · ٣ سنوات<br>SI = 10,000 × 0.05 × 3 = <strong>١٬٥٠٠ ر.س</strong>
+  </div>
+</div>
 
-<span class="c-com"># مثال: 10,000 ريال بفائدة بسيطة 5% لـ 3 سنوات</span>
-السنة 1: <span class="c-num">10,000</span> + (<span class="c-num">10,000</span> × <span class="c-num">5%</span>) = <span class="c-num">10,500</span>
-السنة 2: <span class="c-num">10,500</span> + (<span class="c-num">10,000</span> × <span class="c-num">5%</span>) = <span class="c-num">11,000</span>
-السنة 3: <span class="c-num">11,000</span> + (<span class="c-num">10,000</span> × <span class="c-num">5%</span>) = <span class="c-num">11,500</span>
-
-<span class="c-com"># الإجمالي = الأصل + (الأصل × المعدل × المدة)</span>
-FV = <span class="c-num">10,000</span> × (<span class="c-num">1</span> + <span class="c-num">0.05</span> × <span class="c-num">3</span>) = <span class="c-num">11,500</span></pre>
-    </div>
-
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">COMPOUND INTEREST · الفائدة المركّبة</div>
-<pre class="codebox-code"><span class="c-com"># الفائدة تُحسب على الأصل + الفوائد المتراكمة</span>
-FV = PV × (1 + r)^n
-
-<span class="c-com"># نفس المثال بفائدة مركّبة:</span>
-السنة 1: <span class="c-num">10,000</span> × <span class="c-num">1.05</span> = <span class="c-num">10,500.00</span>
-السنة 2: <span class="c-num">10,500</span> × <span class="c-num">1.05</span> = <span class="c-num">11,025.00</span>
-السنة 3: <span class="c-num">11,025</span> × <span class="c-num">1.05</span> = <span class="c-num">11,576.25</span>
-
-<span class="c-com"># الفرق = 76.25 ريال (الفائدة على الفائدة)</span>
-<span class="c-com"># لـ 30 سنة: الفرق يصبح هائلاً!</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>FV</em> <span class="fb-op">=</span> <strong>P</strong> × <strong>(1 + r/n)<sup>n×t</sup></strong></div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">P · Principal</div><div class="fb-term-desc">المبلغ الأصلي</div></div>
+    <div class="fb-term"><div class="fb-term-name">r · Annual Rate</div><div class="fb-term-desc">معدّل الفائدة السنوي</div></div>
+    <div class="fb-term"><div class="fb-term-name">n · Periods/year</div><div class="fb-term-desc">عدد فترات التجميع سنوياً</div></div>
+    <div class="fb-term"><div class="fb-term-name">t · Years</div><div class="fb-term-desc">عدد السنوات</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>مثال:</strong> ١٠٬٠٠٠ ر.س · ٥٪ سنوياً · شهري · ٣ سنوات<br>FV = 10,000 × (1 + 0.05/12)^36 = <strong>١١٬٦١٤ ر.س</strong>
+  </div>
+</div>
 
     <div class="tip" style="margin-top:14px">
       <div class="tip-ic">⚡</div>
@@ -368,46 +479,33 @@ FV = PV × (1 + r)^n
   <div class="card">
     <p>الفائدة قد تُركّب سنوياً، شهرياً، يومياً، أو حتّى مستمرّاً. هذا يُغيّر القيمة النهائية جذرياً.</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">COMPOUNDING FREQUENCY</div>
-<pre class="codebox-code">FV = PV × (1 + r/m)^(n×m)
-
-m = عدد مرّات التركيب في السنة
-r = المعدّل السنوي الاسمي
-
-<span class="c-com"># مثال: 10,000 ريال بفائدة 12% لمدة سنة:</span>
-سنوياً (m=1):    <span class="c-num">10,000</span> × (1 + 0.12/1)^1   = <span class="c-num">11,200.00</span>
-نصف-سنوي (m=2):  <span class="c-num">10,000</span> × (1 + 0.12/2)^2   = <span class="c-num">11,236.00</span>
-ربع سنوي (m=4):  <span class="c-num">10,000</span> × (1 + 0.12/4)^4   = <span class="c-num">11,255.09</span>
-شهري (m=12):     <span class="c-num">10,000</span> × (1 + 0.12/12)^12 = <span class="c-num">11,268.25</span>
-يومي (m=365):    <span class="c-num">10,000</span> × (1 + 0.12/365)^365 = <span class="c-num">11,274.74</span>
-مستمرّ:          <span class="c-num">10,000</span> × e^(0.12)         = <span class="c-num">11,274.97</span>
-
-<span class="c-com"># كلّما زاد التركيب → القيمة النهائية ترتفع</span>
-<span class="c-com"># لكن بحدّ أعلى (التركيب المستمرّ هو السقف نظرياً)</span></pre>
-    </div>
+    <div class="h-bar">
+  <div class="hb-row"><div class="hb-label">سنوي · Annual</div><div class="hb-track"><div class="hb-fill" style="width:55%">10,500</div></div><div class="hb-note">+5.00%</div></div>
+  <div class="hb-row"><div class="hb-label">نصف سنوي</div><div class="hb-track"><div class="hb-fill" style="width:56%">10,506</div></div><div class="hb-note">+5.06%</div></div>
+  <div class="hb-row"><div class="hb-label">ربع سنوي</div><div class="hb-track"><div class="hb-fill" style="width:57%">10,509</div></div><div class="hb-note">+5.09%</div></div>
+  <div class="hb-row"><div class="hb-label">شهري · Monthly</div><div class="hb-track"><div class="hb-fill" style="width:58%">10,512</div></div><div class="hb-note">+5.12%</div></div>
+  <div class="hb-row"><div class="hb-label">يومي · Daily</div><div class="hb-track"><div class="hb-fill" style="width:59%">10,513</div></div><div class="hb-note">+5.13%</div></div>
+  <div class="hb-row"><div class="hb-label">مستمرّ · Continuous</div><div class="hb-track"><div class="hb-fill" style="width:60%;background:linear-gradient(90deg,#15803d,#10b981)">10,513.5</div></div><div class="hb-note" style="color:var(--s2);font-weight:800">+5.127%</div></div>
+</div>
+<div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#15803d;text-align:center">
+<strong>القاعدة:</strong> كلّما زادت تكرارات التجميع · زاد المبلغ النهائي (لكن بفروق ضئيلة بعد الشهري).
+</div>
   </div>
 
   <div class="sec">▸ الفائدة الفعلية vs الاسمية · سرّ القرارات الذكيّة</div>
   <div class="card">
     <p><strong>هذا الفرق هو سبب أكبر الأخطاء المالية في القرارات الشخصية والتجارية.</strong></p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">EFFECTIVE vs NOMINAL RATE</div>
-<pre class="codebox-code">EAR = (1 + r/m)^m − 1
-
-EAR = Effective Annual Rate · الفائدة الفعلية
-r   = الفائدة الاسمية السنوية
-m   = عدد مرّات التركيب
-
-<span class="c-com"># قرض بفائدة 12% اسمية شهرياً:</span>
-EAR = (1 + 0.12/12)^12 − 1 = <span class="c-num">12.68%</span>
-
-<span class="c-com"># قرض بفائدة 11.9% اسمية يومية:</span>
-EAR = (1 + 0.119/365)^365 − 1 = <span class="c-num">12.63%</span>
-
-<span class="c-com"># رغم أن الاسمية الأولى أعلى, الفعلية الثانية أعلى!</span></pre>
-    </div>
+    <div class="cmp-2">
+  <div class="cmp-col info">
+    <div class="cmp-head"><div class="cmp-icon">📋</div>NOMINAL RATE · الاسمي</div>
+    <div class="cmp-body"><strong>التعريف:</strong> المعدّل المعلن<br><strong>الصيغة:</strong> APR (Annual Percentage Rate)<br><em>مثال:</em> 12% APR · شهري<br><strong>المعدّل الشهري:</strong> 12%/12 = 1%</div>
+  </div>
+  <div class="cmp-col good">
+    <div class="cmp-head"><div class="cmp-icon">⭐</div>EFFECTIVE RATE · الفعلي</div>
+    <div class="cmp-body"><strong>التعريف:</strong> المعدّل الحقيقي بعد التجميع<br><strong>الصيغة:</strong> APY · EAR<br><em>الحساب:</em> (1 + 0.12/12)^12 − 1<br><strong>= 12.68%</strong> · أعلى من الاسمي</div>
+  </div>
+</div>
 
     <table class="tbl" style="margin-top:14px">
       <thead><tr><th>السيناريو</th><th>الاسمية</th><th>التركيب</th><th>الفعلية (EAR)</th></tr></thead>
@@ -445,45 +543,36 @@ EAR = (1 + 0.119/365)^365 − 1 = <span class="c-num">12.63%</span>
       </div>
     </div>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">ANNUITY FORMULAS</div>
-<pre class="codebox-code"><span class="c-com"># القيمة الحالية لدفعات منتظمة (Ordinary)</span>
-PV = PMT × [(1 − (1+r)^-n) / r]
-
-<span class="c-com"># القيمة المستقبلية لدفعات منتظمة (Ordinary)</span>
-FV = PMT × [((1+r)^n − 1) / r]
-
-<span class="c-com"># مثال: تأخذ قرض 100,000 لـ 5 سنوات بفائدة 6%</span>
-<span class="c-com"># ما القسط السنوي؟</span>
-PMT = <span class="c-num">100,000</span> × <span class="c-num">0.06</span> / (<span class="c-num">1</span> − <span class="c-num">1.06</span>^-5)
-PMT = <span class="c-num">23,740</span> ريال/سنة
-
-<span class="c-com"># إجمالي المدفوع = 23,740 × 5 = 118,700</span>
-<span class="c-com"># الفائدة الإجمالية = 18,700 ريال</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>PV of Annuity</em> <span class="fb-op">=</span> <strong>PMT × [(1 − (1+r)<sup>−n</sup>) / r]</strong></div>
+  <div class="fb-formula" style="margin-top:14px"><em>FV of Annuity</em> <span class="fb-op">=</span> <strong>PMT × [((1+r)<sup>n</sup> − 1) / r]</strong></div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">PMT · Payment</div><div class="fb-term-desc">القسط الدوري الثابت</div></div>
+    <div class="fb-term"><div class="fb-term-name">r · Rate per period</div><div class="fb-term-desc">معدّل الفائدة لكل فترة</div></div>
+    <div class="fb-term"><div class="fb-term-name">n · Number of periods</div><div class="fb-term-desc">عدد الفترات</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>التطبيقات:</strong> الرواتب التقاعدية · أقساط القروض · التأمين · إيجارات.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ الدفعات الأبدية · Perpetuities</div>
   <div class="card">
     <p>تدفقات لا تنتهي. مفيدة في تقييم الأسهم الممتازة وحساب Terminal Value في DCF.</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">PERPETUITY · بسيطة ومتنامية</div>
-<pre class="codebox-code"><span class="c-com"># Perpetuity ثابتة:</span>
-PV = C / r
-
-<span class="c-com"># مثال: سهم ممتاز يوزّع 5 ريال سنوياً للأبد · عائد مطلوب 8%</span>
-PV = <span class="c-num">5</span> / <span class="c-num">0.08</span> = <span class="c-num">62.50</span> ريال
-
-<span class="c-com"># Perpetuity متنامية (Gordon Growth Model):</span>
-PV = C₁ / (r − g)
-
-C₁ = التدفق في السنة الأولى
-g  = معدّل النموّ المستدام (يجب أن يكون < r)
-
-<span class="c-com"># مثال: شركة تتوقّع توزيع 4 ريال السنة القادمة, نموّ 3% للأبد, عائد مطلوب 9%</span>
-PV = <span class="c-num">4</span> / (<span class="c-num">0.09</span> − <span class="c-num">0.03</span>) = <span class="c-num">66.67</span> ريال</pre>
-    </div>
+    <div class="cmp-2">
+  <div class="cmp-col info">
+    <div class="cmp-head"><div class="cmp-icon">∞</div>BASIC PERPETUITY · بسيطة</div>
+    <div class="cmp-body" style="font-family:monospace;font-size:14px;text-align:center;padding:12px"><strong>PV = PMT / r</strong></div>
+    <div class="cmp-body"><em>مثال:</em> صكوك تدفع 100 ر.س سنوياً للأبد · معدّل 5%<br>PV = 100 / 0.05 = <strong>٢٬٠٠٠ ر.س</strong></div>
+  </div>
+  <div class="cmp-col good">
+    <div class="cmp-head"><div class="cmp-icon">📈</div>GROWING PERPETUITY · متنامية</div>
+    <div class="cmp-body" style="font-family:monospace;font-size:14px;text-align:center;padding:12px"><strong>PV = D₁ / (r − g)</strong></div>
+    <div class="cmp-body"><em>مثال (Gordon Model):</em> توزيع 5 ر.س · ينمو 3% · مطلوب 8%<br>PV = 5 / (0.08 − 0.03) = <strong>١٠٠ ر.س</strong></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ تطبيق ١ · قرار شراء معدّات لشركة مقاولات</div>
@@ -514,28 +603,18 @@ PV = <span class="c-num">4</span> / (<span class="c-num">0.09</span> − <span c
   <div class="card">
     <p>تشتري سيارة بـ <strong>١٢٠ ألف ريال</strong> · البنك الإسلامي يبيعها لك بـ <strong>١٣٨ ألف</strong> على ٣ سنوات. ما الفائدة الفعلية المكافئة؟</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">MURABAHA EFFECTIVE RATE</div>
-<pre class="codebox-code"><span class="c-com"># المرابحة:</span>
-سعر الشراء (PV)   = <span class="c-num">120,000</span> ريال
-سعر البيع المؤجّل = <span class="c-num">138,000</span> ريال
-المدّة            = <span class="c-num">36</span> شهر
-القسط الشهري      = <span class="c-num">138,000</span> / <span class="c-num">36</span> = <span class="c-num">3,833</span>
-
-<span class="c-com"># استخراج معدّل الفائدة المكافئ (Implied Rate):</span>
-<span class="c-com"># نحلّ معادلة الأقساط:</span>
-<span class="c-num">120,000</span> = <span class="c-num">3,833</span> × [(<span class="c-num">1</span> − (<span class="c-num">1+r</span>)^-36) / r]
-
-<span class="c-com"># بالحلّ العددي:</span>
-r شهري ≈ <span class="c-num">0.78%</span>
-r سنوي اسمي = <span class="c-num">9.32%</span>
-EAR (فعلي) = (<span class="c-num">1.0078</span>)^12 − <span class="c-num">1</span> = <span class="c-num">9.74%</span>
-
-<span class="c-com"># قارن مع البنك التقليدي بفائدة 8% APR:</span>
-EAR التقليدي = (<span class="c-num">1</span> + <span class="c-num">0.08</span>/12)^12 − <span class="c-num">1</span> = <span class="c-num">8.30%</span>
-
-<span class="c-com"># المرابحة أعلى تكلفة فعلياً (مع أن مبلغها ثابت لا يتغيّر)</span></pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">🕌 السيناريو · مرابحة سيارة</div>
+  <div class="scn-text">سيارة بـ <strong>١٠٠٬٠٠٠ ر.س</strong> · بنك يعرض مرابحة:</div>
+  <div class="scn-quote">السعر النهائي ١١٥٬٠٠٠ ر.س · أقساط شهرية ٢٬٣٩٦ ر.س · على ٤ سنوات</div>
+</div>
+<div class="formula-box">
+  <div class="fb-formula"><em>الربح الإجمالي</em> = ١٥٬٠٠٠ ر.س · على أصل ١٠٠٬٠٠٠ · ٤ سنوات</div>
+  <div class="fb-formula" style="margin-top:10px"><em>Effective Annual Rate</em> ≈ <strong style="color:var(--red)">٧.٢٪</strong></div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>الملاحظة:</strong> رغم أنّ "الربح" يبدو ٣.٧٥٪ سنوياً (١٥٠٠٠÷١٠٠٠٠٠÷٤) · الـ <em>Effective Rate</em> أعلى بكثير لأنّ الأصل ينخفض مع الأقساط. SAMA تطالب البنوك بإفصاح EAR.
+  </div>
+</div>
 
     <div class="tip" style="margin-top:14px">
       <div class="tip-ic">⚖️</div>
@@ -547,28 +626,15 @@ EAR التقليدي = (<span class="c-num">1</span> + <span class="c-num">0.08<
   <div class="card">
     <p>عمرك ٣٠ سنة. تريد التقاعد عند ٥٥ بدخل شهري ٢٠ ألف ريال لمدّة ٣٠ سنة بعد التقاعد. كم يجب أن تدّخر شهرياً اليوم؟</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">RETIREMENT PLANNING</div>
-<pre class="codebox-code"><span class="c-com"># الافتراضات:</span>
-العمر الحالي    = <span class="c-num">30</span>
-عمر التقاعد    = <span class="c-num">55</span> (٢٥ سنة ادّخار)
-سنوات التقاعد  = <span class="c-num">30</span> سنة
-الدخل الشهري المطلوب بعد التقاعد = <span class="c-num">20,000</span> ريال
-عائد الاستثمار (متحفّظ) = <span class="c-num">7%</span> سنوي
-
-<span class="c-com"># الخطوة 1: كم نحتاج عند بداية التقاعد لتوليد 20k شهرياً لـ 30 سنة؟</span>
-PV_retirement = <span class="c-num">20,000</span> × [(<span class="c-num">1</span> − (<span class="c-num">1.07/12</span>)^-360) / (<span class="c-num">0.07</span>/<span class="c-num">12</span>)]
-PV_retirement = <span class="c-num">3,005,000</span> ريال
-
-<span class="c-com"># الخطوة 2: كم نحتاج ادّخار شهرياً لـ 25 سنة للوصول لـ 3 مليون؟</span>
-<span class="c-num">3,005,000</span> = PMT × [((<span class="c-num">1.07</span>/12)^300 − <span class="c-num">1</span>) / (<span class="c-num">0.07</span>/<span class="c-num">12</span>)]
-PMT = <span class="c-num">3,712</span> ريال/شهر
-
-<span class="c-com"># الخلاصة:</span>
-<span class="c-com"># ادّخر 3,712 ريال شهرياً من سنّ 30 إلى 55</span>
-<span class="c-com"># ستجمع ~3 مليون ريال عند التقاعد</span>
-<span class="c-com"># ستوفّر دخلاً 20,000 شهرياً لـ 30 سنة قادمة</span></pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">🎯 RETIREMENT PLANNING <span class="doc-header-sub">مثال · أحمد · ٣٥ سنة</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">📊 الحاجة المتوقّعة</div><div class="doc-sec-body">المصاريف الشهرية الحالية: ١٥٬٠٠٠ ر.س<br>عند التقاعد (٦٥): ٢٥٬٠٠٠ ر.س (شاملاً التضخّم ٣٪)<br>الحاجة السنوية: ٣٠٠٬٠٠٠ ر.س</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">💰 رأس المال المطلوب</div><div class="doc-sec-body">بناءً على قاعدة ٤٪ (Safe Withdrawal Rate):<br>٣٠٠٬٠٠٠ × ٢٥ = <strong style="color:var(--s2)">٧٬٥٠٠٬٠٠٠ ر.س</strong></div></div>
+    <div class="doc-sec"><div class="doc-sec-title">📈 الادّخار الشهري المطلوب</div><div class="doc-sec-body">٣٠ سنة · عائد متوقّع ٧٪ سنوياً · للوصول لـ ٧.٥M<br>الـ Monthly Contribution: <strong style="color:var(--s2)">٦٬٢٠٠ ر.س شهرياً</strong></div></div>
+    <div class="doc-sec"><div class="doc-sec-title">⚠️ الحقيقة</div><div class="doc-sec-body">٧٥٪ من السعوديّين لا يدّخرون كفاية. ابدأ مبكّراً · الـ Compound interest = أعظم اختراع رياضي (Einstein).</div></div>
+  </div>
+</div>
 
     <div class="tip" style="margin-top:14px">
       <div class="tip-ic">⏰</div>
@@ -580,16 +646,17 @@ PMT = <span class="c-num">3,712</span> ريال/شهر
   <div class="card">
     <p>قرض عقاري <strong>١ مليون ريال</strong> لمدّة <strong>٢٥ سنة</strong> بفائدة <strong>٥٪</strong> سنوياً (شهرياً). كيف يُسدَّد؟</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">MORTGAGE AMORTIZATION</div>
-<pre class="codebox-code"><span class="c-com"># حساب القسط الشهري:</span>
-PMT = <span class="c-num">1,000,000</span> × (<span class="c-num">0.05</span>/<span class="c-num">12</span>) / [<span class="c-num">1</span> − (<span class="c-num">1</span> + <span class="c-num">0.05</span>/<span class="c-num">12</span>)^-300]
-PMT = <span class="c-num">5,846</span> ريال/شهر
-
-<span class="c-com"># إجمالي المدفوع طوال الـ 25 سنة:</span>
-الإجمالي = <span class="c-num">5,846</span> × <span class="c-num">300</span> = <span class="c-num">1,753,800</span>
-الفوائد = <span class="c-num">753,800</span> ريال (٧٥٪ من الأصل!)</pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">🏠 السيناريو · قرض عقاري</div>
+  <div class="scn-text">منزل ١٬٢٠٠٬٠٠٠ ر.س · دفعة أولى ٢٠٪ · قرض ٩٦٠٬٠٠٠ · ٢٥ سنة · ٤٪</div>
+  <div class="scn-quote">القسط الشهري الثابت = <strong>٥٬٠٦٧ ر.س</strong> · إجمالي المدفوع = ١٬٥٢٠٬١٠٠ ر.س</div>
+</div>
+<div class="h-bar">
+  <div class="hb-row"><div class="hb-label">السنة ١</div><div class="hb-track"><div class="hb-fill" style="width:70%;background:linear-gradient(90deg,#dc2626,#ef4444)">٨٠٪ فوائد · ٢٠٪ أصل</div></div><div class="hb-note">معظمه فوائد</div></div>
+  <div class="hb-row"><div class="hb-label">السنة ٥</div><div class="hb-track"><div class="hb-fill" style="width:60%;background:linear-gradient(90deg,#f59e0b,#fbbf24)">٧٠٪ فوائد · ٣٠٪ أصل</div></div><div class="hb-note">يتحسّن قليلاً</div></div>
+  <div class="hb-row"><div class="hb-label">السنة ١٥</div><div class="hb-track"><div class="hb-fill" style="width:50%">٥٠٪ فوائد · ٥٠٪ أصل</div></div><div class="hb-note">نقطة تعادل</div></div>
+  <div class="hb-row"><div class="hb-label">السنة ٢٥</div><div class="hb-track"><div class="hb-fill" style="width:90%;background:linear-gradient(90deg,#15803d,#10b981)">١٠٪ فوائد · ٩٠٪ أصل</div></div><div class="hb-note" style="color:var(--s2)">معظمه أصل ✓</div></div>
+</div>
 
     <p style="margin-top:14px"><strong>جدول الإطفاء · أوّل وآخر ٥ أشهر:</strong></p>
     <table class="tbl">
@@ -630,49 +697,31 @@ PMT = <span class="c-num">5,846</span> ريال/شهر
       </tbody>
     </table>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">EXCEL EXAMPLES</div>
-<pre class="codebox-code"><span class="c-com"># مثال 1: قسط قرض السيارة 80k لـ 5 سنوات بفائدة 4.5%</span>
-=PMT(<span class="c-num">4.5%</span>/<span class="c-num">12</span>, <span class="c-num">5</span>*<span class="c-num">12</span>, <span class="c-num">80000</span>)
-النتيجة = -<span class="c-num">1,491</span> ريال/شهر
-
-<span class="c-com"># مثال 2: كم يجب ادّخار شهرياً للوصول لـ 1 مليون في 20 سنة بعائد 7%؟</span>
-=PMT(<span class="c-num">7%</span>/<span class="c-num">12</span>, <span class="c-num">20</span>*<span class="c-num">12</span>, <span class="c-num">0</span>, -<span class="c-num">1000000</span>)
-النتيجة = <span class="c-num">1,920</span> ريال/شهر
-
-<span class="c-com"># مثال 3: ما الفائدة الفعلية لقرض شهري 1,500 لـ 36 شهر بقيمة 50,000؟</span>
-=RATE(<span class="c-num">36</span>, -<span class="c-num">1500</span>, <span class="c-num">50000</span>) * <span class="c-num">12</span>
-النتيجة = <span class="c-num">8.07%</span> سنوي
-
-<span class="c-com"># مثال 4: كم سنة يضاعف فيها مبلغ بعائد 8%؟</span>
-=NPER(<span class="c-num">8%</span>, <span class="c-num">0</span>, -<span class="c-num">1</span>, <span class="c-num">2</span>)
-النتيجة = <span class="c-num">9.01</span> سنة (تطبيق قاعدة 72: 72/8 = 9)
-
-<span class="c-com"># مهمّ: الإشارات!</span>
-<span class="c-com"># ما يخرج من جيبك: سالب (-)</span>
-<span class="c-com"># ما يدخل جيبك: موجب (+)</span></pre>
-    </div>
+    <div class="lc-grid cols-2">
+  <div class="lc-card"><div class="lc-letter">PV</div><div class="lc-body"><div class="lc-title">PV(rate, nper, pmt, [fv])</div><div class="lc-desc">حساب القيمة الحالية. <em>=PV(5%/12, 60, -1000)</em> = القيمة الحالية لـ ٦٠ قسط شهري</div></div></div>
+  <div class="lc-card"><div class="lc-letter">FV</div><div class="lc-body"><div class="lc-title">FV(rate, nper, pmt, [pv])</div><div class="lc-desc">حساب القيمة المستقبلية. <em>=FV(7%/12, 360, -500)</em> = ادّخار ٥٠٠ شهرياً لـ ٣٠ سنة</div></div></div>
+  <div class="lc-card"><div class="lc-letter">PMT</div><div class="lc-body"><div class="lc-title">PMT(rate, nper, pv)</div><div class="lc-desc">حساب القسط الدوري. <em>=PMT(4%/12, 300, 960000)</em> = قسط قرض عقاري</div></div></div>
+  <div class="lc-card"><div class="lc-letter">NPER</div><div class="lc-body"><div class="lc-title">NPER(rate, pmt, pv)</div><div class="lc-desc">حساب عدد الفترات. <em>=NPER(5%/12, -2000, 100000)</em> = كم شهر لسداد قرض</div></div></div>
+  <div class="lc-card"><div class="lc-letter">RATE</div><div class="lc-body"><div class="lc-title">RATE(nper, pmt, pv)</div><div class="lc-desc">حساب معدّل الفائدة. <em>=RATE(60, -2396, 100000)*12</em> = APR لمرابحة سيارة</div></div></div>
+  <div class="lc-card"><div class="lc-letter">IRR</div><div class="lc-body"><div class="lc-title">IRR(values)</div><div class="lc-desc">معدّل العائد الداخلي. <em>=IRR(A1:A10)</em> = للتدفّقات النقدية في خلايا A1-A10</div></div></div>
+</div>
   </div>
 
   <div class="sec">▸ قاعدة الـ ٧٢ · للحسابات الذهنيّة السريعة</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">RULE OF 72</div>
-<pre class="codebox-code">سنوات مضاعفة المبلغ ≈ 72 / معدّل العائد
-
-<span class="c-com"># أمثلة سريعة:</span>
-العائد 3%   →  72/3  = 24 سنة للمضاعفة
-العائد 6%   →  72/6  = 12 سنة
-العائد 8%   →  72/8  = 9 سنوات
-العائد 12%  →  72/12 = 6 سنوات
-العائد 24%  →  72/24 = 3 سنوات
-
-<span class="c-com"># استخدامات عملية:</span>
-1. تقدير سرعة نموّ الاستثمار
-2. مقارنة فرص استثمارية بسرعة
-3. فهم تأثير التضخّم (لو 6%, القوة الشرائية تنخفض للنصف في 12 سنة)
-4. الحسابات أثناء الاجتماعات بدون آلة حاسبة</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Doubling Years</em> <span class="fb-op">≈</span> <strong>72 / Interest Rate %</strong></div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">3% rate</div><div class="fb-term-desc">72/3 = <strong>24 سنة</strong></div></div>
+    <div class="fb-term"><div class="fb-term-name">6% rate</div><div class="fb-term-desc">72/6 = <strong>12 سنة</strong></div></div>
+    <div class="fb-term"><div class="fb-term-name">8% rate</div><div class="fb-term-desc">72/8 = <strong>9 سنوات</strong></div></div>
+    <div class="fb-term"><div class="fb-term-name">10% rate</div><div class="fb-term-desc">72/10 = <strong>7.2 سنة</strong></div></div>
+    <div class="fb-term"><div class="fb-term-name">12% rate</div><div class="fb-term-desc">72/12 = <strong>6 سنوات</strong></div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>الاستخدام السريع:</strong> الـ S&P 500 يعطي ~10% سنوياً → استثمارك يتضاعف كل <strong>٧.٢ سنة</strong>. ١٠٠٠٠ → ٢٠٠٠٠ → ٤٠٠٠٠ → ٨٠٠٠٠ → ١٦٠٠٠٠ في ٣٠ سنة.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ ١٠ أخطاء قاتلة في تطبيق TVM</div>
@@ -851,23 +900,18 @@ PMT = <span class="c-num">5,846</span> ريال/شهر
   <div class="card">
     <p><strong>السؤال:</strong> ماذا تملك الشركة وماذا عليها في لحظة محدّدة؟ صورة فوتوغرافية في ٣١ ديسمبر مثلاً.</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">THE FUNDAMENTAL EQUATION</div>
-<pre class="codebox-code">الأصول = الالتزامات + حقوق الملكية
-Assets = Liabilities + Equity
-
-<span class="c-com"># كل عملية في الشركة تحافظ على هذا التوازن.</span>
-<span class="c-com"># لو لم يتوازن: هناك خطأ محاسبي.</span>
-
-<span class="c-com"># مثال على المعادلة:</span>
-<span class="c-com"># أخذت قرضاً بنكياً 100 ألف:</span>
-+100 نقد (أصل)    +100 قرض (التزام)
-                  → التوازن محفوظ ✓
-
-<span class="c-com"># مساهمون ضخّوا 50 ألف رأس مال:</span>
-+50 نقد (أصل)     +50 رأس مال (ملكية)
-                  → التوازن محفوظ ✓</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>ASSETS</em> <span class="fb-op">=</span> <strong>LIABILITIES</strong> <span class="fb-op">+</span> <strong>EQUITY</strong></div>
+  <div class="fb-formula" style="margin-top:10px;font-size:15px;color:var(--ink2)">الأصول = الالتزامات + حقوق الملكية</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">ASSETS · الأصول</div><div class="fb-term-desc">ما تملكه الشركة (نقد · مخزون · معدّات · عقارات)</div></div>
+    <div class="fb-term"><div class="fb-term-name">LIABILITIES · الالتزامات</div><div class="fb-term-desc">ما تدين به الشركة (قروض · ذمم دائنة · سندات)</div></div>
+    <div class="fb-term"><div class="fb-term-name">EQUITY · حقوق الملكية</div><div class="fb-term-desc">ما يخصّ الملّاك (رأس المال + الأرباح المحتجزة)</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>القاعدة:</strong> الميزانية <em>دائماً متوازنة</em>. إذا اشتريت أصل بقرض → الأصول تزيد + الالتزامات تزيد بنفس المبلغ.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ الأصول · تصنيف عميق</div>
@@ -1336,56 +1380,49 @@ Assets = Liabilities + Equity
   <div class="card">
     <p>تحليل DuPont (من شركة DuPont الأمريكية) يفكّك ROE لمعرفة <em>لماذا</em> هو مرتفع أو منخفض.</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">DUPONT 3-FACTOR</div>
-<pre class="codebox-code">ROE = Net Margin × Asset Turnover × Equity Multiplier
-    = الربحيّة    × الكفاءة      × الرفع المالي
+    <div class="formula-box">
+  <div class="fb-formula"><em>ROE</em> <span class="fb-op">=</span> <strong>Net Margin</strong> <span class="fb-op">×</span> <strong>Asset Turnover</strong> <span class="fb-op">×</span> <strong>Equity Multiplier</strong></div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">💰 Net Margin</div><div class="fb-term-desc">صافي الربح / الإيرادات (الربحية)</div></div>
+    <div class="fb-term"><div class="fb-term-name">🔄 Asset Turnover</div><div class="fb-term-desc">الإيرادات / الأصول (الكفاءة)</div></div>
+    <div class="fb-term"><div class="fb-term-name">⚖️ Equity Multiplier</div><div class="fb-term-desc">الأصول / حقوق الملكية (الرافعة)</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>الفائدة:</strong> يكشف <em>مصدر</em> ROE — هل من الربحية · الكفاءة · أم من الديون؟ ROE 20% من Margin يختلف عن 20% من Leverage.
+  </div>
+</div>
 
-<span class="c-com"># مثال شركتان بـ ROE = 18%</span>
-شركة أ: <span class="c-num">6%</span> × <span class="c-num">1.5</span> × <span class="c-num">2.0</span>  →  مديونية عالية
-شركة ب: <span class="c-num">12%</span> × <span class="c-num">1.5</span> × <span class="c-num">1.0</span> →  ربحية حقيقية أقوى
-
-<span class="c-com"># شركة ب أفضل · ربحيّتها مستدامة</span>
-<span class="c-com"># شركة أ تعتمد على الديون · هشّة في الأزمات</span></pre>
-    </div>
-
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">DUPONT 5-FACTOR (المتقدّم)</div>
-<pre class="codebox-code">ROE = (EBIT/Sales) × (Sales/Assets) × (Assets/Equity)
-     × (EBT/EBIT) × (Net Income/EBT)
-
-<span class="c-com"># المكوّنات:</span>
-1. Operating Margin       (EBIT/Sales)         - التشغيل
-2. Asset Turnover         (Sales/Assets)       - الكفاءة
-3. Equity Multiplier      (Assets/Equity)      - الرفع
-4. Interest Burden        (EBT/EBIT)           - عبء الفوائد
-5. Tax Burden             (NI/EBT)             - عبء الضريبة
-
-<span class="c-com"># يكشف بدقّة مصادر التحسّن أو التراجع في ROE</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>ROE</em> <span class="fb-op">=</span> Tax Burden × Interest Burden × Operating Margin × Asset Turnover × Equity Multiplier</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">📊 Tax Burden</div><div class="fb-term-desc">Net Income / Pretax Income</div></div>
+    <div class="fb-term"><div class="fb-term-name">💸 Interest Burden</div><div class="fb-term-desc">Pretax / EBIT</div></div>
+    <div class="fb-term"><div class="fb-term-name">⚙️ Operating Margin</div><div class="fb-term-desc">EBIT / Revenue</div></div>
+    <div class="fb-term"><div class="fb-term-name">🔄 Asset Turnover</div><div class="fb-term-desc">Revenue / Total Assets</div></div>
+    <div class="fb-term"><div class="fb-term-name">⚖️ Equity Multiplier</div><div class="fb-term-desc">Total Assets / Equity</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ Altman Z-Score · التنبّؤ بالإفلاس</div>
   <div class="card">
     <p>طوّره Edward Altman ١٩٦٨ · يستخدم ٥ نسب للتنبّؤ باحتمال إفلاس الشركة في الـ ٢٤ شهراً القادمة.</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">ALTMAN Z-SCORE</div>
-<pre class="codebox-code">Z = 1.2A + 1.4B + 3.3C + 0.6D + 1.0E
-
-A = رأس المال العامل / إجمالي الأصول
-B = الأرباح المحتجزة / إجمالي الأصول
-C = EBIT / إجمالي الأصول
-D = القيمة السوقية للملكية / إجمالي الالتزامات
-E = الإيرادات / إجمالي الأصول
-
-<span class="c-com"># التفسير:</span>
-Z > 2.99   →  منطقة آمنة · مخاطر إفلاس منخفضة
-Z = 1.81-2.99 →  منطقة رمادية · مراقبة
-Z < 1.81   →  مخاطر إفلاس عالية خلال 24 شهر
-
-<span class="c-com"># الدقّة التاريخية: 72-80% في التنبّؤ بالإفلاسات قبل وقوعها بسنتين</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Z-Score</em> <span class="fb-op">=</span> 1.2A + 1.4B + 3.3C + 0.6D + 1.0E</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">A</div><div class="fb-term-desc">Working Capital / Total Assets</div></div>
+    <div class="fb-term"><div class="fb-term-name">B</div><div class="fb-term-desc">Retained Earnings / Total Assets</div></div>
+    <div class="fb-term"><div class="fb-term-name">C</div><div class="fb-term-desc">EBIT / Total Assets</div></div>
+    <div class="fb-term"><div class="fb-term-name">D</div><div class="fb-term-desc">Market Value Equity / Total Liabilities</div></div>
+    <div class="fb-term"><div class="fb-term-name">E</div><div class="fb-term-desc">Sales / Total Assets</div></div>
+  </div>
+  <div class="cmp-2" style="margin-top:14px">
+    <div class="cmp-col bad"><div class="cmp-head"><div class="cmp-icon">!</div>Z < 1.81</div><div class="cmp-body">Distress Zone · خطر إفلاس عالٍ خلال سنتين</div></div>
+    <div class="cmp-col" style="border-color:var(--gold)"><div class="cmp-head"><div class="cmp-icon" style="background:var(--gold)">~</div>1.81 ≤ Z ≤ 2.99</div><div class="cmp-body">Grey Zone · منطقة عدم اليقين</div></div>
+    <div class="cmp-col good"><div class="cmp-head"><div class="cmp-icon">✓</div>Z > 2.99</div><div class="cmp-body">Safe Zone · ملاءة مالية قويّة</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ تحليل أرامكو · نسب حقيقية ٢٠٢٣</div>
@@ -1459,34 +1496,17 @@ Z < 1.81   →  مخاطر إفلاس عالية خلال 24 شهر
 
   <div class="sec">▸ قالب Excel للتحليل بالنسب · بنية مقترحة</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">EXCEL TEMPLATE STRUCTURE</div>
-<pre class="codebox-code"><span class="c-com"># Sheet 1: Inputs (البيانات الخام)</span>
-- قائمة الدخل لـ 3-5 سنوات
-- قائمة المركز المالي لـ 3-5 سنوات  
-- قائمة التدفقات لـ 3-5 سنوات
-- بيانات السوق (السعر, EPS, الأسهم القائمة)
-
-<span class="c-com"># Sheet 2: Ratios (الحسابات)</span>
-- 25 نسبة مالية محسوبة
-- اتّجاه السنوات (Trend)
-- مقارنة مع بنشمارك القطاع
-
-<span class="c-com"># Sheet 3: DuPont Analysis</span>
-- تفكيك ROE 5-factor
-- مقارنة سنوية
-- تحليل مصادر التحسّن/التراجع
-
-<span class="c-com"># Sheet 4: Peers Comparison</span>
-- 3-5 شركات منافسة
-- نفس النسب جنباً إلى جنب
-- ترتيب الشركة في القطاع
-
-<span class="c-com"># Sheet 5: Z-Score & Quality</span>
-- Altman Z-Score
-- مؤشّرات جودة الأرباح
-- الإنذارات الحمراء</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📊 EXCEL FINANCIAL MODEL <span class="doc-header-sub">الهيكل القياسي</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">SHEET 1 · COVER & SUMMARY</div><div class="doc-sec-body">Company info · Key outputs · Dashboard · Scenario toggles</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SHEET 2 · ASSUMPTIONS</div><div class="doc-sec-body">كل الـ Inputs مفصولة عن الحسابات · Color-coded (blue cells)</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SHEET 3 · P&L · قائمة الدخل</div><div class="doc-sec-body">Revenue · COGS · Gross Profit · Opex · EBITDA · Interest · Taxes · Net Income</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SHEET 4 · BALANCE SHEET · الميزانية</div><div class="doc-sec-body">Assets · Liabilities · Equity · Must balance</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SHEET 5 · CASH FLOW</div><div class="doc-sec-body">Operating · Investing · Financing · Ending cash check</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">SHEET 6 · VALUATION</div><div class="doc-sec-body">DCF · Multiples · Sensitivity · Football field</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ ربط مع الوحدات الأخرى</div>
@@ -1576,36 +1596,26 @@ Z < 1.81   →  مخاطر إفلاس عالية خلال 24 شهر
 
     <p style="margin-top:12px"><strong>طريقتان لإعداده:</strong></p>
 
-    <div class="codebox" style="margin-top:8px">
-      <div class="codebox-lbl">DIRECT METHOD (نادر)</div>
-<pre class="codebox-code">+ المقبوضات النقدية من العملاء
-− المدفوعات النقدية للمورّدين
-− المدفوعات النقدية للموظّفين
-− المدفوعات النقدية للضرائب
-− المدفوعات النقدية للفوائد
-═══════════════════════════════
-= صافي التدفق التشغيلي
-
-<span class="c-com"># بسيط ومباشر لكنّه يتطلّب تفاصيل تخفيها الشركات عادة</span></pre>
+    <div class="cmp-2">
+  <div class="cmp-col" style="border-color:#fbbf24;background:linear-gradient(135deg,#fffbeb,#fff)">
+    <div class="cmp-head"><div class="cmp-icon" style="background:#f59e0b">📥</div>الطريقة المباشرة (نادرة)</div>
+    <div class="cmp-body">
+      <strong>المنطق:</strong> تتبّع كل النقد الفعلي الداخل والخارج<br><br>
+      • <strong>Cash from customers:</strong> +<br>
+      • <strong>Cash paid to suppliers:</strong> −<br>
+      • <strong>Cash paid to employees:</strong> −<br>
+      • <strong>Cash for taxes:</strong> −<br><br>
+      <em style="color:#92400e">صعبة التطبيق · لا يُستخدمها إلّا ٥٪ من الشركات</em>
     </div>
+  </div>
+</div>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">INDIRECT METHOD (المعتمد · ٩٥٪+)</div>
-<pre class="codebox-code">صافي الربح                              ١٢٠
-+ الإهلاك والاستهلاك                    +٤٠
-+ مصاريف غير نقدية أخرى                  +٥
-+ خسائر بيع الأصول (إن وجدت)            +٢
-                                       ─────
-الربح المعدّل                          ١٦٧
-
-التغيّر في رأس المال العامل:
-− زيادة الذمم المدينة                  (٢٥)
-− زيادة المخزون                         (١٠)
-+ زيادة الذمم الدائنة                   +١٥
-+ زيادة المصاريف المستحقّة              +٥
-                                       ─────
-= صافي التدفق التشغيلي                 ١٥٢</pre>
-    </div>
+    <div class="cascade">
+  <div class="csc-level"><span class="csc-level-num" style="background:linear-gradient(135deg,var(--s2),#10b981)">١</span><span class="csc-level-title">Net Income (من P&L)</span><div class="csc-level-body">الـ Starting point · صافي الربح المحاسبي</div></div>
+  <div class="csc-level"><span class="csc-level-num" style="background:linear-gradient(135deg,var(--s2),#10b981)">٢</span><span class="csc-level-title">(+) Non-cash items</span><div class="csc-level-body">Depreciation · Amortization · Stock compensation</div></div>
+  <div class="csc-level"><span class="csc-level-num" style="background:linear-gradient(135deg,var(--s2),#10b981)">٣</span><span class="csc-level-title">(±) Changes in Working Capital</span><div class="csc-level-body">AR · Inventory · AP · Accrued expenses</div></div>
+  <div class="csc-level"><span class="csc-level-num" style="background:linear-gradient(135deg,var(--s2),#10b981)">٤</span><span class="csc-level-title">= Cash from Operations · CFO</span><div class="csc-level-body">النقد من العمليات التشغيلية</div></div>
+</div>
   </div>
 
   <div class="sec">▸ القسم الثاني · Investing Cash Flow (ICF)</div>
@@ -1653,21 +1663,19 @@ Z < 1.81   →  مخاطر إفلاس عالية خلال 24 شهر
   <div class="card">
     <p>FCF = ما يبقى من النقد بعد كل المصاريف الضرورية للاستمرار. هذا ما يمكن للشركة توزيعه أو إعادة استثماره أو توفيره.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">FCFF · Free Cash Flow to the Firm</div>
-<pre class="codebox-code">FCFF = EBIT × (1 − t) + Depreciation − CapEx − ΔWorking Capital
+    <div class="formula-box">
+  <div class="fb-formula"><em>FCFF</em> = EBIT × (1−Tax) + D&A − CapEx − ΔWC</div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>Free Cash Flow to the Firm</strong> · النقد المتاح لـ <em>كل الـ Capital providers</em> (Debt + Equity).<br>يُستخدم في DCF valuation للشركة ككلّ.
+  </div>
+</div>
 
-<span class="c-com"># التدفق المتاح لكل مصادر التمويل (الديون والملكية)</span>
-<span class="c-com"># يُستخدم في DCF لتقييم Enterprise Value</span></pre>
-    </div>
-
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">FCFE · Free Cash Flow to Equity</div>
-<pre class="codebox-code">FCFE = Net Income + Depreciation − CapEx − ΔWC + Net Borrowing
-
-<span class="c-com"># التدفق المتاح للمساهمين فقط (بعد سداد الدين)</span>
-<span class="c-com"># يُستخدم لتقييم Equity Value مباشرة</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>FCFE</em> = FCFF − Interest × (1−Tax) + Net Borrowing</div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>Free Cash Flow to Equity</strong> · النقد المتاح لـ <em>المساهمين فقط</em> بعد سداد الفوائد.<br>يُستخدم لتقييم Equity مباشرة.
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>أرامكو ٢٠٢٣ · FCF حقيقي:</strong></p>
     <table class="tbl">
@@ -1684,18 +1692,17 @@ Z < 1.81   →  مخاطر إفلاس عالية خلال 24 شهر
   <div class="card">
     <p>كم يوماً يستغرق تحويل المخزون والذمم إلى نقد فعلي؟ مؤشّر حيوي لكفاءة رأس المال العامل.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">CCC FORMULA</div>
-<pre class="codebox-code">CCC = DSO + DIO − DPO
-
-DSO = Days Sales Outstanding · أيّام تحصيل الذمم
-DIO = Days Inventory Outstanding · أيّام بقاء المخزون
-DPO = Days Payable Outstanding · أيّام سداد الدائنين
-
-<span class="c-com"># كلّما قلّت CCC = كفاءة أعلى</span>
-<span class="c-com"># شركات ممتازة (Apple, Amazon) لها CCC سالب!</span>
-<span class="c-com"># يعني العملاء يدفعون قبل أن يدفع للمورّدين</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>CCC</em> = DSO + DIO − DPO</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">📥 DSO</div><div class="fb-term-desc">Days Sales Outstanding · أيّام تحصيل الذمم</div></div>
+    <div class="fb-term"><div class="fb-term-name">📦 DIO</div><div class="fb-term-desc">Days Inventory Outstanding · أيّام بقاء المخزون</div></div>
+    <div class="fb-term"><div class="fb-term-name">📤 DPO</div><div class="fb-term-desc">Days Payable Outstanding · أيّام سداد الموردين</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>Cash Conversion Cycle:</strong> الأيّام من <em>دفع المورّد</em> إلى <em>استلام النقد من العميل</em>. Amazon = -30 (يقبض قبل ما يدفع!) · Saudi Aramco = 50 يوم.
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>CCC حسب القطاع (تقريبي):</strong></p>
     <table class="tbl">
@@ -1887,24 +1894,14 @@ DPO = Days Payable Outstanding · أيّام سداد الدائنين
   <div class="card">
     <p><strong>مفهوم جوهري</strong> في محاسبة التكاليف للقرارات قصيرة الأجل.</p>
 
-    <div class="codebox">
-      <div class="codebox-lbl">CONTRIBUTION MARGIN</div>
-<pre class="codebox-code">هامش المساهمة = سعر البيع − التكلفة المتغيّرة
-
-<span class="c-com"># هامش المساهمة هو ما "يساهم" في تغطية التكاليف الثابتة</span>
-<span class="c-com"># ثمّ توليد الربح بعد تجاوزها</span>
-
-نسبة هامش المساهمة = هامش المساهمة / سعر البيع
-
-<span class="c-com"># مثال: وحدة سكنية</span>
-سعر البيع              = <span class="c-num">800,000</span>
-المواد + العمالة المباشرة = <span class="c-num">560,000</span>
-─────────────────────────────
-هامش المساهمة          = <span class="c-num">240,000</span>
-نسبة المساهمة          = <span class="c-num">30%</span>
-
-<span class="c-com"># كل وحدة تباع تساهم بـ 240k لتغطية الإيجار, الرواتب, إلخ</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Contribution Margin</em> = Revenue − Variable Costs</div>
+  <div class="fb-formula" style="margin-top:10px"><em>CM Ratio</em> = CM / Revenue</div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>الفرق عن Gross Margin:</strong> CM يطرح <em>المتغيّرة فقط</em>. Gross Margin يطرح COGS كاملاً (متغيّر + ثابت).
+    <br><strong>مثال:</strong> سعر ١٠٠ · متغيّر ٤٠ · CM = ٦٠ · CM Ratio = ٦٠٪
+  </div>
+</div>
 
     <div class="tip" style="margin-top:14px">
       <div class="tip-ic">💡</div>
@@ -1916,30 +1913,18 @@ DPO = Days Payable Outstanding · أيّام سداد الدائنين
   <div class="card">
     <p>النقطة التي تتساوى فيها الإيرادات مع التكاليف الكلّية — لا ربح ولا خسارة.</p>
 
-    <div class="codebox">
-      <div class="codebox-lbl">BREAK-EVEN FORMULAS</div>
-<pre class="codebox-code"><span class="c-com"># نقطة التعادل بالوحدات:</span>
-BEP (units) = التكاليف الثابتة / هامش المساهمة للوحدة
-
-<span class="c-com"># نقطة التعادل بالريال:</span>
-BEP (riyal) = التكاليف الثابتة / نسبة هامش المساهمة
-
-<span class="c-com"># للوصول لهدف ربح:</span>
-الوحدات المطلوبة = (الثابتة + الربح المستهدف) / هامش المساهمة
-
-<span class="c-com"># مثال شركة مقاولات تبيع وحدات سكنية:</span>
-سعر الوحدة         = <span class="c-num">800,000</span>
-التكلفة المتغيّرة = <span class="c-num">560,000</span>
-هامش المساهمة     = <span class="c-num">240,000</span>
-التكاليف الثابتة  = <span class="c-num">12,000,000</span>/سنة
-ربح مستهدف        = <span class="c-num">6,000,000</span>
-
-<span class="c-com"># نقطة التعادل:</span>
-BEP = <span class="c-num">12,000,000</span> / <span class="c-num">240,000</span> = <span class="c-num">50 وحدة</span>
-
-<span class="c-com"># للوصول لربح 6 مليون:</span>
-الوحدات = (<span class="c-num">12M + 6M</span>) / <span class="c-num">240,000</span> = <span class="c-num">75 وحدة</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Break-Even Units</em> = Fixed Costs / Contribution Margin per Unit</div>
+  <div class="fb-formula" style="margin-top:10px"><em>Break-Even Revenue</em> = Fixed Costs / CM Ratio</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">🏗️ Fixed Costs</div><div class="fb-term-desc">الإيجار · الرواتب · الـ Depreciation</div></div>
+    <div class="fb-term"><div class="fb-term-name">📦 CM/Unit</div><div class="fb-term-desc">Price − Variable cost per unit</div></div>
+    <div class="fb-term"><div class="fb-term-name">📊 CM Ratio</div><div class="fb-term-desc">% المساهمة في تغطية الثابتة</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>مثال:</strong> Fixed 500,000 ر.س · سعر 100 · متغيّر 40<br>CM/Unit = 60 · BE Units = 500,000/60 = <strong>٨٬٣٣٤ وحدة</strong>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ CVP Analysis · تحليل الكلفة والحجم والربح</div>
@@ -1960,24 +1945,19 @@ BEP = <span class="c-num">12,000,000</span> / <span class="c-num">240,000</span>
   <div class="card">
     <p>الشركات بنسب عالية من التكاليف الثابتة لها <strong>Operating Leverage مرتفع</strong> — تذبذب ضخم في الأرباح مع تغيّر بسيط في المبيعات.</p>
 
-    <div class="codebox">
-      <div class="codebox-lbl">OPERATING LEVERAGE</div>
-<pre class="codebox-code">Degree of Operating Leverage (DOL) = هامش المساهمة / الربح التشغيلي
-
-<span class="c-com"># مثال: شركة بـ:</span>
-هامش المساهمة      = <span class="c-num">10M</span>
-التكاليف الثابتة   = <span class="c-num">6M</span>
-الربح التشغيلي    = <span class="c-num">4M</span>
-
-DOL = <span class="c-num">10</span> / <span class="c-num">4</span> = <span class="c-num">2.5×</span>
-
-<span class="c-com"># المعنى:</span>
-<span class="c-com"># لو ارتفعت المبيعات 20%, الأرباح ترتفع 50% (20% × 2.5)</span>
-<span class="c-com"># لو انخفضت المبيعات 20%, الأرباح تنخفض 50%</span>
-
-<span class="c-com"># قطاعات DOL عالية: الطيران, الفنادق, المرافق</span>
-<span class="c-com"># قطاعات DOL منخفضة: التجزئة, الخدمات</span></pre>
+    <div class="formula-box">
+  <div class="fb-formula"><em>DOL</em> = % Change in EBIT / % Change in Sales</div>
+  <div class="cmp-2" style="margin-top:14px">
+    <div class="cmp-col" style="border-color:#0ea5e9;background:linear-gradient(135deg,#dbeafe,#fff)">
+      <div class="cmp-head"><div class="cmp-icon" style="background:#0ea5e9">↓</div>Low Operating Leverage</div>
+      <div class="cmp-body">شركة خدمات · مرونة عالية · مخاطرة أقلّ · ربحية أقلّ في الـ Growth</div>
     </div>
+    <div class="cmp-col" style="border-color:#dc2626;background:linear-gradient(135deg,#fef2f2,#fff)">
+      <div class="cmp-head"><div class="cmp-icon" style="background:#dc2626">↑</div>High Operating Leverage</div>
+      <div class="cmp-body">مصنع كبير · تكاليف ثابتة ضخمة · ربحية ضخمة بالنمو · خسائر فادحة بالانكماش</div>
+    </div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ أنظمة تخصيص التكاليف · المقارنة العميقة</div>
@@ -2032,30 +2012,17 @@ DOL = <span class="c-num">10</span> / <span class="c-num">4</span> = <span class
   <div class="card">
     <p><strong>EVM</strong> هو الإطار الأشمل لقياس أداء المشاريع · مدمج بين الجدول والتكلفة. أساسي للمشاريع الكبرى في السعودية (NEOM · مشاريع PIF).</p>
 
-    <div class="codebox">
-      <div class="codebox-lbl">EVM CORE METRICS</div>
-<pre class="codebox-code">PV (Planned Value)   = قيمة العمل المخطّط حتى تاريخه
-EV (Earned Value)    = قيمة العمل المنجز فعلياً
-AC (Actual Cost)     = التكلفة الفعلية المدفوعة
-
-<span class="c-com"># المؤشّرات الأساسية:</span>
-SV (Schedule Variance) = EV − PV    <span class="c-com"># انحراف الجدول</span>
-CV (Cost Variance)     = EV − AC    <span class="c-com"># انحراف التكلفة</span>
-
-SPI (Schedule Performance Index) = EV / PV
-CPI (Cost Performance Index)     = EV / AC
-
-<span class="c-com"># التفسير:</span>
-SPI > 1 → متقدّم على الجدول
-SPI < 1 → متأخّر
-
-CPI > 1 → تحت الميزانية (أرباح)
-CPI < 1 → فوق الميزانية (خسائر)
-
-<span class="c-com"># التنبّؤ:</span>
-EAC (Estimate at Completion) = BAC / CPI
-<span class="c-com"># BAC = Budget at Completion (الميزانية الكلّية)</span></pre>
-    </div>
+    <div class="lc-grid cols-3">
+  <div class="lc-card"><div class="lc-letter">PV</div><div class="lc-body"><div class="lc-title">Planned Value</div><div class="lc-desc">القيمة المخطّطة للعمل المقرّر إنجازه</div></div></div>
+  <div class="lc-card"><div class="lc-letter">EV</div><div class="lc-body"><div class="lc-title">Earned Value</div><div class="lc-desc">القيمة المكتسبة · العمل المنجز فعلاً</div></div></div>
+  <div class="lc-card"><div class="lc-letter">AC</div><div class="lc-body"><div class="lc-title">Actual Cost</div><div class="lc-desc">التكلفة الفعلية للعمل المنجز</div></div></div>
+</div>
+<div class="formula-box" style="margin-top:14px">
+  <div class="fb-formula"><em>SPI</em> = EV / PV <span class="fb-op">|</span> <em>CPI</em> = EV / AC</div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>التفسير:</strong> SPI/CPI > 1 = ممتاز · = 1 = على المسار · < 1 = خلف الجدول/فوق الميزانية. NHC تستخدم EVM بصرامة.
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>مثال EVM في مشروع بناء:</strong></p>
     <table class="tbl">
@@ -2184,50 +2151,42 @@ EAC (Estimate at Completion) = BAC / CPI
 
   <div class="sec">▸ المعادلة الأساسية</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">WACC FORMULA</div>
-<pre class="codebox-code">WACC = (E/V × Re) + (D/V × Rd × (1 − Tc))
-
-E  = حقوق الملكية (Equity)
-D  = الدين (Debt)
-V  = E + D = إجمالي رأس المال
-Re = تكلفة حقوق الملكية
-Rd = تكلفة الدين (متوسط الفائدة)
-Tc = معدّل الضريبة (للوفر الضريبي على الفوائد)</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>WACC</em> = (E/V × Re) + (D/V × Rd × (1−Tax))</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">E</div><div class="fb-term-desc">Market Value of Equity</div></div>
+    <div class="fb-term"><div class="fb-term-name">D</div><div class="fb-term-desc">Market Value of Debt</div></div>
+    <div class="fb-term"><div class="fb-term-name">V</div><div class="fb-term-desc">E + D (إجمالي رأس المال)</div></div>
+    <div class="fb-term"><div class="fb-term-name">Re</div><div class="fb-term-desc">Cost of Equity (من CAPM)</div></div>
+    <div class="fb-term"><div class="fb-term-name">Rd</div><div class="fb-term-desc">Cost of Debt (معدّل الفائدة)</div></div>
+    <div class="fb-term"><div class="fb-term-name">Tax</div><div class="fb-term-desc">Corporate Tax Rate (٢٠٪ سعودي)</div></div>
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>مثال محسوب · شركة سعودية:</strong></p>
-    <div class="codebox">
-      <div class="codebox-lbl">EXAMPLE: SAUDI COMPANY</div>
-<pre class="codebox-code"><span class="c-com"># بيانات شركة:</span>
-حقوق الملكية E = <span class="c-num">600 مليون</span>
-الدين D       = <span class="c-num">400 مليون</span>
-إجمالي V      = <span class="c-num">1,000 مليون</span>
-Re (المطلوب) = <span class="c-num">12%</span>  <span class="c-com"># من CAPM لاحقاً</span>
-Rd (فائدة بنك) = <span class="c-num">6%</span>
-Tc (ضريبة)   = <span class="c-num">20%</span>   <span class="c-com"># زكاة + ضرائب</span>
-
-WACC = (<span class="c-num">600</span>/<span class="c-num">1000</span> × <span class="c-num">12%</span>) + (<span class="c-num">400</span>/<span class="c-num">1000</span> × <span class="c-num">6%</span> × (<span class="c-num">1</span>−<span class="c-num">0.20</span>))
-WACC = (<span class="c-num">0.6</span> × <span class="c-num">12%</span>) + (<span class="c-num">0.4</span> × <span class="c-num">6%</span> × <span class="c-num">0.80</span>)
-WACC = <span class="c-num">7.2%</span> + <span class="c-num">1.92%</span>
-<span class="c-num">WACC = 9.12%</span>
-
-<span class="c-com"># أيّ مشروع جديد يجب أن يحقّق عائد > 9.12%</span></pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">🇸🇦 EXAMPLE · WACC لشركة سعودية <span class="doc-header-sub">شركة مدرجة · تداول</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">📊 Capital Structure</div><div class="doc-sec-body">Market Cap (Equity): ٤ مليار ر.س · 80%<br>Total Debt: ١ مليار ر.س · 20%<br>Total V: ٥ مليار ر.س</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">📈 Cost of Equity (CAPM)</div><div class="doc-sec-body">Risk-free (Saudi 10Y bond): 4.5%<br>Beta: 1.2 · Market Premium: 6%<br>Re = 4.5% + 1.2 × 6% = <strong>11.7%</strong></div></div>
+    <div class="doc-sec"><div class="doc-sec-title">💵 Cost of Debt</div><div class="doc-sec-body">SAIBOR + 1.5% = 7.5%<br>After-tax (Zakat 2.5%): 7.5% × (1−0.025) = <strong>7.3%</strong></div></div>
+    <div class="doc-sec" style="background:#f0fdf4;border-radius:8px"><div class="doc-sec-title">⭐ WACC CALCULATION</div><div class="doc-sec-body" style="font-family:monospace;font-size:14px">WACC = (0.80 × 11.7%) + (0.20 × 7.3%)<br>= 9.36% + 1.46% = <strong style="color:var(--s2);font-size:18px">10.82%</strong></div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ حساب تكلفة حقوق الملكية (Re) · نموذج CAPM</div>
   <div class="card">
     <p>الجزء الأصعب في WACC هو حساب تكلفة حقوق الملكية. نموذج CAPM (Capital Asset Pricing Model) هو الأكثر شيوعاً:</p>
-    <div class="codebox">
-      <div class="codebox-lbl">CAPM FORMULA</div>
-<pre class="codebox-code">Re = Rf + β × (Rm − Rf)
-
-Rf = العائد الخالي من المخاطر (سندات حكومية)
-β  = حساسية السهم للسوق (Beta)
-Rm = العائد المتوقّع من السوق
-(Rm − Rf) = علاوة المخاطر السوقية (Market Risk Premium)</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Re</em> = Rf + β × (Rm − Rf)</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">Rf · Risk-Free</div><div class="fb-term-desc">سندات الحكومة السعودية ١٠ سنوات (~٤.٥٪)</div></div>
+    <div class="fb-term"><div class="fb-term-name">β · Beta</div><div class="fb-term-desc">حساسية السهم لتحرّك السوق · أكبر من ١ = أكثر تذبذباً</div></div>
+    <div class="fb-term"><div class="fb-term-name">Rm · Market Return</div><div class="fb-term-desc">عائد السوق المتوقّع (TASI ~10-12%)</div></div>
+    <div class="fb-term"><div class="fb-term-name">(Rm − Rf) · Premium</div><div class="fb-term-desc">علاوة المخاطر · ~6% للسعودية</div></div>
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>قيم مرجعية للسوق السعودي ٢٠٢٥:</strong></p>
     <table class="tbl">
@@ -2314,7 +2273,17 @@ Rm = العائد المتوقّع من السوق
   </div>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · تكلفة حقوق الملكية</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">أصعب مكوّن في WACC هو تكلفة حقوق الملكية — غير مرئية مباشرةً. تُقدّر عبر <strong>CAPM</strong> (Sharpe 1964):</p>
+  <div class="formula-box">
+    <div class="fb-formula"><em>K<sub>e</sub></em> <span class="fb-op">=</span> R<sub>f</sub> <span class="fb-op">+</span> β × (R<sub>m</sub> − R<sub>f</sub>)</div>
+  </div>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)">للسوق السعودي: R<sub>f</sub> ≈ عائد الصكوك السيادية · علاوة المخاطر للأسواق الناشئة أعلى (٦-٨٪ مقابل ٤-٥٪ للمتقدّمة) · β يُقاس من حركة السهم مقابل مؤشّر تاسي (TASI).</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>نموذج بديل · Gordon Growth (1956):</strong> K<sub>e</sub> = (التوزيع المتوقّع ÷ السعر) + معدّل النموّ. للشركات المستقرّة الموزّعة. <strong>تنبيه:</strong> WACC الصحيح يستخدم القيم السوقية لا الدفترية للأوزان.</p>
+
+  </div>
 
 <div class="module" id="m-npv-irr">
 
@@ -2348,15 +2317,13 @@ Rm = العائد المتوقّع من السوق
   <div class="card">
     <p><strong>NPV = مجموع التدفقات النقدية المخصومة − الاستثمار الأوّلي</strong></p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">NPV FORMULA</div>
-<pre class="codebox-code">NPV = Σ [ CFt / (1+r)^t ] − I₀
-
-CFt = التدفق النقدي في السنة t
-r   = معدّل الخصم (عادة WACC)
-t   = السنة
-I₀  = الاستثمار الأوّلي</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>NPV</em> = Σ [CFt / (1+r)<sup>t</sup>] − Initial Investment</div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>قاعدة القرار:</strong> NPV > 0 = استثمر · NPV < 0 = ارفض · NPV = 0 = لا فرق<br>
+    <strong>المنطق:</strong> القيمة الحالية لكل التدفّقات المستقبلية بـ Discount rate (WACC عادةً) ناقصاً الاستثمار الأوّلي.
+  </div>
+</div>
 
     <p style="margin-top:14px"><strong>قاعدة القرار:</strong></p>
     <table class="tbl">
@@ -2397,22 +2364,16 @@ I₀  = الاستثمار الأوّلي</pre>
     <p><strong>IRR = معدّل الخصم الذي يجعل NPV = 0</strong></p>
     <p style="margin-top:6px">إجابة على سؤال: "ما العائد الفعلي الذي يحقّقه المشروع؟"</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">IRR — قاعدة القرار</div>
-<pre class="codebox-code"><span class="c-com"># لكل مشروع، نحلّ:</span>
-NPV = Σ [ CFt / (1+IRR)^t ] − I₀ = <span class="c-num">0</span>
-
-<span class="c-com"># قاعدة القرار:</span>
-IRR > WACC  →  <span class="c-str">قبول</span>
-IRR = WACC  →  محايد
-IRR < WACC  →  <span class="c-com">رفض</span>
-
-<span class="c-com"># في المثال السابق:</span>
-NPV = <span class="c-num">202,198</span> عند r = <span class="c-num">10%</span>
-بحلّ معادلة NPV=0 → IRR ≈ <span class="c-num">13.5%</span>
-
-<span class="c-com"># IRR (13.5%) > WACC (10%) → قبول</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>IRR</em> = المعدّل الذي يجعل NPV = 0</div>
+  <div class="cmp-2" style="margin-top:14px">
+    <div class="cmp-col good"><div class="cmp-head"><div class="cmp-icon">✓</div>IRR > WACC</div><div class="cmp-body"><strong>اقبل المشروع.</strong> العائد أعلى من تكلفة رأس المال. القيمة تُخلق.</div></div>
+    <div class="cmp-col bad"><div class="cmp-head"><div class="cmp-icon">✗</div>IRR < WACC</div><div class="cmp-body"><strong>ارفض المشروع.</strong> العائد أقلّ من التكلفة. القيمة تُدمّر.</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>التحذير:</strong> IRR قد يضلّل عند المشاريع غير العادية (تدفّقات سالبة في المنتصف · مشاريع متبادلة الاستبعاد). NPV أفضل في هذه الحالات.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ NPV vs IRR · متى تستخدم أيّاً منهما؟</div>
@@ -2479,7 +2440,14 @@ NPV = <span class="c-num">202,198</span> عند r = <span class="c-num">10%</spa
   </table>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · لماذا NPV هو المعيار الذهبي</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">قاعدة NPV ليست اعتباطية — مبنية على <strong>مبدأ تعظيم ثروة المساهمين</strong> (Fisher 1930 · "نظرية الفائدة"):</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>فصل Fisher (Fisher Separation Theorem):</strong> قرار الاستثمار (أيّ مشاريع؟) منفصل عن قرار التمويل وتفضيلات المالك — اقبل كل مشروع بـ NPV موجب بغضّ النظر. هذا يبرّر استخدام NPV كمعيار موحّد.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>عيوب IRR الأكاديمية:</strong> (١) <strong>معدّلات متعدّدة</strong> حين تتناوب التدفّقات إشارتها. (٢) <strong>افتراض إعادة الاستثمار</strong> بمعدّل IRR نفسه (غير واقعي) — الحلّ MIRR. (٣) <strong>تحيّز الحجم</strong>: IRR نسبة مئوية تتجاهل حجم القيمة المُضافة. <strong>لهذا الأكاديميا تفضّل NPV عند التعارض.</strong> <strong>Profitability Index = PV ÷ الاستثمار</strong> مفيد عند تقييد الموازنة.</p>
+
+  </div>
 
 <div class="module" id="m-capital-structure">
 
@@ -2527,17 +2495,13 @@ NPV = <span class="c-num">202,198</span> عند r = <span class="c-num">10%</spa
     
     <p style="margin-top:10px"><strong>الإصدار الثاني (١٩٦٣) — مع الضرائب:</strong> الدين <em>يزيد</em> قيمة الشركة بسبب الوفر الضريبي على الفوائد. <strong>نظرياً</strong>، أفضل هيكل = ١٠٠٪ دين!</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">TAX SHIELD VALUE</div>
-<pre class="codebox-code">قيمة الوفر الضريبي = الدين × معدّل الضريبة
-
-<span class="c-com"># مثال:</span>
-الدين       = <span class="c-num">400 مليون</span> ريال
-معدّل ضريبة = <span class="c-num">20%</span>
-الوفر       = <span class="c-num">400</span> × <span class="c-num">0.20</span> = <span class="c-num">80 مليون</span>
-
-<span class="c-com"># قيمة الشركة المدينة = قيمة شركة بلا دين + الوفر الضريبي</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Tax Shield</em> = Interest Expense × Tax Rate</div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>المنطق:</strong> الفائدة تخفّض الربح الخاضع للضريبة → الشركة توفّر ضريبة. هذا يجعل الدَين <em>أرخص من حقوق الملكية</em> (ضريبياً).<br><br>
+    <strong>مثال سعودي (Zakat 2.5%):</strong> فائدة 10M ر.س × 2.5% = <strong>250,000 ر.س توفير</strong> سنوي.
+  </div>
+</div>
 
     <div class="tip" style="margin-top:14px">
       <div class="tip-ic">⚠️</div>
@@ -2594,7 +2558,27 @@ NPV = <span class="c-num">202,198</span> عند r = <span class="c-num">10%</spa
   </ul>
 
 
-</div>
+
+
+  <div class="sec">▸ الأسس الأكاديمية · Modigliani-Miller بدقّة</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">نظرية MM (نسبةً لـ <strong>Franco Modigliani</strong> · نوبل ١٩٨٥ و<strong>Merton Miller</strong> · نوبل ١٩٩٠) أساس تمويل الشركات الحديث — نُشرت في ورقتين تاريخيتين:</p>
+  <table class="tbl">
+    <thead><tr><th>الورقة</th><th>السنة</th><th>النتيجة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Proposition I & II</strong> (بلا ضرائب)</td><td>١٩٥٨</td><td>في سوق كامل · قيمة الشركة <strong>مستقلّة</strong> عن هيكل تمويلها. "حجم البيتزا لا يتغيّر بطريقة تقطيعها."</td></tr>
+      <tr><td><strong>التصحيح الضريبي</strong></td><td>١٩٦٣</td><td>مع الضرائب · الدين يخلق <strong>درعاً ضريبياً</strong> (الفوائد تُخصَم) → الدين يرفع القيمة.</td></tr>
+    </tbody>
+  </table>
+  <div class="formula-box">
+    <div class="fb-formula"><em>V<sub>L</sub></em> <span class="fb-op">=</span> <em>V<sub>U</sub></em> <span class="fb-op">+</span> (<em>T<sub>c</sub></em> × <em>D</em>)</div>
+    <div class="fb-terms">
+      <div class="fb-term"><div class="fb-term-name">V<sub>L</sub></div><div class="fb-term-desc">قيمة الشركة المُديَّنة</div></div>
+      <div class="fb-term"><div class="fb-term-name">T<sub>c</sub> × D</div><div class="fb-term-desc">قيمة الدرع الضريبي (الضريبة × الدين)</div></div>
+    </div>
+  </div>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>افتراضات MM المثالية:</strong> لا ضرائب (أُزيلت ١٩٦٣) · لا تكاليف إفلاس · لا تكاليف وكالة · معلومات متماثلة. انتهاكها أنتج نظريتي <strong>المقايضة</strong> (الدرع مقابل تكاليف الإفلاس) و<strong>الترتيب الهرمي</strong> (Myers & Majluf 1984: التمويل الداخلي أولاً لعدم تماثل المعلومات).</p>
+
+  </div>
 
 <div class="module" id="m-working-capital">
 
@@ -2628,31 +2612,17 @@ NPV = <span class="c-num">202,198</span> عند r = <span class="c-num">10%</spa
 
   <div class="sec">▸ الصيغة الأساسية والمكوّنات</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">NET WORKING CAPITAL</div>
-<pre class="codebox-code">NWC = الأصول المتداولة − الالتزامات المتداولة
-
-<span class="c-com"># الأصول المتداولة:</span>
-+ النقد والبنوك
-+ الذمم المدينة (مستخلصات لم تُستلم)
-+ المخزون (مواد · عمل تحت التنفيذ)
-+ الدفعات المقدّمة للموردين
-+ احتياطيات نقدية (لو موجودة)
-
-<span class="c-com"># الالتزامات المتداولة:</span>
-+ الذمم الدائنة (للموردين والمقاولين الفرعيين)
-+ القروض قصيرة الأجل (Overdraft · Working Capital Loan)
-+ الرواتب المستحقّة
-+ المصاريف المستحقّة (إيجار · مرافق · إلخ)
-+ VAT المستحقّة
-+ الجزء المتداول من القروض طويلة الأجل
-+ التوزيعات المعلنة لم تُدفَع
-
-<span class="c-com"># نسبة WC للإيرادات في المقاولات السعودية:</span>
-<span class="c-com">شركة عادية: 15-25% من الإيرادات</span>
-<span class="c-com">شركة ممتازة (مكفاءة): 10-15%</span>
-<span class="c-com">شركة في أزمة: 35%+</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>NWC</em> = Current Assets − Current Liabilities</div>
+  <div class="cmp-2" style="margin-top:14px">
+    <div class="cmp-col good"><div class="cmp-head"><div class="cmp-icon">↑</div>NWC إيجابي</div><div class="cmp-body">الأصول المتداولة > الالتزامات. <strong>سيولة قويّة.</strong> الشركة تستطيع تغطية التزاماتها قصيرة الأمد.</div></div>
+    <div class="cmp-col bad"><div class="cmp-head"><div class="cmp-icon">↓</div>NWC سلبي</div><div class="cmp-body">الالتزامات > الأصول المتداولة. <strong>أزمة سيولة محتملة.</strong> (إلّا الـ Amazon/Walmart نموذج).</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>الـ Current Assets:</strong> النقد · الذمم المدينة · المخزون<br>
+    <strong>الـ Current Liabilities:</strong> الذمم الدائنة · القروض قصيرة الأمد · المستحقّات
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ دورة التحويل النقدي للمقاولات · تفصيل عميق</div>
@@ -3039,24 +3009,29 @@ NPV = <span class="c-num">202,198</span> عند r = <span class="c-num">10%</spa
 
   <div class="sec">▸ قوّة التنويع · مثال محسوب</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">DIVERSIFICATION EXAMPLE</div>
-<pre class="codebox-code"><span class="c-com"># سهمان منفصلان:</span>
-سهم أ (الراجحي):  عائد = <span class="c-num">10%</span> · مخاطرة = <span class="c-num">15%</span>
-سهم ب (STC):     عائد = <span class="c-num">12%</span> · مخاطرة = <span class="c-num">18%</span>
-
-<span class="c-com"># محفظة 50/50 إذا الارتباط (ρ) = +1 (مرتبطان كلّياً):</span>
-عائد   = (<span class="c-num">0.5</span>×<span class="c-num">10%</span>) + (<span class="c-num">0.5</span>×<span class="c-num">12%</span>) = <span class="c-num">11%</span>
-مخاطرة = <span class="c-num">16.5%</span>  <span class="c-com"># متوسّط فقط</span>
-
-<span class="c-com"># محفظة 50/50 إذا الارتباط (ρ) = 0 (مستقلّان):</span>
-عائد   = <span class="c-num">11%</span>  <span class="c-com"># نفس الشيء</span>
-مخاطرة = <span class="c-num">11.7%</span>  <span class="c-com"># انخفضت بـ 30%!</span>
-
-<span class="c-com"># محفظة 50/50 إذا الارتباط (ρ) = -0.5:</span>
-عائد   = <span class="c-num">11%</span>  <span class="c-com"># لا يزال 11%</span>
-مخاطرة = <span class="c-num">8.5%</span>   <span class="c-com"># انخفضت بـ 50%!</span></pre>
+    <div class="cmp-2">
+  <div class="cmp-col bad">
+    <div class="cmp-head"><div class="cmp-icon">⚠️</div>محفظة سهم واحد</div>
+    <div class="cmp-body">
+      ١٠٠٪ في Aramco<br>
+      الـ Expected Return: 10%<br>
+      <strong>الـ Std Dev: 25%</strong> (مخاطرة عالية)<br>
+      مخاطر متركّزة في قطاع واحد
     </div>
+  </div>
+  <div class="cmp-col good">
+    <div class="cmp-head"><div class="cmp-icon">✓</div>محفظة متنوّعة (10 أسهم)</div>
+    <div class="cmp-body">
+      أسهم من قطاعات مختلفة<br>
+      الـ Expected Return: 10%<br>
+      <strong>الـ Std Dev: 12%</strong> (انخفاض ٥٢٪)<br>
+      المخاطر الفردية تلاشت
+    </div>
+  </div>
+</div>
+<div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:#15803d;text-align:center">
+<strong>دروس Markowitz (1952 · Nobel):</strong> التنويع = <em>الوجبة المجّانية الوحيدة</em> في التمويل. تخفض المخاطر دون تخفيض العائد المتوقّع.
+</div>
 
     <div class="tip" style="margin-top:14px">
       <div class="tip-ic">💡</div>
@@ -3082,25 +3057,19 @@ NPV = <span class="c-num">202,198</span> عند r = <span class="c-num">10%</spa
   <div class="card">
     <p>المقياس الأشهر لمقارنة المحافظ والصناديق:</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">SHARPE RATIO</div>
-<pre class="codebox-code">Sharpe = (عائد المحفظة − العائد الخالي من المخاطر) ÷ الانحراف المعياري
-
-<span class="c-com"># مثال:</span>
-محفظة أ: عائد <span class="c-num">15%</span> · مخاطرة <span class="c-num">20%</span> · Rf = <span class="c-num">4%</span>
-Sharpe = (<span class="c-num">15</span> − <span class="c-num">4</span>) / <span class="c-num">20</span> = <span class="c-num">0.55</span>
-
-محفظة ب: عائد <span class="c-num">12%</span> · مخاطرة <span class="c-num">10%</span> · Rf = <span class="c-num">4%</span>
-Sharpe = (<span class="c-num">12</span> − <span class="c-num">4</span>) / <span class="c-num">10</span> = <span class="c-num">0.80</span>
-
-<span class="c-com"># محفظة ب أفضل · رغم عائد أقلّ · لأنّ مكافأة المخاطرة أعلى</span>
-
-التفسير:
-> 1.0  ممتاز
-0.5-1.0  جيّد
-0-0.5    متوسّط
-< 0      أسوأ من الخالي من المخاطر</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Sharpe Ratio</em> = (Rp − Rf) / σp</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">Rp · Portfolio Return</div><div class="fb-term-desc">عائد المحفظة</div></div>
+    <div class="fb-term"><div class="fb-term-name">Rf · Risk-Free Rate</div><div class="fb-term-desc">سندات الحكومة</div></div>
+    <div class="fb-term"><div class="fb-term-name">σp · Std Dev</div><div class="fb-term-desc">الانحراف المعياري (المخاطرة)</div></div>
+  </div>
+  <div class="cmp-2" style="margin-top:14px">
+    <div class="cmp-col bad"><div class="cmp-head"><div class="cmp-icon">↓</div>Sharpe < 1</div><div class="cmp-body">المخاطرة لا تستحقّ العائد</div></div>
+    <div class="cmp-col" style="border-color:var(--gold)"><div class="cmp-head"><div class="cmp-icon" style="background:var(--gold)">~</div>1 < Sharpe < 2</div><div class="cmp-body">جيّد · مقبول</div></div>
+    <div class="cmp-col good"><div class="cmp-head"><div class="cmp-icon">⭐</div>Sharpe > 2</div><div class="cmp-body">ممتاز · نادر</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ تخصيص الأصول · Asset Allocation</div>
@@ -3138,7 +3107,27 @@ Sharpe = (<span class="c-num">12</span> − <span class="c-num">4</span>) / <spa
   </div>
 
 
-</div>
+
+
+  <div class="sec">▸ الأسس الأكاديمية · نظرية المحفظة الحديثة</div>
+  <table class="tbl">
+    <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Harry Markowitz</strong><br>"Portfolio Selection"</td><td>١٩٥٢</td><td>أسّس نظرية المحفظة الحديثة (MPT): ما يهمّ ليس مخاطرة الأصل منفرداً بل <strong>مساهمته في مخاطرة المحفظة</strong>. التنويع يقلّل المخاطر. نوبل ١٩٩٠.</td></tr>
+      <tr><td><strong>William Sharpe</strong><br>CAPM</td><td>١٩٦٤</td><td>نموذج تسعير الأصول الرأسمالية — يربط العائد بالمخاطرة المنهجية (β). نوبل ١٩٩٠.</td></tr>
+    </tbody>
+  </table>
+  <div class="formula-box">
+    <div class="fb-formula"><em>E(R)</em> <span class="fb-op">=</span> R<sub>f</sub> <span class="fb-op">+</span> β × (R<sub>m</sub> − R<sub>f</sub>)</div>
+    <div class="fb-terms">
+      <div class="fb-term"><div class="fb-term-name">R<sub>f</sub></div><div class="fb-term-desc">العائد الخالي من المخاطر</div></div>
+      <div class="fb-term"><div class="fb-term-name">β · Beta</div><div class="fb-term-desc">حساسية الأصل لحركة السوق</div></div>
+      <div class="fb-term"><div class="fb-term-name">(R<sub>m</sub>−R<sub>f</sub>)</div><div class="fb-term-desc">علاوة مخاطر السوق</div></div>
+    </div>
+  </div>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الحدّ الكفء (Efficient Frontier):</strong> المحافظ ذات أعلى عائد لكل مستوى مخاطرة. β=1 يتحرّك مع السوق · β>1 أكثر تقلّباً · β<1 دفاعي. <strong>نقد Fama-French (1992):</strong> أضافا عاملي الحجم والقيمة لأنّ CAPM وحده لا يفسّر العوائد كاملةً.</p>
+
+  </div>
 
 <div class="module" id="m-equity-val">
 
@@ -3172,19 +3161,14 @@ Sharpe = (<span class="c-num">12</span> − <span class="c-num">4</span>) / <spa
   <div class="card">
     <p><strong>المبدأ:</strong> قيمة الشركة = القيمة الحالية لكلّ التدفقات النقدية المستقبلية.</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">DCF FORMULA</div>
-<pre class="codebox-code">قيمة الشركة (EV) = Σ [ FCFt / (1+WACC)^t ] + Terminal Value
-
-FCFt = التدفق النقدي الحرّ في السنة t
-WACC = تكلفة رأس المال
-Terminal Value = القيمة بعد فترة التنبّؤ
-
-Terminal Value = FCF[آخر سنة] × (1+g) / (WACC − g)
-g = معدّل النموّ المستدام
-
-<span class="c-com"># قيمة السهم = (قيمة الشركة − الدين الصافي) / عدد الأسهم</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Enterprise Value</em> = Σ [FCFt / (1+WACC)<sup>t</sup>] + Terminal Value / (1+WACC)<sup>n</sup></div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>Discounted Cash Flow:</strong> أهمّ طريقة تقييم في الاستثمار وصفقات M&A.<br>
+    <strong>المنهج:</strong> ٥-١٠ سنوات explicit forecast + Terminal Value (gordon growth)<br>
+    <strong>التحدّيات:</strong> الـ Assumptions حسّاسة جدّاً (Garbage in · Garbage out)
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ خطوات DCF بالتفصيل</div>
@@ -3225,24 +3209,16 @@ g = معدّل النموّ المستدام
 
   <div class="sec">▸ تطبيق · تقييم STC بـ P/E</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">EXAMPLE · STC VALUATION (تقديري)</div>
-<pre class="codebox-code"><span class="c-com"># بيانات STC (تقريبية):</span>
-صافي الربح         = <span class="c-num">12 مليار</span> ريال
-عدد الأسهم         = <span class="c-num">5 مليار</span> سهم
-EPS               = <span class="c-num">12,000</span> / <span class="c-num">5,000</span> = <span class="c-num">2.4</span> ريال
-
-<span class="c-com"># متوسط P/E لقطاع الاتصالات السعودي:</span>
-P/E مرجعي         = <span class="c-num">17x</span>
-
-<span class="c-com"># القيمة العادلة:</span>
-السعر العادل      = <span class="c-num">2.4</span> × <span class="c-num">17</span> = <span class="c-num">40.8</span> ريال/سهم
-
-<span class="c-com"># مقارنة بالسعر الفعلي في السوق:</span>
-السعر الحالي  = <span class="c-num">42</span> ريال  →  <span class="c-com">السهم مسعّر بشكل عادل</span>
-السعر الحالي  = <span class="c-num">35</span> ريال  →  فرصة شراء (مقوّم بأقل)
-السعر الحالي  = <span class="c-num">50</span> ريال  →  مبالغ في تقييمه</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📊 STC VALUATION · DCF MODEL <span class="doc-header-sub">تقديري · للتعليم</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">📈 ASSUMPTIONS</div><div class="doc-sec-body">Revenue Growth: 5% (5Y) → 3% (terminal)<br>EBITDA Margin: 38%<br>WACC: 8.5% · Tax: 25%</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">💵 FORECAST FCF (5Y, مليار ر.س)</div><div class="doc-sec-body" style="font-family:monospace;font-size:12px">2026: 22.5 · 2027: 23.6 · 2028: 24.8<br>2029: 26.1 · 2030: 27.4</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">🎯 TERMINAL VALUE</div><div class="doc-sec-body">TV = 27.4 × (1.03) / (0.085 − 0.03) = <strong>513 مليار ر.س</strong></div></div>
+    <div class="doc-sec"><div class="doc-sec-title">🧮 DISCOUNTED VALUES</div><div class="doc-sec-body">PV of 5Y FCF: ~96 مليار · PV of TV: ~341 مليار</div></div>
+    <div class="doc-sec" style="background:#f0fdf4;border-radius:8px"><div class="doc-sec-title">⭐ EV · ENTERPRISE VALUE</div><div class="doc-sec-body" style="text-align:center;font-size:20px;font-weight:900;color:var(--s2)">~437 مليار ريال</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ DCF vs Multiples · مقارنة</div>
@@ -3284,7 +3260,29 @@ P/E مرجعي         = <span class="c-num">17x</span>
   </ul>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · القيمة الجوهرية</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">فكرة "القيمة الجوهرية" (Intrinsic Value) ليست حديثة — أسّسها:</p>
+  <table class="tbl">
+    <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>John Burr Williams</strong><br>"The Theory of Investment Value"</td><td>١٩٣٨</td><td>أوّل من صاغ مبدأ DCF: قيمة الأصل = القيمة الحالية لتدفّقاته النقدية المستقبلية. أساس كل تقييم حديث.</td></tr>
+      <tr><td><strong>Myron Gordon</strong><br>Gordon Growth Model</td><td>١٩٥٦</td><td>نموذج خصم التوزيعات (DDM) للشركات ذات النموّ الثابت.</td></tr>
+      <tr><td><strong>Benjamin Graham</strong><br>"Security Analysis" · "The Intelligent Investor"</td><td>١٩٣٤/١٩٤٩</td><td>أبو الاستثمار القيمي — هامش الأمان (Margin of Safety): اشترِ بأقلّ من القيمة الجوهرية. أستاذ Warren Buffett.</td></tr>
+    </tbody>
+  </table>
+  <div class="formula-box">
+    <div class="fb-formula"><em>P₀</em> <span class="fb-op">=</span> D₁ / (<em>r</em> − <em>g</em>)</div>
+    <div class="fb-terms">
+      <div class="fb-term"><div class="fb-term-name">D₁</div><div class="fb-term-desc">التوزيع المتوقّع العام القادم</div></div>
+      <div class="fb-term"><div class="fb-term-name">r</div><div class="fb-term-desc">معدّل العائد المطلوب (من CAPM)</div></div>
+      <div class="fb-term"><div class="fb-term-name">g</div><div class="fb-term-desc">معدّل النموّ الثابت للتوزيعات</div></div>
+    </div>
+  </div>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>حسّاسية القيمة النهائية (Terminal Value):</strong> في DCF · تشكّل القيمة النهائية ٦٠-٨٠٪ من التقييم — وتعتمد بشدّة على فرضية g. تغيير g بـ ١٪ قد يغيّر التقييم ٢٠-٣٠٪. <strong>درس Graham:</strong> اطلب هامش أمان لأنّ كل التقييمات تقديرية.</p>
+
+  </div>
 
 <div class="module" id="m-bond-val">
 
@@ -3329,24 +3327,14 @@ P/E مرجعي         = <span class="c-num">17x</span>
 
   <div class="sec">▸ معادلة تسعير السند</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">BOND PRICING FORMULA</div>
-<pre class="codebox-code">P = Σ [ C / (1+y)^t ] + FV / (1+y)^n
-
-P  = سعر السند
-C  = الكوبون السنوي
-FV = القيمة الاسمية
-y  = معدّل العائد المطلوب (YTM)
-n  = عدد السنوات حتى الاستحقاق
-t  = كل سنة من 1 إلى n
-
-<span class="c-com"># مثال: سند 1,000 ريال · كوبون 5% · 5 سنوات · YTM المطلوب 6%</span>
-السعر = (50/1.06^1) + (50/1.06^2) + (50/1.06^3)
-     + (50/1.06^4) + (1050/1.06^5)
-     = <span class="c-num">958</span> ريال
-
-<span class="c-com"># لأن YTM (6%) > الكوبون (5%) → السند يباع بخصم (Discount)</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Bond Price</em> = Σ [Coupon / (1+r)<sup>t</sup>] + Face Value / (1+r)<sup>n</sup></div>
+  <div class="cmp-2" style="margin-top:14px">
+    <div class="cmp-col info"><div class="cmp-head"><div class="cmp-icon">↑</div>Yield > Coupon</div><div class="cmp-body"><strong>السند يُباع بخصم</strong> (Discount) · أقلّ من القيمة الاسمية</div></div>
+    <div class="cmp-col"><div class="cmp-head"><div class="cmp-icon">=</div>Yield = Coupon</div><div class="cmp-body"><strong>At Par</strong> · بسعر القيمة الاسمية تماماً</div></div>
+    <div class="cmp-col good"><div class="cmp-head"><div class="cmp-icon">↓</div>Yield < Coupon</div><div class="cmp-body"><strong>السند يُباع بعلاوة</strong> (Premium) · أعلى من القيمة الاسمية</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ العلاقة العكسية بين السعر والعائد</div>
@@ -3392,19 +3380,17 @@ t  = كل سنة من 1 إلى n
   <div class="card">
     <p><strong>Duration</strong> يقيس حساسية سعر السند للتغيّرات في الفائدة. كلّما زادت Duration = تذبذب أكثر.</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">DURATION RULE OF THUMB</div>
-<pre class="codebox-code">تغيّر السعر التقريبي = − Duration × تغيّر الفائدة
-
-<span class="c-com"># مثال: سند بـ Duration = 7 سنوات</span>
-<span class="c-com"># لو ارتفعت الفائدة 1% (100 bps):</span>
-تغيّر السعر ≈ − <span class="c-num">7</span> × <span class="c-num">1%</span> = <span class="c-num">−7%</span>
-
-<span class="c-com"># قواعد عامّة:</span>
-- سندات طويلة الأجل = Duration أعلى = أكثر حساسية
-- كوبون منخفض = Duration أعلى
-- صكوك الحكومة 30 سنة = Duration ~18-22 سنة</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>%Δ Bond Price</em> ≈ −Duration × Δ Yield</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">Duration 5</div><div class="fb-term-desc">+1% في الـ Yield → <strong style="color:var(--red)">−5%</strong> في السعر</div></div>
+    <div class="fb-term"><div class="fb-term-name">Duration 10</div><div class="fb-term-desc">+1% في الـ Yield → <strong style="color:var(--red)">−10%</strong> في السعر</div></div>
+    <div class="fb-term"><div class="fb-term-name">Duration 20</div><div class="fb-term-desc">+1% في الـ Yield → <strong style="color:var(--red)">−20%</strong> في السعر</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>القاعدة:</strong> Duration أطول = حسّاسية أكبر لتغيّر أسعار الفائدة. السندات طويلة الأجل تتذبذب أكثر.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ صكوك السعودية · أكبر سوق إسلامي</div>
@@ -3441,7 +3427,20 @@ t  = كل سنة من 1 إلى n
   </div>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · Duration ونظريات منحنى العائد</div>
+  <table class="tbl">
+    <thead><tr><th>المفهوم</th><th>المرجع · السنة</th><th>الجوهر</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Macaulay Duration</strong></td><td>Frederick Macaulay · ١٩٣٨</td><td>المتوسّط المرجّح لزمن استلام التدفّقات — مقياس حسّاسية السند للفائدة.</td></tr>
+      <tr><td><strong>Convexity (التحدّب)</strong></td><td>—</td><td>تصحيح من الدرجة الثانية: Duration تقريب خطّي · Convexity تلتقط الانحناء. مهمّ للتغيّرات الكبيرة في الفائدة.</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0"><strong>ثلاث نظريات تفسّر شكل منحنى العائد:</strong></p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>١. توقّعات الفائدة (Expectations):</strong> المنحنى يعكس توقّعات السوق للفائدة المستقبلية. <strong>٢. تفضيل السيولة (Liquidity Preference · Keynes):</strong> المستثمرون يطلبون علاوة للآجال الطويلة → ميل تصاعدي طبيعي. <strong>٣. تجزئة السوق (Market Segmentation):</strong> العرض/الطلب في كل أجل مستقلّ. <strong>المنحنى المقلوب (Inverted):</strong> مؤشّر تاريخي قويّ على ركود قادم.</p>
+
+  </div>
 
 <div class="module" id="m-derivatives">
 
@@ -3497,27 +3496,26 @@ t  = كل سنة من 1 إلى n
 
   <div class="sec">▸ الخيارات بالتفصيل (Call vs Put)</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">OPTIONS BASICS</div>
-<pre class="codebox-code"><span class="c-com"># CALL OPTION (خيار شراء):</span>
-<span class="c-com">حقّ شراء أرامكو بسعر 30 ريال في خلال 3 أشهر</span>
-<span class="c-com">تكلفة الخيار (Premium) = 1.50 ريال/سهم</span>
-
-السيناريو 1: السعر يصبح 35 ريال
-  → نمارس الخيار · نشتري بـ 30 · نبيع بـ 35
-  → الربح = 5 − 1.50 = <span class="c-num">3.50 ريال/سهم</span>
-
-السيناريو 2: السعر يصبح 28 ريال
-  → لا نمارس (نشتري من السوق أرخص)
-  → الخسارة = <span class="c-num">1.50 ريال/سهم</span> (الـ Premium فقط)
-
-<span class="c-com"># PUT OPTION (خيار بيع):</span>
-<span class="c-com">حقّ بيع أرامكو بسعر 30 ريال خلال 3 أشهر</span>
-
-السيناريو 1: السعر ينخفض لـ 25
-  → نمارس · نشتري بـ 25 من السوق · نبيع بـ 30
-  → الربح من الانخفاض!</pre>
+    <div class="cmp-2">
+  <div class="cmp-col" style="border-color:#0ea5e9;background:linear-gradient(135deg,#dbeafe,#fff)">
+    <div class="cmp-head"><div class="cmp-icon" style="background:#0ea5e9">📈</div>CALL Option · شراء</div>
+    <div class="cmp-body">
+      <strong>الحقّ:</strong> شراء الأصل بسعر محدّد · حتّى تاريخ محدّد<br><br>
+      <strong>متى تربح:</strong> السوق يصعد فوق Strike<br>
+      <strong>أقصى ربح:</strong> غير محدود ∞<br>
+      <strong>أقصى خسارة:</strong> Premium المدفوع
     </div>
+  </div>
+  <div class="cmp-col" style="border-color:#dc2626;background:linear-gradient(135deg,#fef2f2,#fff)">
+    <div class="cmp-head"><div class="cmp-icon" style="background:#dc2626">📉</div>PUT Option · بيع</div>
+    <div class="cmp-body">
+      <strong>الحقّ:</strong> بيع الأصل بسعر محدّد · حتّى تاريخ محدّد<br><br>
+      <strong>متى تربح:</strong> السوق ينزل تحت Strike<br>
+      <strong>أقصى ربح:</strong> Strike − Premium<br>
+      <strong>أقصى خسارة:</strong> Premium المدفوع
+    </div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ التحوّط في الشركات · أمثلة عملية</div>
@@ -3590,7 +3588,20 @@ t  = كل سنة من 1 إلى n
   </ul>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس الأكاديمي · نموذج Black-Scholes-Merton</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">أشهر معادلة في التمويل — حوّلت تسعير الخيارات من تخمين إلى علم:</p>
+  <table class="tbl">
+    <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Black · Scholes · Merton</strong></td><td>١٩٧٣</td><td>صيغة مغلقة لتسعير خيار أوروبي. Scholes و Merton نوبل ١٩٩٧ (توفّي Black ١٩٩٥). أطلقت صناعة المشتقّات العالمية.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)">المدخلات الخمسة: <strong>سعر الأصل · سعر التنفيذ · الوقت للاستحقاق · التقلّب (σ) · الفائدة الخالية من المخاطر</strong>. أصعبها قياساً: التقلّب.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الإغريق (The Greeks)</strong> — حساسيّات سعر الخيار: <strong>Delta</strong> (سعر الأصل) · <strong>Gamma</strong> (تغيّر Delta) · <strong>Theta</strong> (مرور الوقت) · <strong>Vega</strong> (التقلّب) · <strong>Rho</strong> (الفائدة). <strong>تنبيه:</strong> يفترض النموذج تقلّباً ثابتاً وتوزيعاً طبيعياً — أزمة ٢٠٠٨ كشفت محدوديّته في الأحداث المتطرّفة (Taleb · Black Swan).</p>
+
+  </div>
 
 <div class="module" id="m-alternative-inv">
 
@@ -3738,7 +3749,14 @@ t  = كل سنة من 1 إلى n
   </ul>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · لماذا الأصول البديلة</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">منطق الأصول البديلة مؤصّل في نظرية المحفظة (Markowitz):</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>الارتباط المنخفض (Low Correlation):</strong> القيمة الأساسية للأصول البديلة أنّ عوائدها لا تتحرّك مع الأسهم/السندات — فتُحسّن نسبة <strong>Sharpe Ratio</strong> للمحفظة (العائد لكل وحدة مخاطرة · Sharpe 1966). <strong>علاوة عدم السيولة (Illiquidity Premium):</strong> الـ PE/العقار يدفعان عائداً أعلى تعويضاً عن صعوبة البيع السريع.</p>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>نموذج التمويل الجماعي الخليجي:</strong> صناديق PIF · صناديق الـ VC المحلّية (STV · Raed) · والعقار عبر صناديق REITs المدرجة في تاسي — تتيح للمستثمر السعودي وصولاً منظّماً للأصول البديلة ضمن إطار CMA.</p>
+
+  </div>
 
 <div class="module" id="m-equity-markets">
 
@@ -4005,24 +4023,15 @@ t  = كل سنة من 1 إلى n
 
   <div class="sec">▸ كيف تُكتب أزواج العملات</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">CURRENCY PAIR NOTATION</div>
-<pre class="codebox-code">EUR/USD = 1.0850
-
-<span class="c-com"># المعنى:</span>
-EUR = Base Currency (المرجعية)
-USD = Quote Currency (المقتبسة)
-1.0850 = كم دولار تحتاج لشراء يورو واحد
-
-<span class="c-com"># لو الرقم يرتفع 1.10 → اليورو قوي / الدولار ضعيف</span>
-<span class="c-com"># لو الرقم ينخفض 1.05 → الدولار قوي / اليورو ضعيف</span>
-
-<span class="c-com"># مثال للريال السعودي:</span>
-USD/SAR = 3.75 (ثابت بسبب الربط)
-EUR/SAR = 4.06 (متغيّر · يعتمد على EUR/USD)
-GBP/SAR = 4.75
-JPY/SAR = 0.024</pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">💱 Currency Pair</div>
+  <div class="scn-text"><strong>USD/SAR = 3.75</strong> · يعني:</div>
+  <div class="scn-quote">١ USD = ٣.٧٥ SAR · أو · لشراء ١ USD تحتاج ٣.٧٥ SAR</div>
+  <div class="scn-text" style="margin-top:8px"><strong>Base Currency:</strong> USD (الأوّل · المرجع)<br><strong>Quote Currency:</strong> SAR (الثاني · المسعّر)</div>
+</div>
+<div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--ink2)">
+<strong>الـ SAR ثابت (Pegged):</strong> الريال السعودي مربوط بالدولار منذ ١٩٨٦ عند ٣.٧٥. SAMA تحافظ على هذا الـ Peg باحتياطات ضخمة.
+</div>
   </div>
 
   <div class="sec">▸ الأزواج الرئيسية · The Majors</div>
@@ -4054,20 +4063,26 @@ JPY/SAR = 0.024</pre>
 
   <div class="sec">▸ Bid · Ask · Spread</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">BID/ASK SPREAD</div>
-<pre class="codebox-code">EUR/USD:
-  Bid (سعر البيع للتاجر)  = 1.0848
-  Ask (سعر الشراء من التاجر) = 1.0852
-  Spread = 0.0004 = 4 pips
-
-<span class="c-com"># أنت تشتري بالـ Ask · تبيع بالـ Bid</span>
-<span class="c-com"># الفرق (Spread) هو ربح التاجر / تكلفتك</span>
-
-<span class="c-com"># الأزواج الرئيسية: 1-3 pips spread</span>
-<span class="c-com"># الأزواج الصغرى: 5-15 pips spread</span>
-<span class="c-com"># الأزواج الغريبة: 50+ pips spread</span></pre>
-    </div>
+    <div class="h-bar">
+  <div class="hb-row">
+    <div class="hb-label">Bid · يشتري بـ</div>
+    <div class="hb-track"><div class="hb-fill" style="width:74%;background:linear-gradient(90deg,#dc2626,#ef4444)">3.7495</div></div>
+    <div class="hb-note">الـ Market Maker</div>
+  </div>
+  <div class="hb-row">
+    <div class="hb-label">Ask · يبيع بـ</div>
+    <div class="hb-track"><div class="hb-fill" style="width:76%">3.7505</div></div>
+    <div class="hb-note">الـ Market Maker</div>
+  </div>
+  <div class="hb-row">
+    <div class="hb-label" style="color:var(--s2);font-weight:800">SPREAD</div>
+    <div class="hb-track"><div class="hb-fill" style="width:5%;background:linear-gradient(90deg,#f59e0b,#fbbf24)">0.0010</div></div>
+    <div class="hb-note" style="color:var(--s2);font-weight:800">10 pips</div>
+  </div>
+</div>
+<div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--ink2);text-align:center">
+<strong>الـ Spread:</strong> ربح الـ Market Maker. كلّما أصغر = أسواق أنشط وأكفأ. EUR/USD = ~0.5 pip (الأكثر سيولة)
+</div>
   </div>
 
   <div class="sec">▸ التحوّط من مخاطر الصرف للشركات السعودية</div>
@@ -4160,6 +4175,24 @@ JPY/SAR = 0.024</pre>
   </div>
 
   <div class="sec">▸ الفئات الأربع الرئيسية</div>
+<div class="fin-cat-grid">
+  <div class="fin-cat amber">
+    <h4>🛢️ الطاقة · Energy</h4>
+    <p>النفط الخام (Brent · WTI) · الغاز الطبيعي · البنزين. الأهمّ للاقتصاد السعودي — تقلّباته تؤثّر مباشرةً على الميزانية والـ PIF.</p>
+  </div>
+  <div class="fin-cat amber">
+    <h4>🥇 المعادن الثمينة · Precious</h4>
+    <p>الذهب · الفضّة · البلاتين. ملاذ آمن وقت الأزمات · ومرتبط بالزكاة (نصاب الذهب ٨٥ غراماً).</p>
+  </div>
+  <div class="fin-cat blue">
+    <h4>⚙️ المعادن الصناعية · Base</h4>
+    <p>النحاس · الألمنيوم · الحديد. مؤشّر صحّة الاقتصاد العالمي والبناء — مهمّة لمشاريع NHC والبنية التحتية.</p>
+  </div>
+  <div class="fin-cat green">
+    <h4>🌾 الزراعية · Agricultural</h4>
+    <p>القمح · الذرة · البنّ · السكّر. مرتبطة بالأمن الغذائي — السعودية مستورد رئيسي عبر برامج الأمن الغذائي.</p>
+  </div>
+</div>
   <div class="g2">
     <div class="cb accent-red">
       <div class="cb-lbl">١ · ENERGY</div>
@@ -4384,7 +4417,21 @@ JPY/SAR = 0.024</pre>
   </div>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · فرضية كفاءة السوق</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">سلوك أيّ سوق مالي (بما فيه تاسي) يُفهَم عبر نظرية محورية:</p>
+  <table class="tbl">
+    <thead><tr><th>المرجع</th><th>السنة</th><th>المساهمة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Eugene Fama</strong><br>Efficient Market Hypothesis (EMH)</td><td>١٩٧٠</td><td>الأسعار تعكس كل المعلومات المتاحة فوراً — يصعب "التغلّب على السوق" باستمرار. ثلاث درجات: ضعيفة · شبه قويّة · قويّة. نوبل ٢٠١٣.</td></tr>
+      <tr><td><strong>Robert Shiller</strong><br>التمويل السلوكي</td><td>٢٠٠٠</td><td>نقد EMH: الأسواق تتأثّر بـ "الحماس غير العقلاني" (Irrational Exuberance) والفقاعات. نوبل ٢٠١٣ (مع Fama — مفارقة!).</td></tr>
+      <tr><td><strong>Kahneman & Tversky</strong><br>نظرية الاحتمال (Prospect Theory)</td><td>١٩٧٩</td><td>المستثمرون يكرهون الخسارة ضعف حبّهم للربح (Loss Aversion) — تحيّزات تشرح فقاعة تاسي ٢٠٠٦.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>تطبيق على تاسي:</strong> انهيار ٢٠٠٦ (المؤشّر من ٢٠٬٠٠٠ إلى ٧٬٠٠٠) مثال كلاسيكي على "الحماس غير العقلاني" (Shiller) و"سلوك القطيع". <strong>الكفاءة المتنامية:</strong> دخول المستثمرين الأجانب (QFI · ٢٠١٥) وإدراج تاسي في مؤشّر MSCI الناشئ (٢٠١٩) رفعا كفاءة السوق وسيولته. السوق السعودي يقترب من "شبه القويّة".</p>
+
+  </div>
 
 <div class="module" id="m-banking">
 
@@ -4576,16 +4623,30 @@ JPY/SAR = 0.024</pre>
   <div class="card">
     <strong style="color:var(--s2);font-size:14px">١. المرابحة · Murabaha (الأكثر شيوعاً)</strong>
     <p style="margin-top:8px">البنك يشتري السلعة ثمّ يبيعها للعميل بـ تكلفة + ربح معلوم بأقساط. <strong>~٧٠٪ من التمويل الإسلامي عالمياً</strong>.</p>
-    <div class="codebox">
-      <div class="codebox-lbl">EXAMPLE · تمويل سيارة</div>
-<pre class="codebox-code"><span class="c-com"># المرابحة لسيارة بـ 100,000 ريال:</span>
-<span class="c-num">1.</span> العميل يختار السيارة من المعرض
-<span class="c-num">2.</span> البنك يشتريها بـ <span class="c-num">100,000</span> ريال (تصبح ملك البنك)
-<span class="c-num">3.</span> البنك يبيعها للعميل بـ <span class="c-num">115,000</span> (تكلفة + ربح <span class="c-num">15%</span>)
-<span class="c-num">4.</span> الدفع على <span class="c-num">36</span> قسط شهري = <span class="c-num">3,194</span> ريال/شهر
-
-<span class="c-com"># المبلغ ثابت لا يتغيّر مهما تأخّر العميل (لا فوائد إضافية)</span></pre>
+    <div class="scn-card">
+  <div class="scn-label">🚗 السيناريو · تمويل سيارة</div>
+  <div class="scn-text">شراء سيارة <strong>١٠٠٬٠٠٠ ر.س</strong> · ٥ سنوات</div>
+</div>
+<div class="cmp-2">
+  <div class="cmp-col" style="border-color:var(--gold);background:linear-gradient(135deg,#fffbeb,#fff)">
+    <div class="cmp-head"><div class="cmp-icon" style="background:var(--gold)">🕌</div>المرابحة الإسلامية</div>
+    <div class="cmp-body">
+      السعر بعد الزيادة: <strong>١٢٠٬٠٠٠ ر.س</strong><br>
+      القسط الشهري: <strong>٢٬٠٠٠ ر.س</strong><br>
+      EAR ≈ <strong>7.5%</strong><br>
+      <em>مطابقة للشريعة · لا فوائد</em>
     </div>
+  </div>
+  <div class="cmp-col info">
+    <div class="cmp-head"><div class="cmp-icon">🏦</div>القرض التقليدي</div>
+    <div class="cmp-body">
+      Principal: <strong>١٠٠٬٠٠٠ ر.س</strong><br>
+      الفوائد على المدّة: <strong>١٨٬٠٠٠ ر.س</strong><br>
+      القسط الشهري: <strong>١٬٩٦٧ ر.س</strong><br>
+      APR ≈ <strong>6.8%</strong>
+    </div>
+  </div>
+</div>
   </div>
 
   <div class="card">
@@ -4693,7 +4754,21 @@ JPY/SAR = 0.024</pre>
   </div>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري الاقتصادي · لماذا تُحرّم هذه المحظورات</div>
+  <p style="font-size:13px;line-height:1.7;color:var(--ink2,#44403c);margin:8px 0">التمويل الإسلامي ليس مجرّد قواعد فقهية — له منطق اقتصادي عميق يدرسه الأكاديميّون عالمياً:</p>
+  <table class="tbl">
+    <thead><tr><th>المبدأ</th><th>الحكمة الاقتصادية</th></tr></thead>
+    <tbody>
+      <tr><td><strong>تحريم الربا (Riba)</strong></td><td>فصل العائد عن المخاطرة يُراكم المخاطر النظامية (أزمة ٢٠٠٨ نموذج). التمويل الإسلامي يربط التمويل بأصل حقيقي (Asset-Backing) — يحدّ من المضاربة والفقاعات.</td></tr>
+      <tr><td><strong>مشاركة المخاطر (Risk-Sharing)</strong></td><td>المضاربة/المشاركة تجعل المموّل شريكاً في الربح والخسارة — يحاذي المصالح ويقلّل مشكلة الوكالة (Agency Problem · مرحلة الاقتصاد الجزئي).</td></tr>
+      <tr><td><strong>تحريم الغرر (Gharar)</strong></td><td>منع الغموض الفاحش = شفافية العقود = تقليل عدم تماثل المعلومات (Akerlof). يفسّر الحذر من المشتقّات المعقّدة.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>المعايير المؤسّسية · AAOIFI:</strong> هيئة المحاسبة والمراجعة للمؤسّسات المالية الإسلامية (البحرين · ١٩٩١) تضع المعايير الشرعية والمحاسبية عالمياً. <strong>الفرق الجوهري للصكوك عن السندات:</strong> الصك يمثّل <em>ملكية حصّة في أصل</em> (عائده من الأصل) بينما السند <em>دَين</em> (عائده فائدة). السوق السعودي والماليزي روّاد عالمياً في إصدار الصكوك السيادية.</p>
+
+  </div>
 
 <div class="module" id="m-digital-bank">
 
@@ -5121,37 +5196,15 @@ JPY/SAR = 0.024</pre>
   <div class="card">
     <p>البديل الشرعي للرهن العقاري التقليدي. تستحوذ على ٥٠٪+ من السوق العقاري السعودي.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">DIMINISHING MUSHARAKA · فيلا 1.5 مليون</div>
-<pre class="codebox-code"><span class="c-com"># المرحلة 1: تأسيس الشراكة</span>
-العميل يدفع    = <span class="c-num">300,000</span> (<span class="c-num">20%</span>) - دفعة مقدّمة
-البنك يدفع    = <span class="c-num">1,200,000</span> (<span class="c-num">80%</span>)
-─────────────────────────
-الفيلا ملك مشترك: العميل 20% / البنك 80%
-
-<span class="c-com"># المرحلة 2: الدفعات الشهرية لمدّة 25 سنة</span>
-كل قسط شهري يحتوي على:
-١. شراء حصّة من ملكية البنك (يقلّل ملكية البنك)
-٢. إيجار حصّة البنك (لأنّه يسكن في عقار يملك البنك جزءاً منه)
-
-<span class="c-com"># مثال: القسط الشهري ~7,500 ريال:</span>
-الإيجار (سنوياً 6%):  <span class="c-num">~6,000</span>  ريال/شهر (يتناقص)
-شراء حصص:           <span class="c-num">~1,500</span>  ريال/شهر (يتزايد)
-
-<span class="c-com"># المرحلة 3: نهاية العقد</span>
-- ملكية البنك = 0%
-- ملكية العميل = 100%
-- البنك ينسحب · الفيلا للعميل كاملة
-
-<span class="c-com"># مزايا شرعية:</span>
-1. لا فائدة على قرض (إيجار على حصّة ملكية حقيقية)
-2. المخاطر مشتركة
-3. واضح ومحدّد
-
-<span class="c-com"># التكلفة الإجمالية:</span>
-إجمالي المدفوع = <span class="c-num">~2.55 مليون</span> ريال
-الفرق عن السعر = <span class="c-num">~1.05 مليون</span> ريال (إيجار)</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">🏠 DIMINISHING MUSHARAKA · فيلا ١.٥ مليون <span class="doc-header-sub">شراء + إيجار → ملكية كاملة</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">📊 الهيكل الأوّلي</div><div class="doc-sec-body">قيمة الفيلا: ١٬٥٠٠٬٠٠٠ ر.س<br>حصّة العميل: ٢٠٪ = ٣٠٠٬٠٠٠ (الدفعة الأولى)<br>حصّة البنك: ٨٠٪ = ١٬٢٠٠٬٠٠٠</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">🔄 المنطق</div><div class="doc-sec-body">٢ في ١:<br>1. شراء جزئي تدريجي من حصّة البنك<br>2. إيجار حصّة البنك حتّى الشراء الكامل</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">💵 القسط الشهري (٢٥ سنة)</div><div class="doc-sec-body" style="font-family:monospace;font-size:13px">جزء شراء الحصّة: ٤٬٠٠٠ ر.س<br>جزء الإيجار: ٢٬٢٠٠ ر.س<br><strong>الإجمالي: ~٦٬٢٠٠ ر.س</strong></div></div>
+    <div class="doc-sec"><div class="doc-sec-title">⭐ المميّزات</div><div class="doc-sec-body">مطابقة للشريعة · لا فوائد محرّمة · إيجار يقلّ تدريجياً مع زيادة الحصّة. أكثر منتج تمويل عقاري شعبية في السعودية.</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ ROSHN · المطوّر الوطني الكبرى</div>
@@ -5246,14 +5299,12 @@ JPY/SAR = 0.024</pre>
       <li>التصرّفات بين الشركات التابعة لنفس المجموعة</li>
     </ul>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">RETT EXAMPLE</div>
-<pre class="codebox-code">قيمة الفيلا   = <span class="c-num">2,500,000</span> ريال
-RETT (5%)    = <span class="c-num">  125,000</span> ريال
-─────────────────────────
-المشتري يدفع = <span class="c-num">2,625,000</span> ريال
-(يُسدَّد قبل نقل الملكية في كتابة العدل)</pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">🏛️ Real Estate Transaction Tax (RETT)</div>
+  <div class="scn-text">شراء فيلا بقيمة <strong>١٬٥٠٠٬٠٠٠ ر.س</strong>:</div>
+  <div class="scn-quote">RETT = 1,500,000 × 5% = <strong>٧٥٬٠٠٠ ر.س</strong></div>
+  <div class="scn-text" style="margin-top:8px"><strong>ملاحظة:</strong> RETT يدفعه <em>البائع</em> · ليس المشتري. حلّ محلّ VAT على العقارات منذ ٢٠٢٠.</div>
+</div>
   </div>
 
   <div class="sec">▸ تحدّيات وفرص السوق ٢٠٢٥</div>
@@ -5442,41 +5493,25 @@ RETT (5%)    = <span class="c-num">  125,000</span> ريال
   <div class="card">
     <p>هذه النسب هي ما تنظر إليه البنوك قبل الإقراض:</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">DSCR · Debt Service Coverage Ratio</div>
-<pre class="codebox-code">DSCR = CFADS / (الفوائد + الأقساط الرئيسية)
+    <div class="formula-box">
+  <div class="fb-formula"><em>DSCR</em> = Net Operating Income / Total Debt Service</div>
+  <div class="cmp-2" style="margin-top:14px">
+    <div class="cmp-col bad"><div class="cmp-head"><div class="cmp-icon">!</div>DSCR < 1.0</div><div class="cmp-body"><strong>أزمة:</strong> الدخل لا يغطّي الأقساط</div></div>
+    <div class="cmp-col" style="border-color:var(--gold)"><div class="cmp-head"><div class="cmp-icon" style="background:var(--gold)">~</div>1.0 < DSCR < 1.25</div><div class="cmp-body">حدّ أدنى · المخاطر مرتفعة</div></div>
+    <div class="cmp-col good"><div class="cmp-head"><div class="cmp-icon">✓</div>DSCR > 1.5</div><div class="cmp-body"><strong>صحّي:</strong> هامش أمان جيّد</div></div>
+  </div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>الاستخدام:</strong> أهمّ مؤشّر للبنوك لتقييم قدرة الشركة على سداد قروضها · شائع في Project Finance.
+  </div>
+</div>
 
-CFADS = Cash Flow Available for Debt Service
-     = EBITDA − الضرائب + تغيّر رأس المال العامل + الفوائد المرسملة
-
-<span class="c-com"># الحدود المرجعية:</span>
-المشاريع العقارية:        DSCR ≥ 1.25-1.50
-محطّات الكهرباء:           DSCR ≥ 1.30-1.40
-الطرق ذات الرسوم:         DSCR ≥ 1.50-1.75
-المشاريع شديدة المخاطرة:  DSCR ≥ 1.75-2.00
-
-<span class="c-com"># مثال:</span>
-EBITDA السنة الأولى       = 80 مليون
-الضرائب                  = 8 مليون
-دفعات الدين السنوية       = 50 مليون (فوائد + أقساط)
-
-DSCR = (80 − 8) / 50 = <span class="c-num">1.44×</span>
-
-<span class="c-com"># أعلى من 1.30 = مقبول لمحطّة كهرباء</span></pre>
-    </div>
-
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">LLCR · Loan Life Coverage Ratio</div>
-<pre class="codebox-code">LLCR = PV(CFADS طوال فترة القرض) / رصيد القرض الحالي
-
-<span class="c-com"># LLCR يقيس قدرة المشروع على سداد القرض كاملاً عبر حياته</span>
-<span class="c-com"># بينما DSCR يقيس سنة بسنة</span>
-
-<span class="c-com"># الحدود:</span>
-LLCR ≥ 1.40   →  جيّد
-LLCR ≥ 1.60   →  ممتاز
-LLCR < 1.20   →  مرفوض من البنوك عادة</pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>LLCR</em> = PV(CFADS over loan life) / Outstanding Debt</div>
+  <div style="margin-top:14px;padding:10px 14px;background:#fff;border-right:3px solid var(--s2);border-radius:6px;text-align:right;font-size:12.5px;color:var(--ink2)">
+    <strong>Loan Life Coverage Ratio:</strong> هل التدفّقات النقدية المتاحة لخدمة الدين (CFADS) على مدّى عمر القرض كافية؟<br><br>
+    <strong>الفرق عن DSCR:</strong> DSCR ينظر <em>سنوياً</em> · LLCR ينظر للـ <em>كامل عمر القرض</em>. مهمّ جدّاً في Project Finance.
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ دراسة حالة · أكوا باور Sudair Solar PV</div>
@@ -5601,19 +5636,17 @@ LLCR < 1.20   →  مرفوض من البنوك عادة</pre>
   <div class="card">
     <p><strong>الأداة الأكثر شيوعاً.</strong> البنك المُصدِر (للمستورد) يضمن للبنك المُبَلِّغ (للمصدّر) الدفع مقابل مستندات معيّنة.</p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">LC WORKFLOW</div>
-<pre class="codebox-code">١. مستورد سعودي + مُصدِّر صيني يتّفقون
-٢. المستورد يطلب من بنكه (مثل الراجحي) فتح LC
-٣. الراجحي يصدر LC ويرسله لبنك المُصدِّر في الصين
-٤. البنك الصيني يبلّغ المُصدِّر بـ LC
-٥. المُصدِّر يشحن البضائع
-٦. المُصدِّر يقدّم المستندات (B/L · فاتورة · شهادة منشأ ..)
-٧. البنك الصيني يفحص المستندات ويرسلها للراجحي
-٨. الراجحي يدفع للبنك الصيني
-٩. المستورد يدفع للراجحي ويستلم المستندات
-١٠. يستخدم B/L لاستلام البضائع من ميناء جدّة</pre>
-    </div>
+    <div class="step-flow">
+  <div class="step-card"><div class="step-num">١</div><div class="step-title">العقد</div><div class="step-desc">المستورد والمصدّر يتّفقان على شروط تشمل LC</div></div>
+  <div class="step-card"><div class="step-num">٢</div><div class="step-title">طلب LC</div><div class="step-desc">المستورد يطلب من بنكه إصدار LC</div></div>
+  <div class="step-card"><div class="step-num">٣</div><div class="step-title">إصدار</div><div class="step-desc">بنك المستورد يُصدر LC إلى بنك المصدّر</div></div>
+  <div class="step-card"><div class="step-num">٤</div><div class="step-title">الشحن</div><div class="step-desc">المصدّر يشحن البضائع · يحضّر الوثائق</div></div>
+</div>
+<div class="step-flow" style="margin-top:8px">
+  <div class="step-card"><div class="step-num">٥</div><div class="step-title">تقديم الوثائق</div><div class="step-desc">المصدّر يقدّم وثائق الشحن لبنكه</div></div>
+  <div class="step-card"><div class="step-num">٦</div><div class="step-title">فحص ودفع</div><div class="step-desc">البنوك تفحص · بنك المستورد يدفع للمصدّر</div></div>
+  <div class="step-card"><div class="step-num">٧</div><div class="step-title">استلام البضائع</div><div class="step-desc">المستورد يستلم الوثائق ويأخذ البضائع</div></div>
+</div>
 
     <p style="margin-top:14px"><strong>أنواع LC:</strong></p>
     <ul style="margin-top:6px;line-height:1.85;padding-right:20px;color:var(--ink2)">
@@ -5721,6 +5754,28 @@ LLCR < 1.20   →  مرفوض من البنوك عادة</pre>
   </div>
 
   <div class="sec">▸ المسؤوليات الخمس الكبرى للخزينة</div>
+<div class="fin-cat-grid">
+  <div class="fin-cat blue">
+    <h4>💵 السيولة · Liquidity</h4>
+    <p>ضمان توفّر النقد لكل الالتزامات اليومية · إدارة التدفقات الداخلة والخارجة.</p>
+  </div>
+  <div class="fin-cat green">
+    <h4>🏦 التمويل · Funding</h4>
+    <p>تأمين رأس المال بأفضل التكاليف · إدارة العلاقات البنكية وخطوط الائتمان.</p>
+  </div>
+  <div class="fin-cat amber">
+    <h4>⚠️ المخاطر · Risk</h4>
+    <p>التحوّط ضدّ مخاطر العملات (FX) · أسعار الفائدة · أسعار السلع.</p>
+  </div>
+  <div class="fin-cat blue">
+    <h4>📈 الاستثمار · Investment</h4>
+    <p>استثمار الفائض النقدي بأمان وعائد مناسب · أدوات قصيرة الأجل.</p>
+  </div>
+  <div class="fin-cat green">
+    <h4>🤝 العلاقات · Relations</h4>
+    <p>إدارة علاقات البنوك · وكالات التصنيف · المستثمرين والدائنين.</p>
+  </div>
+</div>
   <div class="g3">
     <div class="cb accent-blue">
       <div class="cb-lbl">١</div>
@@ -5976,30 +6031,15 @@ LLCR < 1.20   →  مرفوض من البنوك عادة</pre>
   <div class="card">
     <p><strong>VaR يجيب على السؤال:</strong> "ما هو أقصى خسارة محتملة في فترة محدّدة بمستوى ثقة معيّن؟"</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">VaR EXAMPLE</div>
-<pre class="codebox-code"><span class="c-com"># مثال: محفظة 10 مليون ريال</span>
-<span class="c-com"># VaR (1-day, 95% confidence) = 250,000 ريال</span>
-
-<span class="c-com"># المعنى:</span>
-"95% من الأيّام، الخسارة اليومية ستكون أقلّ من 250,000 ريال"
-"5% من الأيّام، قد تتجاوز الخسارة 250,000 ريال"
-
-<span class="c-com"># فترات شائعة:</span>
-VaR يومي (1-day): للتداول النشط
-VaR أسبوعي/شهري: للمحافظ متوسّطة المدى
-VaR 10-day: معيار Basel للبنوك
-
-<span class="c-com"># مستويات ثقة شائعة:</span>
-95%   - الأكثر شيوعاً
-99%   - للسيناريوهات الحادّة
-99.9% - للتنظيم البنكي
-
-<span class="c-com"># طرق حساب VaR:</span>
-1. Historical Simulation - استخدام البيانات التاريخية
-2. Parametric (Variance-Covariance) - افتراض توزيع طبيعي
-3. Monte Carlo Simulation - محاكاة آلاف السيناريوهات</pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">📉 Value at Risk (VaR)</div>
+  <div class="scn-text">محفظة <strong>١٠ مليون ر.س</strong> · 95% Confidence · 1-day VaR:</div>
+  <div class="scn-quote"><strong>VaR = ٢٥٠٬٠٠٠ ر.س</strong></div>
+  <div class="scn-text" style="margin-top:8px"><strong>التفسير:</strong> هناك ٥٪ احتمال أن نخسر أكثر من ٢٥٠٬٠٠٠ ر.س في يوم واحد · أو · في ٩٥٪ من الأيّام لن نخسر أكثر من هذا.</div>
+</div>
+<div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12.5px;color:#78350f">
+<strong>التحذير المعروف:</strong> VaR <em>لا يخبرك بالخسارة في الـ ٥٪ المتبقّية</em>. أزمة ٢٠٠٨ أظهرت أنّ هذه الـ "Tail risks" قد تكون كارثية. اقرأ Nassim Taleb!
+</div>
 
     <div class="tip" style="margin-top:14px">
       <div class="tip-ic">⚠️</div>
@@ -6467,7 +6507,12 @@ VaR 10-day: معيار Basel للبنوك
   </ul>
 
 
-</div>
+
+
+  <div class="sec">▸ الأساس النظري · صناديق الثروة السيادية</div>
+  <p style="margin:10px 0;padding:10px 14px;background:var(--gold-bg,#fef3c7);border-right:3px solid var(--gold,#f59e0b);border-radius:6px;font-size:12.5px;line-height:1.65;color:var(--ink2,#44403c)"><strong>مبادئ Santiago (2008):</strong> ٢٤ مبدأً طوعياً يحكم حوكمة وشفافية صناديق الثروة السيادية عالمياً (وضعها صندوق النقد الدولي بعد قلق غربي من نفوذها). <strong>نموذج PIF الفريد:</strong> معظم الصناديق السيادية "سلبية" (تحفظ الثروة · مثل النرويج) — لكن PIF <strong>صندوق استراتيجي نشط (Strategic Active Investor)</strong> يستخدم رأس المال لـ <em>بناء قطاعات محلّية جديدة</em> (السياحة · الترفيه · الصناعة)، لا مجرّد العائد المالي. هذا يربطه بنظرية "الدولة التنموية" (Developmental State · Johnson 1982) ولعنة الموارد (مرحلة EMBA): PIF أداة تحويل الريع النفطي إلى أصول منتجة متنوّعة.</p>
+
+  </div>
 
 <div class="module" id="m-sama">
 
@@ -6577,20 +6622,15 @@ VaR 10-day: معيار Basel للبنوك
     </table>
 
     <p style="margin-top:14px"><strong>كيف تُسعّر القروض السعودية؟</strong></p>
-    <div class="codebox">
-      <div class="codebox-lbl">LOAN PRICING</div>
-<pre class="codebox-code">سعر القرض = SAIBOR + هامش البنك (Spread)
-
-<span class="c-com"># أمثلة:</span>
-قرض كبير لشركة مدرجة:    SAIBOR + 1.0% = ~6.5%
-قرض شركة متوسّطة:        SAIBOR + 2.0% = ~7.5%
-قرض شركة صغيرة:          SAIBOR + 3.5% = ~9.0%
-قرض شخصي:                SAIBOR + 5.0% = ~10.5%
-بطاقات ائتمان:           معدّل ثابت 22-26% APR
-
-<span class="c-com"># SAIBOR يُنشَر يومياً من 15 بنكاً مرجعياً</span>
-<span class="c-com"># SAMA تشرف على هذه العملية لضمان النزاهة</span></pre>
-    </div>
+    <div class="formula-box">
+  <div class="fb-formula"><em>Loan Rate</em> = Base Rate + Credit Spread + Liquidity Premium + Profit Margin</div>
+  <div class="fb-terms">
+    <div class="fb-term"><div class="fb-term-name">🏦 Base Rate</div><div class="fb-term-desc">SAIBOR · LIBOR · SOFR (تكلفة الأموال للبنك)</div></div>
+    <div class="fb-term"><div class="fb-term-name">⚖️ Credit Spread</div><div class="fb-term-desc">حسب credit rating للعميل (Default risk)</div></div>
+    <div class="fb-term"><div class="fb-term-name">💧 Liquidity Premium</div><div class="fb-term-desc">لقروض طويلة الأمد + غير سائلة</div></div>
+    <div class="fb-term"><div class="fb-term-name">💰 Profit Margin</div><div class="fb-term-desc">ربح البنك على المعاملة</div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ بازل III · إطار التنظيم البنكي</div>
@@ -6807,30 +6847,15 @@ VaR 10-day: معيار Basel للبنوك
   <div class="card">
     <p><strong>كل العقود الإنشائية خاضعة لـ VAT ١٥٪.</strong> القاعدة الأساسية: VAT يُفرض على <em>قيمة العمل المنجز</em>، لا على المبلغ المدفوع.</p>
 
-    <div class="codebox">
-      <div class="codebox-lbl">CONSTRUCTION VAT EXAMPLE</div>
-<pre class="codebox-code"><span class="c-com"># مستخلص مقاولات #5 (شهر يناير)</span>
-قيمة الأعمال المنفّذة (قبل أيّ خصم):
-المرحلة A: <span class="c-num">500,000</span>
-المرحلة B: <span class="c-num">300,000</span>
-المرحلة C: <span class="c-num">200,000</span>
-─────────────────────────
-الإجمالي:        <span class="c-num">1,000,000</span> ريال
-+ VAT (15%):    <span class="c-num">  150,000</span> ريال
-─────────────────────────
-إجمالي الفاتورة: <span class="c-num">1,150,000</span> ريال
-
-<span class="c-com"># الخصومات على الإجمالي (شاملة VAT):</span>
-− احتجاز (5% من 1,150,000):  (<span class="c-num"> 57,500</span>)
-− خصم دفعة مقدّمة:           (<span class="c-num">100,000</span>)
-─────────────────────────
-المستحقّ صافي:    <span class="c-num">  992,500</span> ريال
-
-<span class="c-com"># التزامات المقاول مع ZATCA:</span>
-1. تسليم 150,000 VAT في الإقرار الشهري
-2. استرداد VAT الإدخالات (مواد · معدّات · مقاولين فرعيين)
-3. الفرق هو الصافي المستحقّ لـ ZATCA</pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">📊 CONSTRUCTION VAT EXAMPLE <span class="doc-header-sub">VAT 15% · ZATCA</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">🏗️ مشروع: فلل سكنية</div><div class="doc-sec-body">قيمة العقد الأصلي: <strong>١٠ مليون ر.س</strong></div></div>
+    <div class="doc-sec"><div class="doc-sec-title">💸 VAT 15%</div><div class="doc-sec-body" style="font-family:monospace;font-size:13px">القيمة بدون VAT: 10,000,000<br>+ VAT (15%): 1,500,000<br><strong>الإجمالي للعميل: 11,500,000 ر.س</strong></div></div>
+    <div class="doc-sec"><div class="doc-sec-title">🛒 Input VAT (مدفوع)</div><div class="doc-sec-body">VAT على المواد + المقاولين الفرعيّين<br>مثلاً: ١٢٠٬٠٠٠ ر.س · يمكن استرداده</div></div>
+    <div class="doc-sec" style="background:#f0fdf4;border-radius:8px"><div class="doc-sec-title">💵 صافي VAT للزاتكا</div><div class="doc-sec-body" style="font-family:monospace;font-size:14px">Output (1,500,000) − Input (120,000)<br>= <strong style="color:var(--s2);font-size:18px">1,380,000 ر.س</strong></div></div>
+  </div>
+</div>
   </div>
 
   <div class="sec">▸ استرداد VAT المدخلات للمقاول</div>
@@ -6882,36 +6907,16 @@ VaR 10-day: معيار Basel للبنوك
   <div class="card">
     <p><strong>الزكاة = ٢.٥٪ من الوعاء الزكوي</strong> · تُفرض على المنشآت المملوكة من سعوديين وخليجيين فقط.</p>
 
-    <div class="codebox" style="margin-top:10px">
-      <div class="codebox-lbl">ZAKAT BASE CALCULATION</div>
-<pre class="codebox-code">الوعاء الزكوي = (الأصول الخاضعة + صافي الربح)
-              − (الالتزامات والاستثمارات المعفية)
-
-<span class="c-com"># مثال شركة مقاولات سعودية ١٠٠٪:</span>
-
-الأصول الخاضعة (Zakatable):
-+ النقد والبنوك               = <span class="c-num"> 8,000,000</span>
-+ الذمم المدينة              = <span class="c-num">25,000,000</span>
-+ المخزون والعمل تحت التنفيذ = <span class="c-num">12,000,000</span>
-+ الاستثمارات قصيرة الأجل    = <span class="c-num"> 5,000,000</span>
-─────────────────────────
-إجمالي الأصول الخاضعة         = <span class="c-num">50,000,000</span>
-
-الخصومات (المسموح خصمها):
-− الالتزامات المتداولة       = (<span class="c-num">15,000,000</span>)
-− القروض طويلة الأجل (بشروط)  = (<span class="c-num"> 5,000,000</span>)
-─────────────────────────
-صافي الوعاء الزكوي           = <span class="c-num">30,000,000</span>
-
-<span class="c-com"># الزكاة = 2.5% × الوعاء</span>
-الزكاة المستحقّة = <span class="c-num">30,000,000</span> × <span class="c-num">2.5%</span> = <span class="c-num">750,000</span> ريال
-
-<span class="c-com"># أو 10% من صافي الربح المعدّل · أيّهما أكبر</span>
-لو صافي الربح المعدّل = <span class="c-num">8,000,000</span>
-الحدّ الأدنى = <span class="c-num">8,000,000</span> × <span class="c-num">10%</span> = <span class="c-num">800,000</span>
-
-<span class="c-com"># الزكاة الفعلية = أعلى الرقمين = 800,000</span></pre>
-    </div>
+    <div class="doc-mock">
+  <div class="doc-header">🕌 ZAKAT CALCULATION <span class="doc-header-sub">للشركات السعودية · 2.5%</span></div>
+  <div class="doc-body">
+    <div class="doc-sec"><div class="doc-sec-title">📊 المصادر الإيجابية (يُضاف)</div><div class="doc-sec-body">• رأس المال<br>• الأرباح المحتجزة<br>• الاحتياطيات<br>• القروض طويلة الأمد (في بعض الحالات)<br>• المخصّصات الزائدة</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">📉 المصادر السلبية (يُخصم)</div><div class="doc-sec-body">• الأصول الثابتة<br>• الاستثمارات في شركات تابعة<br>• الأصول غير الملموسة<br>• الخسائر المتراكمة</div></div>
+    <div class="doc-sec"><div class="doc-sec-title">💰 الـ Zakat Base</div><div class="doc-sec-body">= [المصادر الإيجابية] − [المصادر السلبية]</div></div>
+    <div class="doc-sec" style="background:#f0fdf4;border-radius:8px"><div class="doc-sec-title">⭐ Zakat المستحقّة</div><div class="doc-sec-body" style="text-align:center;font-family:monospace;font-size:16px;font-weight:900;color:var(--s2)">Zakat Base × 2.5%</div></div>
+    <div class="doc-sec"><div class="doc-sec-body" style="background:#fef3c7;padding:8px 12px;border-radius:6px;color:#78350f"><strong>ملاحظة:</strong> للشركات السعودية المملوكة لسعوديّين · ZATCA تطبّق Zakat. الشركات الأجنبية تدفع ضريبة الدخل ٢٠٪.</div></div>
+  </div>
+</div>
 
     <table class="tbl" style="margin-top:14px">
       <thead><tr><th>نوع المنشأة</th><th>الزكاة</th><th>ضريبة الدخل</th></tr></thead>
@@ -6968,16 +6973,12 @@ VaR 10-day: معيار Basel للبنوك
       <li>التصرّفات بين الشركات التابعة لنفس المجموعة</li>
     </ul>
 
-    <div class="codebox" style="margin-top:14px">
-      <div class="codebox-lbl">RETT EXAMPLE</div>
-<pre class="codebox-code">قيمة الفيلا   = <span class="c-num">2,500,000</span> ريال
-RETT (5%)    = <span class="c-num">  125,000</span> ريال
-─────────────────────────
-المشتري يدفع = <span class="c-num">2,625,000</span> ريال
-
-<span class="c-com"># البائع لا يتحمّل · المشتري هو المدفوع</span>
-<span class="c-com"># يُسدَّد قبل نقل الملكية في كتابة العدل</span></pre>
-    </div>
+    <div class="scn-card">
+  <div class="scn-label">🏛️ RETT في صفقة تجارية</div>
+  <div class="scn-text">شراء مبنى مكاتب بقيمة <strong>٢٠ مليون ر.س</strong>:</div>
+  <div class="scn-quote">RETT = 20,000,000 × 5% = <strong>١٬٠٠٠٬٠٠٠ ر.س</strong></div>
+  <div class="scn-text" style="margin-top:8px"><strong>الإعفاءات:</strong> أوّل عقار للسعودي (حتّى ١M) · العقارات الموقوفة · صفقات داخل المجموعة (٧٥٪+).</div>
+</div>
   </div>
 
   <div class="sec">▸ الإقرارات الدورية · جدول الاستحقاق</div>
@@ -7580,68 +7581,35 @@ RETT (5%)    = <span class="c-num">  125,000</span> ريال
 
   <div class="sec">▸ الدوال المالية الجوهرية</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">CORE FINANCIAL FUNCTIONS</div>
-<pre class="codebox-code"><span class="c-com"># القيمة الحالية والمستقبلية</span>
-=PV(rate, nper, pmt, [fv], [type])
-=FV(rate, nper, pmt, [pv], [type])
-
-<span class="c-com"># مثال: كم نحتاج اليوم لنحصل على مليون بعد 20 سنة عند 7%؟</span>
-=PV(7%, 20, 0, -1000000)  →  <span class="c-num">258,420 ريال</span>
-
-<span class="c-com"># NPV و IRR</span>
-=NPV(rate, value1, [value2], ...)
-=IRR(values, [guess])
-
-<span class="c-com"># مثال: مشروع باستثمار 100K يولّد 30K لـ 5 سنوات</span>
-=NPV(10%, 30000, 30000, 30000, 30000, 30000) - 100000
-                                  → <span class="c-num">13,723 ريال</span>
-=IRR({-100000, 30000, 30000, 30000, 30000, 30000}) → <span class="c-num">15.24%</span>
-
-<span class="c-com"># دفعة قرض</span>
-=PMT(rate, nper, pv, [fv], [type])
-
-<span class="c-com"># مثال: قرض مليون لـ 25 سنة بفائدة 5%</span>
-=PMT(5%/12, 25*12, 1000000)  →  <span class="c-num">−5,846 ريال/شهر</span></pre>
-    </div>
+    <div class="lc-grid cols-2">
+  <div class="lc-card"><div class="lc-letter">∑</div><div class="lc-body"><div class="lc-title">SUM(range)</div><div class="lc-desc">جمع الأرقام. <em>=SUM(B2:B100)</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">x̄</div><div class="lc-body"><div class="lc-title">AVERAGE(range)</div><div class="lc-desc">المتوسّط. <em>=AVERAGE(C2:C50)</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">σ</div><div class="lc-body"><div class="lc-title">STDEV.P / STDEV.S</div><div class="lc-desc">الانحراف المعياري. P للمجتمع · S للعيّنة</div></div></div>
+  <div class="lc-card"><div class="lc-letter">↑</div><div class="lc-body"><div class="lc-title">MAX / MIN</div><div class="lc-desc">القيم القصوى والدنيا</div></div></div>
+  <div class="lc-card"><div class="lc-letter">#</div><div class="lc-body"><div class="lc-title">COUNT / COUNTIF</div><div class="lc-desc">عدّ الخلايا · مع شروط. <em>=COUNTIF(A:A,">100")</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">⊕</div><div class="lc-body"><div class="lc-title">SUMIF / SUMIFS</div><div class="lc-desc">جمع مشروط. <em>=SUMIFS(B:B, A:A, "Riyadh")</em></div></div></div>
+</div>
   </div>
 
   <div class="sec">▸ Lookup Functions · الأكثر استخداماً</div>
   <div class="card">
     <p>تبحث عن قيمة في جدول وترجع قيمة مقابلة. <strong>VLOOKUP قديمة لكن شائعة. XLOOKUP و INDEX-MATCH أحدث وأقوى.</strong></p>
     
-    <div class="codebox">
-      <div class="codebox-lbl">LOOKUP FUNCTIONS</div>
-<pre class="codebox-code"><span class="c-com"># VLOOKUP — البحث العمودي (محدود)</span>
-=VLOOKUP("STC", A2:E100, 3, FALSE)
-<span class="c-com"># ابحث عن STC في عمود A · ارجع القيمة من العمود 3</span>
-
-<span class="c-com"># XLOOKUP — الإصدار الجديد (أقوى) · Excel 365+</span>
-=XLOOKUP("STC", A:A, C:C, "غير موجود")
-
-<span class="c-com"># INDEX-MATCH — المعيار الذهبي للمحترفين</span>
-=INDEX(C:C, MATCH("STC", A:A, 0))
-
-<span class="c-com"># مزايا INDEX-MATCH على VLOOKUP:</span>
-- يبحث يميناً ويساراً (VLOOKUP يميناً فقط)
-- أسرع أداءً على البيانات الكبيرة
-- لا يكسر عند إضافة/حذف أعمدة</pre>
-    </div>
+    <div class="lc-grid cols-2">
+  <div class="lc-card"><div class="lc-letter">V</div><div class="lc-body"><div class="lc-title">VLOOKUP(value, table, col, [exact])</div><div class="lc-desc">البحث العمودي. التقليدي · ينتشر في كل ملفّات المالية. <em>=VLOOKUP(A2, Table, 3, FALSE)</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">X</div><div class="lc-body"><div class="lc-title">XLOOKUP(value, lookup, return)</div><div class="lc-desc">الأحدث (Excel 365) · أقوى · يدعم البحث في أيّ اتّجاه. مستقبل البحث.</div></div></div>
+  <div class="lc-card"><div class="lc-letter">M</div><div class="lc-body"><div class="lc-title">INDEX + MATCH</div><div class="lc-desc">المرونة المطلقة. <em>=INDEX(B:B, MATCH(A2, A:A, 0))</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">H</div><div class="lc-body"><div class="lc-title">HLOOKUP / LOOKUP</div><div class="lc-desc">للبحث الأفقي · قديمة لكن مفيدة أحياناً</div></div></div>
+</div>
   </div>
 
   <div class="sec">▸ SUMIFS · COUNTIFS · للتجميع الشرطي</div>
   <div class="card">
-    <div class="codebox">
-      <div class="codebox-lbl">CONDITIONAL AGGREGATION</div>
-<pre class="codebox-code"><span class="c-com"># مجموع المبيعات لمنتج معيّن في 2024</span>
-=SUMIFS(SalesAmount, Product, "إسمنت", Year, 2024)
-
-<span class="c-com"># عدّ العملاء الذين اشتروا بأكثر من 100,000</span>
-=COUNTIFS(CustomerName, "<>", PurchaseAmount, ">100000")
-
-<span class="c-com"># متوسط الراتب لقسم معيّن</span>
-=AVERAGEIFS(Salary, Department, "هندسة")</pre>
-    </div>
+    <div class="lc-grid cols-3">
+  <div class="lc-card"><div class="lc-letter">∑?</div><div class="lc-body"><div class="lc-title">SUMIFS</div><div class="lc-desc"><em>=SUMIFS(Sales, Region, "Riyadh", Year, 2026)</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">x̄?</div><div class="lc-body"><div class="lc-title">AVERAGEIFS</div><div class="lc-desc"><em>=AVERAGEIFS(Salary, Dept, "Sales", Grade, ">5")</em></div></div></div>
+  <div class="lc-card"><div class="lc-letter">#?</div><div class="lc-body"><div class="lc-title">COUNTIFS</div><div class="lc-desc"><em>=COUNTIFS(Status, "Complete", Date, ">="&TODAY())</em></div></div></div>
+</div>
   </div>
 
   <div class="sec">▸ Data Tables · تحليل الحساسية</div>
@@ -8874,6 +8842,28 @@ function calcZakat(){
 .calc-tab{padding:8px 14px;background:transparent;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;font-weight:700;font-size:12.5px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.15s}
 .calc-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
 @media(max-width:600px){.calc-grid{grid-template-columns:1fr}.calc-result-grid{grid-template-columns:1fr}}
+
+/* ═══ Sidebar Search ═══ */
+.sb-search{width:100%;padding:9px 12px;margin-top:10px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.1);color:#fff;font-family:'Tajawal',sans-serif;font-size:12.5px;outline:none;transition:all 0.2s;box-sizing:border-box}
+.sb-search::placeholder{color:rgba(255,255,255,0.55)}
+.sb-search:focus{background:rgba(255,255,255,0.16);border-color:rgba(251,191,36,0.5)}
+.sb-item.sb-hidden,.sb-section.sb-hidden{display:none !important}
+.sb-no-results{padding:16px 18px;color:var(--muted);font-size:12.5px;text-align:center;display:none}
+.sb-no-results.show{display:block}
+
+/* ═══ Added visuals · gold/emerald ═══ */
+.fin-cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0 18px;font-family:'Tajawal',sans-serif}
+.fin-cat{background:linear-gradient(135deg,#fffbeb,#fff);border:1px solid #fcd34d;border-radius:10px;padding:12px 14px}
+.fin-cat h4{font-size:12.5px;font-weight:800;color:#b45309;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.fin-cat p{font-size:11.5px;color:var(--ink2);line-height:1.55}
+.fin-cat.blue{background:linear-gradient(135deg,#eff6ff,#fff);border-color:#93c5fd}
+.fin-cat.blue h4{color:#1d4ed8}
+.fin-cat.green{background:linear-gradient(135deg,#f0fdf4,#fff);border-color:#86efac}
+.fin-cat.green h4{color:#15803d}
+.fin-cat.amber{background:linear-gradient(135deg,#fef3c7,#fff);border-color:#fbbf24}
+.fin-cat.amber h4{color:#b45309}
+
+@media(max-width:780px){.fin-cat-grid{grid-template-columns:1fr 1fr}}
 </style>
 
   <div class="intro">
@@ -9117,6 +9107,36 @@ function closeSidebar(){
     injectToggle();
   }
 })();
+
+// Sidebar search
+function sbSearch(query){
+  const q = query.trim().toLowerCase();
+  const items = document.querySelectorAll('.sb-item');
+  const sections = document.querySelectorAll('.sb-section');
+  const noResults = document.getElementById('sbNoResults');
+  let visibleCount = 0;
+  if(!q){
+    items.forEach(i => i.classList.remove('sb-hidden'));
+    sections.forEach(s => s.classList.remove('sb-hidden'));
+    if(noResults) noResults.classList.remove('show');
+    return;
+  }
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    const mod = (item.getAttribute('data-mod') || '').toLowerCase();
+    if(text.includes(q) || mod.includes(q)){ item.classList.remove('sb-hidden'); visibleCount++; }
+    else { item.classList.add('sb-hidden'); }
+  });
+  sections.forEach(section => {
+    let sib = section.nextElementSibling, hasVisible = false;
+    while(sib && !sib.classList.contains('sb-section')){
+      if(sib.classList.contains('sb-item') && !sib.classList.contains('sb-hidden')){ hasVisible = true; break; }
+      sib = sib.nextElementSibling;
+    }
+    section.classList.toggle('sb-hidden', !hasVisible);
+  });
+  if(noResults) noResults.classList.toggle('show', visibleCount === 0);
+}
 </script>
 
 
